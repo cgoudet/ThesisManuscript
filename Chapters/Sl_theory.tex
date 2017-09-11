@@ -1,0 +1,188 @@
+\section{The Standard Model of matter}
+%%=============================
+\begin{frame}{Particle content of matter}
+    Over the XX$^{th}$ century, elementary particles have been organised into a well structured model.
+
+  \begin{center} \includegraphics[width=\linewidth]{OPEN-PHO-CHART-2015-001.png} \end{center}
+\end{frame}
+%%=============================
+\begin{frame}{A mathematical framework}
+  Matter knowledge is embedded into a well defined mathematical framework based on a Lagrangian $L$.
+
+  \begin{equation}
+    L = \frac{m \vec{\dot{q}}^2}{2} - V(\vec{q})
+  \end{equation}
+
+  The dirac lagrangian describes a massive fermion field :
+  \begin{equation}
+    L = \bar{\psi} ( i\slashed{\partial} - m ) \psi
+  \end{equation}
+  
+  Imposing least action principle (similar to classical mechanic) lead to equations of motion :
+  \begin{equation}
+    \frac{\partial L}{\partial q} - \frac{d}{dt}\frac{\partial L}{\partial \dot{q}_i} = 0
+  \end{equation}
+  
+\end{frame}
+%%=============================
+\begin{frame}{Gauge invariance}
+  Symmetries are transformations which \textcolor{blue}{leave a system unchanged.}
+  Imposing symmetries on a Lagrangian changes the theory it describes.
+  \vfill
+  
+    \begin{equation}
+      \psi(x)\rightarrow e^{i\alpha(x)}\psi(x)
+    \end{equation}
+
+    Derivative affects $e^{i\alpha}$\\
+    $\rightarrow$ \textcolor{red}{\bf Invariance achieved by adding a field $A_\mu$ and changing $L$.} \\
+    $\rightarrow$ mass term for $A$ ($m^2A_\mu A^\mu$) is forbidden by symmetries
+    \begin{equation}
+      \label{eq:orgc79752f}
+      \partial_\mu\rightarrow D_\mu=\partial_\mu+ieA_\mu(x)
+    \end{equation}
+    \begin{equation}
+      \label{eq:orge69917a}
+      A_{\mu} \rightarrow A_\mu(x) - \frac{1}{e} {\partial_{\mu} \alpha(x)}
+    \end{equation}
+
+
+    \includegraphics[width=0.49\linewidth]{Iliopoulos_1f.pdf}
+    \includegraphics[width=0.49\linewidth]{Iliopoulos_2f.pdf}
+
+
+\end{frame}
+%%=============================
+\begin{frame}{Spontaneous Symmetry Breaking}
+  SSB describes a system for which its ground state has less symmetry than its Lagrangian.
+
+  \includegraphics[width=\linewidth]{SymBreakPen.jpg}
+  \begin{itemize}
+  \item Unstable equilibrium has cylindrical symmetry
+  \item Ground state (fallen pen) ``has chosen'' a direction.
+    The cylindrical symmetry has been broken.
+  \end{itemize}
+\end{frame}
+%%=============================
+\begin{frame}{SSB in field theory}
+  SSB is created by imposing a ``mexican hat'' potential on a field.
+  \begin{equation}
+    \label{eq:orgdea495d}
+    V(\phi) = \frac{1}{2}\mu^2\phi^*\phi+\frac{1}{4}\lambda(\phi^*\phi)^2
+  \end{equation}
+  with  $\lambda>0$ and $\mu^2 <0$.
+  
+  \begin{minipage}{0.49\linewidth}
+  \begin{itemize}
+  \item Potential has rotational symmetry
+  \item Ground state $|\Phi|=\sqrt{-\frac{\mu^2}{2\lambda^2}}= \frac{v}{\sqrt{2}}$ breaks symmetry.
+  \item Describe a massless and a massive ($m^2=v^2\lambda$) bosons.
+  \end{itemize}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.49\linewidth}
+    \includegraphics[width=\linewidth]{MexicanHatPot.jpg}
+  \end{minipage}
+\end{frame}
+%%=============================
+\begin{frame}{The Standard Model}
+  
+  The SM is composed of :
+  
+  \begin{itemize}
+  \item Local gauge symmetries
+    \begin{itemize}
+    \item $SU(3)_c$ for strong interaction. 8 gluons couple to quarks.
+    \item $SU(2)_L\times U(1)_Y$ for electroweak sector. Bosons $W^\pm$, $Z$ and photon couple to quarks and leptons.
+    \end{itemize}
+    \vfill
+  \item SSB of $SU(2)_L$ by introduction of scalar field $\Phi$
+    \begin{itemize}
+    \item $(D_\mu \Phi)^\dagger (D^\mu\Phi)$ gives mass to $W^\pm$ and $Z$.
+    \item A physical and massive degree of freedom : the (Brout-Englert)-Higgs boson $H$.
+    \item Yukawa coupling gives mass to fermions.
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+%%=============================
+\begin{frame}{Higgs boson production}
+  $H$ boson predictions are function of its mass.
+  
+  \begin{minipage}{0.44\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{CERN-THESIS-2014-122_1f10.pdf}\\
+    \includegraphics[width=\linewidth]{YRHXS_Summary_fig3.pdf}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.55\linewidth}
+    4 dominant production modes
+    \begin{itemize}
+    \item Gluon fusion ($ggH\simeq 86\%$) probes coupling to gluons through loop.
+    \item Vector Boson Fusion probes direct coupling to electroweak bosons.
+    \item Higgsstrahlung also probes $W\pm$ and $Z$ couplings.
+    \item Associated top production probes couplings to heaviest quark.
+    \end{itemize}
+  \end{minipage}
+\end{frame}
+
+%%=============================
+\begin{frame}{Higgs boson decays}
+  A Higgs boson with a mass around $125$~GeV opens a wide range of decay channels.
+  
+  \begin{minipage}{0.49\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{higgs_br.pdf}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.49\linewidth}
+    \begin{itemize}
+    \item $H\rightarrow bb$ ($57$ \%) probes couplings to $b$ quark.
+      Difficult due to large hadronic background.
+    \item $H\rightarrow \tau\tau$ probes couplings to heaviest lepton.
+    \item $H\rightarrow VV$ ($V=W,Z$) probes H boson couplings to EW bosons.
+      Clean signature in leptonic decays of $V$ but low statistics.
+    \item $H\rightarrow\gamma\gamma$ probes H boson couplings to photon through loop.
+      Large but smooth background.
+    \end{itemize}
+  \end{minipage}
+  
+\end{frame}
+%%=============================
+\begin{frame}{H boson Status}
+  Run 1 of the LHC (2011/2012) allowed the observation of a Higgs like particles and its properties have been measured combining ATLAS+CMS.
+  \vfill
+  \begin{minipage}[t]{0.49\linewidth}
+    \centering
+    mass measurement \\  \href{http://journals.aps.org/prl/pdf/10.1103/PhysRevLett.114.191803}{PhysRevLett.114.191803}\\
+    \textcolor{red}{$m_H = 125.09 \pm 0.21 \text{(stat)} \pm 0.11 \text{(syst)} $~GeV}  
+    \includegraphics[width=0.8\linewidth]{yyMass.pdf}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.49\linewidth}
+    \centering
+    couplings $\kappa_i =\frac{\sigma_i^{exp}}{\sigma_i^{SM}}$ \\
+    \href{https://cds.cern.ch/record/2158863}{CERN-EP-2016-100} \\
+    \vfill
+    \includegraphics[width=0.8\linewidth]{CERN-EP-2016-100_18f.pdf} 
+  \end{minipage}
+\textcolor{red}{\bf The measured properties are in agreement with the SM H boson.}
+\end{frame}
+%%=============================
+\begin{frame}{Run 2 objectives}
+  \begin{minipage}{0.49\linewidth}
+  \begin{itemize}
+  \item LHC energy and luminosity increase \\
+    $\rightarrow$ {\bf 30 times more Higgses are expected}
+  \item With reduced statistical uncertainties \\ $\rightarrow$ \textcolor{blue}{\bf need to reduce systematic uncertainties}
+  \item Theory uncertainty reduced with ggH N$^3$LO calculation
+  \item Resolution uncertainty dominant at run 1 for couplings \\
+    $\rightarrow$ {\bf Need to improve calibration resolution uncertainty}
+  \end{itemize}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.49\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{crossSectionRatio-13-8TeV.pdf}\\
+    \includegraphics[width=0.8\linewidth]{1408_7084_19t.pdf}\\
+  \end{minipage}
+\end{frame}
