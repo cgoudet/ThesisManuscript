@@ -1,0 +1,895 @@
+\part{Theoretical context}
+\label{sec:orgc95725b}
+\chapter{A precise mathematical framework}
+\label{sec:org5eabaf8}
+\section{Historical overview}
+\label{sec:org6825fe7}
+Matter surrounds us at any time.
+It is no surprise that it was one of the main topics of interest of philosophers, scientists or clerics.
+Many conceptions have fought and succeeded each other to explain the nature of matter.
+The antic greek philosophers had two explanations.
+One hypothetized that if one cuts many times a sand grain in half, a piece which can not be reduced anymore can be obtained.
+This piece has been called atom.
+However, this theory mostly stayed in the shadow of the dominant theory which proclaimed for 20 centuries that matter was composed of the four elements (earth, wind, water and fire) in different composition depending on the type of material.
+Alchemists of the western middle age also worked within this theory in order to be able to manipulate matter, without much successes.
+The next major step in understanding the matter was due to $18^{th}$ century chemists who classified first materials and then elements with respect to their chemical properties.
+Contrary to the previous theory that was proposed a priori, this new categorisation relied on observed properties and also proposed predictions.
+
+The study of matter entered the era of modern scientific method.
+The following century will see a huge increase in knowledge of matter.
+Thomson proposed the atom as a sphere of positive charges in which light negative charges (the electrons) move.
+A few years later, Rutherford will prove that the positive charges are actually concentrated in a very small volume, the nucleus : the modern conception of the atom was born.
+The study of the newly discovered radioactive effect led to the hypothesis that the core of the atom was itself a combination of smaller constituents.
+While the proton and the neutron were being discovered in 1919 and 1932, Pauli proposed a theory to explain the energy spectrum of electrons in beta decays which postulated the existence of a new particle : the neutrino.
+At this point, the elementary constituents of ordinary matter were known but new kind of "rays" were observed : muons, pions, kaons, etc\ldots{} which were not part of the model.
+In the 60's, Gell-Mann \cite{GellMann:1964nj} and Zweig \cite{Zweig:352337} proposed a framework in which the numerous proton-like particles which had been observed were combination of smaller parts, the quarks, which existence was confirmed several years later at SLAC \cite{Bloom:1969kc,Breidenbach:1969kd}.
+
+The theory of matter went hand in hand with the observational results.
+Mixing the two new theories of the beginning of the 20th century, quantum mechanics and special relativity, has given birth to quantum field theory to try to fit the matter knowledge into an elegant mathematical framework.
+Observed structures were obtained by imposing symmetries on the system.
+Perturbation theory allowed for easy computation of observable quantities.
+Renormalisation removed divergencies in a full class of theories.
+Symmetry breaking allowed to give some properties to particles which were forbidden by symmetries.
+Many contributions which can not be all listed here led the theory of matter from a set of revolutionary ideas to a complex but elegant mathematical framework which yields a strong predictive power.
+
+Finally, this cross improvement between theory and observation has been greatly improved with the performances of detectors.
+120 years ago, Thomson discovered the electron by observing the light emitted by a gas when traversed by a charged current.
+This equipment only allowed him to observe a macroscopic number of electrons.
+But the development of cloud chambers and bubble chambers later changed that.
+Now, one could directly detect a single particle, follow its trajectory and eventually witness its interactions.
+Those visible marks could be photographed and many new particles were discovered by the interpretations of those pictures.
+Finally, with the dawn of electronics, it was possible to detect and use very small electric signal created in a detector by a passing particle.
+Using an always increasing precision, detectors allow us to "see" the trajectory of particles within them and then to reconstruct their "history".
+In fig. \ref{org9494af2}, one can see a comparative of the available information at these three epochs.
+This increase of technology also changed the way the observed particles are produced.
+The first experiments were using the particles produced in the atmosphere or by radioactive decays.
+Recently, developments in accelerator technology allowed for a less elegant but more effective particle production.
+By smashing particles against each other and observing the results, we were able to observe more energetic and more rare processes in order to better probe our ignorance.
+
+\begin{figure}
+\begin{subfigure}[t]{0.32\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth]{Cyclotron_motion_wider_view.jpg}
+\end{center}
+\end{subfigure}
+\begin{subfigure}[t]{0.32\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth]{20140712-neutral_current.jpg}
+\end{center}
+\end{subfigure}
+\begin{subfigure}[t]{0.32\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth]{run203602_evt82614360_vhres.png}
+\end{center}
+\end{subfigure}
+\caption{\label{org9494af2}
+Evolution of experimental output for particle physics over time. Left picture shows a glowing cathodic tube of 1900's. Central picture shows the tracks in a clound chamber in 1930's. Right picture show an event display in 2010's.}
+\end{figure}
+
+
+The standard model of particles (SM), which will be detailed later, is the current understanding of the matter, proposed in a well-defined mathematical framework.
+The Large Hadron Collider (LHC) and its multi-billion Swiss francs investment among dozens of countries is a leading collaboration to probe this model and eventually identify hints of the next model to come.
+Its main objective was to detect the last unseen particle of the SM, the Brout-Englert-Higgs (BEH) boson (sometimes called the Higgs boson, both terms will be used in this thesis).
+With the detection of this particle in 2012, the SM is now complete.
+The LHC and its four major experiments now aim at breaking the model by looking for discrepancies between data and predictions.
+Up until now this task is more a failure as always improving precision measurements impressively follow the prediction over many energy scales of processes.
+
+
+The search for physics beyond the SM (BSM) is mainly focused on three axes.
+First, as was already mentioned, precision measurements may allow to observe discrepancies between data and predictions.
+In particular, the existence of heavy particles not yet observed may have an indirect effect on measurable processes.
+Secondly, some models propose new particles within direct reach of the LHC.
+By directly searching the signature of those particles one can get a first direct entrance to the BSM physics.
+Finally, the search for rare decays is a combination of the two previous cases.
+Some processes in the SM suffers from very low (if not null) probability to happen.
+However, some models predict an enhancement or an opening of some processes.
+This axis then relies on the search of a SM signature which should not be observable.
+
+This thesis will focus on the first axis as the objective is to measure the properties of the Higgs boson and compare them with its predicted values.
+In this chapter I will present the theoretical framework of this analysis, namely the standard model and the Higgs mechanism.
+The way in which the model is described depends a lot on the type of experimentation one performs.
+This chapter will then conclude on the phenomenology of the Higgs boson in the SM at the LHC experiments.
+
+
+\section{Gauge theories}
+\label{sec:org5fbff7e}
+\subsection{Least action principle}
+\label{sec:org24ae533}
+
+The formalism that will be developed in this chapter relies on the use of a Lagrangian.
+This mathematical function represents the state of a system and depends on the space-time coordinates of the system (\(q_i\)) and their derivative (\(\dot{q_i}\)).
+In classical mechanics, it is expressed as the difference between a kinetic term of the system and its interactions (or potential energy), as in eq. \ref{eq:orge6f59be} for a simple system.
+
+\begin{equation}
+\label{eq:orge6f59be}
+L=T-V = \frac{m\vec{\dot{q}}^2}{2}-V(\vec{q})
+\end{equation}
+
+In the lagrangian formalism, the dynamics of a system is imposed by the least action principle.
+The action is a functional which depends on the lagrangian according to eq. \ref{eq:org49905b5}.
+The principle states that the system must follow a path in its phase space such that its action remains minimal.
+Imposing the derivative of the action with respect to a coordinate to be null leads to the famous Euler-Lagrange equation (eq. \ref{eq:org97d0d1c}) which is used in practical cases.
+This equation is widely used in classical mechanics and has a similar form in quantum field theory.
+
+\begin{equation}
+\label{eq:org49905b5}
+S=\int L( q_i, \dot{q_i}) dt
+\end{equation}
+
+\begin{equation}
+\label{eq:org97d0d1c}
+\frac{\partial L}{\partial q} - \frac{d}{dt}\frac{\partial L}{\partial \dot{q_i}}=0
+\end{equation}
+
+
+
+\subsection{Symmetries}
+\label{sec:org0eb9ce7}
+
+A symmetry is a transformation that leaves a (physical) system invariant.
+As an example consider a free particle following a straight trajectory.
+If one changes the origin of the coordinates, hence performing a translation of the trajectory by a constant vector, the dynamics of the particle will remain the same.
+Because the translation vector can take any real value in any direction, this symmetry is called continuous.
+Similarly, observing the free particle a given day or the next should not change its trajectory.
+The system is also invariant under time translation.
+Continuous symmetries have an additional property : Noether's theorem \cite{Noether} states that they also conserve a quantity or current.
+In the case of space translation, the quantity which is conserved is the momentum of the particle.
+For time translation, the energy of the particle is conserved.
+
+There exists a second class of symmetries : the discrete symmetries.
+By opposition to continuous symmetries, the discrete symmetries are labelled by a finite or infinite set of integers.
+An example of such symmetry is the parity : the transformation which changes a system into its image through a mirror.
+
+So far, the symmetries mentioned consisted in a transformation of the space-time coordinates of the system.
+Internal symmetries refer to transformations which do not affect the space-time coordinates.
+They are heavily used in the quantum field theory in order to create inner structures of mathematical objects within the model.
+Internal symmetries can be either discrete or continuous.
+
+
+\subsection{Groups}
+\label{sec:org18fff70}
+
+A group is a set G of elements with a product law ( G, .) such that :
+\begin{itemize}
+\item for two elements g\(_{\text{1}}\) and g\(_{\text{2}}\) in G, g\(_{\text{1}}\).g\(_{\text{2}}\) belongs to G
+\item there exists an identity element e such for any g in G, e.g = g.e = g
+\item for three elements g\(_{\text{1}}\), g\(_{\text{2}}\) and g\(_{\text{3}}\) in G one has : \((g_1.g_2).g_3=g_1.(g_2.g_3)\)
+\item if for g\(_{\text{1}}\), g\(_{\text{2}}\) \(\in\) G \(g_1.g_2=g_2.g_1\), then the group is called Abelian or commutative
+\end{itemize}
+
+A group can be representated by a set of matrices (a representation) with a 1 to 1 matching to all elements of the group.
+The multiplication law of matrices must then reproduce the product law of the group such that :
+\begin{equation}
+g_1 . g_2 = g_3 \rightarrow M(g_1)\times M(g_2)=M(g_3)
+\end{equation}
+with M(g\(_{\text{i}}\)) the matrix associated with the member g\(_{\text{i}}\) of the group.
+
+Groups of continuous symmetries are described using Lie groups.
+The matrices elements of  a Lie group can be written as \(U=e^{\alpha_a T^a}\), where \(\alpha_{\text{a}}\) are continuous parameters and T\(^{\text{a}}\) are the generators of the Lie algebra of the group considered.
+The commutation relations of the generators, usually written as \([T_a,T_b]=f^{abc}T_c\) where \(f^{abc}\) are called the structure constants, are sufficient to describe the full algebra of a Lie group.
+
+Two types of Lie groups are often used in particle physics and will appear in the construction of the standard model : \(U(n)\) which consists in the set of \(n\times n\) unitary matrices such that \(|\text{det}(U)|=1\), and \(SU(n)\) which further imposes the determinant to be equal to 1.
+
+\subsection{Gauge theories}
+\label{sec:orga6a6451}
+\begin{enumerate}
+\item Dirac Lagrangian
+\label{sec:org9b5a0cb}
+
+Field theory proposes to describe the dynamics of fields in the same way particles are described in classical mechanics.
+A field is a function of space-time coordinates \(\psi\)(q\(_{\text{i}}\),t) which can interact with external forces.
+As in classical mechanics, one can define a Lagrangian of the field, which should be invariant under Lorentz transformations, and apply the least action principle in order to obtain the equations of motion.
+One of the simplest cases is the Dirac Lagrangian :
+
+\begin{equation}
+\label{eq:orge86da29}
+L = \bar{\psi}(i\slashed{\partial} -m)\psi
+\end{equation}
+where m is the mass of the particle described by the field \(\psi\) and
+\begin{equation}
+\begin{array}{l}
+\bar{\psi} = \psi^\dagger \gamma^0\\
+\slashed{\partial}=\gamma^\mu\partial_\mu
+\end{array}
+\end{equation}
+
+The \(\gamma\) matrices are four dimensional objects which can be expressed in terms of the Pauli matrices.
+\begin{equation}
+\gamma^0=
+\begin{pmatrix}
+ \mathbbm{1} & 0 \\
+0&  \mathbbm{1}
+\end{pmatrix},
+\gamma^k =
+\begin{pmatrix}
+ 0&\sigma^k \\
+-\sigma^k & 0
+\end{pmatrix}
+\end{equation}
+
+
+A theory defined by this Lagrangian is not so interesting as it describes a single free moving field.
+In order to enrich the theory, one can postulate symmetries that the theory must enforce : transformations on the fields such that the Lagrangian remains invariant.
+A great variety of properties and phenomena must appear in the theory, depending on the imposed symmetries.
+Later, the construction of the standard model will be detailed by expliciting those symmetries.
+Equation \ref{eq:org3048dc4} proposes a continuous transformation independent of the space-time coordinates (global).
+Because of the constant value of \(\alpha\) with respect to space time coordinates, the exponential isn't affected by the derivative term so this transformation is a natural symmetry of this Lagrangian.
+
+
+\begin{equation}
+\label{eq:org3048dc4}
+\psi(x)\rightarrow e^{i\alpha}\psi(x)
+\end{equation}
+
+\item Gauge transformation
+\label{sec:orgf786a4f}
+
+One may wonder why we imposed \(\alpha\) to be a constant instead of the general case of a space-time dependent transformation.
+Because of the derivative term in the Lagrangian, one can anticipate that such a transformation is not a natural symmetry of the theory, so imposing it may change the possible phenomena.
+We'll leave aside the debate on the aesthetics of such a theory to focus on its consequences.
+Let's first discuss the implications of such transformation in classical mechanics as proposed in \cite{Iliopoulos:1551844}.
+Figure \ref{org992d083} shows the trajectory of a free particle before and after applying a global transformation consisting of a constant translation.
+In this case, the trajectory remains a straight line.
+In the second case, the translation vector is defined as position dependent.
+The new trajectory is not anymore compatible with one of a free particle.
+Instead, one can propose that this new trajectory corresponds to a particle under external forces.
+With this interpretation, imposing a local symmetry leads to the creation of an interaction.
+
+\begin{figure}
+\begin{subfigure}[t]{0.49\linewidth}
+\begin{center}
+\includegraphics[width=0.9\linewidth]{Iliopoulos_1f.pdf}
+\end{center}
+\end{subfigure}
+\begin{subfigure}[t]{0.49\linewidth}
+\begin{center}
+\includegraphics[width=0.9\linewidth]{Iliopoulos_2f.pdf}
+\end{center}
+\end{subfigure}
+\caption{\label{org992d083}
+Trajectory of a free particle after a global (left) and local (right) space translation. \cite{Iliopoulos:1551844}}
+\end{figure}
+
+Let's observe this concept in the case of our Dirac field theory by imposing the transformation in eq. \ref{eq:org07e9803}.
+\begin{equation}
+\label{eq:org07e9803}
+\psi(x)\rightarrow e^{i\alpha(x)}\psi(x)
+\end{equation}
+Because the parameter \(\alpha\) is now space-time dependent, the derivative term will affect the exponential, hence leading to an additional term in the Lagrangian.
+If one wants to impose the invariance of the Lagrangian under this transformation, one has to introduce an additional (gauge) field A\(_{\mu}\) in the system and replace the derivative operator by a co-variant derivative as in eq. \ref{eq:orgc79752f}.
+When transforming the Lagrangian according to eq. \ref{eq:org07e9803}, the gauge field must transform according to eq. \ref{eq:orge69917a}.
+\begin{equation}
+\label{eq:orgc79752f}
+\partial_\mu\rightarrow D_\mu=\partial_\mu+ieA_\mu(x)
+\end{equation}
+\begin{equation}
+\label{eq:orge69917a}
+A_{\mu} \rightarrow A_\mu(x) - \frac{1}{e} {\partial_{\mu} \alpha(x)}
+\end{equation}
+with e an arbitrary real constant.
+Provided these transformation rules, the new Lagrangian is then invariant under the gauge transformation.
+Finally, if we develop the Dirac Lagrangian with these new definitions, one gets eq. \ref{eq:orga0bf20e}.
+Compared to our initial Lagrangian, this new version has an interaction term between the gauge field \(A\) and the fermion field \(\psi\).
+The degrees of freedom of the field must then be included to complete the model.
+Their form is uniquely determined by gauge invariance as in eq. \ref{eq:org5d97eb8}, which leads to the total Lagrangian expressed in eq. \ref{eq:org2698525}.
+
+
+\begin{equation}
+\label{eq:orga0bf20e}
+L = \bar{\psi}(\slashed{\partial} - ie\slashed{A}_\mu(x)-m)\psi
+\end{equation}
+
+\begin{equation}
+\label{eq:org5d97eb8}
+F_{\mu\nu}(x) = \partial_\mu A_\nu(x) - \partial_\nu A_\mu (x)
+\end{equation}
+
+\begin{equation}
+\label{eq:org2698525}
+L = \frac{1}{4} F^{\mu\nu}(x) F_{\mu\nu}(x) + \bar{\psi}(x)(i\slashed{D}-m)\psi(x)
+\end{equation}
+
+\item Non-Abelian gauge transformation
+\label{sec:orgaf7f151}
+
+The class of transformations proposed so far can be represented by the group of unitary matrices \(U(1)\).
+As can be seen from the equations, applying two successive transformations will lead to the same result, whatever the order.
+\(U(1)\) is then called Abelian.
+Again, one may wonder why we should restrict our theory to Abelian groups and the answer would be that we should not.
+The calculations of the non-Abelian case are performed in detail in the literature and are not of interest in this discussion.
+Applying non-Abelian local gauge transformations to the Lagrangian leads to additional derivative terms which can be removed by the addition of a set of additional gauge fields with appropriate transformation rules.
+The QCD Lagrangian for instance then takes the form given in eq. \ref{eq:org215d25b}.
+
+\begin{equation}
+\label{eq:org215d25b}
+L_{QCD} = \bar{\Psi}(i\slashed{\partial} - \frac{g_s}{2}\slashed{G}.t -m)\Psi - \frac{1}{4}Tr(G_{\mu\nu}G^{\mu\nu})
+\end{equation}
+where \(G_{\mu\nu}\) is the non-abelian equivalent of \(F_{\mu\nu}\), \(G\) the bosonic field of the theory, \(t\) the generators of the Lie group and $g_s$ an arbitrary real constant.
+\end{enumerate}
+
+
+\section{Spontaneous symmetry breaking}
+\label{sec:orgf6a8fd0}
+\label{sec:theory_SymBreak}
+The mass is an intrinsic parameter of a field.
+It appears in a Lagrangian in the form \(m\bar{\Psi}\Psi\).
+Such terms are present for the fermionic field \(\psi\) in the theory we developed so far but not for the gauge field.
+A mass term for the gauge field would appear as
+\begin{equation}
+-m^2A_\mu A^\mu
+\end{equation}
+which would not be invariant under the transformation of eq. \ref{eq:orge69917a}.
+As a result, those terms are forbidden in the Lagrangian.
+
+In 1933, Fermi proposed a model \cite{Fermi:1933jpa,Fermi2008} to explain the radioactivity with a direct interaction between a proton, a neutron, an electron and a neutrino, as shown in fig. \ref{fig:orgfa8568d}.
+This model was limited to low energy as cross-sections computed in this framework diverged at high energy.
+A way to remove this divergence was to remove the contact interaction and replacing it with a mediated one.
+This is shown on the right part of fig. \ref{I15-06-FermiTheory.jpg}, where the date 1938 corresponds to the proposal by Klein \cite{Klein:1938jm} of a boson exchange model for radiative decays, anticipating Yang-Mills theories \cite{Yang:1954ek}.
+However, the mediator of the interaction should be massive and even extremely heavy with respect to the standards of the time.
+Later data confirmed the theory of a heavy mediator with the indirect observation of neutral current by the Gargamelle experiment \cite{Gargamelle,Hasert:1973cr} and the discovery of \(W^{\pm}\) and Z\(^{\text{0}}\) at the \(\text{Sp}\bar{\text{p}}\text{S}\) at UA1 \cite{CERN-EP-83-13,1983398} and UA2 \cite{CERN-EP-83-25,CERN-EP-83-112}.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\linewidth]{I15-06-FermiTheory.jpg}
+\caption{\label{fig:orgfa8568d}
+Diagrams representing the \(\beta\) decay in Fermi theory (left) and in weak interactions (right).}
+\end{figure}
+
+
+The solution came from BCS theory of supra-conductivity \cite{PhysRev.108.1175} which was able to give a mass term to photons by spontaneously breaking a symmetry in the ground state of their system.
+The mechanism made its way into particle physics, in particular thanks to Nambu and Jona Lasinio \cite{Nambu:1961fr,Nambu:1961tp,Nambu:1960xd,Nambu:1960tm}, and was applied in abelian gauge theory by Brout and Englert \cite{BroutEnglert}, and Higgs \cite{Higgs64} independently.
+The mechanism, applied to the electroweak interaction \cite{PhysRevLett.19.1264,SALAM1964168}, required a new particle in the theory which will later be the standard model : the so called (Brout-Englert-)Higgs boson (often called H).
+Englert and Higgs won the Nobel prize in 2013 (Brout was deceased at that time) after the discovery \cite{CERN-PH-EP-2012-218,CERN-PH-EP-2012-220} of a resonance which properties are compatible with the Higgs boson the previous year at the LHC.
+
+
+The mass-generating mechanism that will be loosely referred as Higgs mechanism relies on the assumption that the ground state of a system does not show the same symmetries that the Lagrangian from which it is derived.
+Consider the simple example in fig. \ref{fig:orgc07deb6} in which a pencil is initially put vertically on a plane surface.
+Classical mechanics tells us that this position is an unstable equilibrium so that the pencil will fall so as to reach a stable equilibrium.
+The Lagrangian of the pencil was initially invariant under rotation around its axis.
+In the final state, the pencil fell in one direction so space is not isotropic anymore.
+The pen spontaneously left an unstable rotation-invariant state to go in a state with less symmetry.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.6\linewidth]{SymBreakPen.jpg}
+\caption{\label{fig:orgc07deb6}
+Visualisation of a symmetry breaking with a pen at unstable equilibrium. \cite{SymBreakPen}}
+\end{figure}
+
+Let's consider this principle in a bosonic field theory invariant under the gauge transformation of eq. \ref{eq:org07e9803}.
+The Lagrangian of the theory is enriched with a potential in the form given in \ref{eq:orgdea495d}.
+Under the gauge transformation of the field \(\phi\), this potential is naturally invariant.
+
+\begin{equation}
+\label{eq:orgdea495d}
+V(\phi) = \frac{1}{2}\mu^2\phi^*\phi+\frac{1}{4}\lambda(\phi^*\phi)^2
+\end{equation}
+
+If \(\lambda\) is negative, the potential does not have a lower bound : the system is unstable.
+For \(\lambda\) and \(\mu^{\text{2}}\) positive, the minimum of the potential is at \(0\) so the ground state respects the symmetry of the potential.
+Finally, for negative \(\mu^{\text{2}}\), the potential allows for a non trivial minimum.
+In the case of a complex field, there is an infinite number of generated minima defined by \(\{ve^{i\alpha}, \alpha\in R\}\) as shown in fig. \ref{fig:org609c856}.
+\(v=\sqrt{-\frac{\mu^2}{\lambda}}\) is the vacuum expectation value.
+The system must choose spontaneously one ground state among the available minima, hence leaving its trivial symmetric initial one.
+
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.6\linewidth]{MexicanHatPot.jpg}
+\caption{\label{fig:org609c856}
+Potential for U(1) symmetry breaking. \cite{1DPotential}}
+\end{figure}
+
+Consider that the system chooses the minimum \(\phi_0=v+i\times 0\).
+A generalisation can be easily performed by rotating the system.
+The dynamic of the theory is obtained by perturbation theory around this minimum.
+One can re-parametrize the two degrees of freedom of the field around the ground state using eq. \ref{eq:org3984bfe}.
+
+\begin{equation}
+\label{eq:org3984bfe}
+\phi(x)=\frac{v +\sigma(x)+i\pi(x)}{\sqrt{2}}
+\end{equation}
+
+This new parametrization is then injected into a bosonic \(U(1)\) gauge theory.
+Some computation leads to the following form for the Lagrangian.
+\begin{equation}
+\label{eq:orgf74cc7a}
+L = \frac{1}{2}|\partial_\mu\sigma|^2 + \frac{1}{2}|\partial_\mu\pi|^2 -v^2\lambda\sigma^2 +  - \lambda( \pi^2\sigma^2 + 2 \pi^2 v \sigma ) - \frac{\lambda}{2}(\sigma^4+\pi^4 + 4v\sigma^3) + C
+\end{equation}
+where C is a calculable constant.
+
+The first two terms are the kinetic terms for the two degrees of freedom.
+The third term is proportional to \(\sigma^{\text{2}}\) : it a mass term for this field.
+The \(\sigma\) field characterises the excitation in the radial direction, as energy is required to climb the walls of the potential.
+On the other hand, there is no quadratic term in \(\pi\).
+This field corresponds to the lateral excitation of the field which needs no energy to go from a minimum to any other one because of the degeneracy.
+The presence of this mass-less boson is the result of a theorem demonstrated by Goldstone \cite{PhysRev.127.965}.
+This theorem states that for every spontaneously broken continuous symmetry there should be a mass-less scalar boson.
+These bosons have not been observed.
+This issue may be solved by the Higgs mechanism in a local gauge invariance.
+
+Finally, the initial gauge theory for radioactivity imposed mass-less gauge bosons as a price for mathematical elegance (and precision of physical predictions).
+However, it was quickly understood that gauge bosons had to be massive and even very heavy for the experiments to be understood.
+Finally, using spontaneously broken symmetry, imported from condensed matter, allowed for massive gauge bosons.
+This improvement is at the price of adding the scalar Higgs boson to the theory
+
+
+\section{The Standard Model}
+\label{sec:orga563bf8}
+
+\subsection{Construction of the SM}
+\label{sec:orgb0b6048}
+
+The main ingredients to create a gauge theory have been presented.
+The Standard Model and most Beyond Standard Model (BSM) theories are only different recipes.
+To summarise, a gauge theory is built by following those steps :
+\begin{itemize}
+\item choosing the group invariances,
+\item choosing the particle content of the theory (fermions),
+\item including (or not) one or many symmetry breaking mechanisms and corresponding fields.
+\end{itemize}
+
+There is a vast choice of gauge invariances available for gauge theory.
+While restricting to (special) unitary groups, the possibilities in term of combinations are limitless.
+The choice between abelian and/or non-Abelian groups may give rise to a wide variety of phenomena.
+The only constraint on the choice in our case is the possibility to interpret observed phenomena.
+In the case of the SM, the lagrangian is imposed invariant under \(SU(3)_c\times SU(2)_I\times U(1)_Y\).
+The particles (fields) which will be included later will then have as property a combination of color (c), hypercharge (Y) and isospin (I), which will impose their behaviour under each gauge invariance.
+\(SU(3)\) group will manage the strong interaction.
+It is a non-abelian group which is defined by 8 generators which will translate into 8 massless gauge bosons : the gluons.
+\(SU(2)_I\times U(1)_Y\) will be responsible for the electroweak sector.
+This non-abelian group will generate 4 electroweak gauge bosons : the charged bosons \(W^{\pm}\), and the two neutral \(Z^0\) and photon (\(\gamma\)).
+The gauge group is often written \(SU(3)_c \times SU(2)_L \times U(1)_Y\) since SU(2) acts only on left chiral fermions.
+
+The particle content of the theory is mostly arbitrary.
+However, the easiest way to be in agreement with the experimental results is to add fields corresponding to some observed states.
+Additional fields can be added to fulfil the philosophy of the theory.
+Finally, fields can be added a posteriori to the theory in order to tune some phenomena.
+In the SM, 12 fermion fields are injected in the theory along with the Higgs field.
+The remaining boson states arise due to gauge invariances.
+The fermions form two groups of equal size (6 fermions in each) : quarks and leptons.
+The former will be sensitive to all gauge interactions while the latter only to the electroweak part.
+In each group, the fermions are paired.
+For the leptons (quarks), members of the pair will be either charged or neutral (up or down types).
+Finally there exist a hierarchy between pairs, with ranks called family.
+The quark and lepton pair of the same rank are labelled as part of the same family : leading to a total of 3 families.
+Fig. \ref{fig:org1db6618} proposes a visualisation of this organisation of fermions.
+The first family consist in fields which make ordinary matter : up and down quarks combine to create protons and neutrons, and electron (and electronic neutrino).
+The second family is composed of the charm and the strange quarks, the muon and the muonic neutrino.
+Every particle of the second family is identical to its counterpart in the first family but with a higher mass.
+While not part of ordinary matter, the second family is "naturally" present as muons are heavily produced in the upper atmosphere (although they decay rapidly).
+The third family is made of particles identical to the second family but with higher masses : top and bottom quarks, \(\tau\) lepton and tau neutrino.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\linewidth]{OPEN-PHO-CHART-2015-001.png}
+\caption{\label{fig:org1db6618}
+Qualitative particle content of the standard model. \cite{OPEN-PHO-CHART-2015-001}}
+\end{figure}
+
+Spontaneously symmetry breaking is heavily used in BSM theories, for instance in supersymmetry.
+The standard model only breaks the electroweak symmetry in order to give a mass term to electroweak bosons.
+Choices have been made both in term of the representation for the Higgs field but also on the shape of the potential.
+The SM chooses the simplest potential as in section \ref{sec:theory_SymBreak}.
+Still, two free parameters remain, \(\lambda\) and \(\mu\), so they will be set to values obtained from by data.
+Since the measurement of the Fermi constant G\(_{\text{F}}\), which is related to weak bosons masses, a constraint is set on the vacuum expectation value of the potential.
+Until 2012, no more information was available to constraint the system.
+Indirect searches and theory asumptions only reduced the available phase space.
+The mass of the Higgs boson was necessary to complete the model.
+Direct searches were performed successively by LEP, Tevatron and finally LHC.
+Finally in 2012 the last parameter of the SM could be measured.
+
+\subsection{Electroweak sector}
+\label{sec:orga4e442f}
+
+The lifetimes involved in weak interaction are significantly higher than ones for strong interaction.
+Indeed, weak radioactive decays constant times are of the order of the second or higher while strong interaction barely last longer than 10\(^{\text{-14}}\)s.
+These long lifetimes were attributed to a weaker interaction, hence its name.
+After some developments, it turned out that the couplings of the weak interaction were of the order of the electromagnetic coupling.
+The weakness of the interaction was then attributed to large masses of the vector bosons which mediated the interaction.
+
+The electroweak theory is imposed invariant under the gauge symmetry \(SU(2)_I\times U(1)_Y\).
+This symmetry imply the presence of 4 gauge bosons : 3 for SU(2) (W\(^{\text{i}}_{\mu}\)) and 1 for U(1) (B\(_{\mu}\)).
+The covariant derivative has the following formula :
+
+\begin{equation}
+\label{eq:orgb1ab3fc}
+D_\mu = \partial_\mu - i\frac{g}{2}\sigma_i.W_\mu^i - i\frac{g'}{2}YB_\mu
+\end{equation}
+with \(\sigma\) the Pauli matrices, $g$ and $g'$ two arbitrary real constants.
+
+\begin{enumerate}
+\item Higgs sector
+\label{sec:org4acdc8d}
+
+The representation chosen for the Higgs field is a SU(2)\(_{\text{L}}\) complex doublet with a hypercharge \(Y=1\).
+Its most general form is
+\begin{equation}
+\Phi =
+\left(
+\begin{array}{l}
+\phi^+\\
+\phi^0\\
+\end{array}
+\right)
+= \frac{1}{\sqrt{2}}
+\left(
+\begin{array}{l}
+\phi_1 + i \phi_2\\
+\phi_3 + i \phi_4\\
+\end{array}
+\right)
+\end{equation}
+with \(\phi_{\text{i}}\)'s properly normalised real scalar fields.
+
+The dynamic of the Higgs field is described by the Lagrangian :
+\begin{equation}
+L_H = (D_\mu\Phi)^\dagger (D^\mu \Phi) - \mu^2 \Phi^\dagger \Phi - \lambda (\Phi^\dagger\Phi)^2
+\end{equation}
+
+The minimum potential of this field is a four dimensional sphere such that :
+\begin{equation}
+\Phi^\dagger \Phi = \frac{1}{2}(\phi_1^2+\phi^2_2 +\phi_3^2 + \phi_4^2) = - \frac{\mu^2}{2\lambda} = \frac{v^2}{2}
+\end{equation}
+
+The Higgs field can be re-parametrized around the minimum \(<\phi_3>=v\) and \(<\phi_1>=<\phi_2>=<\phi_4>=0\).
+A specific choice of gauge, called the unitary gauge lead to :
+\begin{equation}
+\Phi = \frac{1}{\sqrt{2}} \left(
+\begin{array}{c}
+0\\ v+h \\
+\end{array}
+\right)
+\end{equation}
+
+
+Combining the covariant derivative formula with the expression of the Higgs field in the unitary gauge, the kinetic term of the Higgs field takes the form :
+\begin{equation}
+(D_\mu\Phi)^\dagger (D^\mu \Phi)
+= \frac{1}{2}(\partial_\mu h)(\partial^\mu h)
++\frac{1}{8}(v+h)^2 \left[ g^2(W_\mu^1-iW_\mu^2)(W^{1\mu} + iW^{2\mu}) + (-g'B_\mu + g W^3_\mu)^2 \right]
+\end{equation}
+
+The first term correspond to the properly normalised kinetic term for the real scalar field h.
+The first part of the second term correspond to the charged boson \(W^\pm\) which are defined such that
+\begin{equation}
+W_\mu^\pm = \frac{W_\mu^1 \mp iW_\mu^2}{\sqrt{2}}
+\end{equation}
+Developing this term leads to the expression of the mass term for these bosons :
+\begin{equation}
+m_W = \frac{vg}{2}
+\end{equation}
+
+The last term can be identified with the interaction of the Z boson with the Higgs mass.
+It is a linear combination of the third generator of SU(2) and the generator of U(1).
+Properly normalised, this field and its orthogonal take the form :
+
+\begin{equation}
+\begin{array}{l}
+Z_\mu = cos \theta_W W^3_\mu - sin\theta_W B_\mu\\
+A_\mu = cos\theta_W B_\mu + sin \theta_W W_\mu ^3 \\
+cos \theta_W = \frac{g}{\sqrt{g^2+g'^2}}\\
+sin \theta_W = \frac{g'}{\sqrt{g^2+g'^2}}\\
+\end{array}
+\end{equation}
+
+The field A\(_{\mu}\) is not coupled to the Higgs fields hence will not have a mass term.
+This field is identified with the photon.
+The mass term for these two fields finally take the form :
+\begin{equation}
+\begin{array}{l}
+m_Z = \frac{v\sqrt{g^2+g'^2}}{2} = \frac{m_W}{cos \theta_W}\\
+m_A=0
+\end{array}
+\end{equation}
+
+
+\item Fermions representation
+\label{sec:org1416521}
+
+In the electroweak theory, the W boson interacts only  to the "left" component of the fermions, which corresponds to the projection of the field using the operator \(P_L = \frac{1}{2}(1-\gamma_5)\).
+The left components of the fermion fields are then organised into two doublets and the right components are assigned to singlets.
+Finally, the fermion fields will be defined as follow :
+
+\begin{equation}
+L_l^i= P_L
+\begin{bmatrix}
+    \nu_i(x) \\
+    l_i(x) \\
+\end{bmatrix}
+; \
+L_q^i= P_L
+\begin{bmatrix}
+    u_i(x) \\
+    d_i(x) \\
+\end{bmatrix}
+; \ i=1,2,3
+\end{equation}
+
+\begin{equation}
+R_f(x) = (1-P_L) \psi_f(x)
+\end{equation}
+with f representing any fermion (from any family).
+
+Right handed neutrino have no interaction with the electroweak sector (and the strong sector) and as such can be removed from the SM.
+
+Finally, the leptonic sector of the electroweak theory takes the form.
+\begin{equation}
+L\supset i\bar{L}_l\gamma^\mu D_\mu L_l +  i \bar{R}_l\gamma^\mu D_\mu R_l
+\end{equation}
+
+No mass term is present is this lagrangian.
+As for the weak bosons, it will be generated by their interaction with the Higgs field.
+The only possible solution, given the choice of Higgs boson representation, is a Yukawa coupling between fermions and the Higgs field.
+
+\begin{equation}
+L_{\text{Yukawa,l}} \supset - \left[ y_l \bar{R}_l \Phi^\dagger L_l +y_l^*\bar{L}_l\Phi R_l  \right]  = -\left( \frac{y_l v}{\sqrt{2}}\right) \bar{L_l}R_l - \frac{y_l}{\sqrt{2}} h\bar{L_l}R_l + \text{h.c.}
+\end{equation}
+where y\(_{\text{l}}\) is the dimensionless couplings of the lepton to the Higgs boson.
+The second step of the equation is obtained with the Higgs field in the unitary gauge.
+
+A similar approach for the quarks would lead to a mass term only for the up type quark.
+The issue can be solved if the conjugate of the Higgs field \(\tilde{\Phi}=i\sigma_2\Phi\) is used instead.
+The total interaction term of the quark field from the first family with the Higgs fields then takes the form :
+\begin{equation}
+L_{\text{Yukawa,Q}} \supset - [ y_u \bar{R}_u \Phi^\dagger L_u + y_d \bar{R}_d \tilde{\Phi}^\dagger L_d + h.c.]
+\end{equation}
+
+The discussion about fermion parametrization focused on the first family.
+The two other families are parametrized in the same way as the first.
+
+\item Quarks mixing
+\label{sec:org603067f}
+
+The quark mixing is another characteristic of the weak interaction.
+Cabibbo \cite{CERN-TH-342} proposed in 1963 that the quark eigen-states for the weak interaction were different from the mass eigen-state.
+This allowed the weak interaction to change the flavour of quarks.
+This model has been extended by Kobayashi and Maskawa in 1973 \cite{KUNS-242}.
+Within this model, the mass eigen-states (d', s', b') are related to the interaction eigen-states by the CKM matrix :
+
+\begin{equation}
+\begin{pmatrix}d\\s\\b\end{pmatrix}
+= V_{CKM}
+\begin{pmatrix}d'\\s'\\b'\end{pmatrix}
+\end{equation}
+
+with :
+\begin{equation}
+V_{CKM}=
+\begin{pmatrix}V_{ud}&V_{us}&V_{ub}\\V_{cd}&V_{cs}&V_{cb}\\V_{td}&V_{ts}&V_{tb}\end{pmatrix}
+\end{equation}
+\end{enumerate}
+
+\subsection{Higgs boson production and decay predictions at the LHC}
+\label{sec:org649229c}
+
+The strength of a model is the precision at which it describes observed phenomena but also mainly its ability to predict new phenomenon.
+The spontaneous symmetry breaking formalism allows in an elegant framework to provide a mass to fermions and weak bosons at the cost of a new (scalar H) boson.
+One prediction of the theory lies in the properties of this new particle and in its interactions with the other particles of the SM.
+
+The Higgs boson theoretical predictions at the LHC are summarised in ref. \cite{CERN-2013-004}.
+This document details the level of precision as well as assumptions included in the computation of various Higgs boson properties.
+An overview of the production and decay of the H boson is proposed in the following sections.
+
+The mass of the H boson is the only free parameter of the SM to be determined after the discovery of the top quark \cite{Abe:1995hr} so properties of the boson can only be computed as a function of its mass.
+Before the LHC, the various electroweak measurements \cite{LEPEWWG} and the direct LEP limits \cite{CERN-EP-2003-011} restrained the mass of a light H boson to be within [114, 152] GeV at 95\% CL.
+Even within this limited range, its properties have large variations depending on its mass.
+The discussions on production modes and decay width will include the mass dependence in order to propose a broad view of the context at the start of the LHC.
+Since the measurement of the H boson mass \cite{CERN-PH-EP-2015-075}, the paradigm has evolved to a situation where properties have only small variations between masses in the measured confidence interval.
+
+
+
+\begin{enumerate}
+\item Production modes
+\label{sec:org52a585f}
+
+At the LHC, proton collisions allow for a large variety of interactions.
+Indeed, through the sea (with quarks and gluons) of the proton, important at this energy, one can consider virtually all type of quarks and gluon as initial states of processes.
+Therefore, several processes leading to the creation of a Higgs boson are accessible.
+Fig. \ref{fig:org34d1e6a} presents the H boson cross section (as a function of its mass) of  the main production processes for protons colliding at a center of mass energy of \(\sqrt{s}=14\) TeV.
+
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\linewidth]{YRHXS_Summary_fig3.pdf}
+\caption{\label{fig:org34d1e6a}
+Inclusive Higgs boson production cross-section as a function of its mass at $\sqrt{s}=14$ TeV at the LHC. \cite{CERN-2013-004}}
+\end{figure}
+
+
+Five production processes are considered to give a measurable contribution to the total cross-section within the run 2 of the LHC.
+These processes, which diagrams are shown in fig. \ref{fig:org3ec611e}, differ by the partons required in the initial state but also of the particle content present in the final state along with the H boson.
+It is then possible to infer the process which produced a Higgs  boson by the study of the rest of the event.
+This is the target of the coupling measurements.
+
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.7\linewidth]{CERN-THESIS-2014-122_1f10.pdf}
+\caption{\label{fig:org3ec611e}
+SM Higgs boson leading order production processes at the LHC. \cite{CERN-THESIS-2014-122}}
+\end{figure}
+
+The dominant mode at the LHC is the fusion of gluons (ggH).
+Like for most of the processes the ggH cross section was first computed at the leading order, corresponding to the top left diagram of fig. \ref{fig:org3ec611e}.
+However, this leading order approximation is in many cases insufficient, and large uncertainties derive from its dependence on the unphysical renormalisation and factorisation scales.
+Next to leading order (NLO) computation were done in the finite top mass approximation \cite{Spira:1995rr} and then N$^2$LO and N$^3$LO computation were done \cite{CERN-PH-TH-2015-055,CERN-TH-2016-006} in the infinite top mass limit.
+One sees in fig. \ref{CERN-TH-2016-006_8f} that the dependence of the cross section on a common renormalisation and factorisation scale decreases when higher orders are used.
+The latest computation of the ggH inclusive cross section gives $\sigma_{\text{ggH}} = 48.58 ^{+4.56\%}_{-6.72\%}\ \text{(theory)}\ \pm 3.2\ \text{(PDF + }\alpha_s\text{)}$ pb at $m_H=125$ GeV at a center of mass energy of 13 TeV.
+It represents roughly 86\% of the total Higgs boson cross-section.
+It is interesting to notice that this process contains a loop of heavy quarks (mainly top but with a small contribution of bottom and charm) at leading order.
+It has been decided (\cite{deFlorian:2227475} section 1.9) for the couplings analysis to consider this theory uncertainty as a 100\% flat interval.
+Since one wants to have a Gaussian uncertainty, the interval was symmetrized and the ``Gaussian'' standard deviation is $(6.7+6.7)\% /\sqrt{12} = 3.9\%$.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.7\linewidth]{CERN-TH-2016-006_8f.png}
+  \caption{Dependence of the ggH cross section on a common renormalisation and factorisation scale. \cite{CERN-TH-2016-006}}
+  \label{CERN-TH-2016-006_8f}
+\end{figure}
+
+The second most important production mode is the vector boson fusion (VBF) which is initiated by quarks radiating weak bosons which fuse into a Higgs boson.
+This process accounts for about 10\% of the total cross-section.
+It is particularly interesting as it probes the coupling of the Higgs boson to the gauge bosons.
+Furthermore, this production process can be differentiated from the main ggH production by the two quarks in the final state which will create two forward jets.
+Tagging those jets is the core concept of VBF coupling measurement.
+The two following production modes also probe the coupling of the Higgs boson with electroweak bosons : WH and ZH, also called Higgstrahlung, both result from a production of a weak boson which will radiate a H.
+The weak boson which remains in the final state can also be tagged.
+
+Finally, H can be produced by the interaction of a pair of top quarks.
+This production process mode has a lower cross-section than the previous ones and has some similarities with the VBF process, as a top pair is also present in the final state and create a jet.
+The study of this production process rely on identifying jets produced by bottom quarks produced by the decay of the top quarks.
+The ttH production has a dedicated analysis in ATLAS.
+
+
+With the increase of the energy of the LHC in 2015 up to 13 TeV, the production cross-sections of many reactions (including Higgs boson production) increase.
+Fig. \ref{fig:org96cd9f6} shows the ratio between the 13 TeV cross section and the 8 TeV for a set of processes.
+It shows that even for the Higgs boson, this ratio is different depending on the production mode : ranging from 2.0 for WH to 3.9 for ttH.
+Finally, this increase of energy plays a major role in the improvement of measurement of the Higgs boson properties, in particular for the identification of the ttH production mode.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\linewidth]{crossSectionRatio-13-8TeV.pdf}
+\caption{\label{fig:org96cd9f6}
+Ratio of processes cross-section for colliding protons at \(\sqrt{s}=13\) TeV with respect to 8 TeV for a set of processes. Credit : A. Hoecker}
+\end{figure}
+
+
+\item Decay channel
+\label{sec:orgf4c19b0}
+
+The Higgs boson is not a stable particle and will quickly decay into a variety of final states.
+Its total width as a function of its mass is given in fig. \ref{fig:org26dfcff}.
+Above 160 GeV, the total width quickly increases as new decay channels fully open.
+This could have been problematic as most search analyses rely on observing a narrow resonance over the background.
+On the contrary, a light Higgs boson would have a width so small compared to the detector resolution(\(\simeq 2\)  GeV) that it would be difficult to measure it.
+The observation favours the latter case : at 125 GeV the SM Higgs boson width is predicted to be 4.1 MeV.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.5\linewidth]{YRHXS_BR_fig2.pdf}
+\caption{\label{fig:org26dfcff}
+Width of the SM Higgs boson as a function of its mass. \cite{CERN-2013-004}}
+\end{figure}
+
+The set of available decay channels heavily depends on the mass of the boson.
+Figure \ref{fig:org6c93d9f} shows the branching ratio for different decays as a function of the mass.
+Given the constraints on the Higgs boson mass imposed by LEP and TEVATRON, most of the decay channels presented in fig. \ref{fig:org6c93d9f} were good candidates for measurements.
+A large variety of analyses were then possible in order to constraint the Higgs boson properties.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.5\linewidth]{higgs_br.pdf}
+\caption{\label{fig:org6c93d9f}
+Standard Model Higgs boson branching ratio as a function of its mass. \cite{CERN-2013-004}}
+\end{figure}
+
+At 125 GeV, the leading decay channel is \(b\bar{b}\).
+This channel is a priori the most promising as the leading one with about 58\% of branching fraction.
+However, its final signature is a pair of jets which suffers a large background in an hadronic collider, even when identifying b jets.
+As a result, the search of bottom decay of the Higgs boson is mainly limited to the Higgstralung production mode in order to use the weak boson signature to reduce the background.
+This decay channel was not observed at a 3$\sigma$ level in run 1 in ATLAS \cite{ATLAS-CONF-2013-079,CERN-PH-EP-2014-214} or in ATLAS+CMS \cite{CERN-EP-2016-100}.
+However, a recent preliminary ATLAS analysis \cite{CERN-EP-2017-175} of combined run 1 and run 2 data shows a measured (expected) significance of 3.6(4.0)$\sigma$.
+
+The gluon decay channel, along with \(c\bar{c}\) decay, is not observable.
+Indeed, the experimental signature of these decays is only a pair of jets, which is widely produced in an hadronic collider.
+However, the diagram of the gluon decay is the same as the gluon fusion production process but inverted.
+The information of the effective couplings of gluons to the Higgs boson is then already present in the H boson cross-section.
+
+The Higgs boson decay into a tau or muon pair is an opportunity to probe the Higgs boson couplings to leptons.
+ATLAS run 1 analysis observed an excess of 4.5\(\sigma\) (wrt null hypothesis) in the tau decay channel \cite{CERN-PH-EP-2014-262}.
+This level of excess is compatible with the SM.
+
+The decay of the H boson into a pair of weak bosons has a large branching ratio.
+However, the bosons will themselves decay into various stable particles.
+The most promising channel in term of identification is a decay into a pair of Z bosons which themselves decay into a pair of leptons.
+This channel is extremely rare due to the leptonic branching ratio of the Z boson (3.363\% \cite{PDG2016}) but this is compensated by a low level of background.
+This channel contributed to the discovery of the H boson and remains a leading one for measurement of its properties.
+
+
+The \(H\rightarrow \gamma\gamma\) channel has peculiar characteristics.
+It suffers from a very low branching ratio (\(\simeq 2.10^{-3}\)) which makes it rare.
+However the final state, two isolated photons, can be efficiently detected by an electromagnetic calorimeter.
+Given that the background has a monotonous shape, the H signal can be observed above the background.
+This particular decay is described by the diagrams in fig. \ref{fig:org310104c}.
+Even at the leading order, it consists in a loop of t and b quarks and of W boson.
+This allows to probe the couplings to these particles and brings additional complementary information to other dedicated channels.
+Finally, since the decay is done through a loop, this process is sensitive to the contribution of heavy BSM particles inside the loop so contributes to indirect BSM searches.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\linewidth]{CERN-THESIS-2014-122_1f9.pdf}
+\caption{\label{fig:org310104c}
+Leading order Feynman diagrams of SM Higgs boson decay to a photon pair. \cite{CERN-THESIS-2014-122}}
+\end{figure}
+\end{enumerate}
+
+
+\section{LHC results}
+\label{sec:orgf76e3ba}
+
+The LHC primary goal was to provide conditions for the observation of the source of electroweak symmetry breaking (the Higgs boson in the SM) and to search for BSM particles in the two general purpose experiments.
+It is also a great instrument at which to probe the SM and precisely measure its parameters and its consistency.
+Some tests of the SM are provided in fig. \ref{fig:org87b5838}.
+It is impressive to see that the SM is able to predict phenomena through 14 orders of magnitude.
+
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{ATLAS_b_SMSummary_FiducialXsect.pdf}
+\caption{\label{fig:org87b5838}
+Compatibility of various measured cross-section with SM prediction. \cite{ATLASSMTest}}
+\end{figure}
+
+
+The major highlight of the run 1 of the LHC was the discovery by ATLAS and CMS collaborations of the Higgs boson.
+This observation was driven by three decay channels : \(H\rightarrow\gamma\gamma\), \(H\rightarrow ZZ^*\rightarrow 4l\) and \(H\rightarrow WW^* \rightarrow l\nu l\nu\).
+Since then, the measurement of the mass of the resonance has been performed for each decay channel available as well as a combined one \cite{CMS-HIG-14-009,CERN-PH-EP-2014-122}.
+ATLAS and CMS decided to combine \cite{CERN-PH-EP-2015-075} their results in order to get a single LHC mass measurement.
+This combination of four measurements (diphoton and four leptons for each experiment) took place with approximately 25 fb\(^{\text{-1}}\) in each experiment.
+The results for each measurement and for the combined ones are shown in fig. \ref{fig:orga7ceb32}.
+The final LHC run 1 Higgs boson mass measurement is  \(m_H = 125.09 \pm 0.21 \text{(stat.)} \pm 0.11 \text{(syst.)}\).
+Since then, a compatible measurement by CMS of the Higgs boson mass in the 4l channel of \(m_H=125.26\pm0.21=125.26 \pm 0.20\ \text{(stat)}\ \pm 0.08\ \text{(syst)}\) GeV occurred \cite{CMS-PAS-HIG-16-041,CMS-HIG-16-041}.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.7\linewidth]{CERN-PH-EP-2015-075_2f.pdf}
+\caption{\label{fig:orga7ceb32}
+Review of Higgs boson mass measurement in ATLAS and CMS at run 1. \cite{CERN-PH-EP-2015-075}}
+\end{figure}
+
+The couplings of the H to various particles is related to the masses of the decay particles.
+As these measurements have already been performed, the SM is in principle complete.
+However, the newly discovered Higgs sector can probe BSM effects.
+It is then of major importance to try and measure all these couplings, including the effective ones containing loops, so as to spot any possible deviation from the theory.
+ Both ATLAS \cite{ATLAS-CONF-2015-007} and CMS \cite{CMS-HIG-14-009} measured the ratio ($\kappa$) of the measured couplings with respect to the SM ones.
+A combination of both experiments \cite{CERN-EP-2016-100} has been performed which main results are presented in fig. \ref{fig:orgfd66e48}.
+No significant deviation from the SM is observed.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.7\linewidth]{CERN-EP-2016-100_18f.pdf}
+\caption{\label{fig:orgfd66e48}
+ATLAS and CMS combined measurement of couplings deviation from the standard model for the run 1 of LHC. These results assume no invisible decay of the Higgs boson, no decay to BSM particles and no BSM particles in the loops. \cite{CERN-EP-2016-100}}
+\end{figure}
+
+Direct and indirect measurements of the Higgs boson width have been performed.
+The direct measurement rely on testing an hypothetized value of the width and fitting the invariant mass distribution by a convolution of the detector resolution and a Breit-Wigner representing the signal propagator.
+The results of this measurement \cite{CERN-THESIS-2015-193,CERN-PH-EP-2014-122} set the upper limit on $\Gamma_H$ of a few GeV.
+The recent result of CMS \cite{CMS-PAS-HIG-16-041,CMS-HIG-16-041} gives $\Gamma_H < 1.1$ GeV at 95\% Confidence Level (CL).
+This direct model independent methodology does not bring much constraint on Higgs boson properties due to the large detector resolution with respect to the signal width.
+An indirect model-dependent method was proposed \cite{Dixon:2013haa} to use the on-shell interference between the \(H\rightarrow\gamma\gamma\) signal and the background.
+In addition, the interference of Higgs 4l decay off-shell signal with the background can also be used to make indirect model dependent limits, as proposed in \cite{Caola:2013yja}.
+With this method, one can set an indirect limit on the Higgs boson width by comparing the signal yield within and outside the peak in the 4 leptons and WW channels.
+With this method ATLAS \cite{ATLAS-CONF-2014-042,CERN-PH-EP-2015-026} was able to constrain the width to $\Gamma_H <22.7$ MeV at 95\% CL.
+
+
+
+
+\section{Conclusion}
+\label{sec:org69deba1}
+The dawn of quantum field theory allowed for a common elegant mathematical framework able to describe the observed behaviour of the matter.
+The standard model of particle physics has been tested to an impressive precision.
+The same mathematical framework allows to build a large variety of theories which are intended to replace the SM.
+So far the last observed prediction of the SM, the Higgs boson, is fully compatible with the expectations.
+The challenges for run 2 and beyond of the LHC will be to reduce statistical and experimental uncertainties to probe the Higgs boson parameters at the percent level.

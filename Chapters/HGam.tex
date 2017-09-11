@@ -1,0 +1,1322 @@
+\part{\(H\rightarrow\gamma\gamma\) analysis}
+\label{sec:org3ff4562}
+
+\label{HGam}
+
+\chapter{Common \(H\rightarrow\gamma\gamma\) analysis}
+\label{sec:orgb822321}
+
+\section{Introduction}
+\label{sec:org235a67d}
+The small branching ratio of the $H\rightarrow\gamma\gamma$ channel makes it a priori a poor discovery and/or measurement option.
+However at the LHC, the high rate of jet production create a huge background for all Higgs boson production processes including jets in the final state.
+As a result, these channels did not participate to the discovery in 2012, replaced by channels with photons, electrons and muons.
+The first channel involved in the discovery, H\(\rightarrow\) 4l, suffers from a very low expected number of events due to the leptonic branching ratio of the weak bosons.
+This limitation is compensated by low background expectations.
+The second channel, $H\rightarrow\gamma\gamma$, actually expects more signal events but also suffers from a larger background.
+This background has on the other hand a smooth decreasing shape which allows to detect a resonance as a bump in the reconstructed mass distribution.
+These two analyses which are now leading the precision measurement effort represent two different paradigms.
+Different methods should be used to characterise the signal hence allowing comparison of results and reduction of possible biases.
+
+
+The $H\rightarrow\gamma\gamma$ group includes many analyses which all rely on the same methodology and the same inclusive selection, in particular the coupling analysis \cite{ATLAS-CONF-2017-045} and the mass analysis \cite{ATLAS-CONF-2017-046}.
+While aiming at different measurements and searches, most analyses rely on fitting the signal bump over the smooth background.
+Their difference lies in the way events are categorised in order to gain sensitivity to a specific set of parameters.
+Common tools are designed so that analyses can adapt the signal and background modelling, and propagation of uncertainties to their needs.
+
+\section{Samples}
+\label{sec:org8347df9}
+
+In the context of this thesis, only data taken in the context of run 2 are used.
+They have been recorded in 2015 and 2016 at a center of mass energy of \(\sqrt{s}=13\) TeV.
+This represents an integrated luminosity of 3.2 fb\(^{\text{-1}}\) for 2015 and 32.9 fb\(^{\text{-1}}\) for 2016.
+Detector corrections have been applied independently and the photon calibration procedure is identical except for the energy scale factors.
+
+A large set of MC samples is used for the various measurements and optimisations of the analyses.
+The $H\rightarrow\gamma\gamma$ coupling analysis \cite{ATLAS-CONF-2017-045} aims at measuring the properties of the H boson by defining categories which target various processes.
+As a result, 9 production processes are simulated and merged for the signal analysis.
+For the background, 37 datasets are simulated.
+Among these, the same process is usually separated into different $p_T$ ranges.
+Simulations include both true diphoton processes but also the ones able to mimic a diphoton behaviour.
+The generators and and showering algorithms used for the various datasets are shown in table \ref{tab:HGam_samples}.
+More details can be obtained in \cite{ATL-COM-PHYS-2016-1784,ATLAS-CONF-2017-045}.
+
+\begin{table}[h!]
+  \includegraphics[width=\linewidth]{ATLAS-CONF-2017-045_2t.pdf}
+  \caption{Summary of the event generators and PDF sets used to model the signal and the main background processes. \cite{ATLAS-CONF-2017-045}}
+  \label{tab:HGam_samples}
+\end{table}
+
+\section{Selection}
+\label{sec:org173b38f}
+
+Diphotons  come from a variety of processes and a good signature imposes a high quality of reconstruction.
+The selection reduces the theoretical and experimental phase space of the dataset in order to reduce the amount of background while keeping the signal.
+Some selection steps are imposed by external constraints such as the limited bandwidth of the trigger which imposes a lower bound on energy of selected photons.
+The selection is further improved by maximising the sensitivity function \(s=\frac{n_s}{\sqrt{n_b}}\), with n\(_{\text{s}}\) (n\(_{\text{b}}\)) the number of expected signal (background) events in the region of interest.
+The sensitivity is also implicitly dependent on the Higgs boson mass.
+The selection of run 1 had to be optimised to provide similar performances over its full range.
+For run 2, the same strategy has been implemented.
+Cuts have been re-tuned to take into consideration the change of center of mass energy of the LHC, the increased pile-up and the modified detector conditions.
+
+The first event removal is performed at the trigger level which selects events containing two loose photons above some $p_T$ thresholds.
+A cleaning of these selected events is then performed, removing the ones with data corruption in the calorimeter or the ones for which the detector was not fully operational.
+The two photons with the highest transverse energy further pass kinematical, identification and isolation (see sec. \ref{sec:org351c7b6}) criteria.
+The real optimisation of the sensitivity lies in these three cuts : the 2 last provide menus with different signal efficiencies and background rejection to best fit analyses requirements.
+The exact chronological cutflow is as follow.
+Relative efficiency of the selection cited in parenthesis is estimated using a simulation of $H\rightarrow\gamma\gamma$ samples produced by gluon fusion process.
+
+\begin{itemize}
+\item Trigger \text{g35\_loose\_g25\_loose} (62.12\%).
+This trigger selects events which contain two loose photon candidates with transverse energy respectively above 35 and 25GeV.
+Photons identified by this trigger can be either converted or unconverted.
+
+\item GRL (100\%).
+The GRL is a file which list all the lumi-block which are considered acceptable to be used for physics analysis.
+This selection either keeps or rejects all events detected within the minute covered by a given lumi block.
+Because the efficiency measurement is performed on MC, no event can be rejected due to bad detector status.
+\item cleaning (100\%).
+\item Primary vertex (100\%).
+Events with no reconstructed vertex are removed.
+\item 2 photons (76.41\%) : this cuts selects events in which at least two photons have been reconstructed offline.
+  The non perfect efficiency is related to online photons which have been re-defined as other particles (mostly electrons).
+\item Kinematics (91.43\%) : requires $\frac{p_{T1}}{m_{\gamma\gamma}}>0.35$ and $\frac{p_{T2}}{m_{\gamma\gamma}}>0.25$.
+\item Tight ID (87.73\%) : requires that both photons pass the tight offline identification criteria.
+\item Isolation (91.93\%) : requires each photon to pass a calorimeter- and track-based isolation.
+Transverse energy deposited in a cone of $\Delta R=0.2$ must be below respectively $6.5\%$ and $5\%$ of the total transverse energy of the photon.
+\item Invariant mass (100\%) : the diphoton invariant mass must be between 105 and 160GeV.
+\end{itemize}
+
+The efficiency measurement has been performed on simulation.
+Finally, the full selection retains 37.59\% of the produced signal.
+The last invariant mass cut is of no interest for the signal.
+Given the expected width of the Higgs boson (4.2 MeV), the reconstructed mass distribution is a Gaussian like distribution of about 2 GeV standard deviation.
+This extra large mass cut does not change the significance in the signal region but allows to create background control regions around it.
+Further details on the background composition are discussed in section \ref{sec:HGam_backgroundCompo}.
+
+Pile-up conditions may affect several cuts by changing the average energy deposit in the calorimeter and the amount or tracks in the inner detector.
+Evaluating selection stability with respect to the number of reconstructed vertex is essential to ensure against any bias.
+A minor pile-up dependence is observed in figure 30 of \cite{ATL-COM-PHYS-2015-1326} and in figure 21 of \cite{ATL-COM-PHYS-2017-357}.
+Similarly, each new run will have different experimental setup (calibration constants, high voltage, etc).
+The stability of the selection efficiencies as a function of run number (time) is displayed in fig. \ref{fig:orgd7914c4}.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\linewidth]{ATL-COM-PHYS-2015-1326_29f.pdf}
+\caption{\label{fig:orgd7914c4}
+Fraction of events passing different selection cuts with respect to the preselection, as a function of run number for the 2015 dataset.\cite{ATL-COM-PHYS-2015-1326}}
+\end{figure}
+
+\section{Isolation}
+\label{sec:org351c7b6}
+
+In spite of the good performance of the reconstruction and identification of photons, a contamination from jet remains.
+$\pi^0$ mis-identified as photons may contribute as well as true photons produced within a jet.
+The isolation improves the rejection of these topologies by using the environment of the photon candidate.
+The multitude of particles inside a jet gives a large deposited energy in the vicinity of the particle of interest.
+The amount of deposited energy in a cone around the particle is then computed and compared to a threshold.
+Two different analyses are defined, using either the ECAL or the tracker information, and used in combination to benefit from their respective performances.
+
+\begin{enumerate}
+\item Calorimetric isolation
+\label{sec:org1f421d1}
+
+In order to measure the calorimetric isolation, energy deposits are grouped into topoclusters \cite{ATL-LARG-PUB-2008-002}.
+Topoclusters are a group of neighbouring cells with measured energy above a threshold (negative energies are common due to the bipolar filter).
+The energy of all topoclusters with positive energy with a barycenter within a cone $\Delta R = \sqrt{(\Delta \eta)^2 \times ( \Delta \phi)^2 }=0.2$ around the photon are summed.
+The cone size, which was 0.4 in run 1 has been decreased to 0.2 in order to reduce the dependence of pile-up.
+From this sum, the energy contained in the \(5\times 7\) window used to define the central object is removed.
+A schematic of the procedure is shown in fig. \ref{fig:org3b7cde6}.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.6\linewidth]{CaloIso.pdf}
+\caption{\label{fig:org3b7cde6}
+Schematic of the cells involved in the computation of calorimetric isolation. \cite{ATL-COM-PHYS-2012-467}}
+\end{figure}
+
+
+The removal of the \(5\times 7\) window does not necessarily removes all contribution of the central photon.
+The energy deposited outside of the window (the blue cells in fig. \ref{fig:org3b7cde6}) is accounted for by a correction, derived using MC studies,  depending mainly on the $p_T$ of the central photon.
+
+The population of topoclusters in the cone increases with the amount of pile-up.
+The pile-up and underlying event contributions in the total deposited energy are removed by using the ambient energy correction computed on an event-by-event basis \cite{ATL-COM-PHYS-2012-467}.
+
+
+\item Track isolation
+  \label{sec:orga378fc3}
+
+Tracks measurements within a cone evaluate the density of charged particles (for background, produced in a jet) around the photon candidate.
+The track isolation sums the momenta of all tracks originating from the same vertex as the photon and within a cone \(\Delta R=0.2\) around the photon.
+The tracks from photon conversions are removed.
+
+\item Threshold
+  \label{sec:org7d75ff3}
+
+The requirements in term of signal efficiency and the increasing background at low $p_T$ impose stricter isolation criteria for low $p_T$ photons than for high $p_T$.
+A relative cut, proportional to the $p_T$ of the central photon, is preferred to an absolute threshold.
+Optimisation was performed by scanning over the possible relative isolation cuts, and observing the signal significance from a MC sample of \(H\rightarrow\gamma\gamma\).
+Finally, calorimeter isolation of a prompt photon candidate must not exceed \(0.065\times E_T\) and track isolation must remain below \(0.05\times E_T\).
+
+\end{enumerate}
+
+\section{Primary vertex determination}
+\label{sec:orgbd5d583}
+In the Higgs boson mass measurement, the resolution of the signal strongly depends on the precision on the angle between the two photons.
+In the case of ATLAS, having no information on the angle would increase by \(40\%\) the mass resolution.
+In the $z$ direction, the numerous pile-up vertices span over $\simeq$ 20 cm with an RMS of $\simeq$ 5 cm.
+The angular accuracy is then driven by the capacity to properly identify the primary vertex out of all those pile-up vertices.
+On the other hand, the position of the beam in the \(x-y\) plan is known to submillimeter precision.
+
+Techniques using the layers of the detectors have been implemented \cite{ATL-PHYS-INT-2010-013,CERN-THESIS-2008-047}, optimizing the information available for each type of photon.
+As unconverted photons only have information in the calorimeter, the granularity of the latter is used : the energy barycenter in the first two layers are used to point a reconstructed vertex on the beam axis as described in fig. \ref{fig:Calibration_RecoID_pointing}.
+On the contrary, converted photons have precise information from the tracker about their initial direction.
+Both the higher precision of the tracker with respect to the calorimeter and the smaller distance from the interaction region allow for a more precise vertex determination than the pointing method.
+Both types of photons then have a dedicated vertex measurement.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\linewidth]{CERN-THESIS-2014-122_522f.pdf}
+  \caption{Schematic of the pointing technique in the barrel (left) and in the end-caps (righ) for unconverted photons.\cite{CERN-THESIS-2014-122}}\label{fig:Calibration_RecoID_pointing}
+\end{figure}
+
+
+A neural network \cite{ATL-COM-PHYS-2015-1321} has been trained on four variables to select the proper primary vertex of the photon pair.
+The difference (weighted by its error)  between the primary vertex considered and the vertex computed from the photons (using, as discussed above, the information of the conversion(s)) is used along the sum of \(p_T\) and \(p_T^2\) of interaction vertices for background and signal, and the $\Delta\phi(\gamma\gamma,\text{vertex})$ between the di-photon system and the vector sum of tracks momenta from the given vertex.
+Introducing this method highly improves the vertex identification efficiency as show in fig. \ref{fig:Calibration_RecoID_NNPointingEff}.
+The impact of both methods on the Higgs boson di-photon mass distribution is presented in fig. \ref{fig:Calibration_RecoID_NNPointingMass} : an improvement of 17\% on the resolution has been achieved by the multivariate technique compared to using the hardest vertex.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.49\linewidth]{ATL-COM-PHYS-2015-1321_5fa.pdf}
+  \includegraphics[width=0.49\linewidth]{ATL-COM-PHYS-2015-1321_5fc.pdf}
+  \caption{Primary vertex identification efficiency as a function of pile-up (left) and $p_T$ of the photon.\cite{ATL-COM-PHYS-2015-1321}}
+  \label{fig:Calibration_RecoID_NNPointingEff}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.6\linewidth]{ATL-COM-PHYS-2015-1321_6fa.pdf}
+  \caption{$H\rightarrow\gamma\gamma$ simulated mass distribution as a function of the pointing technique for vertex identification.
+    NN refers to the selection of the vertex from the neural network.
+    Hardest refers to selecting the vertex with the largest sum of $p_T$ of its tracks.
+    Default direction consists in using the barycenter of energy deposits in each layers of the ECAL to point to the true vertex.
+    \cite{ATL-COM-PHYS-2015-1321}}
+  \label{fig:Calibration_RecoID_NNPointingMass}
+\end{figure}
+
+
+\section{\(e\rightarrow\gamma\) Fake rate reduction}
+\label{sec:org846d203}
+A fraction of electrons is misidentified as photons.
+This fake rate has increased with respect to run 1 and reached up to 30\% in run 2 in the end-cap region.
+This effect has been observed to be $\eta$ and $p_T$ dependent.
+The mis-identification has been understood as a mis-reconstruction of conversion vertices in the silicon detector.
+It has been measured by comparing the yields of data ``$Z\rightarrow e\gamma$'' and \(Z\rightarrow ee\) events
+In this analysis, the main contribution comes from Z\(\rightarrow\) ee with an electron misidentified as photon.
+To improve the electron identification, a MC study has been performed by categorising Si-Si converted photons.
+These Si-Si photons are built from a vertex associating two tracks and are categorised as having 0, 1 or 2 tracks in the innermost pixel hits (categories 1, 2, 3).
+A track in the innermost pixel hits is defined as either a hit in the IBL, or a hit in the first pixel layer if no hit in the IBL is expected, or two pixels hits if no hit is expected in the first two layers (IBL and pixel layer next to IBL).
+The first two categories do not use the high precision possibilities of the first layers of the pixel detector.
+The separation between prompt electron and an electron from conversion is more difficult.
+The fake rate was reduced by rejecting photons from those two first categories, as well as photons from the third category which have a large conversion radius (radius>40 mm).
+This algorithm allows to reduce by 50\% the amount of electrons faking a photon while removing only 1\% of prompt photons.
+The fake rate improvement as a function of $\eta$ is displayed in fig. \ref{fig:orgcd26aee} (see also \cite{ATL-COM-PHYS-2016-575} ).
+
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.6\linewidth]{ATL-COM-PHYS-2015-1326_6fa.pdf}
+\caption{\label{fig:orgcd26aee}
+Electron to photon fake rate as a function of $\eta$ before and after applying fix.\cite{ATL-COM-PHYS-2015-1326}}
+\end{figure}
+
+\section{Background composition}
+\label{sec:orge71ce2c}
+\label{sec:HGam_backgroundCompo}
+The background plays a major role in the diphoton analysis as it represents a large fraction of the  events, even in the signal area.
+The background is divided into two main categories which themselves include several processes.
+Processes for which a true pair of photons is produced in the final state are labelled as irreducible backgrounds.
+The leading Feynman diagrams for these processes are summarised in fig. \ref{fig:orgf543782}.
+Because the final signature is exactly the one looked for the signal and that this signature allows only few kinematical studies, very little can be done to remove this background.
+The smoothly decreasing structure of this background allows for a simple parametrization.
+Doing so, it is possible to properly account for this background contribution in the reconstructed di-photon mass distribution even though its cross-section is about 2 orders of magnitude higher than the SM H boson signal.
+The simulation of this background is used for background modelling (sec \ref{sec:HGam_backgroundModelling}).
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.9\linewidth]{CERN-THESIS-2014-122_6f3.pdf}
+\caption{\label{fig:orgf543782}
+Leading order diagrams for the diphoton irreducible background to $H\rightarrow\gamma\gamma$ \cite{CERN-THESIS-2014-122}.}
+\end{figure}
+
+The reducible background is composed of events such that one or both photons have been mis-identified.
+The dominant contribution of this background consists in jet  mis-identification : mostly from boosted \(\pi^{\text{0}}\) decaying into a pair of collimated photons.
+This type of background can in theory be removed by improved detector performances.
+Machine learning algorithms make use of the first layer of the calorimeter to reach an extremely high rejection power (above 99.9\%) of those processes.
+Still, \(\gamma\)-jet and jet-jet backgrounds, which Feynman diagrams are provided in figs. \ref{fig:org14dadc0} and \ref{fig:orgde7979b}, have respective cross-sections of 2.10\(^{\text{8}}\) and 5.10\(^{\text{11}}\)fb to compare with 50fb of the signal.
+As a result, the reducible background still amounts to about 20\% of the total background.
+These two backgrounds also have a smoothly decreasing shape similar to the irreducible background.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.9\linewidth]{CERN-THESIS-2014-122_6f1.pdf}
+\caption{\label{fig:org14dadc0}
+Leading order diagrams for the \(\gamma\)-jet reducible QCD background processes to $H\rightarrow\gamma\gamma$ \cite{CERN-THESIS-2014-122}.}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.9\linewidth]{CERN-THESIS-2014-122_6f2.pdf}
+\caption{\label{fig:orgde7979b}
+Leading order diagrams for the jet-jet reducible QCD background processes to $H\rightarrow\gamma\gamma$ \cite{CERN-THESIS-2014-122}.}
+\end{figure}
+
+The perfect knowledge of the background contribution is not necessary for the $H\rightarrow\gamma\gamma$ analysis as it is fitted directly on data.
+However, it allows to have a better understanding of the processes underneath to improve the selection.
+The jet rejection of the analysis being high, a MC study would require a prohibitive number of generated events to evaluate the contribution of reducible background.
+Instead, the methodology developed  at the early stage of run 1\cite{ATL-COM-PHYS-2011-782,PhysRevD.85.012003,CERN-PH-EP-2012-300,CERN-THESIS-2011-157} was used and relies on the ABCD method.
+Consider a simple case in which one wants to measure the fake rate of photons.
+A loose selection is performed, removing the isolation cut and relaxing the tight identification requirement.
+Photons are then categorised depending on their isolation (whether they pass or not the nominal cut) and identification (tight or not) as shown in fig. \ref{fig:org2dbdc47}.
+In the naive case where only the tight isolated ($N^A$) category contains signal, the background in this category can be extrapolated from the tight non-isolated region ($N^B$).
+Indeed, the background efficiency of the isolation cut can be estimated by comparing the number of events in the two non-tight categories ($M^A$ and $M^B$).
+In reality a MC study also evaluates the amount of signal (true photons) contamination in the background control regions to correct the extrapolation.
+For this method to be valid, the cuts which are relaxed must allow a good discrimination between signal and background and leave sufficient statistics in all the categories.
+Finally, it is also assumed that the variables have no correlation.
+In the photon ID case, the relaxed variables for the identification are only related to the first layer of the calorimeter.
+Because most of the energy is deposited in the L2, is it considered that the correlation with isolation is negligible.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.6\linewidth]{Escalier_HDR_6f4.pdf}
+\caption{\label{fig:org2dbdc47}
+Sketch of the categories definition in the ABCD method for prompt photons fake rate. The signal region is defined as the tight isolated (A) category.\cite{Escalier_HDR}}
+\end{figure}
+
+In the case of diphoton background contribution, the same categorisation is performed by differentiating the leading and sub-leading photons.
+Hence 16 categories are defined.
+If one assumes a common jet to photon fake rate for all processes it is possible to reduce the system to only 6 background control regions.
+A minimisation is then performed to extract the contributions of all reducible backgrounds.
+The background composition as a function of the reconstructed categories is shown in fig. \ref{fig:org61f8f4a}.
+One can observe that the irreducible background is vastly dominant over the reducible one.
+This has been achieved by a careful optimisation of the selection cuts.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.6\linewidth]{ATL-COM-PHYS-2016-1784_50f.pdf}
+\caption{\label{fig:org61f8f4a}
+Di-photon background composition in reconstructed categories of couplings analysis.\cite{ATL-COM-PHYS-2016-1784}}
+\end{figure}
+
+
+\chapter{$H\rightarrow\gamma\gamma$ couplings analysis}
+\label{sec:org4860f0b}
+\section{Measurement strategy}
+\label{sec:org1aa713f}
+The Higgs boson couplings analysis aims at gathering all information from different decay channels of the Higgs boson in order to measure its couplings to a maximum of particles.
+From the combination of all decay channels available at the time, run 1 analyses \cite{ATLAS-CONF-2013-012,CMS-HIG-14-009,ATLAS-CONF-2014-009,ATLAS-CONF-2014-010,CERN-EP-2016-100} were able to constraint the properties of the H boson without statistically significant deviation from the expectations.
+
+Each independent analyses has some level of sensitivity to a set of couplings.
+The (effective) coupling to gluons and photons is obviously probed in the diphoton analysis.
+ttH, VBF and VH production processes can bring information to the couplings of H boson to top and electroweak bosons.
+
+To probe all those processes, the \(H\rightarrow \gamma\gamma\) analysis relies on categorisation.
+From the inclusive selection, categories select phase space regions where a given parameter of interest has maximal sensitivity.
+For instance, the most restrictive categories select photon pairs produced in association of b jets in order to isolate H bosons produced via ttH.
+The cross sections of the simplified template cross-section model (STXS : see sec. \ref{sec:HGam_STXS}) are the parameters which the coupling analysis optimise.
+A likelihood is built by combining all the categories, allowing to include even small constraints to the final result.
+In each category, the likelihood mainly relies on fitting the shape of the reconstructed invariant mass of the diphoton system in the range [105,160] GeV.
+The model for this distribution is the sum of  a smooth decreasing background function (see sec. \ref{sec:HGam_backgroundModelling}) and a peaked signal function (see sec. \ref{sec:HGam_signalModelling}), both normalised to data.
+The signal is itself the sum of the signal model of each production process, weighted by their respective expected yields.
+The model is completed by nuisance parameters (see sec. \ref{sec:HGam_shapeUncertainties}) on the position and width of the signal, and on the expected yield.
+
+For the minimisation procedure, the parameters of the signal shape are fixed to the expectation.
+The fitted cross sections affect only the signal yield in each category.
+The background shape and normalisation parameters are fitted on the data using a combined signal plus background fit.
+In the case of the mass measurement, the shape and yield parameters of the signal are mass dependent and the mass of the signal is also fitted.
+
+If one considers a category with no events (at least in the signal region), the -2log likelihood takes the form $2(\mu s+b)$, with $s$ ($b$) the expected signal (background).
+Minimising this likelihood as a function of $\mu$ leads to an infinitely negative best value of $\mu$.
+The signal pdf, which is normalised by $\mu$ can then contribute negatively to the total model.
+At some point, the total pdf can become negative for some points, which is impossible given its probabilistic interpretation.
+A solution introduced in run 1 is to inject fake ghost events in the dataset with extremely small weight so that they do not disturb the shape of the likelihood.
+These points have to be injected in regions where there is a lack of signal.
+As a result, the minimisation algorithm would be forced to evaluate the likelihood on these points, hence ensuring the positiveness of the total pdf.
+The case with no events will then have the hard limitation $\mu s+b=0$.
+The same strategy is used in run 2 for reconstructed categories with low expected number of events.
+
+\begin{enumerate}
+\item Run 1 style : signal strength
+\label{sec:org84ab396}
+\label{sec:HGam_signalStrength}
+
+The parameters which are targeted by the couplings analysis have evolved since run 1.
+At this time, given the available statistics, the objective was to measure the production cross-sections from different processes and to compare to the standard model.
+The parameters of interest were signal strengths $\mu$ : the ratio between the measured cross-section (times the \(\gamma\gamma\) branching ratio) and the SM one.
+With this definition the observed signal yield in a category is expressed by eq. \ref{eq:Stat_signalYieldParam}.
+A measured value $\mu=1$ would indicate an amount of observed events equal to the standard model prediction.
+On the contrary, $\mu>(<)1$ would indicate an excess (or lack) of events.
+Depending on the objective of the analysis, the $\mu$ can be used to scale the total production cross-section of the H boson or to scale each independent production process (as $\mu_k$).
+In run 1, the latter has been done in order to probe the production modes ggH, VBF, ZH, WH and ttH, in particular in the final \(\gamma\gamma\) run 1 analysis \cite{CERN-PH-EP-2014-198}.
+
+
+The events from different production processes will contribute differently to the various categories.
+In each of them, the expected yield from a production process number k must be evaluated scaled by the corresponding $\mu_k$ parameter.
+The total signal shape is then the sum, weighted by the expected yields times $\mu_k$, of the models of all production modes.
+Details of the shape of the signal is given in sec. \ref{sec:HGam_signalModelling}.
+The inclusive $\mu$ is also included in the model : it scales uniformly all production processes.
+In practice, either the inclusive or the set of production parameters $\mu_k$ are fitted as a global fit would not converge.
+Finally, the signal model in each category i takes the form :
+
+\begin{equation}
+  P_S^i = \sum\limits_{k} \mu \mu_{k} y_{ik} A \epsilon
+  \label{eq:Stat_signalYieldParam}
+\end{equation}
+with A the detector acceptance, \(\epsilon\) the analysis efficiency and y\(_{\text{ik}}\) the expected yield for the production process k in the category i (in fact $A$ and $\epsilon$ depend slightly on the production process $k$).
+
+This strategy is easy to implement and allows to have results easy to interpret (by comparing $\mu$ with respect to 1).
+However, a deviation of the inclusive $\mu$ (obtained by a fit of $\mu$ fixing $\mu_k=1$ for all k) does not give much information about the signal.
+It is possible to identify from which processes the excess comes from by defining production signal strengths \(\mu_{\text{k}}\) (for these fits $\mu$ is fixed to 1) but again the information is limited to yields.
+
+The \(\kappa\) framework \cite{LHCHXSWG-2012-001} was developed to increase the information obtained from an excess with respect to the $\mu$ framework, by re-parametrization of the likelihood.
+A \(\kappa\) is defined as the ratio of the observed coupling over the standard model value.
+By scaling with \(\kappa\) the SM vertices in the computation of a production cross-section or decay rate, one obtains a simple parametrization of the observed yield :
+
+\begin{equation}
+\kappa_{prod}^2 = \frac{\sigma_i}{\sigma_{i}^{SM}},\ \kappa_{decay}^2 = \frac{\Gamma_{decay}}{\Gamma_{decay}^{SM}}
+\end{equation}
+
+Finally, one gets :
+\begin{equation}
+\sigma_i BR_f = \sigma_i^{SM}  BR_f^{SM} \frac{\kappa_i^2\kappa_f^2}{\kappa_H^2}
+\end{equation}
+
+with \(\kappa_{\text{H}}\) the ratio of the total observed width of the H boson with respect to the standard model.
+By multiplying this formula by the detector acceptance and efficiency one gets the parametrization of the observed number of events for a given process in a given category.
+With this parametrization, \(\kappa_{\text{H}}\) appears in the parametrization of all yields.
+Similarly to the global $\mu$ previously introduced, one can not measure simultaneously \(\kappa_{\text{H}}\) and the production and decay \(\kappa\) simultaneously.
+Indeed, an excess in \(\kappa_{\text{H}}\) can be absorbed by a scaling of other \(\kappa\).
+Studies about the possibility to externally constraint \(\kappa_{\text{H}}\) were performed during my master thesis \cite{Goudet_NPAC, Goudet_141105, Goudet_141113, Goudet_140731}.
+
+The \(\kappa\) framework allows improvements of interpretation with respect to the $\mu$ framework.
+By probing directly the couplings, it can identify more precisely the origin of an excess of events.
+Processes which contain loops can be treated in two different ways.
+The first method consists in treating the loop as an effective couplings : the $H\rightarrow \gamma \gamma$ loop is replaced by a vertex in the computation of the process and the couplings associated with this vertex are scaled by a \(\kappa_{\gamma}\).
+The nominal value $\kappa\gamma$ of the  coupling is assumed in the computation without trying to look inside the loop.
+Using this procedure allows us to interpret an excess as non standard effects in the loop : either new particle enters the loop (either BSM or unexpected SM one) or SM particles contribute differently than expected.
+The second methodology can then be used to test the latter case.
+It consists in replacing the effective coupling with its expression as a function of the couplings of SM particles.
+For instance, \(\kappa_{\gamma}\) is replaced \cite{LHCHXSWG-2012-001,ATLAS-CONF-2014-009,CERN-EP-2016-100} in the likelihood by :
+\begin{equation}
+\kappa_\gamma^2 \rightarrow 1.59\kappa_W^2 -0.66\kappa_W\kappa_t + 0.07\kappa_t^2
+\end{equation}
+where the formula takes into account the interference in the decay $H\rightarrow\gamma\gamma$ between W and t loops.
+This can be generalised to all loops (in particular ggH production mode) to impose on the model the assumption that no additional new particles enter the loops.
+This parametrization allows to identify couplings which would contribute the most to an excess.
+
+Both these models have a major limitation however.
+The signal model uses the expected number of observed events according to the SM.
+This means that if one wants to measure the \(\kappa\) (or $\mu$) in the context of another model, one has to compute the expected yields in this model and perform the minimisation once again.
+The cross-sections of the SM are only computed at a certain level of precision.
+Measuring the couplings again after the theory improvement of the cross-section calculation requires to compute again the expected yields and again perform the minimisation.
+In other words, the results obtained in this framework are highly model dependent, and it is more difficult to interpret them in a different context.
+
+\item Simplified template cross section
+\label{sec:orgeaa3f29}
+\label{sec:HGam_STXS}
+
+The Simplified Template Cross Section \cite{arXiv_1605.04692} model (STXS) splits the total Higgs boson production phase space into different regions, called truth bins, targeting different H production modes and defines a parameter of interest corresponding to the production cross section of this bin.
+This parameter represents the probability to produce a Higgs boson event with a given set of properties.
+In a reconstructed category i , the total number of observed events is then a linear combination of all those cross-sections.
+The total observed yield (N\(_{\text{S}}\)) is then expressed as :
+
+\begin{equation}
+N_S = \sum\limits_{b} f_{bi} .\sigma_{b} . A . \epsilon
+\end{equation}
+
+with f\(_{\text{bi}}\) the fraction of events from truth bin b (where for simplicity no index is put on $A$ and $\epsilon$) which fall in the category i, \(\sigma_{\text{b}}\) the cross-section of the truth bin b.
+One can observe that because \(\sigma_{\text{b}}\) is a measured quantity, there is no explicit use of the SM in this parametrization.
+Theoretical uncertainties (of the SM) will be mostly absent from the measurement.
+The comparison with a model is performed in a second time by comparing the experimental results with theoretical predictions.
+The strength of this framework, with respect to run 1, is that a single experimental measurement can be compared to any model.
+
+Increasing statistics allows either to measure more precisely large truth bins or to perform a finer binning.
+For the latter, the STXS provide stages which describe a coherent evolution of truth bins definition to gain sensitivity to parameters more probable to be modified in a BSM scenario.
+The experimental categorisation, in theory independent of the STXS, must in practice follow those evolutions to optimise the sensitivity to the parameters of a given stage.
+The stage 0 performed at ICHEP 2016 \cite{ATLAS-CONF-2016-081} is very close to what was done during run 1.
+Only five bins were defined and consisted in separating Higgs boson events by their production processes : ggH, VBF, ZH, WH, ttH.
+In later stages, those processes are further divided taking into account the number of jets produced along the H boson.
+Finally, an additional categorisation is performed by defining $p_T$ bins inside the previous stage.
+An example of truth categorisation for the ggH bin is shown in fig. \ref{fig:org09ac44d}.
+The full definition of the truth bins in the stage 1 is detailed in table \ref{tab:HGam_stxs_definitionx}.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{simplifiedXS_ggF.pdf}
+\caption{\label{fig:org09ac44d}
+Definition of the truth bins for the ggH production process in the STXS framework.}
+\end{figure}
+
+\begin{table}[h!]
+\centering
+\tiny
+\resizebox{\textwidth}{!}{\begin{tabular}{|l|l|l|c|}
+\hline
+signal process    &truth bin                    &definition                                   & $\sigma_{SM} \times \cal{BR}$ [fb]\\
+\hline
+$ggH$, $gg\rightarrow Z(jj)H$               &$GGH\_0j$                    &$ggH$, $N_j=0$ &61.92\\
+\hline
+$ggH$, $gg\rightarrow Z(jj)H$               &$GGH\_1j\_PTH\_0\_60$        &$ggH$, $N_j=1$, $p_T^H\in [0 ; 60]$~GeV    &14.77\\
+\hline
+$ggH$, $gg\rightarrow Z(jj)H$               &$GGH\_1j\_PTH\_60\_120$      &$ggH$, $N_j=1$, $p_T^H\in [60 ; 120]$~GeV   &10.24\\
+\hline
+$ggH$, $gg\rightarrow Z(jj)H$               &$GGH\_1j\_PTH\_120\_200$     &$ggH$, $N_j=1$, $p_T^H\in [120 ; 200]$~GeV &1.69\\
+\hline
+$ggH$, $gg\rightarrow Z(jj)H$               &$GGH\_1j\_PTH\_GT200$        &$ggH$, $N_j=1$, $p_T^H \ge 200$~GeV & 0.34\\
+\hline
+$ggH$, $gg\rightarrow Z(jj)H$               &$GGH\_2j\_PTH\_0\_60$        &$ggH$, $N_j \ge 2 $, $p_T^H\in [0 ; 60]$~GeV &2.79\\
+\hline
+$ggH$, $gg\rightarrow Z(jj)H$               &$GGH\_2j\_PTH\_60\_120$      &$ggH$, $N_j \ge 2 $, $p_T^H\in [60 ; 120]$~GeV &4.29\\
+\hline
+$ggH$, $gg\rightarrow Z(jj)H$               &$GGH\_2j\_PTH\_120\_200$     &$ggH$, $N_j \ge 2 $, $p_T^H\in [120 ; 200]$~GeV &2.30\\
+\hline
+$ggH$, $gg\rightarrow Z(jj)H$               &$GGH\_2j\_PTH\_GT200$        &$ggH$, $N_j \ge 2 $, $p_T^H \ge 200$~GeV &0.98\\
+\hline
+$ggH$, $gg\rightarrow Z(jj)H$               &$GGH\_VBFTOPO\_JET3VETO$     &$ggH$, $N_j \ge 2 $, vbf topology, $p_T(Hjj)\in [0 ; 25]$~GeV ($\approx 2j$), $p_T^H < 200$~GeV &0.62\\
+\hline
+$ggH$, $gg\rightarrow Z(jj)H$               &$GGH\_VBFTOPO\_JET3$         &$ggH$, $N_j \ge 2 $, vbf topology, $p_T(Hjj) \ge  25$~GeV ($\approx 3j$), $p_T^H < 200$~GeV &0.83\\
+\hline
+\multicolumn{3}{|c|}{}                                         &$\sum_{|y_H|<2.5}$ :    100.77\\
+\hline
+\hline
+VBF, VH hadronic  &$QQ2HQQ\_VBFTOPO\_JET3VETO$  &VBF + VH hadronic, $N_j \ge 2$, vbf topology, $p_T^{j1} \in [0 ; 200]$~GeV, $p_T(Hjj)\in [0 ; 25]$~GeV ($\approx 2j$) &2.02\\
+\hline
+VBF, VH hadronic  &$QQ2HQQ\_VBFTOPO\_JET3$      &VBF + VH hadronic, $N_j \ge 2$, vbf topology, $p_T^{j1} \in [0 ; 200]$~GeV, $p_T(Hjj) \ge  25$~GeV ($\approx 3j$) &0.67\\
+\hline
+VBF, VH hadronic  &$QQ2HQQ\_VH2JET$             &VBF + VH hadronic, $N_j \ge 2, p_T^{j1} \in [0 ; 200]$~GeV, $60<m_{jj}<120$~GeV &1.17\\
+\hline
+VBF, VH hadronic  &$QQ2HQQ\_REST$               &VBF + VH hadronic, $p_T^{j1} \in [0 ; 200]$~GeV &6.54\\
+\hline
+VBF, VH hadronic  &$QQ2HQQ\_PTJET1\_GT200$      &VBF + VH hadronic, $p_T^{j1} \ge 200$~GeV &0.50\\
+\hline
+\multicolumn{3}{|c|}{}                                         &$\sum_{|y_H|<2.5}$ : 10.90\\
+\hline
+\hline
+WH leptonic       &$QQ2HLNU\_PTV\_0\_150$        &WH leptonic, $p_T^V\in [0 ; 150]$~GeV &0.77\\
+\hline
+WH leptonic       &$QQ2HLNU\_PTV\_150\_250\_0J$ &WH leptonic, $p_T^V\in [150 ; 250]$~GeV, $=0\ j$ &0.05\\
+\hline
+WH leptonic       &$QQ2HLNU\_PTV\_150\_250\_ge1J$ &WH leptonic, $p_T^V\in [150 ; 250]$~GeV, $\ge 1\ j$ &0.04\\
+\hline
+WH leptonic       &$QQ2HLNU\_PTV\_GT250$          &WH leptonic, $p_T^V\ge 250$~GeV &0.03\\
+\hline
+\multicolumn{3}{|c|}{}                                         &$\sum_{|y_H|<2.5}$ : 0.89\\
+\hline
+\hline
+ZH leptonic       &$QQ2HLL\_PTV\_0\_150$        &ZH leptonic, $p_T^V\in [0 ; 150]$~GeV &0.39\\
+\hline
+ZH leptonic       &$QQ2HLL\_PTV\_150\_250\_0J$ &ZH leptonic, $p_T^V\in [150 ; 250]$~GeV, $=0\ j$ &0.03\\
+\hline
+ZH leptonic       &$QQ2HLL\_PTV\_150\_250\_GE1J$ &ZH leptonic, $p_T^V\in [150 ; 250]$~GeV, $\ge 1\ j$ &0.02\\
+\hline
+ZH leptonic       &$QQ2HLL\_PTV\_GT250$          &ZH leptonic, $p_T^V\ge 250$~GeV &0.02\\
+\hline
+\multicolumn{3}{|c|}{}                                         &$\sum_{|y_H|<2.5}$ : 0.46\\
+\hline
+\hline
+$gg\rightarrow$ ZH leptonic  &$GG2HLL\_PTV\_0\_150$         &$gg\rightarrow$ ZH leptonic, $p_T^V\in [0 ; 150]$~GeV &0.05\\
+\hline
+$gg\rightarrow$ ZH leptonic  &$GG2HLL\_PTV\_GT150\_0J$      &$gg\rightarrow$ ZH leptonic, $p_T^V\ge 150$~GeV, $=0\ j$ &0.01\\
+\hline
+$gg\rightarrow$ ZH leptonic  &$GG2HLL\_PTV\_GT150\_GE1J$    &$gg\rightarrow$ ZH leptonic, $p_T^V\ge 150$~GeV, $\ge 1\ j$ &0.02\\
+\hline
+\multicolumn{3}{|c|}{}                                         &$\sum_{|y_H|<2.5}$ : 0.08\\
+\hline
+\hline
+ttH               &$TTH$                   &ttH &1.13\\
+\hline
+bbH               &$BBH$                   &bbH &0.96\\
+\hline
+tHjb              &$THJB$                  &tHjb &0.16\\
+\hline
+tWH               &$TWH$                   &tWH &0.03\\
+\hline
+\end{tabular}}
+\caption{Definition of the STXS truth bins. All truth bins require the rapidity $|y_H|$ of the Higgs boson to be below $2.5$. The jet multiplicity is defined with a cut on the jet of $p_T^j\ge 30$~GeV. The VBF topology cut corresponds to $m_{jj}>400$~GeV and $|\Delta y_{jj}|>2.8$. The last column presents the cross-section as predicted by the Standard Model. \cite{ATL-COM-PHYS-2016-1784}}
+\label{tab:HGam_stxs_definition}
+\end{table}
+
+
+The separation of truth bin according to jet multiplicity results from the use of jets in experimental categorisation.
+Some analyses, such as \(H\rightarrow WW\), require jets in their final state.
+Defining jet bins avoid folding jet uncertainties into the measurement.
+Many BSM models predict a significantly different $p_T$ distribution for the H boson.
+Having small bins in $p_T$ allows to probe these models.
+In particular, the SM has no sensitivity to the last $p_T$ bin ($p_T^H>200$ GeV) and a non zero measurement would be a hint for BSM physics.
+More details about the objective of the truth categorisation can be obtained from \cite{arXiv_1605.04692,ATL-COM-PHYS-2016-1784}.
+
+
+A difficulty of this parametrization is that exclusive production processes do not necessarily match to exclusive reconstructed categories.
+The \(q\bar{q}\rightarrow VH\) and VBF production modes both have a reconstructed signature with two jets in the case were the V decays hadronically.
+For this reason, VH is defined as Higgs boson production with a leptonically decaying electroweak boson.
+Events with an hadronic decay are included into the VBF process truth bin.
+Similarly, non leptonic \(gg\rightarrow ZH\) is included in the ggH production process.
+Some of the truth bins may also be degenerated with others at the reconstruction level.
+Again the signature with two jets, in theory characteristic of the VBF production process, can be also obtained from the truth bin ggH produced in association with two jets.
+We will therefore be forced (see section \ref{sec:org0c76339} to merge different truth bins).
+\end{enumerate}
+
+
+
+\section{Reconstructed categories}
+\label{sec:orgdbf5aa8}
+\label{HGam_RecCateg}
+The event categorisation consists in separating different phase space regions sensitive to the parameters of interest of the analysis.
+In the case of the mass analysis, the categorisation aimed at reducing the combined statistical and experimental uncertainties.
+During run 1, several configurations were tested and the results are presented in fig. \ref{fig:org9ced173}.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.6\linewidth]{ATL-COM-PHYS-2014-018_9fa.pdf}
+\caption{\label{fig:org9ced173}
+  Statistical, experimental and total run 1 mass uncertainty for various choices of event categorisation.
+  eEPSptt70 was finally chosen as the official mass categorisation.
+  \cite{ATL-COM-PHYS-2014-018}}
+\end{figure}
+
+
+The run 1 coupling analysis focused on measuring signal strength for a set of five production processes.
+In the context of STXS for run 2, 31 cross-sections were targeted for measurement.
+The categorisation has to be optimised to be sensitive to all of these parameters of interest.
+As a result, the categories are ranked so that an event must fail the strict conditions of better ranked categories to be accepted in a less selective category.
+A sketch of the categories ranking is proposed in fig. \ref{fig:orge14adff}.
+The ttH signal measurement is one of the priorities of ATLAS so 9 categories targeting tH and ttH are defined with top ranking.
+Then 8 categories are defined to target the various VH processes.
+4 more categories target the VFB topology.
+Finally, the last 10 categories are dominated by the ggH production.
+A detailed description of the 31 reconstructed categories is shown in table \ref{HGam_fullReconstructedCategories}.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.5\linewidth]{ATL-COM-PHYS-2016-1784_flowchart-eps-converted-to.pdf}
+\caption{\label{fig:orge14adff}
+Definition and ranking of reconstructed categories for the run 2 couplings measurements.\cite{ATL-COM-PHYS-2016-1784}}
+\end{figure}
+
+\begin{table}
+  \centering
+  \includegraphics[width=0.9\linewidth]{ATLAS-CONF-2017-045_4t.pdf}
+  \caption{Label and event selection defining the 31 reconstructed categories in the run 2 couplings analysis. \cite{ATLAS-CONF-2017-045}}
+  \label{HGam_fullReconstructedCategories}
+\end{table}
+
+The tH categories aims at measuring the processes tHqb and tHW.
+More details about these processes can be found in \cite{CERN-THESIS-2014-122} paragraph 7.4.1 and in \cite{Maltoni:506128}.
+A signature with one light quark jet and two b jet quarks is searched for.
+Two more jet or a lepton are also required as decay products of the W boson, itself produced by the decay of the top.
+Similarly, the ttH categories are separated into a leptonic and hadronic categories depending on the decay of each of the top quarks.
+A cut-based strategy is chosen for the leptonic categories, by performing rectangular cuts on the numbers of reconstructed leptons and jets of various properties (light, b, forward, \ldots{}).
+The hadronic categories are created using boosted decision trees.
+Table \ref{tab:HGam_ttH_tH_cat} proposes a summary of top related categories.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+Category & Selection \\
+\hline\hline
+Leptonic &  \\ \hline
+tHlep, 0fwd & $N_{lep}$ = 1, $N_{jets}^{cen}$ $\le$ 3, $N_{tags}^{70}$ $\ge$ 1, $N_{jets}^{fwd}$ = 0 ($p_T^{jet}$ > 25 GeV) \\
+tHlep, 1fwd & $N_{lep}$ = 1, $N_{jets}^{cen}$ $\le$ 4, $N_{tags}^{70}$ $\ge$ 1, $N_{jets}^{fwd}$ $\ge$ 1 ($p_T^{jet}$ > 25 GeV) \\
+ttHlep & $N_{lep}$ $\ge$ 1, $N_{jets}^{cen}$ $\ge$ 2, $N_{tags}^{70}$ $\ge$ 1, $Z_{\ell \ell}$ veto  ($p_T^{jet}$ > 25 GeV) \\ \hline
+Hadronic &  \\ \hline
+ttH had BDT1 & $N_{lep}$ = 0, $N_{jets} \geq$ 3,     $N_{tags}^{70} \geq$ 1, BDT > 0.92  \\
+ttH had BDT2 & $N_{lep}$ = 0, $N_{jets} \geq$ 3,     $N_{tags}^{70} \geq$ 1, 0.83 < BDT < 0.92  \\
+ttH had BDT3 & $N_{lep}$ = 0, $N_{jets} \geq$ 3,     $N_{tags}^{70} \geq$ 1, 0.79 < BDT < 0.83 \\
+ttH had BDT4 & $N_{lep}$ = 0, $N_{jets} \geq$ 3,     $N_{tags}^{70} \geq$ 1, 0.52 < BDT < 0.79 \\ \hline
+tH had 4j1b & $N_{lep}$ = 0, $N_{jets}^{cen}$ = 4,    $N_{tags}^{70}$ = 1, BDT < 0.52 \\
+tH had 4j2b & $N_{lep}$ = 0, $N_{jets}^{cen}$ = 4,    $N_{tags}^{70}$ $\geq$ 2, BDT < 0.52 \\ \hline
+\end{tabular}
+\caption{Event selection for the ttH/tH categories with events being prioritized in descending order.
+  Events are separated into a leptonic and hadronic channel based on the number of leptons.
+  $N^{70}_{tag}$ refers to the number of $b$ jets tagged by the menu with $70\%$ efficiency.
+  \cite{ATL-COM-PHYS-2016-1784}}
+\label{tab:HGam_ttH_tH_cat}
+\end{table}
+
+
+The VH categories use a cut-based strategy to target the various topologies available by the VH production mode.
+The di-lepton category aims at identifying the topology with two leptons created by a Z decaying into a pair of leptons.
+The one lepton analysis aims at isolating events with a lepton and missing transverse energy to identify them with the decay of a W boson produced along the H boson.
+The 0 lepton categories aims to select events from the decay of both W into a (missed) lepton and neutrino and Z into a pair of neutrinos.
+The final signature which consists in hadronically decaying weak bosons is coming from the VBF+VH truth bins with the same experimental signature.
+However, categories targeting these processes are created using a mass on the di-jet system and a multivariate analysis to optimise the sensitivity.
+
+The VBF categories use BDT in order to make use of the difference in correlations between signal and background variables.
+4 categories are defined with decreasing sensitivity.
+
+The dominant production mode has been mainly left out from categorisation so far.
+It has small contributions into the preceding categories but most of the events remain uncategorised.
+Orthogonal cut-based categories are defined to match closely the STXS truth bins : separation into jet multiplicity and $p_T$ of the di-photon system.
+Finally, the 0 jet category is further separated into forward and central regions, to benefit from the difference of resolution of the detector as a function of $\eta$.
+Fig. \ref{fig:orgaa34c76} proposes a summary of un-tagged categories.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.6\linewidth]{ATL-COM-PHYS-2016-1784_ggF_reco_splitting.pdf}
+\caption{\label{fig:orgaa34c76}
+Untagged categories of the run 2 H boson to diphoton couplings measurement.\cite{ATL-COM-PHYS-2016-1784}}
+\end{figure}
+
+\section{Signal modelling}
+\label{sec:org5e08a8b}
+\label{sec:HGam_signalModelling}
+
+The measurement strategy relies on a proper evaluation of the signal properties (shape and total yield).
+Studies have been performed using MC to estimate how the detector impacts the Higgs boson mass distribution and signal yield.
+In the context of the coupling analysis, the generated mass is fixed at 125 GeV and it was shown that the mass dependence of those parameters induced negligible effects.
+
+The event from a given truth bin may populate several reconstructed categories.
+To have a proper measurement of the production cross-section of this bin, it is necessary to evaluate the contribution of each reconstructed category to this parameter of interest.
+A first efficiency measurement \(\epsilon_A\) compute the fraction of generated events which fall into the acceptance region of the detector : both photons with $|\eta|<2.5$ and not falling in the crack.
+\(\epsilon_A\) depends on the truth bins as different production modes induce different kinematical distributions.
+A typical value for this parameter is 57\%.
+A second efficiency (\(\epsilon_s\)) then measures the fraction of events in the acceptance region which pass the global $H\rightarrow\gamma\gamma$ selection.
+Truth bins with a large amount of jets have higher probability to fail the isolation criteria on the photons.
+This efficiency is again bin dependent and is typically around 75\%.
+Finally, a last efficiency (\(\epsilon_{\text{tc}}\)) evaluates the fraction of remaining events which fall into a given category c.
+The expected yield in a reconstructed category c from a given truth bin t can then be parametrized as :
+
+\begin{equation}
+n_S (c, t) = \sigma_{t}\epsilon_A\epsilon_S \epsilon_{tc} BR(H\rightarrow\gamma\gamma) L
+\end{equation}
+with L the integrated luminosity.
+The total expected number of events in a reconstructed category is then the sum over all truth bins of this term.
+Figure \ref{fig:orgc7e9fde} shows the fraction of events in each reconstructed category originating from a given truth (simplified template cross section) bin.
+The sum of the values in each column is 1.
+The column are considered from right to left, in the category definition.
+It explicits the objective of the categorisation to target in each category a subset of the truth bins.
+In particular, one can see on the top right corner the very high purity of the ttH reconstructed category in ttH events.
+Similarly, VH and VBF categories are quite efficient in selecting dedicated truth bins.
+The predicted signal efficiencies times acceptance and the event fractions per production mode for each category are given in table \ref{fig:HGam_fracProdMode}.
+The fraction of signal events in each category for a given production mode are shown in fig. \ref{fig:HGam_fracProdMode}.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{ATLAS-CONF-2017-045_6f.pdf}
+\caption{\label{fig:orgc7e9fde}
+  The fraction of signal events assigned to each reconstructed category (x axis) and originating from a given truth bin of the stage-1 simplified template cross section framework (y axis).
+  The black lines separate the $t\bar{t}H$ and tH, VH leptonic, VH hadronic and VBF enriched, and untagged categories, along with the simplified template cross section regions they are most sensitive to.
+  The colour shows the purity of the region per category.
+  \cite{ATLAS-CONF-2017-045}}
+\end{figure}
+
+\begin{table}[htbp]
+\centering
+\includegraphics[width=\linewidth]{ATLAS-CONF-2017-045_5t.pdf}
+\caption{\label{fig:HGam_fracProdMode}
+  Signal efficiencies times acceptance, $\epsilon$, and expected signal event fractions per production mode, f, in each  category for $\sqrt{s} = 13$ TeV and $m_H = 125.09$ GeV.
+  \cite{ATLAS-CONF-2017-045}}
+\end{table}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\linewidth]{ATLAS-CONF-2017-045_7f.pdf}
+\caption{\label{fig:HGam_fracProdMode}
+  The expected composition of the selected Higgs boson events, in terms of the different production modes, for each reconstructed category.\cite{ATLAS-CONF-2017-045}}
+\end{figure}
+
+The signal shape also plays a major role in the measurement of cross-sections.
+Indeed, a wider signal requires more events to reach the same peak value.
+In run 1, a major experimental uncertainty was the contribution of in-situ measurement of the resolution constant term, which implied an uncertainty on the signal width.
+The study was performed again at run 2 and aimed at comparing a large set of functions to describe the reconstructed mass distribution.
+The tested functions consisted in combinations of Gaussian, Voigtian and Crystal Ball functions.
+
+Signal functions are compared by a signal injecting Asimov data test.
+It consists in measuring the yield and mass of the signal injected in a background Asimov.
+The background is obtained using a high statistic prompt diphoton MC, assumed to be representative of the full background, fitted with an exponential of a second order polynomial.
+The signal is then injected in this dataset by adding a MC generated at 125 GeV.
+Signal and MC events are both normalised to a common integrated luminosity.
+The bias for each signal parametrization consists in the difference between the measured and expected mass or yield.
+The bias of the mass was observed to be negligible for all functions.
+The yield suffers a bias of the order of 0.5\%.
+The double sided crystal ball (DSCB), which parametrization is provided in eq. \ref{eq:org11b12d7}, has a smaller bias and has been chosen for signal modelling in all categories and for all production processes.
+The bias in this test is partially attributed to the fluctuations of the background.
+The treatment of this bias is discussed in sec. \ref{sec:HGam_backgroundModelling}.
+
+\begin{equation}
+CB(m_{\gamma \gamma}) =
+\begin{cases}
+e^{-t^{2}/2} & \text{if } -\alpha_{low} \leq t \leq \alpha_{high} \\
+\frac{ e^{-{}^{1}_{2} \alpha_{low}^{2}} } { \left[ \frac{1}{R_{low}} \left(R_{low} - \alpha_{low} - t \right) \right]^{n_{low}} } & \text{if } t < -\alpha_{low} \\
+\frac{ e^{-{}^{1}_{2} \alpha_{high}^{2}} } { \left[ \frac{1}{R_{high}} \left(R_{high} - \alpha_{high} + t \right) \right]^{n_{high}} } & \text{if } t > \alpha_{high} \\
+t=(m_{\gamma\gamma}-\mu)/\sigma,
+\\
+R_{low}=\frac{\alpha_{low}}{n_{low}}\\
+R_{high}=\frac{\alpha_{high}}{n_{high}} \\
+\end{cases}
+\label{eq:org11b12d7}
+\end{equation}
+
+The value of the parameters of the DSCB vary as a function of the category.
+The signal mass distribution, including all considered production processes, is fitted independently in each category.
+The fit is performed in the range [112.5, 137.5] GeV, which corresponds to the generated mass (125) plus and minus 10\%.
+The choice of the range has significant impact on the fit results.
+This interval ($\pm 10\%$) has been chosen as providing the best fit robustness.
+The values for each parameter per category are later used for the signal parametrization in the statistical framework and remain fixed when performing the measurement.
+For the mass analysis, several datasets have been generated at various H boson masses to obtain a mass dependence of the DSCB parameters.
+
+In theory, one could generate a signal model for all categories and all production processes to get an optimised signal modelling.
+However the categories are not sensitive to changes of shape between different production modes.
+Furthermore, the fit of the parameters is impossible for truth bins which have an almost null contribution to a category.
+Finally, such a model would lead to a more complicated likelihood which would require much more time to be minimised, for no gain in experimental sensitivity.
+In practice, one single signal model is defined per category, fitted on the signal mass distribution containing all production processes.
+This common signal is then multiplied by the sum of yields to limit the likelihood to a single signal pdf per category.
+
+\section{Background modelling}
+\label{sec:orgb6f3d36}
+\label{sec:HGam_backgroundModelling}
+
+The precise measurement of signal events relies on an equally precise measurement of background events in the signal region.
+The background contribution in the data is measured directly during the fit.
+A functional form for the background shape is chosen beforehand but its parameters and the total amount of background are fitted on the data.
+This choice is performed either with data-driven techniques (ttH categories) or with MC studies.
+Because background fluctuations may induce (additional) signal, a systematic is designed to absorb such a potential bias (the spurious signal).
+
+\begin{enumerate}
+\item Background distribution
+  \label{sec:orge7b221f}
+
+ttH backgrounds are too diverse and not enough understood for a proper MC study.
+Instead the properties of the background are obtained by a study of data with loosened cuts.
+Two control regions are defined in which the photon selection cuts are loosened for one photon.
+On the second category, the b tagging is removed for the cut-based category or the number of b jet is increased by one for the BDT categories.
+
+Non-ttH categories uses mainly MC to describe the background shape :
+\begin{itemize}
+\item The irreducible $\gamma \gamma$ background is obtained from a high statistics simulation with a reconstruction using the ATLAS fast simulation algorithm.
+This algorithm consists in modifying the true energy of a final state particle in such a way that the new energy follows the same distribution as the full reconstruction using GEANT4.
+This allows to run faster large simulations and have small statistical errors on the MC.
+100M prompt diphoton events have been generated.
+
+\item Reducible jj and $\gamma j$ background shapes are obtained by looking at a control regions with respectively both and one photon failing the tight selection but passing a loosened one.
+
+\end{itemize}
+
+The total background distribution is finally defined as the sum of $\gamma\gamma$, $\gamma j$ and $jj$  distributions, normalised to their respective contributions measured in sec. \ref{sec:HGam_backgroundCompo}.
+
+\item Background shape modelling
+\label{sec:orgfec0702}
+
+\begin{enumerate}
+\item Functional choice
+  \label{sec:org56079de}
+
+Many functions have been considered to model the smoothly decreasing background : mostly polynomial of several orders,  exponential of polynomials, and power laws for ttH background.
+Criterion have been defined in order to rank these functions and keep the most appropriate.
+A function with a large number of degrees of freedom will better describe the background shape but its parameters will also suffer from a wider statistical uncertainty.
+On the contrary, more degrees of freedom imply that the function may absorb the statistical fluctuations (including the signal in data) while having a smaller spurious signal.
+A balance had to be found between those aspects by defining criterion which ranks the proposed functions.
+
+For each tested shape, a signal+background model is fitted on the background MC with different imposed signal masses.
+The maximum of measured signal yield between 117 and 133 GeV is reported as the spurious signal of the tested function.
+In run 1, functions were classified as acceptable if the spurious signal of the function is below 20\% of the background uncertainty or below 10\% of the expected signal \cite{ATLAS-CONF-2012-091}.
+In run 2, improvements were proposed \cite{ATL-COM-PHYS-2016-1784} to better take into account the situations were background uncertainties were large, which created large spurious signal.
+A new metric \(\zeta_{\text{s}}\) is proposed :
+
+\begin{equation}
+\zeta_{s}(m_{\gamma\gamma}) =
+\left\{
+\begin{array}{ll}
+N_s + 2\Delta_{MC},   &   N_s + 2\Delta_{MC} < 0 \\
+N_s - 2\Delta_{MC},   &   N_s - 2\Delta_{MC} > 0 \\
+0                   ,&\text{otherwise}          \\
+\end{array}
+\right.
+\label{eq:relaxed_spurious_signal}
+\end{equation}
+
+Then, the historical constraints on this new metric are imposed for any suitable functional form.
+In other words, the spurious signal is relaxed to accommodate 2$\sigma$ local fluctuations in the MC template.
+Fig. \ref{} illustrates this new metric.
+
+% \begin{figure}[htbp]
+% \centering
+% \includegraphics[width=0.8\linewidth]{ATLAS-CONF-2017-045_7f.pdf}
+% \caption{\label{fig:HGam_fracProdMode}
+%   The expected composition of the selected Higgs boson events, in terms of the different production modes, for each reconstructed category.\cite{ATLAS-CONF-2017-045}}
+% \end{figure}
+
+
+This criteria on functions ensures a good description of the background shape around the signal region but not on the sidebands.
+A \(\chi^{\text{2}}\) test is performed between the fit and the data to ensure a global fit quality.
+As a result, the functions must also pass a simple $\chi^2$ requirement in a background-only fit to the MC template :
+\begin{equation}
+\text{p-value}(\chi^2)>1\%
+\end{equation}
+Among the functions which pass all these conditions, the one with the lower degrees of freedom (and smaller spurious signal if several functions with the same number of degrees of freedom pass) is chosen.
+
+
+\item Validation
+  \label{sec:orgd9c84d4}
+
+  After the choice of the background modelling a second procedure is applied to test whether this choice is optimal or not.
+  The selected baseline function is expected to perform well on data, but we want to account for the possibility of needing more degrees of freedom to adequately account for unexpected properties of the background spectrum in data.
+  A procedure to decide whether a more complex function is required to describe the data is adopted in the same spirit as used in the high mass $\gamma\gamma$ search \cite{ATL-COM-PHYS-2015-1246}.
+  The families of functional forms used to describe the continuum background have increasing complexity for some parameter k (the order of the polynomial for instance).
+  In the case where the function $f_k$ can be obtained from the function $f_{k+1}$ thanks to a choice of the parameters, the function $f_{k+1}$ will always give better \(\chi^{\text{2}}\) results than its lower complexity counterpart.
+  The validation procedure aims at quantifying the amount of improvement provided by this extra unit of complexity.
+
+A test statistic F is defined to compare the performances of two functions~:
+\begin{equation}
+F_{12} = \frac{(\chi^2_1 - \chi^2_2)/(p_2-p1)}{\chi^2_2/(n_{Bins}-p_2)}
+\end{equation}
+where \(\chi_{\text{1}}^{\text{2}}\) and \(\chi^{\text{2}}_{\text{2}}\) are the \(\chi^{\text{2}}\) values computed in n bins of the two fits with p\(_{\text{1}}\) and p\(_{\text{2}}\) degrees of freedom, respectively.
+In the asymptotic regime, F follows a Fisher distribution f(F; p\(_{\text{2}}\)-p\(_{\text{1}}\), n-p\(_{\text{2}}\)) if the added parameter is not improving the model.
+In low statistics category where these assumptions fail, toys have been generated to obtain the distorted F distribution.
+One can therefore reject the hypothesis that the additional degree of freedom is useless if $P(F'\geq F)<0.05$ where $P$ is the probability of observing a $F'$ value at least as extreme as the one observed using the Fisher distribution.
+In this case the simpler function would be discarded in favour of the more complex one.
+% The test fails, meaning an extra complexity is necessary, if its $p$ value falls below 5\%.
+% Finally, no functional form chosen by the nominal procedure fails this test so the nominal choice of background shape is kept.
+\end{enumerate}
+\end{enumerate}
+
+\section{Uncertainties}
+\label{sec:orgc59f6d5}
+\label{sec:HGam_shapeUncertainties}
+A systematic uncertainty on the signal model may influence the final results in several ways.
+It can change the number of expected events if the uncertainty affects the efficiency for example.
+On the other hand calibration uncertainties may also affect the shape of the signal.
+The following describes the computation of those uncertainties effects on yield and shape of the signal.
+
+
+\begin{enumerate}
+\item Shape uncertainties
+\label{sec:org5a47e96}
+
+
+The calibration procedure changes the energy of each photon by either a shift or a random smearing.
+As a result, any bias in the calibration factors would induce a change in either the mean or the width of the mass distribution.
+The shape uncertainty procedure aims at evaluating the possible impact of calibration uncertainties on the signal mass shape.
+Once this impact is known, it is included into the statistical framework as a nuisance parameter (see sec. \ref{sec:stat_NP}).
+
+In the context of this chapter, a nuisance parameter defines a function $f(\eta,p_T)$ representing the relative uncertainty of a specific correction factor.
+An up (down) systematic variation consists in modifying the energy of each photon by changing the value of the correction factor to nominal plus (minus) $f(\eta, p_T)$.
+The mass of each event after a scale uncertainty is changed to :
+
+\begin{equation}
+m_{\gamma\gamma}^{syst} = m_{\gamma\gamma}^{nom} \sqrt{ (1\pm f(\eta_1,p_{T1}))(1\pm f(\eta_2, p_{T2}))}
+\end{equation}
+
+Resolution uncertainties change the constant term applied to the event so the relation between nominal and fluctuated mass is more subtle.
+The uncertainty of the mean and the width is then defined as the relative difference between the nominal distribution and the variated ones.
+This principle is applied separately for each nuisance parameter to obtain independent shape uncertainties.
+
+Each calibration analysis groups its sources of uncertainties into a set of combined systematics.
+Usually each group is the quadratic sum of a set of systematics and defines one independent nuisance parameters.
+The definition of the NP may vary depending on the physics involved.
+Two nuisance parameters derive from the in-situ energy scale factors, by separating the statistical component and the systematic component (itself a quadratic sum of many uncertainties, see sec. \ref{sec:org2bc2b1f}).
+On the other hand, other analyses merge both statistical and systematic uncertainties into a single NP.
+The material studies however compute the full systematic for different (independent) eta bins.
+The value of a given NP will be the full systematic in its specific $\eta$ range but will be null elsewhere.
+As a result, an event may have both, or one, or no photons which are modified by a NP depending on the respective $\eta$.
+In total 86 nuisance parameters are defined for the calibration : 77 are dedicated to scale uncertainties and 9 to resolution uncertainties.
+Scale uncertainty parameters are uncertainties on parameters which linearly change the energy of photons while resolution uncertainties concerns parameters which smear the energy.
+
+The computation of the mean and width uncertainties rely on comparing the shape of the modified distribution with respect to the nominal one.
+The obtained uncertainties change the parametrization of the mass ($\mu$) and the width ($\sigma$) of the DSCB signal model (eq. \ref{eq:org11b12d7}).
+Then, the most coherent procedure is to evaluate how the calibration uncertainties change those parameters (uncertainties on $\alpha$ and n of the DSCB are not considered as these parameters remain fixed in the framework).
+As a result, the method consists in fitting respectively the nominal and modified distributions and comparing their fitted values.
+
+The nominal distribution is fitted first in the range [115,135] GeV, with all the parameters free.
+To improve the time performances, a binned fit if performed using 100 MeV bins.
+Cross-checks have shown no significant difference with an unbinned fit.
+The considered range is different from the one used to compute the fixed values of the parameters for the framework.
+As a result, the official values for the tail parameters are not optimal for the shape of the nominal distribution in the uncertainty analysis.
+The possible bias is removed by fitting the tail parameter for the nominal distribution and keeping the obtained values for the systematic distributions.
+The three fits allow to measure a nominal, a 'up' and a 'down' value for the mean and the rms.
+The systematic uncertainty on those parameters is then the relative difference between the 'up' (down) value and the nominal.
+A summary plot of the method is provided in fig. \ref{fig:org356a158}.
+It shows the three distributions and their respective fits, and the obtained uncertainty for each parameter.
+The shown nuisance parameter is a scale uncertainty.
+However its effect on the width uncertainty is also computed when changing non-uniformly the mass of each event widens the mass distribution (see sec. \ref{sec:syst_shape_massResCorr}).
+
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.6\linewidth]{ATL-COM-PHYS-2016-1784_h015_ALL_BDT_root_SystVariation_EG_SCALE_ALL_0.pdf}
+\caption{\label{fig:org356a158}
+  Typical fits for calibration uncertainty measurement.
+  The black curve shows a nominal $H\rightarrow\gamma\gamma$ distribution and the colored curves are the same distributions with photons rescaled by the scale uncertainty.
+  Distributions are fitted with the DSCB signal pdf.
+  The relative differences of the fit estimations of the mean and width (in percent) are given in the top right corner.}
+\end{figure}
+
+\begin{enumerate}
+\item Scale/resolution correlation
+\label{sec:orgacf66e0}
+\label{sec:syst_shape_massResCorr}
+
+There are two types of shape systematic variations: scale and resolution.
+The scale systematic changes linearly the energy of a photon as a function of its pseudo-rapidity and its \(p_T\).
+Nominal resolution corrections change randomly the energy of a photon by scaling its energy by \((1+N(0,c)\)), with \(N(0,c)\) a Gaussian-distributed random number with mean 0 and width equal to the correction factor to apply (\(c\)).
+The resolution uncertainty consists in changing the width of the Gaussian distribution by adding or removing the resolution uncertainty.
+For run 1, only the signal mean (RMS) were fitted for a scale (resolution) fluctuation.
+However this method neglects the correlation between the scale correction and the RMS.
+When applying a scale correction to a distribution two effects contribute to a change in the signal width:
+
+\begin{itemize}
+\item First, let's assume a Gaussian distribution to which one applies a scale correction.
+The distribution will then be changed according to eq. \ref{eq:Calibration_scaleShape}.
+The new distribution is also a Gaussian but  with a scaled RMS (and mean).
+A rough estimate of this effect gives a contribution of 0.4\% uncertainty on the width, which is negligible compared to the 6\% of the total systematic.
+\end{itemize}
+
+
+\begin{itemize}
+\item Secondly, consider a Gaussian distribution for which each half of the events are scaled with a different \(\alpha_i\).
+The new distribution will then be centered at \((\alpha_1+\alpha_2)/2\) and will not be Gaussian anymore.
+Fig. \ref{fig:org861f6a5} proposes a visualisation of this toy Gaussian distribution.
+The contribution of this effect on the RMS is estimated to be at the percent level.
+\end{itemize}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.6\linewidth]{ATL-COM-PHYS-2016-1784_systematics_shape_SpreadGauss.pdf}
+\caption{\label{fig:org861f6a5}
+  Visualisation of the effect of an inhomogeneous scale correction to a Gaussian distribution and its effect on the RMS.
+  The black curve represents the sum of initial identical distributions.
+  The red and blue curves represent the two halves of the distribution scaled by different values.
+  The pink curve represents the sum of the modified distributions.
+  The mean (\(m\)) and RMS (\(s\)) of each distribution are shown inside the legend.}
+\end{figure}
+
+These effects will be visible in the final results.
+However, they will be neglected in order to simplify the final statistical framework, which face limitations in term of computing time.
+
+\item Decorrelation model
+\label{sec:org572f644}
+\label{subsec:decorrelation_model}
+
+Early run 2 results used a model called 1NP, which consisted in only one nuisance parameter for the scale factors and one nuisance parameter for the resolution.
+The scale (resolution) NP is the quadratic sum of all 77 (9) corresponding nuisance parameters.
+This model had an inclusive mass uncertainty of about 0.47\%.
+However it was observed that a single large nuisance parameter was over-constrained in the statistical framework.
+Over-constraints have been measured by fitting an Asimov dataset at 40~fb$^{-1}$ with only the two calibration systematics.
+The results show over-constraints at a level of 60\% (14\%) for the scale (resolution) systematic.
+As no major improvements of the calibration was expected, it was decided to use the FULL model which is more correct, with 86 parameters, to give more freedom to the fit and distribute constraints among many NP.
+
+Going from 2 to 86 nuisance parameters showed a significant reduction of the total mass uncertainty by almost a factor two, even though the underlying calibration systematics remained the same.
+The total uncertainty for the FULL model is defined as the quadratic sum of the independent effect on the mass of each nuisance parameters.
+The difference between the two models has been understood as a difference in the treatment of correlations between NP.
+With this model, the constraints on the nuisance parameters are removed.
+
+Let's consider a case where events may be part of two categories A and B containing a fraction p\(_{\text{A}}\) and p\(_{\text{B}}\)=1-p\(_{\text{A}}\) of the events, and two NP with different effect in each bin (\(\delta_{\text{i}}^{\text{A,B}}\)).
+The 1NP model sum quadratically, bin by bin, the two NP hence the total NP has the form :
+\begin{equation}
+\delta_{1NP}^{A,B} = \delta_1^{A,B} \oplus \delta_2^{A,B}
+\end{equation}
+Applying this NP to the mass distribution, all the event of A (B) will be shifted by a factor (1+\(\delta_{\text{1NP}}^{\text{A(B)}}\)), hence their average will be shifted by the same value (eq. \ref{eq:Calibration_scaleShape}).
+The average of the new distribution will be shifted by the weighted sum of the shifts from each bin.
+Finally, the total 1NP uncertainty is :
+
+\begin{equation}
+    \frac{m^{corr}}{m^{nom}} -1 = p_A(1+(\delta_{1}^A\oplus \delta_{2}^A )) + p_B(1+(\delta_{1}^B\oplus \delta_{2}^B)) -1
+\end{equation}
+
+Using the same arguments for each NP independently, the total FULL uncertainty is :
+
+\begin{equation}
+  \frac{m^{corr}}{m^{nom}} -1 =\left(p_A(1+\delta_{1}^A) + p_B(1+\delta_{1}^B) -1 \right) \oplus \left( p_A(1+\delta_{2}^A) + p_B(1+\delta_{2}^B) -1 \right)
+\end{equation}
+
+These two formulas lead in general to different results.
+Assuming p\(_{\text{A}}\)=p\(_{\text{B}}\)=0.5, \(\delta_{\text{1}}^{\text{A}}\)=\(\delta_{\text{2}}^{\text{B}}\)=0.005 and \(\delta_{\text{1}}^{\text{B}}\)=\(\delta_{\text{2}}^{\text{A}}\)=0.002 leads to \(\delta_{\text{FULL}}\)=0.00495 and \(\delta_{\text{1NP}}\)=0.00539.
+This reasoning can be generalised to the case where we consider the photons as members of a category an will lead to more complicated formulas.
+
+The FULL and 1NP models are meant to give different results.
+A cross-check on the amplitude of this difference in the case of the H boson mass uncertainty has been performed.
+Systematics as a function of $\eta$ are histograms, but are continuous functions as a function of $p_T$.
+An exact result using the full model using similar formulas would be too complicated.
+An approximation is performed by assuming the systematics are constant in arbitrary $p_T$ bins.
+A total of 120 photon bins in $\eta$ (10), $p_T$ (6) and conversion status (2) have been defined and the correlation matrix $V_{ij} = \sum_{k=1}^{N_{NP}} \sigma_{ki}\sigma_{kj}$ of those bins with respect to the systematics of the FULL model have been computed (the sum is a sum on the nuisance parameters).
+The correlation matrix  is given in fig. \ref{fig:orgc8a0af2}.
+A $H\rightarrow\gamma\gamma$ sample is used to measure the photon distribution in the bins \(N_i\).
+The mass uncertainty can then be computed using the following formula \cite{170125_Goudet}~:
+
+\begin{equation}
+  \frac{\sigma(M)}{M} = \frac{1}{N_\gamma}\sqrt{\sum_{ij}N_iN_jV_{ij}}.
+  \label{eq:HGam_covariance}
+\end{equation}
+where the sum above is on the bins of the co-variance matrix.
+With this formula the 1NP model is equivalent to $V_{ij}=\sigma_i\sigma_j$.
+Table \ref{tab:systematics_shape_totSystTheo} displays the results for both the formula \ref{eq:HGam_covariance} and the experimental measurement.
+It shows that the experimental results with a very important improvement of the scale uncertainty going from the 1NP model to the FULL model are in complete agreement with the theory, given the set NP available.
+Fig. \ref{fig:orgc654f3f} shows the difference between the two models in all the reconstructed categories of the analysis.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\linewidth]{ATL-COM-PHYS-2016-1784_systematics_shape_Unal_mh_syst_corrFULL.pdf}
+\caption{\label{fig:orgc8a0af2}
+Correlation matrix between photon bins in the FULL model.}
+\end{figure}
+
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{l|ll}
+Total Scale Uncertainty (\%) & 1NP & FULL \\
+\hline
+Measurement with $H\rightarrow\gamma\gamma$ MC & 0.46 & 0.27\\
+Formula \ref{eq:HGam_covariance} & 0.47 & 0.26\\
+\end{tabular}
+\caption{Comparison of measurement and formula for determination of total scale uncertainty in FULL and 1NP correlation models. }
+\label{tab:systematics_shape_totSystTheo}
+\end{table}
+
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{/home/goudet/Documents/LAL/Manuscript/figures/CompareFULLMerge_mean_InclusiveUp.pdf}
+\caption{\label{fig:orgc654f3f}
+Comparison of total (mass) scale uncertainty per category between the 1NP and FULL correlation model.}
+\end{figure}
+
+
+
+\item Merged model
+\label{sec:org545da70}
+
+The FULL model contains 86 nuisance parameters which all have contributions in all reconstructed categories.
+This is heavy to process for the statistical framework.
+Furthermore, even though their respective effects in each category are different, most of the NP are almost degenerated.
+The gain in having so many NP is small compared to the increase of complexity.
+To improve the convergence of the fits, an intermediate model has been developed in continuation of the run 1 methodology\cite{ATL-COM-PHYS-2014-018,CERN-PH-EP-2014-122}.
+The model is hereafter referred to as the Merged model.
+
+The Merged model groups together a set of NP which have contributions in the same categories.
+The value of the combined NP in each category  is obtained by summing in quadrature the contributions of all merged NP.
+The sign of the systematic is defined as the common sign of the merged uncertainties.
+This merging technique allows to reduce the number of NP while retaining the performances of the FULL model.
+With this definition, the total uncertainty as shown in fig. \ref{fig:orgc654f3f} will remain the one of the FULL model.
+Small difference may appear in the statistical framework as each NP does not have the same contribution in each category, hence modifying the way data constraints are distributed over all NP.
+The differences are assumed to be negligible since run 1.
+
+The material systematics are separated into independent NP as a function of $\eta$ and represent a significant fraction of the NP.
+For each source of material uncertainty (for instance cryostat material), it has been decided to reduce the different NP into two : one related to barrel material and one for end-cap.
+Four systematics undergo this procedure: the cryostat material (MATCRYO), the calorimeter material (MATCALO), the pre-sampler material (PS) and the inter-layer calibration (S12).
+The Merged model finally reduces the number of NP down to 40 for the energy scale uncertainty.
+No merging is performed for the resolution NP: the Merged model is here equivalent to the FULL model.
+The final uncertainties for the inclusive selection is shown in fig. \ref{org42d9a0c}.
+The total uncertainties per category is shown in fig. \ref{org0ea9f20}.
+
+
+\begin{figure}
+\begin{subfigure}[t]{\linewidth}
+\begin{center}
+\includegraphics[width= \linewidth]{/home/goudet/Documents/LAL/Manuscript/figures/CompareModels_Systematics_Inclusive_mean_mean.pdf}
+\end{center}
+\end{subfigure}
+\begin{subfigure}[t]{\linewidth}
+\begin{center}
+\includegraphics[width= \linewidth]{/home/goudet/Documents/LAL/Manuscript/figures/CompareModels_Systematics_Inclusive_sigma_sigma.pdf}
+\end{center}
+\end{subfigure}
+\caption{\label{org42d9a0c}
+Inclusive scale (top) and resolution (bottom) uncertainties corresponding to the Merged model (49 NP).}
+\end{figure}
+
+
+\begin{figure}
+\begin{subfigure}[t]{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth]{/home/goudet/Documents/LAL/Manuscript/figures/CompareModel_mean_InclusiveUp.pdf}
+\end{center}
+\end{subfigure}
+\begin{subfigure}[t]{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth]{/home/goudet/Documents/LAL/Manuscript/figures/CompareModel_sigma_InclusiveUp.pdf}
+\end{center}
+\end{subfigure}
+\caption{\label{org0ea9f20}
+Total scale (top) and resolution (bottom) uncertainties per category corresponding to the Merged model (49 NP).}
+\end{figure}
+
+
+
+\item Cross-checks
+\label{sec:org44c935f}
+
+Four additional methods are implemented in order to evaluate the mass systematic uncertainty and cross-check the baseline values obtained as explained in the previous paragraphs.
+
+
+\begin{itemize}
+\item \(\frac{\langle m_{\gamma\gamma}^{syst}\rangle}{\langle m_{\gamma\gamma}^{nom}\rangle}-1\) (\textit{ratio-of-mean}). Given, for each scale systematic uncertainty, the nominal di-photon invariant mass distributions, \(m_{\gamma\gamma}^{nom}\), and the modified (by the systematic uncertainty) distribution, \(m_{\gamma\gamma}^{syst}\),  the uncertainty value is obtained as the relative difference between the mean of the distorted and the nominal distribution.
+\item \(\langle\frac{m_{\gamma\gamma}^{syst}}{m_{\gamma\gamma}^{nominal}}-1\rangle\) (\textit{mean-of-ratio}). Given a systematic variation, for each event the ratio between the distorted invariant mass value and the nominal one is calculated. Then, the systematic uncertainty values are evaluated as the average of the distribution of the ratios minus 1.
+\item \(\frac{ \mu_{DSCB}^{syst}}{\mu_{DSCB}^{nom}}-1\) (\textit{mu-fit}). Similar to the baseline method, the systematic uncertainty is evaluated by fitting a double-sided CB to the signal \(m_{\gamma\gamma}\) distribution of the distorted samples and the nominal sample. However in this cross-check we use a larger range, $m_{\gamma\gamma} \in [105,160]$ GeV, and we fix the width parameter \(\sigma_{DSCB}\) to the value obtained in the fit to the nominal \(m_{\gamma\gamma}\) distribution, so that the mean parameter \(\mu_{DSCB}\) is the only free parameter in the fit to the distorted cases.
+\item Template method. The template method (see sec. \ref{sec:Calibration_inSituZee}) is used to measure the scale and constant term between nominal and fluctuated distributions.
+The energy scale factor ($\alpha$) and the scale uncertainty have the same definition hence are equivalent.
+\end{itemize}
+
+
+The first three methods give an estimation of the systematic uncertainties in good agreement between themselves and also with respect to the reference uncertainty values as shown in fig. \ref{fig:org41d73b3}.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{ATL-COM-PHYS-2016-1784_compare_methods_FULLMERGED_BDTVHDILEPMERGED_SIM_UP.pdf}
+\caption{\label{fig:org41d73b3}
+Comparison per category of total scale uncertainty measurement between the fit procedure, the ratio of mean, the mean of ratio and the mu fit.}
+\end{figure}
+
+Measuring uncertainties using the Template method imposes some challenges.
+First, due to the low efficiency of some categories, distributions may have events with significant weight which may create a discontinuity of the \(\chi^{\text{2}}\) distribution with respect to energy correction factors.
+The range of the H mass distribution must then be adapted to these events in each category.
+Then, one must always ensure to define the widest distribution as the data so that the template method works.
+This implies to keep track of the role attributed to the two distributions of the template method to adapt the definition of the systematic with respect to the measured scale.
+It is not always possible to determine a priori how to choose the two distributions.
+Indeed some up fluctuations have a negative effect on the mass while the majority has a positive effect.
+This may induce effects on the resolution difficult to anticipate with an automated program.
+Finally, the template method has difficulties to measure small constant term.
+This is mainly a difficulty when measuring resolution effects from scale NP.
+c is most often measured at 0, hence creating a small bias in $\alpha$ measurement.
+For these reasons, the cross-check with the template method has only been performed with the 1NP model, which has both a small number of NP (less situations to take into account when some fine tuning are needed) and large values of uncertainties (easier to measure).
+The H mass range used is [122, 128] GeV.
+The results are presented in fig. \ref{orgff41d01}.
+Further work is required to better understand the effect of the fitting range on the resolution systematic, both for the baseline and the template method, and their correlation with the scale uncertainty.
+Except for one pathological case (VHMET\(_{\text{Low}}\)), results with both method are of the same order.
+
+\begin{figure}
+\begin{subfigure}[t]{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth]{/home/goudet/Documents/LAL/Manuscript/figures/CompareTemplate_mean_InclusiveUp.pdf}
+\end{center}
+\end{subfigure}
+\begin{subfigure}[t]{\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth]{/home/goudet/Documents/LAL/Manuscript/figures/CompareTemplate_sigma_InclusiveUp.pdf}
+\end{center}
+\end{subfigure}
+\caption{\label{orgff41d01}
+Comparison per category of scale (top) and resolution (bottom) uncertainties between the baseline and template measurement methods.}
+\end{figure}
+
+
+\item Fixed mass uncertainty
+\label{sec:org220d36d}
+\label{subsec:FixedMass}
+
+The couplings analysis fixes the mass parameter to the combined ATLAS+CMS value measured in 2014 \cite{CERN-PH-EP-2015-075} : $m_{H}=125.09 \pm 0.21\ \text{(stat)} \  \pm \  0.11\ \text{(syst)}$ GeV.
+To include the uncertainty of this value into the framework, an additional NP is defined (\(\text{ATLAS\_lhcMass}\)) and added to the framework with an effect only on the mass parameter of the signal model.
+This nuisance parameter is added with a Gaussian constraint and a symmetric uncertainty of \(\frac{0.21\ \oplus\ 0.11}{125.09}=0.19\) \% common to all categories.
+
+One may argue that this total run 1 systematic may be correlated with other run 2 systematics as some run 1 numbers have been kept.
+However, two arguments favor a small correlation.
+First, the weight of the diphoton analysis in the combined mass measurement was low.
+Second, the run 1 combined mass measurement was still statistically dominated.
+Given the low expected correlation between the run 1 mass uncertainty and the run 2 systematics, it is assumed that those sources of uncertainty are decorrelated.
+\end{enumerate}
+
+\item Yield and migration uncertainties
+  \label{sec:org17f2003}
+
+The uncertainties described in this section all have an effect on the observed number of events.
+Yields are affected by a larger group of systematic uncertainties.
+They can be stored in two simple categories : theoretical and experimental.
+
+
+\begin{enumerate}
+\item Theoretical uncertainties
+  \label{sec:orgdba6640}
+
+Theoretical uncertainties take into account the treatment of uncertainties in the computation of production cross-sections and multi-parton interactions.
+They may affect any of the theoretical parameters involved in the yield parametrization of the signal.
+The theoretical uncertainties also play a major role at the interpretation level where they must be considered when comparing the observed cross-section with the SM.
+
+These parameters may change the way diphoton events are distributed in the truth bins.
+As a result, the distribution of a truth bin event over the reconstructed categories can change.
+Theoretical uncertainties will then affect the efficiency of categories and contribute as migration uncertainties.
+The effect of a yield systematic is computed by comparing the values of the parameters of interest between a nominal dataset and a modified one.
+
+The LHC Higgs Cross-Section Groups is in charge of evaluating the uncertainties linked to perturbative QCD \cite{deFlorian:2227475}.
+They provide a set of NP which modify the values of categories efficiencies and expected number of events (mostly used at the interpretation stage).
+
+The $H\rightarrow \gamma\gamma$ branching ratio for a H boson mass of 125.09 GeV \cite{CERN-PH-EP-2015-075} is 0.227\%.
+Like production cross-sections, this value suffers from uncertainties on the strong coupling constant.
+It also suffers from the approximations used in the computation of this variable, mainly for the treatment of the mass of the quarks involved in the process.
+
+The factorisation theorem allows to compute many cross-sections using the data from a wide variety of experiments condensed into PDF.
+The uncertainties on the observables of these functions may lead to changes in the measured cross-sections.
+The effect on expected yields or efficiencies of the choice of PDF is evaluated by changing the PDF in the generator, or by re-weighting events if the first solution is not available.
+
+A final set of uncertainties is defined by comparing the behaviour of the dataset under different algorithms for the parton shower : Pythia (nominal) and Herwig.
+
+\item Experimental uncertainties
+\label{sec:org4576e4b}
+
+Various experimental results contribute to the number of observed events.
+Their uncertainty affects the observed yield of the signal.
+\begin{itemize}
+\item The luminosity measurement, described in sec. \ref{sec:Detector_luminosity}, has a 3.2\% uncertainty anti-correlated with the production cross-section.
+\item Trigger efficiency uncertainty amount for 0.5\%.
+It is evaluated by comparing data and MC (see sec. \ref{sec:Detector_Trigger}).
+\end{itemize}
+
+Some systematics also contribute to migration of events from one category to another :
+\begin{itemize}
+\item Pile-up correction is performed by applying weights on MC so that the distribution of reconstructed vertices match with the data.
+Uncertainties on those weights change the MC sum of weights within a category and then change the efficiency of a category.
+This experimental uncertainty amount for about 0.5\%.
+\item The uncertainty on the primary vertex is evaluated by varying the variables entering the likelihood method.
+Its contribution is observed to be below 0.02\% and then neglected to simplify the statistical framework.
+\item Similar to pile-up uncertainty, photon identification and isolation efficiencies uncertainty affect the weights of each MC event.
+Their effect on the expected yield is evaluated by comparing the MC sum of weight in each category between nominal weights and weights modified by 1$\sigma$.
+
+\item Calibration systematics, by changing the energy of the photons, is also responsible for migrations.
+Similarly to the shape uncertainties, calibration migration uncertainties are evaluated by comparing the MC yield in each category between nominal and fluctuated distribution.
+
+\item The same methodology is also applied for more experimental uncertainties mostly related to jets : Jet Energy Scale, Jet Energy Resolution, flavour tagging, missing ET.
+\end{itemize}
+\end{enumerate}
+
+
+\item Full model
+
+  \label{sec:org5b8bbd9}
+Table \ref{tab:HGam_big_systematics} presents the full list of uncertainties in the H boson couplings analysis, along with the number of nuisance parameter for each of them.
+
+
+\begin{table}[h!]
+  \begin{center}
+    \includegraphics[width=0.7\linewidth]{/home/goudet/Documents/LAL/Manuscript/figures/systNPRank.jpg}
+\caption{Summary of sources of systematic uncertainty $\sigma_i$ ($i$ is the index to each of the unique nuisance parameters~$\theta$);
+the factor in the likelihood function ${F_\mathrm{G}(\sigma,\theta)}$ or ${F_\mathrm{LN}(\sigma,\theta)}$
+that implements their impact on signal yields,
+mass resolution and scale, and the spurious signals resulting from the background parameterization.% and the section in which they are presented.
+When acting on $N_\mathrm{S}^\mathrm{tot}$ the  uncertainty value is  the same for  all processes,
+whereas  the uncertainty has a different value for each signal process for  the case  denoted~$N_\mathrm{S}^{p}$.
+\cite{ATLAS-CONF-2017-045}}
+\label{tab:HGam_big_systematics}
+\end{center}
+\end{table}
+\end{enumerate}
+
+\input{Chapters/HGamResults}
+
+\section{Conclusion}
+\label{sec:orgffb6129}
+The diphoton analysis turned out to be a major player in the H boson search and precision measurements despite its low cross-section.
+The structure of its background allows a measurement of a bump over a smooth background.
+By a study of this shape and of the shape of the signal, the diphoton analysis is able to extract precise measurements on the H boson properties.
+Measurements of Simplified Template Cross Sections (STXS), designed to measure cross sections in mutually exclusive phase space regions are reported.
+The analysis achieved a better precision (by a factor 2) than in run 1 for the global signal strength measurement of $\mu=0.99\pm 0.14$ and showed no significant difference with respect to the SM.
+
+The luminosity at high energy ($\sqrt{s}=13$ TeV) is expected to increase by a factor of 3 until the end of run 2 (2018) and by another factor 3 until the end of run 3 (2023) at a probable center of mass energy of $14$ TeV.
+The statistical uncertainty on $\mu$ will decrease by a factor $\sim 3$ at this time and therefore will be a little bit smaller than the current experimental uncertainty (and the theory uncertainty).
+More effort have to be made in order to fully benefit from this increase of statistics, from the experimental side and from the analysis side, combining different channels.
+This will be even more true after HL-LHC, with a luminosity 80 times larger and a statistical error almost 10 times smaller.
+This can be seen in the 2013 ATLAS projections on Higgs boson couplings performed for 300 and 3000 fb$^{-1}$ of pp collisions at $\sqrt{s}=14$ TeV \cite{} and shown in fig. \ref{fig:HGam_projections}.
+
+One sees that the total error on $\mu $ on this plot for 300 fb$^{-1}$ was 0.14, the same that is achieved now.
+The error without the theory uncertainty was 0.09, while it is now already (with more than 8 times less luminosity) at a level of 0.13, because the experimental uncertainties has decreased.
+It is also clear that future analysis will put more pressure on measuring cross sections.

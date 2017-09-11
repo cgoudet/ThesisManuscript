@@ -1,0 +1,244 @@
+\begin{frame}{Full calibration}
+  To reach the physics analyses, data and simulated reconstructed events must pass a calibration procedure.
+  This procedures aim to correct the measured energy to \textcolor{blue}{\bf retrieve the true energy of the particle at the interaction point}.
+  \begin{center}
+    \begin{tikzpicture}
+      \node[anchor=south west] {\includegraphics[width=\linewidth]{Calibration_1f.pdf}};
+%%      \draw[step=1.0,black,thin] (0,0) grid (30,10);
+%%      \draw[red, line width=1mm, rounded corners =2pt] ( 20.5, 2.6 ) rectangle ( 24.3, 11 ) ;
+      \end{tikzpicture}
+  \end{center}
+  Electrons and photons follow the same steps but with dedicated analyses. 
+%%This analysis continues work from JB Blanchard \& JB de Vivie : \href{https://cds.cern.ch/record/1637533/files/ATL-COM-PHYS-2013-1653.pdf}{\bf ATL-COM-PHYS-2013-1653}.
+\end{frame}
+
+\begin{frame}{Identification variables}
+  \begin{center}
+\includegraphics[width=0.45\linewidth]{CONF-2014-032_1t.pdf}
+\end{center}
+\end{frame}
+
+\begin{frame}{Reconstruction \& Identification efficiencies}
+  Not all electrons pass the reconstruction and identification criteria. \\
+  {\bf 3 menus with increasing purity ( but deceasing efficiencies) are defined : loose, medium, tight}.
+  The efficiency of these procedures is given as a function of the $p_T$ and $\eta=-ln(tan(\theta/2))$.\\
+\begin{minipage}{0.49\linewidth}
+  \includegraphics[width=\linewidth]{CONF-2014-032_30fa.pdf}
+\end{minipage}
+\begin{minipage}{0.49\linewidth}
+  \includegraphics[width=\linewidth]{CONF-2014-032_30fb.pdf}
+\end{minipage}
+\end{frame}
+%%==========================
+\begin{frame}{Energy measurement in LAr}
+\begin{minipage}{0.3\linewidth}
+    \includegraphics[width=\linewidth]{ATLASExperiment_5f30.pdf}
+\end{minipage}
+\hfill
+\begin{minipage}{0.69\linewidth}
+\begin{itemize}
+\item {\bf Signal drift time }($\sim 600$ns) {\bf too long} for collisions every $25$ns (pile-up).
+\item Analog signal pass through an \textcolor{blue}{\bf bipolar filter } to reduce signal time.
+Shape optimize signal over pileup and electronic noise.
+\item ADC sampling every $25$ns (4 points are kept).
+\item Energy computed using \textcolor{blue}{\bf calibration constants and optimal filtering of the samples}.
+\end{itemize}
+\end{minipage}
+\begin{center}
+    \includegraphics[width=\linewidth]{MarcHDR_2e3.pdf}
+\end{center}
+
+\end{frame}
+%===================
+\begin{frame}{Reconstruction \& Identification}
+  \begin{center}
+    Reconstruction links the energy deposit in detector cells to a \\ \textcolor{blue}{\bf physical particle and its properties}.
+    \vfill
+    \begin{itemize}
+    \item Divide the central part ($|\eta|=|ln(tan(\theta /2) )|<2.47$) into towers of size $\Delta\eta\times\Delta\phi =0.25\times 0.25$
+    \item Sum energies from all cells and all layers of the tower
+    \item Sliding window ($3 \times 5$ towers ) algorithm look for $2.5$~GeV of transverse energy
+    \item {\bf Track matching and clustering} :\\
+      \begin{itemize}
+      \item no track $\rightarrow$ photon $\rightarrow 3\times 7$ cluster 
+      \item track $\rightarrow$ electron $\rightarrow 3\times 7$ cluster 
+      \item conversion vertex $\rightarrow$ converted photon $\rightarrow 3\times 7$ cluster
+      \end{itemize}
+    \end{itemize}
+    \vfill
+    Identification is to separate prompt electrons from both jets and other electrons from either hadron decay or photon conversion.\\
+    \textcolor{blue}{\bf A multivariate likelihood method using  23 variables} \\of energy deposit and tracking is used.
+  \end{center}
+\end{frame}
+%========================
+\begin{frame}{MVA calibration}
+\begin{itemize}
+\item Simulated events are passed through a full GEANT4 simulation of the ATLAS detector.
+\item Events are then categorized in $\eta$ and $p_T$ bins, separately for electrons and photons.
+\item \textcolor{blue}{\bf A multivariate analysis (MVA) is performed to compute the true energy from detector observables}.
+\end{itemize}
+Plot shows most probable value (MVP) of $E^{corr}/E^{true}$.
+  \begin{minipage}{0.49\linewidth}
+    MVA uses :
+    \begin{itemize}
+    \item Energies in all layers of the ECAL
+    \item EM shower shape variables
+    \item Barycenters of energy deposits
+    \end{itemize}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.49\linewidth}
+    \includegraphics[width=\linewidth]{CERN-PH-EP-2014-153_2fa.pdf}
+  \end{minipage}
+
+\end{frame}
+%%============================
+
+%% \begin{frame}{Inversion Procedure}
+%% Obtaining \textcolor{blue}{\bf electron scales from Z scales} need the minimizations of the following $\chi^2$'s
+%% \begin{equation}
+%% \begin{array}{l}
+%% \chi^2 = \sum \limits_{i, j\leq i} \frac{ (\alpha_i + \alpha_j - 2\alpha_{ij})^2 }{(\Delta\alpha_{ij})^2}\\
+%% \chi^2 = \sum \limits_{i, j\leq i} \frac{ (\sqrt{\frac{c_i^2 + c_j^2}{2}} - c_{ij})^2 }{\Delta^2 c_{ij}}
+%% \end{array}
+%% \end{equation}
+%% \begin{center}
+%% \begin{minipage}{0.40\linewidth}
+%%     \includegraphics[width=\linewidth]{../Method/plot/MC6_Alpha.pdf}
+%% \end{minipage}
+%% \begin{minipage}{0.40\linewidth}
+%%     \includegraphics[width=\linewidth]{../Method/plot/MC6_Sigma.pdf}
+%% \end{minipage}
+%% \end{center}
+%% \end{frame}
+
+%%==========================
+%% \begin{frame}{Photon correction}
+%% Electrons scale factors are also applied to photons. 
+%% An additionnal scale factor ($\Delta\alpha$) is measured from $Z\rightarrow ll\gamma$.
+%% \newline
+%%   \begin{minipage}{0.49\linewidth}
+%%     \includegraphics[width=\linewidth]{CERN-PH-EP-2014-153_34fa.pdf}
+%%   \end{minipage}
+%%   \hfill
+%%   \begin{minipage}{0.49\linewidth}
+%%     \includegraphics[width=\linewidth]{CERN-PH-EP-2014-153_34fb.pdf}
+%%   \end{minipage}
+%% \end{frame}
+
+%% \begin{frame}{Run 2 prerecommandations}
+%% Run 2 early analyses need scales factors for 13TeV but not enough data will be available.
+%% Need to \textcolor{blue}{ \bf estimate run 2 scales from run 1 data}.
+%% \newline
+%% Pre-recommandations are computed using $8$~TeV data reprocessed with :
+%% \begin{itemize}
+%% \item new detector geometry
+%% \item new reconstruction algorithm
+%% \item new calibration machine learning
+%% \end{itemize} 
+%%   \begin{minipage}{0.49\linewidth}
+%%     \includegraphics[width=\linewidth]{/home/goudet/Hgg/Zim/Calibration/PreRec/Official/PreRec_alpha.pdf}
+%%   \end{minipage}
+%%   \begin{minipage}{0.49\linewidth}
+%%     \includegraphics[width=\linewidth]{/home/goudet/Hgg/Zim/Calibration/PreRec/Official/PreRec_c.pdf}
+%%   \end{minipage}
+%% %Binning was changed from $34$ bins to $68$ due to the observation of sub-structures.
+%% \end{frame}
+
+%% %%=============================
+%% \begin{frame}{Run 2 pre-recommandations systematics}
+%% 2012 systematics are used for the pre-recommandations. \\
+%% {\bf Two more systematics are added in quadrature } :
+%% \begin{itemize}
+%% \item Increasing the number of bin for $\alpha$ shows sub-patterns. 
+%%   Systematic is defined as difference between a bin value and the average of its sub-bins.
+%% \item Pre-recommandations being computed with 8TeV datasets, one needs to evaluate the impact of the center of mass energy.
+%% Systematic is defined as the scale measured from $13$~TeV MC on $8TeV$ templates.
+%% \end{itemize}
+%%   \begin{minipage}{0.49\linewidth}
+%%     \includegraphics[width=\linewidth]{/home/goudet/Hgg/Zim/Calibration/PreRec/Official/PreRecSyst_alpha.pdf}
+%%   \end{minipage}
+%%   \hfill
+%%   \begin{minipage}{0.49\linewidth}
+%%     \includegraphics[width=\linewidth]{/home/goudet/Hgg/Zim/Calibration/PreRec/Official/PreRecSyst_c.pdf}
+%%   \end{minipage}\\
+%% \end{frame}
+
+%% %========================================
+%% \begin{frame}{Detector splitting}
+%%   \begin{minipage}{0.49\linewidth}
+%%     \includegraphics[width=\linewidth]{ATLASCaloPerf_2fi.pdf}
+%%   \end{minipage}
+%%   \begin{minipage}{0.49\linewidth}
+%%     \begin{itemize}
+%%     \item Detector is not uniform along $\eta$.
+%%     \item To improve resolution, \\ \textcolor{blue}{\bf calibration is performed in bin of $\eta_{calo}$.}
+%%     \item 68 and \textcolor{brown}{24} bins are used respectively for $\alpha$ and $C$.\\
+%%       {\tiny \textcolor{brown}{0} 0.1 \textcolor{brown}{0.2} 0.3 \textcolor{brown}{0.4} 0.5 \textcolor{brown}{0.6} 0.7 \textcolor{brown}{0.8} 0.9 \textcolor{brown}{1} 1.1 \textcolor{brown}{1.2} 1.285 \textcolor{brown}{1.37} 1.42 1.47 1.51 \textcolor{brown}{1.55} 1.59 1.63 1.6775 1.725 1.7625 \textcolor{brown}{1.8} 1.9 \textcolor{brown}{2} 2.05 2.1 2.2 \textcolor{brown}{2.3} 2.35 2.4 2.435 \textcolor{brown}{2.47}}
+%%     \end{itemize}
+%%   \end{minipage}
+%%   \vfill
+%%   {\bf Electrons are labelled by their $\eta$ bin}, hence Z are labeled by the combination of electrons bins.
+%%   \textcolor{blue}{\bf Scales are computed for each combination.}
+%% \end{frame}
+
+%% %%========================================
+%% \begin{frame}{Run 1 : results and uncertainties}
+%% \begin{minipage}{0.64\linewidth}
+%%   Uncertainties are evaluated as the difference between official scales and the ones measured with a changed parameter. 
+%%   They include :
+%%   \begin{itemize}
+%%   \item electron identification quality from medium to tight.
+%%   \item Z mass window 
+%%   \item electron $p_T$ cut
+%%   \item uncertainties on efficiencies scale factors
+%%   \item energy loss through bremshtrahlung
+%%   \item background
+%%   \item pile-up
+%%   \item measurement method
+%%   \end{itemize}
+%% \end{minipage}
+%% \begin{minipage}{0.35\linewidth}
+%%     \includegraphics[width=\linewidth]{CERN-PH-EP-2014-153_26f.pdf}\\
+%%     \includegraphics[width=\linewidth]{CERN-PH-EP-2014-153_27f.pdf}
+%% \end{minipage}
+%% % \newline
+%% % \vfill
+%% % Dominant uncertainties for $W$ mass.
+%% \end{frame}
+
+%% \begin{frame}{Mass measurement}
+%% \centering
+%% Higgs mass is the {\bf last unknown parameter of the standard model} :
+%% $$m_H = 125.36 \pm 0.37 \text{(stat)} \pm 0.18 \text{(syst)}$$
+%%   \begin{minipage}{0.49\linewidth}
+%%     \includegraphics[width=\linewidth]{1406_3827_8f.pdf}
+%%   \end{minipage}
+%%   \hfill
+%%   \begin{minipage}{0.49\linewidth}
+%%     \begin{tikzpicture}
+%%       \node[anchor=south west] { \includegraphics[width=\linewidth]{1406_3827_4t.pdf} };
+%% %      \draw[step=1.0,black,thin] (0,0) grid (10,4);
+%%       \draw[red, line width=1mm, rounded corners =2pt] ( 0.45, 2.65 ) rectangle ( 14.35, 3.15 ) ;
+%% \end{tikzpicture}
+%%   \end{minipage}
+%%   {\bf Statistical uncertainties highly dominant.}\\
+%% \begin{center}   Run 2 will increase sensitivity to systematics.\end{center}
+%% \end{frame}
+
+%% \begin{frame}{$\mu_{\gamma\gamma}$ measurement}
+%% $\mu_{\gamma\gamma}$ is a main variable to measure. It is related to the cross section (production probability) :
+%% $$\mu_{\gamma\gamma}=\frac{(\sigma\times BR)^{meas}}{(\sigma\times BR)^{SM}}=1.17 \pm 0.23 \text{(stat)}\ ^{+0.10}_{-0.08}\text{(syst)}\ ^{+0.12}_{-0.08} \text{(theory)}$$
+%%   \begin{minipage}{0.49\linewidth}
+%%     \includegraphics[width=\linewidth]{1408_7084_19f.pdf}
+%%   \end{minipage}
+%%   \hfill
+%%   \begin{minipage}{0.49\linewidth}
+%%     \begin{tikzpicture}
+%%       \node[anchor=south west] { \includegraphics[width=\linewidth]{1408_7084_19t.pdf} };
+%% %      \draw[step=1.0,black,thin] (0,0) grid (10,4);
+%%       \draw[red, line width=1mm, rounded corners =2pt] ( 1, 2.05 ) rectangle ( 13.7, 3.95 ) ;
+%%     \end{tikzpicture}
+%%   \end{minipage}
+%% If no improvements, \textcolor{blue}{\bf calibration uncertainty will be dominant in run 2}.
+%% \end{frame}

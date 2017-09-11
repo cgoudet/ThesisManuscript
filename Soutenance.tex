@@ -1,0 +1,349 @@
+\documentclass[a4paper]{beamer}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{caption}
+\usepackage{appendixnumberbeamer}
+\usepackage{tikz}
+\usepackage{csvsimple}
+\usepackage{tabularx}
+\usepackage{adjustbox}
+\usepackage{pdfpages}
+\usepackage{cleveref}
+%\usepackage[orientation=paysage,size=A4]{beamerposter}
+\usepackage{slashed}
+\captionsetup{labelformat=empty,labelsep=none}
+\beamertemplatenavigationsymbolsempty
+\usetheme{Boadilla}
+
+\title[Energy calibration \& Higgs couplings]{Calibration of the ATLAS electromagnetic calorimeter and measurement of the couplings of the (Brout-Englert-)Higgs boson in the diphoton channel}
+\author[Goudet]{Christophe Goudet}
+\institute[LAL]{\includegraphics[width=0.3\linewidth]{LAL.jpg} }
+
+\date[Orsay, \today]{PhD defense \\ Orsay, \today}
+\graphicspath{{/home/goudet/Documents/LAL/ExternalPlot/}{/home/goudet/Documents/LAL/Zim/Calibration/TemplateMethod/PlotsIllustration/}}
+
+\begin{document}
+\transboxin
+\begin{frame}
+\maketitle
+\end{frame}
+
+\begin{frame}{Introduction}
+\tableofcontents
+\end{frame}
+
+\section{The Standard Model of matter}
+%%=============================
+\begin{frame}{Particle content of matter}
+    Over the XX$^{th}$ century, elementary particles have been organised into a well structured model.
+
+  \begin{center} \includegraphics[width=\linewidth]{OPEN-PHO-CHART-2015-001.png} \end{center}
+\end{frame}
+%%=============================
+\begin{frame}{A mathematical framework}
+  Matter knowledge is embedded into a well defined mathematical framework based on a Lagrangian $L$.
+
+  \begin{equation}
+    L = \frac{m \vec{\dot{q}}^2}{2} - V(\vec{q})
+  \end{equation}
+
+  The dirac lagrangian describes a massive fermion field :
+  \begin{equation}
+    L = \bar{\psi} ( i\slashed{\partial} - m ) \psi
+  \end{equation}
+  
+  Imposing least action principle (similar to classical mechanic) lead to equations of motion :
+  \begin{equation}
+    \frac{\partial L}{\partial q} - \frac{d}{dt}\frac{\partial L}{\partial \dot{q}_i} = 0
+  \end{equation}
+  
+\end{frame}
+%%=============================
+\begin{frame}{Gauge invariance}
+  Symmetries are transformations which \textcolor{blue}{leave a system unchanged.}
+  Imposing symmetries on a Lagrangian changes the theory it describes.
+  \vfill
+  
+    \begin{equation}
+      \psi(x)\rightarrow e^{i\alpha(x)}\psi(x)
+    \end{equation}
+
+    Derivative affects $e^{i\alpha}$\\
+    $\rightarrow$ \textcolor{red}{\bf Invariance achieved by adding a field $A_\mu$ and changing $L$.}
+    \begin{equation}
+      \label{eq:orgc79752f}
+      \partial_\mu\rightarrow D_\mu=\partial_\mu+ieA_\mu(x)
+    \end{equation}
+    \begin{equation}
+      \label{eq:orge69917a}
+      A_{\mu} \rightarrow A_\mu(x) - \frac{1}{e} {\partial_{\mu} \alpha(x)}
+    \end{equation}
+
+
+    \includegraphics[width=0.49\linewidth]{Iliopoulos_1f.pdf}
+    \includegraphics[width=0.49\linewidth]{Iliopoulos_2f.pdf}
+
+
+\end{frame}
+%%=============================
+\begin{frame}{Spontaneous symmetry breaking}
+\end{frame}
+%%=============================
+\begin{frame}{The Standard Model}
+  list of properties
+  plot de particle content
+\end{frame}
+%%=============================
+\begin{frame}{Higgs measurement}
+\end{frame}
+%%=============================
+\begin{frame}{Run 2 objectives}
+\end{frame}
+
+%%=============================
+%% \begin{frame}{Introduction}
+%%   \begin{minipage}{0.6\linewidth}
+%%     \begin{itemize}
+%%     \item {\bf Higgs precision measurement led by electrons and photons} (and muons) .\\
+%%       \begin{center} \textcolor{red}{$m_H = 125.09 \pm 0.21 \text{(stat)} \pm 0.11 \text{(syst)} $~GeV} 
+%% (ATLAS+CMS) \href{http://journals.aps.org/prl/pdf/10.1103/PhysRevLett.114.191803}{PhysRevLett.114.191803}\end{center}
+
+%%     \item Run 2 ongoing at an increased center of mass energy of $13$~TeV. {\bf 30 times more Higgses are expected}
+%%     \item Higgs couplings may bring hints of new physics : \\ $$\mu = \frac{\sigma^{meas}}{\sigma^{SM}}$$
+%%     \item With reduced statistical uncertainties \\ $\rightarrow$ \textcolor{blue}{\bf need to reduce systematic uncertainties}.
+%%     \item Calibration is a important source of systematic.
+%%       Needs to be improved in Run 2.
+%%     \end{itemize}
+%%   \end{minipage}
+%%   \hfill
+%%   \begin{minipage}{0.33\linewidth}
+%%     \includegraphics[width=\linewidth]{yyMass.pdf}\\
+%%     \includegraphics[width=\linewidth]{1408_7084_19f.pdf}\\
+%%   \end{minipage}
+%% \end{frame}
+
+
+\section{Experimental conditions and data processing}
+
+\begin{frame}{The LHC}
+\end{frame}
+%%===========================
+\begin{frame}{General purpose apparatus}
+\end{frame}
+%%===========================
+\begin{frame}{ATLAS experiment}
+  \begin{minipage}{0.49\linewidth}
+    \includegraphics[width=\linewidth]{ATLASExperiment_1f1.pdf}\\
+    Performance goals of the ATLAS detector\\
+    \includegraphics[width=\linewidth]{ATLASExperiment_1t1.pdf}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.49\linewidth}
+    \begin{itemize}
+    \item {\bf Large acceptance}
+    \item {\bf Radiation hard}
+      \newline
+    \item \textcolor{blue}{\bf Silicon and TRT tracker in 2T magnetic field}\\
+      Measure position and momentum of charged particles
+    \item \textcolor{blue}{\bf Liquid argon electromagnetic calorimeter (LAr)} \\
+      Measure energy of electrons and photons.
+    \item {\bf Scintillating tiles hadronic calorimeter} \\
+      Measure energy of jets
+    \item {\bf Muon chambers}
+    \end{itemize}
+  \end{minipage}\\
+\end{frame}
+
+%%==========================
+\begin{frame}{ Electromagnetic calorimeter (LAr) }
+  \begin{minipage}{0.4\linewidth}
+    \includegraphics[width=\linewidth]{MarcHDR_2f30.pdf}\newline
+    \centering
+    \includegraphics[width=\linewidth]{ATLASExperiment_5f4.pdf}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.59\linewidth}
+    \begin{itemize}
+    \item $1.4$m $<r<2$m
+    \item Sampling calorimeter : \\
+      - absorber : lead\\
+      - active material : \textcolor{blue}{\bf Liquid Argon }($88$K)\\
+    \item {\bf Accordion geometry} gives uniformity and hermeticity along $\phi$.
+    \item {\bf Longitudinally segmented} for pion discrimination
+      
+    \end{itemize}
+    \centering
+    \includegraphics[width=0.6\linewidth]{shower.jpg}
+  \end{minipage}
+\end{frame}
+
+%=============================
+\begin{frame}{Data recording}
+  speak of OFC to transform electric signa to 
+  \end{frame}
+%=============================
+\begin{frame}{EM object reconstruction}
+  track reconstruction and EM clusters
+\end{frame}
+%%=============================
+\begin{frame}{EM objects calibration}
+\end{frame}
+%%=============================
+\begin{frame}{Energy scale factors}
+  \begin{minipage}{0.49\linewidth}
+    After MVA calibration, mass distribution of $Z\rightarrow ee$ for data and MC still have \\{\bf discrepancy}.
+    \newline
+    \textcolor{blue}{\bf A data-driven analysis } is performed to match data to MC distribution \\(relative matching).
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.49\linewidth}
+    \includegraphics[width=\linewidth]{CalibSupNote_Distri_m12_uncorrected.pdf}
+  \end{minipage}
+
+A correction, applied to both electrons of Z decay, is computed to shift the central value of data distribution : 
+\begin{center} \textcolor{blue}{\bf energy scale factor ($\alpha$)} \end{center}
+$$E^{corr}=E^{meas}(1+\alpha)$$
+\end{frame}
+
+%%============================
+\begin{frame}{Resolution constant term}
+  \input{/home/goudet/Documents/LAL/ExternalPlot/ResolutionConstantTerm.tex}
+  \begin{itemize}
+  \item $a$ : sampling term ( $10\%$). Linked to the fluctuations of electromagnetic showers. \\Can be simulated.
+  \item $b/E$ : noise term ( $350cosh(\eta )$~MeV ). Measured in dedicated runs.
+  \item {\bf c : constant term ($0.7\%$)}. Must be measured on data.
+  \end{itemize}
+  We observe that data distribution is larger than MC. 
+  An {\bf additional constant term (C)} is measure to enlarge MC up to the data width.
+  Both MC electrons undergo the correction :
+  \begin{center}\textcolor{blue}{\bf Resolution constant term (C) }\end{center}
+  $$E^{corr} = E^{meas}(1+N(0,1)*C)$$
+  $N(0,1)$ : a Gaussian distributed random number
+\end{frame}
+
+%%===================================
+\begin{frame}{Template method}
+\begin{minipage}{0.59\linewidth}
+  The template method is used to measure $\alpha$ and $C$ simultaneously.
+\begin{itemize}
+\item Create distorded MC (templates) with test values of $\alpha$ and $C$.
+\item \textcolor{blue}{\bf Compute $\chi^2$ between Z mass distribution of data and template}.
+\item \textcolor{blue}{\bf Fit the minimum of the $\chi^2$ distribution} in the ($\alpha,C$) plane.
+\item Fit performed in 2 steps of 1D fits : 
+\begin{itemize}
+\item fit $\chi^2=f(\alpha)$ at constant $C$ (lines) $\rightarrow (\alpha_{min}, \chi^2_{min})$ .
+\item fit $\chi^2_{min}=f(C)\rightarrow (C, \Delta C)$
+\item project $C$ in $\alpha_{min}=f(C)$, corresponding bin gives $(\alpha, \Delta\alpha)$.
+\end{itemize}
+\end{itemize}
+  \includegraphics[width=0.325\linewidth]{MC6_0_0_chi2FitNonConstVar_10.pdf}
+  \includegraphics[width=0.325\linewidth]{MC6_0_0_chi2FitConstVar.pdf}
+  \includegraphics[width=0.325\linewidth]{MC6_0_0_corAngle.pdf}
+\end{minipage}
+\hfill
+\begin{minipage}{0.4\linewidth}
+  \includegraphics[width=\linewidth]{MC6_0_0_CompareAlpha.pdf}\\
+  \includegraphics[width=\linewidth]{MC6_0_0_chiMatrix.pdf}\\
+\end{minipage}
+\end{frame}
+
+
+
+%%===================================
+\begin{frame}{Run 2 results}
+  Scales are measured with 13TeV data at 25ns
+  % \begin{itemize}
+  % \item Data are corrected with energy scales from pre-recommandations
+  % \item MC is {\bf not} smeared with pre-rec
+  % \end{itemize}
+  \begin{minipage}{0.49\linewidth} 
+    \includegraphics[width=\linewidth]{CalibSupNote_CS_alphaOff.pdf}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.49\linewidth}
+    \includegraphics[width=\linewidth]{CalibSupNote_CS_cOff.pdf}
+  \end{minipage}
+  {\bf $\alpha$  discrepancies are below $0.1\%$ } out of the crack ($1.37<|\eta|<1.55$).
+\end{frame}
+%===============================================
+\begin{frame}{Uncertainties}
+\end{frame}
+%===============================================
+\begin{frame}{Runs comparison}
+\end{frame}
+%===============================================
+\section{Measurement of Higgs boson couplings}
+\begin{frame}{Higgs boson at the LHC}
+  \begin{minipage}{0.6\linewidth}
+  \begin{itemize}
+  \item Higgs boson predicted in 1964, discovered in 2012.
+  \item Gives mass to weak boson, and fermions through Yukawa coupling.
+  \item {\bf Several production mode are available at the LHC.}
+    \begin{itemize}
+      \item ggH : $gg\rightarrow H$
+      \item VBF : $qq\rightarrow Hjj$ 
+      \item VH : $Z(W)\rightarrow Z(W)H$
+      \item ttH : $t\bar{t}\rightarrow t\bar{t}H$
+    \end{itemize}
+  \item At a mass of $125$~GeV, many decay modes available : 
+    \begin{itemize}
+    \item $H\rightarrow b\bar{b}$ : dominant decay mode ( $\sim 57\%$ ) but high background in hadronic machines.
+    \item $H\rightarrow 4l$ : low expected events, almost no background.
+    \item \textcolor{blue}{ $H\rightarrow\gamma\gamma$ : low branching ratio ($0.28\%$) but clean signature. High but smooth background.}
+    \end{itemize}
+  \end{itemize}
+\end{minipage}
+  \begin{minipage}{0.33\linewidth}
+    \includegraphics[width=\linewidth]{Higgs_XS_8TeV_sq.pdf}\\
+    \includegraphics[width=\linewidth]{higgs_br.pdf}\\
+\end{minipage}
+\end{frame}
+
+
+\begin{frame}{Likelihood Method}
+A function ({\bf likelihood}) is built to {\bf evaluate the best set of parameters ($\vec{\mu}$,$\vec{\theta}$)} of a model to agree the best with a dataset in a category.
+
+$$\mathcal{L}=\underbrace{\frac{(n_{s}(\vec{\mu},\vec{\theta})+b)^{n_{obs}}}{n_{obs}!} e^{-(n_{s}(\vec{\mu},\vec{\theta})+b)}}_{\textcolor{red}{\text{(1)}}}  \overbrace{\prod_j^{n_{obs}}\psi(\vec{x_j};\vec{\mu},\vec{\theta})}^{\textcolor{violet}{\text{(2)}}} \underbrace{e^{-\frac{\theta^2}{2}}}_{\textcolor{blue}{\text{(3)}}}$$
+\vfill
+\begin{minipage}{0.49\linewidth}
+\textcolor{red}{(1) {\bf Poissonian law} to evaluate the probability to observe $n_{obs}$($\equiv$ signal $+$ background) events when $(n_s+b)$ are expected.}\newline
+\textcolor{violet}{(2) {\bf Probability density function} of the observables $\vec{x}$ (diphoton invariant mass for example) for the $j^{th}$ event.}\newline
+\textcolor{blue}{(3) Constraint on the nuisance parameter $\theta$. See next slide.}\newline
+\end{minipage}
+\begin{minipage}{0.49\linewidth}
+\includegraphics[width=\linewidth]{Cgam_009.png}
+\end{minipage}
+\end{frame}
+
+
+
+
+\begin{frame}{Nuisance parameters}
+There are some {\bf external measurements}  that contribute to the likelihood and have some {\bf uncertainties}. 
+A {\bf free nuisance parameter} is added for each of these measurements.
+In order  to take into account these external measurements, a {\bf constraint is put on these nuisance parameters}. 
+\vfill
+For example, the luminosity is re-defined as  $L(1+\delta_L \theta_L)$, with $\theta_L$ the nuisance parameter and $\delta_L$ the uncertainty on the luminosity (assumed to be Gaussian).
+In this case, a Gaussian constraint is chosen.
+
+The contribution from luminosity will hence be :
+$$L(1+\delta_L \theta_L)e^{-\theta_L^2/2}$$
+\vfill
+\textcolor{blue}{\bf Error Estimation}\newline
+A test statistic is defined as : $t_\mu=-2ln\frac{\mathcal{L}(\mu,\hat{\hat{\theta}})}{\mathcal{L}(\hat{\mu},\hat{\theta})}$, with $\hat{\theta}$ and $\hat{\mu}$ the best (fitted) parameters, and $\hat{\hat{\theta}}$ the fitted nuisance parameters for a fixed $\mu$.\newline
+Uncertainty are given by : \textcolor{red}{$\mathbf{t_{\hat{\mu}\pm 1\sigma}=1}$} and \textcolor{red}{$\mathbf{t_{\hat{\mu}\pm 2\sigma}=4}$} in 1D Gaussian limit.
+\end{frame}
+
+
+\begin{frame}
+\maketitle
+\end{frame}
+%% ###################################################################################
+%%###################################################################################
+%%###################################################################################
+\appendix
+\input{Appendices/BackupSlides}
+\end{document}
+

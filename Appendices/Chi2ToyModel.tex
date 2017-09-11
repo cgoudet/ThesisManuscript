@@ -1,0 +1,90 @@
+\chapter{\(\chi^{\text{2}}_{\text{toy}}\) model}
+\label{sec:org4a1d604}
+\label{ChiToyModel}
+
+This section shows in the case of a simple model the behaviour of a \(\chi^{\text{2}}\) in case of fully correlated distributions.
+In the model, the distributions are replaced by continuous functions for which the integrated quadratic difference is computed.
+One of the distribution will be a simple Gaussian of mean \(\mu\) and RMS \(\sigma\).
+\begin{equation}
+f_1(x) = \frac{1}{\sqrt{2\pi}\sigma}\exp\left( -\frac{\left(x-\mu\right)^2}{2\sigma^2}\right)
+\end{equation}
+The second function will be the same normalised function for which each point is shifted by a factor (1+\(\alpha\)).
+\begin{equation}
+f_2(x;\alpha)=\frac{1}{\sqrt{2\pi}\sigma(1+\alpha)}\exp\left( -\frac{(x-\mu(1+\alpha))^2}{2\sigma^2(1+\alpha)^2}\right)
+\end{equation}
+
+\section{Constant weight model}
+\label{sec:org9fa63fa}
+
+The constant weight model assumes that the uncertainties in the traditional \(\chi^{\text{2}}\) definition are all constant and equal to 1.
+The distance between the two functions is computed by ;
+
+\begin{equation}
+\begin{array}{lcl}
+\chi^2_{\text{toy}}(\alpha) &=& \int ( f_d(x) - f_t(x;\alpha))^2 dx\\
+&=& \int ( \frac{1}{\sqrt{2\pi}\sigma}\exp\left( \frac{-(x-\mu)^2}{2\sigma^2} \right) - \frac{1}{\sqrt{2\pi}\sigma (1+\alpha)}\exp\left( -\frac{(x-\mu(1+\alpha))^2}{2\sigma^2(1+\alpha)^2}\right) )^2 dx
+\end{array}
+\end{equation}
+
+Two of the terms are simple Gaussian which gives :
+
+\begin{equation}
+\begin{array}{lcl}
+& &\int \left(\frac{1}{\sqrt{2\pi}\sigma}\exp\left( \frac{-2(x-\mu)^2}{2\sigma^2} \right)\right)^2 + \left(\frac{1}{\sqrt{2\pi}\sigma (1+\alpha)}\exp\left( -2\frac{(x-\mu(1+\alpha))^2}{2\sigma^2(1+\alpha)^2}\right) \right)^2 dx \\
+&=& \frac{1}{2\sigma\sqrt{\pi}}(1 + \frac{1}{1+\alpha} )
+\end{array}
+\end{equation}
+
+
+The third terms require more work
+\begin{equation}
+A = \int \frac{1}{\sqrt{2\pi}\sigma} \frac{1}{\sqrt{2\pi}\sigma (1+\alpha)} \exp\left( -2\frac{(x-\mu)^2}{2\sigma^2}  -2\frac{(x-\mu(1+\alpha))^2}{2\sigma^2(1+\alpha)^2}\right) dx = \int K \exp(B)dx
+\end{equation}
+
+\begin{equation}
+\begin{array}{lcl}
+B &=& -\frac{(x-\mu)^2}{2\sigma^2}  -\frac{(x-\mu(1+\alpha))^2}{2\sigma^2(1+\alpha)^2}\\
+&=& - \frac{1}{2\sigma^2(1+\alpha)^2} \left(  x^2 - 2\mu x(1+\alpha) + \mu^2(1+\alpha)^2 + (x^2 -2\mu x + \mu^2)(1+\alpha)^2 \right) \\
+&=& - \frac{1}{2\sigma^2(1+\alpha)^2} \left(  x^2 (1+(1+\alpha)^2) - 2\mu x(1+\alpha)(2+\alpha) + 2\mu^2(1+\alpha)^2  \right) \\
+
+
+&=& - \frac{1+(1+\alpha)^2}{2\sigma^2(1+\alpha)^2} \left(  x^2  - 2\mu x \frac{(1+\alpha)(2+\alpha)}{1+(1+\alpha)^2} \right) - \frac{\mu^2}{\sigma^2}   \\
+
+&=& - \frac{1+(1+\alpha)^2}{2\sigma^2(1+\alpha)^2} \left(  (x-\mu \frac{(1+\alpha)(2+\alpha)}{1+(1+\alpha)^2})^2 -  \left( \mu \frac{(1+\alpha)(2+\alpha)}{1+(1+\alpha)^2}\right) ^2 \right) - \frac{\mu^2}{\sigma^2}   \\
+
+&=& - \frac{1+(1+\alpha)^2}{2\sigma^2(1+\alpha)^2} \left( x-\mu \frac{(1+\alpha)(2+\alpha)}{1+(1+\alpha)^2} \right)^2 - 2 \frac{\mu^2}{\sigma^2} \frac{\alpha^2}{1+(1+\alpha)^2}
+\end{array}
+\end{equation}
+
+The first term is a parabola which will lead to a simple Gaussian term once in the exponential.
+The second term does not depend on x so is  just a constant.
+One  gets
+
+\begin{equation}
+\begin{array}{lcl}
+A &=&
+\frac{\exp\left(-2 \frac{\mu^2}{\sigma^2} \frac{\alpha^2}{1+(1+\alpha)^2}\right)}{2\pi\sigma^2(1+\alpha)}
+\int  \exp\left( - \frac{1+(1+\alpha)^2}{2\sigma^2(1+\alpha)^2} (x-\mu \frac{(1+\alpha)(2+\alpha)}{1+(1+\alpha)^2})^2 \right) dx \\
+&=& \frac{\exp\left( -2 \frac{\mu^2}{\sigma^2} \frac{\alpha^2}{1+(1+\alpha)^2}\right)}{2\pi\sigma^2(1+\alpha)} \frac{\sqrt{2\pi}\sigma(1+\alpha)}{\sqrt{1+(1+\alpha)^2}} \\
+&=& \frac{\exp\left(-2 \frac{\mu^2}{\sigma^2} \frac{\alpha^2}{1+(1+\alpha)^2}\right)}{\sqrt{2\pi}\sigma\sqrt{1+(1+\alpha)^2}}  \\
+\end{array}
+\end{equation}
+
+
+Finally
+\begin{equation}
+\begin{array}{lcl}
+\chi^2_{\text{toy}}(\alpha) &=& \frac{1}{2\sigma\sqrt{\pi}}(1 + \frac{1}{1+\alpha} ) -2   \frac{\exp\left(-2 \frac{\mu^2}{\sigma^2} \frac{\alpha^2}{1+(1+\alpha)^2}\right)}{\sqrt{2\pi}\sigma\sqrt{1+(1+\alpha)^2}}  \\
+&\simeq & \alpha^2( \frac{\mu^2}{\sigma^2} + \frac{1}{8}) - \alpha^3 ( \frac{1}{48} + \frac{3\mu^2}{2\sigma^2})
+\end{array}
+\end{equation}
+
+
+Fig. \ref{fig:orgda84955} shows the shape of the function around the minimum.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.6\linewidth]{/home/goudet/Documents/LAL/Manuscript/figures/FormulaChi2Toy.pdf}
+\caption{\label{fig:orgda84955}
+Shape of \(\chi^{\text{2}}_{\text{toy}}\)(\(\alpha\);\(\mu\)=90, \(\sigma\)=1.6).}
+\end{figure}

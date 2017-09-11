@@ -1,0 +1,777 @@
+\part{Experimental setup}
+\chapter{The LHC}
+\label{sec:org2fe8850}
+\section{Overview}
+\label{sec:orgf8550e4}
+Since the discovery of the atom by Rutherford in 1909 and the first collisions of particles, the study of matter relied heavily on colliding particles at the highest possible energy.
+Such collisions would induce processes which final states could be detected.
+Starting in the 50's bunches of particles could be accelerated and thrown into each other.
+The European Organisation for Nuclear Research (CERN), located at the swiss-french border near Geneva, has been hosting high energy accelerators and colliders since its creation in 1954.
+Today, its main facility is the Large Hadron Collider (LHC).
+This accelerator was designed in the 90's in order to reach unprecedented center of mass energies to search for the Higgs boson and look for BSM physics.
+
+The LHC is a circular hadron accelerator and collider of 27 km of circonference.
+It mainly works with protons but it also collides heavy ions (mostly lead) in order to study quark-gluon plasma and early universe.
+It has been built in the tunnel of the previous large scale accelerator, the LEP, which collided electrons and positrons.
+With the constraint of a 27 km accelerator, the reachable energy is function of the intensity of the magnetic field used to curve the trajectory of protons.
+At design time, the technology did not allow superconducting magnets to withstand a field high enough to bend 7 TeV protons with the required radius.
+However, the technologies improvements were nevertheless forecast and were finally achieved before the start of the construction of the LHC.
+The inauguration of the LHC was followed in 2008 by a major incident due to a short circuit which in turn created major Helium leak in the tunnel.
+Some consolidations were performed but the operating point was lowered at 7 TeV for 2010 and 2011, and 8 TeV in 2012.
+These two years are the first large scale data-taking period and are referred as Run 1.
+From 2013 to 2015, the LHC went into a planned shutdown for consolidation and updates.
+The Run 2 started in 2015 at a center of mass energy of 13 TeV.
+This energy will remain for the whole run 2, until the end of 2018.
+
+\section{Injection chain}
+\label{sec:org3f71f89}
+
+The LHC uses a large fraction of the accelerator complex present at CERN in order to bring protons at sufficiently high energy to be injected.
+The path of the protons is also a path of history as the protons start at the oldest accelerators in order to reach the latest.
+They pass from a generation of accelerator to the next in order to increase their energy and probe more deeply matter.
+Some accelerator facilities, like the PS, have been working for more than 40 years, however with some upgrades,  and are still heavily used to test the SM.
+
+Protons start their journey as hydrogen atoms in a bottle.
+After being stripped off their electron, they are accelerated in a 80 m linear collider, the LINAC 2, which brings them to 50 MeV.
+For run 3, the LINAC 4 will be used as first accelerating machine.
+$H^-$ ions will then be accelerated to 160 MeV and both electrons will be removed at the injection in the next machine.
+The LINAC is also responsible for squeezing the protons in bunches of \(10^{11}\).
+From the LINAC, bunches are injected into a 157 m circular accelerator called the Proton Synchrotron Booster (PSB).
+Once filled with several bunches, the PSB increases their energy up to 1.4 GeV and inject them into the Proton Synchrotron (PS).
+This 628 m circular accelerator again increases the energy of bunches to 26 GeV.
+Again, the bunches are injected in the Super Proton Synchrotron (SPS) which brings them to 450 GeV.
+Finally, the SPS injects the bunches into a the LHC as a new bunch train, with a separation with the other trains much above 25 ns.
+Once filled, it takes about 30 min to bring the protons to their final energy of 6.5 TeV.
+Filling a given accelerator may require several cycles of the previous accelerator.
+Finally, the full process of injection in the LHC can take about 2 hours.
+A representation of the succession of accelerators up to the LHC is provided in fig. \ref{fig:orgc7a6b45}.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.99\linewidth]{AcceleratorComplex.jpg}
+\caption{\label{fig:orgc7a6b45}
+Injection chain of the LHC.\cite{AcceleratorComplex}}
+\end{figure}
+
+
+Once filled the LHC contains 2544 proton bunches in each ring in 2017 (2208 in 2016), separated by 25 ns, ordered into trains.
+The space between trains is required for the proper running of the LHC.
+The train structure will have a significant impact on the energy response of the detector.
+This is further discussed in chapter \ref{sec:RecoID}.
+
+
+\section{Magnets}
+\label{sec:orgb3bba33}
+Circular colliders have the particularity that they can re-use the particles that they trap.
+The particles which did not interact during a bunch collision will perform another circle within the accelerator and will then collide again in a new bunch crossing.
+The second asset of circular machines is that they can integrate the energy increase of the particles over many turns, hence reducing the number of accelerating cavities.
+As explained previously, once filled, the LHC increases slowly its magnetic field and cavity fields so that protons reach 6.5 TeV.
+A linear accelerator on the other side should accelerate protons at the required energy within one length of the accelerator.
+The drawback of the circular geometry is that bending the trajectory of particles make them loose energy through synchrotron emission.
+First, this emission reduces slightly the amount of energy of the particles during one rotation.
+Secondly, the energy emitted will be absorbed by the beam pipe which should be able to withstand the levels of radiation and evacuate the heat.
+The radiation also deteriorates the vacuum within the beam pipe.
+Finally, synchrotron emission is proportional to \(m^{-4}\), with $m$ the mass of the particle.
+The choice of the particles one wants to inject in the collider is decisive regarding that energy losses for electrons will be much higher than for protons at the same energy.
+
+
+Naively, a circular accelerator requires only two types of components.
+First an accelerating cavity is necessary to provide an energy boost to circulating particles.
+This accelerating cavity has low constraints on its accelerating field as bunches can increase their energy by successive passages.
+The second component is dipole magnets which are used to bend the trajectory of particles into a circle.
+The field generated by the magnets should be variable to deal with the increasing energy of bunches.
+In a proton bunch, not all protons have exactly the same momentum.
+Over many periods, the slight difference between different protons lead to an energy spread widening and bunch lengthening.
+Two additional types of magnets are used in accelerators in order to correct for momentum inhomogeneities : quadrupoles and sextupoles.
+The quadrupoles are mainly used to squeeze the bunch along one transverse direction hence they are usually used in pair.
+The longitudinal spread of the momentum of protons is also corrected by RF cavities.
+
+
+Another point to raise in the choice of the particle content is the structure of the beam pipe.
+Opposite charge particles bend in opposite direction under the same magnetic field.
+For an electron-positron collider (or a proton-antiproton collider), it is then possible to circulate both beams within the same pipe.
+By selecting trajectories in the available phase space, one can achieve collisions in the desired interaction points.
+In the case of a proton-proton collider, one can not put both beams in the same magnetic fields.
+In order to get opposite magnetic fields, both beams must be in different pipes, shielded from one another.
+Another difficulty is then to merge the beam pipes at the interaction point and to separate the beams after.
+For the LHC, dedicated magnets have been designed in order to provide an energy of 7 TeV for each beam with a 8.3 T magnetic field of opposite directions to two independent beam pipes within a single cryostat.
+The final design of those magnets is shown in fig. \ref{fig:org5470cc3}.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\linewidth]{CERN-DI-9906025.jpeg}
+\caption{\label{fig:org5470cc3}
+Schematic of the cross-section of an LHC dipole magnet with cold mass and vacuum chamber.\cite{CERN-DI-9906025}}
+\end{figure}
+
+\section{Luminosity}
+\label{sec:orgdd48b5f}
+\label{sec:Detector_luminosity}
+
+The luminosity is a major variable to consider on a collider.
+From the standpoint of machine experts, it represents the quality of the colliding beams.
+Consequently, it represents how much interactions an experiment will be able to observe, hence how much the statistical uncertainties will contribute to final measurement.
+From the point of view of an experiment, the luminosity (\(L\)) can be expressed by :
+
+\begin{equation}
+\label{eq:orga843eb9}
+\frac{dN}{dt} = L\sigma\epsilon
+\end{equation}
+
+where \(\frac{dN}{dt}\) is the rate of observed events of a given process, \(\sigma\) the cross-section of the process and \(\epsilon\) the acceptance and efficiency of the detector, representing the fraction of produced events that can effectively be observed.
+This formula can be seen and used differently depending on the parameter of interest.
+As it is formulated in eq. \ref{eq:orga843eb9}, it can be used to predict the number of events from a given process.
+If inverted, the formula can be used to measure the cross section of a given process, by relating it to the number of observed events.
+The measurement of the Higgs boson couplings uses this strategy as it will be described in section \ref{HGam}.
+
+Even though the luminosity is of crucial importance for collisions analysis, the luminosity is firstly an accelerator property.
+It describes the properties of the colliding beams.
+It is expressed as follow :
+
+\begin{equation}
+\label{eq:org3ef5004}
+L=\frac{kN^2f}{4\pi\sigma_x^*\sigma_y^*}F
+\end{equation}
+
+with \(f\) the particle frequency in the ring (11246 Hz), \(N\) the number of protons in each bunch (10\(^{\text{11}}\)), \(k\) the number of bunches per beam.
+\(\sigma^*\) represents the transverse beam size at the collision point.
+In the case of LHC, \(\sigma_x^*\simeq\sigma_y^*\simeq15\ \mu m\).
+Finally, \(F\) is a reduction factor due to the crossing angle between the bunches at the interaction point.
+
+
+Good measurement of the luminosity is essential for analyses : it is a major systematic in some precision measurements of cross-sections.
+It is fully performed a couple times a year in dedicated runs, called Van der Meer Scans \cite{CERN-ISR-PO-68-31}, which allow the measurement of the parameters \(\sigma\)'s.
+During a scan, beams are moved with respect to each other to change their overlap, hence modifying the visible interaction rate.
+Studying the interaction rate as a function of the spatial separation of the two beams, it is possible to unfold the size of each beam.
+On the other hand, the amount of proton within each bunch ($N_1$ and $N_2$) are measured continuously by a dedicated LHC instrument.
+
+In between those scans, it is necessary to monitor the luminosity to ensure its stability.
+This is performed by measuring the visible average number of interactions per bunch crossing \(\mu^{\text{vis}}\).
+This quantity can be related to the luminosity using :
+
+\begin{equation}
+L = \frac{\mu^{vis}}{\sigma^{vis}} k f
+\end{equation}
+
+with \(\sigma^{\text{vis}}\) the visible cross-section for a specific detector and algorithm.
+\(\sigma^{\text{vis}}\) can also be expressed as the total inelastic scattering cross-section times the efficiency of the analysis.
+It is measured during the Van der Meer scan :
+\begin{equation}
+\sigma^{vis} = \mu^{vis}_{MAX} \frac{2\pi \sigma_x^{eff}\sigma_y^{eff}}{N_1N_2}
+\end{equation}
+where \(\sigma_x^{eff}\) and \(\sigma_y^{eff}\) are different (with a factor \(\sim\sqrt{2}\)) from the \(\sigma_x^*\) and \(\sigma_y^*\) of eq. \ref{eq:org3ef5004} and $\mu^{vis}_{MAX}$ is the visible interaction rate per bunch crossing observed at the peak of the Van der Meer scan curve.
+For more details see \cite{CERN-THESIS-2010-139}.
+
+Two sub-detectors in ATLAS are specifically designed to measure the visible interaction rate per bunch crossing \cite{CERN-EP-2016-117}.
+LUCID is a Cherenkov detector consisting in aluminium tubes filled with gas, placed around the beam pipe, 17m away from the interaction point, on both sides.
+The BCM detector is composed of diamond sensors placed at $z=\pm 1.84$ m around the interaction point.
+Both detectors use an algorithm which requires at least one particle hit in either the full detector or one of its sub-parts.
+Given the acceptance of the detector and a Poisson distribution of the number of interactions for each bunch crossing, \(\mu^{\text{vis}}\) can be obtained using \cite{Grafstrom:2015foa}
+\begin{equation}
+\mu^{vis} = -ln( 1-\frac{N_{OR}}{N_{BC}})
+\end{equation}
+with N\(_{\text{OR}}\) the number of bunch crossings for which a least one hit have been recorded and N\(_{\text{BC}}\) the total number of bunch crossings recorded.
+This algorithm loses sensitivity with increasing luminosity as there are fewer bunch crossings which do not record any hit.
+
+The luminosity is assumed to be proportional to the number of tracks recorded in the inner detector (see sec. \ref{sec:Detector_tracker}).
+A dedicated ATLAS trigger selects randomly collisions at a rate of 100 Hz.
+With a uniform probability over all bunches, it is in theory possible to obtain information for each of them.
+However the statistics is limiting so only average rate over a specific time period is measured.
+Additional methods, using various detector part, are able to measure the integrated luminosity over a time period, and are used to monitor the stability of the luminosity over time.
+
+The results presented in this thesis will concern the combination of data from 2015 and 2016.
+During those two years a maximum instantaneous luminosity of 1.4 10\(^{\text{34}}\) cm\(^{\text{-2}}\)s\(^{\text{-1}}\) has been reached, with a 3.2\% uncertainty \cite{luminosityForPhysics,ATL-COM-PHYS-2016-1784}.
+This uncertainty will be used in this thesis, even though an improved uncertainty of 2.1\% has recently been achieved \cite{luminosityForPhysics}.
+The evolution of the instantaneous luminosity over time during 2016 can be seen in fig. \ref{fig:org729acd8}.
+One can observe that the LHC reached its designed luminosity ($L=10^{34} \text{cm}^{-2} \text{s}^{-1}$) in 2016 and went even higher.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.6\linewidth]{ATLASPeakLumi2016.pdf}
+\caption{\label{fig:org729acd8}
+Instantaneous luminosity recorded by ATLAS as a function of time for the 2016 data-taking period.\cite{ATLASPublicLumiRun2}}
+\end{figure}
+
+
+A more commonly used variable is the integrated luminosity which integrates the luminosity over the full data-taking period.
+Its evolution since the beginning of LHC runs can be seen in fig. \ref{fig:orgb783d32}.
+One can see that the restart of the LHC for the run 2 in 2015 was a bit slow.
+3.2 fb\(^{\text{-1}}\) of luminosity has been recorded by ATLAS in 2015 compared to the expected 10 fb\(^{\text{-1}}\).
+This slow start was a choice in order to better understand the machine in 2015 in order to provide a large luminosity in 2016, which even exceeded the expectations.
+Overall, the LHC has provided astonishing performances in run 2, above expectations, and is a major contributor to the improvement of run 2 results with respect to run 1.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.6\linewidth]{ATLASLumiYear.pdf}
+\caption{\label{fig:orgb783d32}
+Integrated luminosity recorded by ATLAS as a function of time for all data-taking years.\cite{ATLASPublicLumiRun2}}
+\end{figure}
+
+
+
+\chapter{ATLAS : A Toroidal LHC ApparatuS}
+\label{sec:org6b364c7}
+
+A proton collision creates a large number of particles of different types.
+Only a subset have a lifetime long enough to reach the detector; the rest (for example b hadrons or top quark) decays within the beam pipe into more stable particles.
+The purpose of the ATLAS apparatus is to detect and measure the properties of the final state particles in order to reconstruct the history of the collision.
+
+In order to recover a maximum of information, the ATLAS detector is a general apparatus with an almost 4\(\pi\) coverage : it can detect particles in all directions of space around the collision point.
+It has a structure of cylinder with a main body, the barrel, closed by the end-caps.
+It is centred at the nominal interaction point and is fully symmetric with respect to the transverse plane.
+The detector is also designed to be fully symmetric in $\phi$ around the beam axis.
+The full coverage allows ATLAS to gather information about particles which do not interact with the detector.
+Because of the composite nature of the proton, the momentum of the colliding partons is unknown.
+However, given that two beams are colliding, one can consider at first approximation that the momentum of both partons in the transverse plane is null.
+By conservation of the momentum, the sum of transverse momenta of the final state should cancel.
+Measuring the transverse momentum of all observed particles, one can detect the presence of one non-interacting particle by the presence of missing transverse energy (MET) in the event.
+Energies carried by neutrinos can be measured in this way.
+Similarly, the detection of SUSY particles heavily relies on measuring MET as a sign of a long lived non-interacting SUSY particle.
+
+The apparatus is composed of four main layers which focus on a measurement on a given type of particle.
+The innermost layer is called the tracker and detects the passage of a charged particle.
+The next layer is the electromagnetic calorimeter (ECAL) which purpose is to stop electrons and photons in order to identify them and to measure their energy (and direction).
+Then, the hadronic calorimeter (HCAL) stops hadrons and allows for the measurement of jet energy.
+Finally, the muon chambers are the outermost component of the ATLAS apparatus.
+Muons are the only interacting particles that can escape the hadronic calorimeter.
+As such the muon chambers are designed in a similar philosophy than the tracker.
+The design choices of the sub-detectors is developed in dedicated sections.
+
+
+Finally, the ATLAS apparatus is 44 m in length for 25 meters in height.
+These impressive dimensions come with a weight of about 7000 tons.
+The general layout of the detector is shown in fig. \ref{fig:org760cc96}.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\linewidth]{ATLASExperiment_1f1.pdf}
+\caption{\label{fig:org760cc96}
+Overal layout of the ATLAS apparatus.\cite{ATLASExperiment}}
+\end{figure}
+
+\section{Coordinate system}
+\label{sec:orgfd01f9e}
+
+The coordinate system in the ATLAS frame will be widely mentioned in this thesis.
+The origin of the system is at the nominal intersection point.
+A cartesian frame (x,y,z) is defined from this point.
+The x coordinate is horizontal, orthogonal to the beampipe and pointing towards the center of the LHC.
+The y direction is defined as orthogonal to the beampipe and pointing upwards.
+Finally, the z direction is defined parallel to the beampipe in such a way that (x,y,z) is a right-handed frame.
+
+Cylindrical coordinates (\(\theta\),$\phi$,z) are also defined around this point.
+The  angle $\phi$ is defined around the beam axis with \(\phi\in[-\pi, \pi]\) and positive $\phi$ describing the upper half of the detector.
+\(\theta\) is defined as the angle with respect to the beam axis.
+In this system of coordinates, $r$ refers to the radial distance from the beam line.
+
+A commonly used variable is the pseudo-rapidity \(\eta=-ln(tan(\theta/2))\).
+This variable can in theory takes all real values.
+The ATLAS geometry allows to cover up to \(|\eta|=4.9\) which corresponds to \(\theta\simeq0.85\) degrees.
+$\eta$ is also usefull for simple computation of projection of operators in the transverse plane.
+Transverse projections (eq. \ref{eq:org28a33c2}) are widely used, such as the transverse mass in W mass measurement or MET in SUSY searches.
+
+\begin{equation}
+\label{eq:org28a33c2}
+O_T = \sqrt{O_x^2+O^2_y} = Osin\theta = \frac{O}{ch(\eta)}
+\end{equation}
+
+The difference of pseudo-rapidities (of approximately mass-less particles) is invariant under a Lorentz boost along the z axis.
+
+\section{Tracker}
+\label{sec:org62e1a18}
+
+\label{sec:Detector_tracker}
+The main purpose of the tracker is to measure the trajectories and the momentum of charged particles created at the interaction point.
+It is composed of many concentric layers of active material which send a signal, called hit, when detecting a particle.
+A particle will then create a hit in different layers all along its trajectory.
+Connecting the hits allows to reconstruct the trajectory of the particle.
+The tracker is immersed in  a uniform 2 T magnetic field generated by a superconducting solenoid.
+This field curves the trajectories of particle depending on their momentum and electric charge.
+
+The trajectories of particles are used in many ways depending on the analysis.
+First, the spatial resolution of the tracker is better than the one of the ECAL.
+It means that the tracker is used to define the $\eta$ and $\phi$ of the incoming charged particles.
+The information of the tracker is also used in the calibration procedure in order to identify electrons and to correct their energies.
+Finally, knowing the trajectory of a particle in the tracker allows to extrapolate its trajectory inside the beampipe.
+This determines the origin of the particles called vertices.
+Vertices are of two types.
+The vertices which are interactions of two protons are aligned with the bunch trajectories.
+On the contrary, some vertices are shifted in the transverse plane with respect to the interaction point.
+These vertices mainly originate from semi-long lived particles, such as b or c hadrons, which decay in flight at some distance.
+b hadrons decay vertices can be measured at a couple of millimetres from the initial interaction point.
+A precise tracker is a requirement for a precise vertex reconstruction of b hadrons and their identification.
+
+A schematic view of the tracker is proposed in fig. \ref{fig:org92c81cc}.
+A r-z view of the layout of a quadrant is shown also in fig. \ref{fig:org052773b}.
+As the innermost active material, it receives a huge amount of radiation which can damage both the active material but also the electronics.
+Its position makes it very difficult to repair or replace parts.
+The tracker and its electronics must then be able to withstand huge amount of radiation for a long time, while keeping its nominal precision.
+
+Three concentric layers of silicon pixels are disposed around the beam axis at respective radii of 50.5, 88.5 and 122.5 mm.
+These three layers are contained within a structure spanning from 45.5 to 242 mm in radius.
+In the barrel, the pixel cover z up to 400.5 mm which allows a coverage in $|\eta|$ up to 2.
+Three additional layers perpendicular to the beampipe are added up to 56 cm away from the interaction point in order to reach up to \(|\eta|=2.5\) in coverage.
+Each pixel has a minimum size of \(50\times400\) \(\mu m^2\) in the r-$\phi$ plane and can measure the position of a crossing particle down to 10 \(\mu m\).
+More that 1700 pixels support containing about 46 thousand pixels have been installed, leading to about 80 millions electronic channels.
+During the first long shutdown, a reduction of the beam pipe allowed the insertion of another layer of pixel, the Inserted B Layer (IBL) \cite{CERN-LHCC-2010-013,CERN-LHCC-2012-009}, closest to the interaction point.
+This additional layer, at a radius betwen 31 and 40 mm, with 6 millions pixels added material in front of the nominal detector and will have impact on the early run 2 calibration (see chapter \ref{sec:Calibration_calibration}).
+
+Four layers of silicon microstrips are located after the pixel detector at radii between 299 and 514 mm.
+Microstrips are also semi-conductors which detect particles through charge deposit.
+They can reach an accuracy of about 17\(\mu m\) in the r-$\phi$ plane.
+
+The outer part of the tracker is composed of a Transition Radiation Tracker (TRT).
+This detector consist of 4 mm diameter straws, filled with Argon or Xenon gas used as detection medium, stacked parallel to the beam pipe.
+A particle crossing the radiation material (fibres of  polypropylene) may emit a transition photon.
+The photon will then enter a straw, interact with the gas and induce a ionisation or a X-ray capture in the straw medium.
+The ionisation will finally induce an electric current into the straw which will be extracted out of the detector.
+The TRT spans from 554 up to 1082 mm in radius.
+Its precision is worse than the pixel and the SCT, 130 \(\mu\text{m}\), but the larger distance from the interaction point and the multiple measurements within the detector partly compensate.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.9\linewidth]{ATLASExperiment_1f2.pdf}
+\caption{\label{fig:org92c81cc}
+Schematic view of the ATLAS nominal inner detector.\cite{ATLASExperiment}}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.9\linewidth]{CERN-EP-2017-081_1f.pdf}
+\caption{\label{fig:org052773b}
+R-z view of a quadrant of the ATLAS inner detector. \cite{CERN-EP-2017-081}}
+\end{figure}
+
+
+\section{Solenoid magnet}
+\label{sec:orgc52db09}
+
+The solenoid magnet of ATLAS is located between the tracker and the electromagnetic calorimeter.
+The challenge of the design was to provide a strong (2 T) and uniform magnetic field while limiting the material.
+With additional material in front of the calorimeter the shower development will start earlier and degrade the ECAL resolution (see chapter \ref{sec:Calibration_calibration}).
+The solution found to decrease the material was to insert the solenoid magnet into the same cryostat as the ECAL, hence removing two cryostat walls.
+The second optimisation was in the  material chosen for the magnet itself.
+It is composed of a single layer coil of high-strength Al-stabilised Niobium Titanium superconductor.
+For a total mass of 5.4 tons, the solenoid magnet system represents a thickness of 0.66 $X_0$ operated at a nominal current of 7.7 kA.
+
+\section{Calorimetry}
+\label{sec:orgaf4b368}
+\label{sec:detector_calorimetry}
+
+The calorimetry in ATLAS is divided into two sub-detectors : the electromagnetic and hadronic calorimeters which aim at stopping and measuring respectively photons and electrons, and hadrons.
+To understand the logic in the design of the calorimeters a brief overview of the physical processes at play when particle cross matter will be described.
+All calorimetric detectors of ATLAS are sampling calorimeters, however with different technologies.
+In the second part, the description of the concept of such detectors is presented.
+Finally, the details of the different detectors will be described.
+
+\subsection{Interaction of particles with matter}
+\label{sec:org1dd92db}
+
+At the level of energies considered in this thesis, electrons passing through matter loose energy through two main processes : ionisation and bremsstrahlung.
+At low energy, an electron will interact with the electronic clouds of the material and exchange energy, slowly reducing its own.
+A detailed list of such processes is given in \cite{PDG2016}.
+At higher energies, the electron has an increased probability to interact directly with the nucleus.
+Because of the higher mass of the nucleus, the electron is accelerated and emits a photon.
+This process is referred as bremsstrahlung emission.
+The electron at now lower energy can continue to emit radiation and loose energy.
+By reducing its energy, the probability of bremsstrahlung emission will decrease while the probability a simple ionisation interaction will rise.
+A critical energy is defined as the energy at which the electron looses the same energy by radiation of a photon and by ionisation of the medium.
+For a simple model that will be detailed later on, we will assume that an electron below this critical energy, usually several MeV, looses energy only by ionisation and does not create additional particles.
+
+A photon also have different interactions with matter depending on its energy.
+At low energy, many processes contribute to reduce the energy of a photon or even absorbing it such as the photoelectric or Compton effects.
+At higher energy however, the interaction with a nucleus can lead to the creation of an electron-positron pair in place of the photon.
+The latter becomes dominant for energies of the order of 10 MeV, depending on the material.
+
+The radiation length ($X_0$) is a variable which is commonly used in order to evaluate the thickness, so the stopping power of a detector.
+It is defined by either the average distance after which a high energy electron has lost all but 1/e of its energy through bremsstrahlung emission, or 9/7 of the mean free path of a high energy photon before undergoing pair creation\cite{PDG2016}.
+Naively, it corresponds to the average distance after which an electron or photon will interact and create one additional particle.
+
+\subsection{Showers and sampling calorimeters}
+\label{sec:org120de35}
+
+Consider a high energy photon crossing a material.
+After a distance $X_0$ the photon will undergo pair creation.
+After in average another $X_0$, both leptons will radiate a photon through bremsstrahlung.
+Leptons and photons will again interact after another $X_0$ and so forth and create a shower of particles with decreasing individual energies.
+Let's now consider a simple model in which at each interaction the initial energy is splitted equally between the two outgoing particles.
+In this model, after crossing \(nX_0\) of matter, the particles will have an energy of \(\frac{E_0}{2^n}\), with E\(_{\text{0}}\) the energy of the initial particle.
+This cascade can only develop as long as the bremsstrahlung and pair creation processes are allowed.
+Hence, the maximum size of the shower is reached when particles energies go below the critical energy.
+Then, the remaining particles will disappear due to successive energy losses by ionisation.
+This simple model allows for a naive understanding of the shower development.
+In practice, more complex processes occur in the absorber.
+A more detailed discussion of interaction of particles with matter is proposed in \cite{PDG2016}.
+
+An example of shower development in the ATLAS ECAL is showed in fig. \ref{fig:org2e447b3}.
+Sampling calorimeters rely on forcing the creation of a shower and measuring the total energy deposited by these particles in each layer of active material.
+The shower is enhanced by a heavy material, lead or iron usually, called the absorber which also stops most of the generated secondary particles.
+The absorber is a passive material hence thin layers  of active material, which actually measures the deposited energy, are interleaved with layers of absorber.
+%In ATLAS, two types of active material are used, liquid Argon (LAr) and plastic scintillators.
+
+In a sampling calorimeter, only a fraction of the incident energy is effectively deposited in the active material.
+The rest, usually the majority, is lost in the passive material.
+The resolution of such detector is then worse than the resolution of a homogeneous calorimeter.
+Using test beams and simulation, it is possible to evaluate the fraction of energy effectively deposited in average in the active material in order to retrieve the incident energy from the sum of deposited energy by the shower.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.6\linewidth]{shower.jpg}
+\caption{\label{fig:org2e447b3}
+Simulation of an electromagnetic shower in the ATLAS LAr calorimeter.}
+\end{figure}
+
+
+The detection of the shower is performed in the active material.
+Two technologies are of interest in the ATLAS calorimetry : scintillating plastic and noble liquid.
+When crossing a scintillating plastic, a particle will ionise and excite the medium.
+The desexcitation of the medium is performed by emission of low energy photons.
+These photons are directed toward a photomultiplier and counted.
+In these processes, the amount of photons detected is proportional to the number of crossing particles.
+The second technology used in ATLAS relies on liquid Argon as active material.
+When crossing the Argon, the particle will also ionise the medium and create secondary electrons of low energy.
+Thanks to a high voltage, electrons will drift toward a cathode and induce an electric current proportional to the number of electrons drifting in the medium.
+A schematic of the ionisation processes in an Argon gap in ATLAS is shown in fig. \ref{fig:org7afc547}.
+Considering an electron drift velocity \(v\), one can easily understand the electrical signal shape.
+A discussion on its treatment is performed in section \ref{Calibration_OFC}.
+Let's consider that a passing particle created in a uniform way in the gap N\(_{\text{0}}\) ionisation electrons which start to drift.
+During the time \(\delta t\), electrons produced closer than \(v\delta t\) of the cathode will be absorbed and will not contribute to the electric current anymore.
+Hence the current will have a triangular shape with an integral proportional to N\(_{\text{0}}\) (see fig. \ref{fig:org389d992}).
+
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.6\linewidth]{MarcHDR_2f30.pdf}
+\caption{\label{fig:org7afc547}
+Schematic of particle detection in a sampling calorimeter}
+\end{figure}
+
+\subsection{ECAL}
+\label{sec:org1c46fb6}
+
+The electromagnetic calorimeter (ECAL) is a central component in electroweak precision measurement.
+It is responsible for stopping, identifying, and measuring the energy of photons and medium to high energy electrons (the inner detector is not expected to improve significantly the performances of the ECAL for electrons above 20 GeV).
+Its design has been optimised to target the Higgs boson search in particular in the diphoton and four leptons channels.
+Those analyses required an efficient identification and a large background rejection specially against boosted \(\pi^0\) which decay in a collimated photon pair.
+A schematic of the ATLAS calorimetry modules, including the hadronic and electromagnetic calorimeters is shown in fig. \ref{fig:orge5c6ca3}.
+
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.6\linewidth]{ATLASExperiment_1f3.pdf}
+\caption{\label{fig:orge5c6ca3}
+Schematic of the ATLAS calorimetry modules.\cite{ATLASExperiment}}
+\end{figure}
+
+The active medium of the ATLAS ECAL is liquid Argon maintained at a temperature around 89 K.
+A precise monitoring of the cryostat temperature is performed as it has a major impact in the energy measurement.
+With increasing temperature the density of the Argon decreases \cite{VANITTERBEEK1960931}.
+Then, the interaction probability of traversing particles, the number of ionisation particles and finally the integrated current are decreasing.
+Furthermore, the increase in temperature increases the friction of drifting electrons with the medium hence reducing their velocity.
+As the signal is also inversely proportional to the drift velocity, a higher temperature will also reduce the measured energy (see \cite{ATLAS-TDR-2} paragraph 2.1.2.3).
+Finally a total effect on the measured energy of \(-2\%/K\) is expected.
+This effect is observed in the comparison of in-situ energy scale factors between 2015 and 2016 runs (chapter \ref{sec:Calibration_calibration}).
+
+A major singularity of the ATLAS ECAL is its accordion shape.
+When placing straight plates in the transverse plane of a cylinder, the distance between the plates increases with the radius.
+For precision measurement it is preferable for the LAr gap to be constant everywhere in the barrel.
+The accordion geometry, an original idea of D. Fournier \cite{fournier:in2p3-00020706},  consists in plates with a wave form such that the angular coverage of the plate is constant as a function of r.
+The angle of the wave is also a function of r such that in the barrel the gap between two plates is constant with r.
+With carefully computed properties, these accordion shaped plates can fit next to each other without any gap in the azimuthal angle.
+In the barrel, 1024 plates have been used in order to obtain a full coverage.
+In the end-cap, the different geometry of the detector made impossible to have a constant LAr gap.
+Thus, the gap width increases with the distance from the beam pipe.
+To compensate for this, the high voltage (HV) on the electrodes also increases.
+The accordion geometry in the barrel is partially represented in fig. \ref{fig:org246373c}.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.9\linewidth]{CERN-THESIS-2014-122_4f9.pdf}
+\caption{\label{fig:org246373c}
+3D view of the segmentation of a module of the ATLAS barrel electromagnetic calorimeter.\cite{CERN-THESIS-2014-122}}
+\end{figure}
+
+The electromagnetic calorimeter of ATLAS is composed of two main parts.
+The barrel parts are two cylinders, coaxial with the beam pipe, which join at $\eta=0$ with a gap of 4 mm between them.
+An end-cap component of the ECAL is placed at each end of the barrel.
+Each end-cap is composed of two co-axial wheels, with the same technology but different design with respect to the barrel.
+Because the barrel plays a dominant role in precision measurements, its design is described in more details than the end-cap.
+Two views of the barrel can be seen in fig. \ref{fig:org246373c} and \ref{fig:org2f7ee32}.
+
+
+
+Both barrel and endcap calorimeters are a succession of plates of the same pattern.
+This pattern is composed of the succession of absorber plates followed by active material.
+The absorber plate is a layer of lead between two thin (0.2 mm) layers of stainless steel mainly used for mechanical purposes.
+Depending on their position, the lead layers have different thickness.
+In the innermost part ($|\eta|<0.8$), absorbers have a thickness of 1.53 mm.
+Around $\eta=0$, this corresponds to about 22 radiation lengths (to which one should add \(\sim 3\ X_0\) before the accordion).
+But with increasing $\eta$, a particle will have to cross more matter and will feel an effective larger thickness.
+In this case, the electromagnetic shower will develop earlier in the detector.
+To profit of the full detector at larger $\eta$, the lead plates are reduced down to 1.13 mm thick for $\eta$ above 0.8 in the barrel.
+At the transition, the thickness of the detector (counted in number of $X_0$) decreases.
+
+The active part of the detector is contained in a gap of 4.5 mm between two lead plates.
+The center of the gap is occupied by a 0.3 mm copper electrode at a nominal potential of 2000 V.
+The rest of the volume is filled with liquid Argon.
+Electrodes are maintained at the center of the gaps by a light honeycomb spacer.
+The electrons created in both gaps will drift toward the electrode which will send out the electric signal by capacitive coupling.
+
+As a function of $\eta$, the cells are directly obtained by etching the copper plate and separating each part electrically.
+This method allows more freedom in the definition of cells width and depth.
+They are defined as rectangular shaped and projective in $\eta$, meaning that they point toward the nominal interaction point, as shown in the schematic on one plate in fig. \ref{fig:org2f7ee32}.
+This make the structure of the cells tilting as a function of $\eta$ and with a constant width in $\eta$.
+Three different zones, as a function of R, have been etched with different sizes.
+They are referred as layers : L1, L2 and L3.
+The L1, closest to the beam pipe, has a high granularity and small depth.
+Each cell is 4.69 mm wide (\(\Delta \eta\)=0.0031) and 90 mm deep,  which correspond to 4.3 $X_0$ considering the absorber trapped in the wave structure between two plates.
+This first layer is designed primarily to reject QCD background (mainly pions).
+Two photons produced by the decay of a boosted \(\pi^{\text{0}}\) have a typical opening angle of \(tan \theta \simeq 2/\gamma\).
+For a 50 GeV pion, this angle would reach 0.0024 radians.
+The dimensions of the cells in the L1 correspond to an effective angle of 0.0015, which allow to observe two distinct energy deposit for this kind of events.
+Figure \ref{org248c8cf} shows a typical difference between a \(\pi^0\) and a prompt photon deposits in the first layer.
+Each of the cells has its own readout, located in front (inner radius) of the ECAL.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{CERN-LHCC-96-41_6f17.pdf}
+\caption{\label{fig:org2f7ee32}
+Cut view of the cells organisation in the R-$\eta$ plane of ATLAS barrel electromagnetic calorimeter.\cite{CERN-LHCC-96-41}}
+\end{figure}
+
+
+\begin{figure}
+\begin{subfigure}[t]{0.49\linewidth}
+\begin{center}
+\includegraphics[width=0.8\linewidth]{pi0.png}
+\end{center}
+\end{subfigure}
+\begin{subfigure}[t]{0.49\linewidth}
+\begin{center}
+\includegraphics[width=0.8\linewidth]{photon.png}
+\end{center}
+\end{subfigure}
+\caption{\label{org248c8cf}
+Energy deposit of 21 GeV $\pi^0$ (left) and a 31 GeV photon (right) in ATLAS ECAL.\cite{pi0}}
+\end{figure}
+
+
+The second layer, with its thickness of 16 $X_0$, is designed to receive most of the energy deposit of photons and electrons.
+The width of L2 cells correspond to exactly 8 cells of the first layers ($\Delta\eta\times\Delta\phi=0.025\times 0.0245$) so that L1 and L2 cells are aligned and projective in $\eta$.
+The length of a cell vary as a function of $\eta$ to keep a constant thickness in term of radiation length.
+This is particularly visible at the change of absorber density ($\eta=0.8$) in fig. \ref{fig:org2f7ee32}.
+The L2 cells are read from the back (outer radius) of the ECAL, using small extensions of the cells between L3 cells.
+
+Finally, a third layer has been etched at large radius in order to evaluate the amount of energy punching through the second layer.
+This layer is mostly used to better correct the energy of high energy true photons and electrons.
+Because positioning precision is less important for this layer, the cells have been extended to $\Delta\eta=0.05$.
+The third layer is also projective in $\eta$ but its depth is not constant.
+Instead the depth of each cell correspond to the remaining space between the second layer and the end of the rectangular shaped module.
+The readout is also performed on the back of the cells.
+
+Because of the waves, the plates are not projective in $\phi$, as can be observed  in fig.  \ref{fig:org246373c}.
+There, the straight dashed lines cross many plates over the depth of the detector.
+As a result, even without any shower, the energy deposit of a particle is bound to be distributed among several gaps in $\phi$.
+The measurement of muon energy deposit in the ECAL, mostly used in calibration, use this property and adds the signals of two neighbouring cells.
+The magnetic field further bends the trajectories of charged particles in the $\phi$ directions, which impose to naturally cross many different plates.
+To limit the number of readout cells, electrodes are grouped (in the barrel) into groups of 16 in the L1 and 4 in the L2 and L3, called towers, and their signals are summed together.
+
+
+
+The endcap part of the ECAL consists in two wheels, one for each side.
+The active part is 63 cm thick and spans radially between 330 and 2098 mm.
+This allows to cover $1.375<|\eta|<3.2$.
+One can notice that there is an overlap in coverage between the barrel and endcap calorimeters.
+This region, $1.375<|\eta|<1.475$ is referred as the crack.
+In this region, the energy measurement is performed by combining both calorimeters.
+However, there is a lot of passive material in between (cryostats, cables, \ldots{}) which imply a large energy loss.
+Scintillators have been installed in between the detectors to evaluate this energy loss.
+The extended crack, defined as $1.37<|\eta|<1.52$ is currently removed from precision analyses of photons (discussed later in this thesis).
+
+
+The development of the electromagnetic shower may start early in the detector due to the integrated material in front of the calorimeter.
+The first layer of the calorimeter is not fit to disentangle a shower which started in the lead with another which had lost energy before and into the lead.
+
+In order to be able to correct the lost energy up to the calorimeter, a presampler is disposed in front of the calorimeter.
+The presampler is also useful in identifying photons which converted late in the tracker or even in the cryostat material.
+The absorber is absent from the presampler, instead this role is played by the integrated material in front of it.
+32 modules are disposed around the beam axis, consisting in 11 mm long copper plates separated by LAr gaps.
+The readout cells cover \(\Delta\eta\times\Delta\phi=0.025\times0.1\) in the barrel.
+In the endcap, the presampler covers $1.4<|\eta|<1.8$.
+
+\subsection{HCAL}
+\label{sec:orgeacc015}
+
+The hadronic calorimeter aims at stopping hadronic particles and measuring their energy.
+It extends from 2280 to 3865 mm from the interaction point in radius and up to 6 m along the beampipe.
+
+It is also a sampling calorimeter composed of four parts.
+The central part of the barrel ($|\eta|<1.7$) is a tile calorimeter composed of the succession of steel absorber and scintillating plastic as active material.
+When crossing the scintillator, a particle  ionises the polystyrene and induces an ultraviolet scintillation light.
+Two sides of the scintillating tiles are read out by wavelength shifting fibres and sent to different photo-multipliers.
+
+In the endcap, the occupancy of the HCAL is expected to be far higher than in the barrel.
+The detector must then be both radiation hard and granular in order to separate the numerous jets in this region.
+The LAr technology has been re-used instead of the tile.
+On each side of the detector, two independent 2 m radius wheel of LAr calorimeter cover a total region of $1.5<|\eta|<3.2$.
+The inner wheels contain 25 mm thick copper plates and outer wheels have 16 plates 50 mm thick.
+In both case, the plates are separated by 8.5 mm of liquid Argon.
+
+Finally, a forward calorimeter is installed within the HCAL endcap wheels to cover $3.1<|\eta|<4.9$.
+It is about 1.5 m long situated at 4.5 meters of the interaction point and divided into three modules.
+The module closest to the interaction point uses copper as absorber while the next two use tungsten.
+The electrode structure consists in small diameter rods, parallel to the beam pipe, which contain 0.5 mm LAr gaps.
+
+The full schematic of the hadronic calorimeter is presented in fig. \ref{fig:orge5c6ca3} along the ECAL.
+
+
+\section{Toroid magnet}
+\label{sec:org509468c}
+
+The toroid magnet function is to bend the trajectory of the muons in order to measure their momentum.
+This choice of geometry was made in order to provide a magnetic field to a large volume.
+However this field is not homogeneous so the reconstruction of bent tracks is non-trivial.
+The magnet system in the barrel is composed of 8 racetrack coils disposed  around the calorimeters parallel to the beam axis such as in fig. \ref{fig:orga5e07f8}.
+This system provides an average magnetic field  of 0.5 T for a nominal injected current of 20.5 kA in the coils.
+This field is monitored by 1800 sensors across the detector.
+Smaller toroids are also placed at each endcaps and provide an average magnetic field of 1 T.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.5\linewidth]{ATLASExperiment_2f1.pdf}
+\caption{\label{fig:orga5e07f8}
+Schematic of ATLAS magnet system.\cite{ATLASExperiment}}
+\end{figure}
+
+
+\section{Muon chambers}
+\label{sec:orga8c4c2b}
+
+In the detector described so far, not much information can be obtained on the muons.
+In particular in the inner detector it is impossible to differentiate muons from pions.
+Muons are also minimum ionising particles and do not have much sensitivity to the material they cross.
+As a result they cross calorimeters without losing much energy.
+An additional detector is necessary to measure their properties specially at high momentum where the inner detector does not give a good measurement, and to identify them among non muon tracks.
+The muons chamber (MS) are tracker-like detectors set outside the calorimeters.
+
+Like the previous subdetectors, the muons chambers are of different kind in the barrel and the endcap.
+In the barrel, 8 superconducting coils have been placed around the HCAL in order to create a toroid magnetic field up to $|\eta|<1.4$.
+The active material is disposed both between and inside the coils in three concentric layers at approximately \(R=5,7.5,10\) m.
+Each layer is composed of 16 modules separated between large and small ones.
+Large modules are set in-between coils.
+Small modules are put between large ones at a different radius.
+In doing so, an overlap is created at the transition between large and small modules which allows for a full $\phi$ coverage as well as an improved alignment procedure which can use tracks detected by two modules.
+Each of these modules is a Monitored Drift Tube (MDT) chamber composed of 3 to 8 layers of drift tubes.
+Resistive Plate Chambers (RPC) are disposed around the central layer modules and at the outermost part of the detector.
+These detector are not involved in precision measurement but are used for the muon trigger.
+
+The endcap is organised perpendicular to the beam in four discontinuous layers respectively at 7.4, 10.8, 14 and 21.5 m.
+The first layer is about 6 m long and separated into 4 modules.
+For the module closest to the beam pipe, Cathode-Strip Chambers (CSC) have replaced the MDT's to improve detector resolution in this dense region.
+CSC also work better in high rate environment.
+Just behind the first layer lies the endcap toroid magnet.
+Above it, from 6 to 9 meters radius is placed the second layer of MDT composed of 2 modules.
+Finally, the last two 10 m long MDT layers are placed outside the detector as external wheels.
+Thin Gap Chambers (TGC) have been chosen for muon triggering in the endcap.
+A first layer is disposed between the HCAL and the first layer of MDT.
+2 layers have been placed around the second layer of MDT.
+A last layer has been put about 50 cm after the third one.
+
+
+Two schematics of the full muon chambers are shown in fig. \ref{fig:orgd7a60b3}.
+As a whole, the muon chambers can precisely measure muon tracks up to $|\eta|<2.4$. %2.7 puis correction de Fabrice Hubaut
+At higher pseudo-rapidity, a non negligible amount of background leaks from the calorimeters so a shielding module is put instead.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.99\linewidth]{ATLASExperiment_6f1.pdf}
+\caption{\label{fig:orgd7a60b3}
+Schematic of the muon chambers at constant z (left) and x (right).\cite{ATLASExperiment}}
+\end{figure}
+
+
+
+
+\section{Trigger}
+\label{sec:org90db134}
+\label{sec:Detector_Trigger}
+
+At the LHC at the nominal working point and luminosity a bunch crossing occurs every 25ns with an average of 25 collisions.
+This means that an average of 10\(^{\text{9}}\) collisions take place every second.
+The cross section of the SM processes spans over more than fourteen orders of magnitude, meaning that a small set of processes will represent the overwhelming majority of the observed events.
+Because of the limited bandwidth available to record data, a selection must be performed in order to give priority in the bandwidth to some signatures.
+The trigger \cite{CERN-EP-2016-241,CERN-PH-EP-2011-078} is responsible for the identification of the desired signature and the rejection of the remaining events.
+This procedure must be fast (because of the high frequency of collisions) and robust (as discarded data are forever lost).
+The trigger is organised into two sub-modules : the Level 1 (L1) and High Level Trigger (HLT), which can be seen in fig. \ref{fig:org4a2d846}.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\linewidth]{CERN-EP-2016-241_1f.pdf}
+\caption{\label{fig:org4a2d846}
+Simple view of the ATLAS trigger system.\cite{CERN-EP-2016-241}}
+\end{figure}
+
+
+\subsection{Menus}
+\label{sec:org5d5bf3d}
+
+The trigger is organised into menus, which aim at selecting one type of signature.
+For example, the trigger menu \(\text{HLT\_2e12\_lhloose\_L12EM10VH}\) used in the in-situ 2015 $Z\rightarrow ee$ analysis aims at identifying a pair of electrons with a transverse energy more than 12 GeV for each.
+\(\text{HLT\_2e12\_lhloose}\) means that at the HLT two objects above 12 GeV with the electron loose likelihood are required.
+L12EM10VH means that at the L1 two objects above 10 GeV with a slightly variable (V) threshold and hadronic isolation (H) are required.
+The diphoton HLT trigger used in the 2015+2016 analysis is \(\text{g35\_loose\_g25\_loose}\) following the L1 trigger \(\text{L1\_2EM15VH}\).
+A menu is not a fixed object : some of its properties can evolve with time.
+Depending on the data-taking conditions, menus can be switched on or off in between runs.
+During data taking periods, a calibration run for the ECAL is usually performed on mornings between two beam circulations in the LHC.
+For such a run a different trigger configuration is setup to prioritise dedicated triggers.
+
+Trigger properties can also be changed during a run.
+As beams interact, the instantaneous luminosity decreases as a function of time, hence changing the data conditions.
+Toward the end of a run, the pile-up conditions are better and the occupancy of the detector is lower.
+Then the trigger occupancy decrease and bandwidth capacity could be left unused.
+Additional menus are switched on at lower luminosity to benefit for either lower pile-up and bandwidth availability.
+For example, triggers selecting more events can be switched on later in the run.
+Finally, trigger menus can also be prescaled; which means that instead of collecting all the events which match the conditions, only 1/N events will be recorded.
+The value of N can change throughout the run.
+Fig. \ref{fig:orgae8f23c} shows a typical L1 trigger rate for the 2015 data taking period as a function of luminosity.
+One would expect a linear correlation between those two variables as more luminosity means more events to trigger.
+One can instead see an increase of trigger rate at low luminosity, which corresponds to new triggers being enabled.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.6\linewidth]{CERN-EP-2016-241_6fa.pdf}
+\caption{\label{fig:orgae8f23c}
+L1 trigger rates grouped by trigger signature during an LHC fill in October 2015 with a peak luminosity of \(4.5\times10^{33} cm^{-2}s^{-1}\). \cite{CERN-EP-2016-241}}
+\end{figure}
+
+
+\subsection{L1}
+\label{sec:org0661072}
+
+The purpose of the L1 trigger is to perform a fast pre-selection of events in order to drastically reduce the event rate for the HLT.
+Fast custom electronics is used to ensure a decision taken in less than 2.5 \(\mu\text{s}\).
+During this latency, the detector signals are stored in a front-end pipeline.
+Two sub-systems treat the data from respectively the calorimeter (L1-CALO) and muon chambers (L1-MUON).
+The data from the tracking will be used in the HLT.
+The L1-CALO \cite{ATL-COM-DAQ-2008-002} identifies regions with large energy deposit in the electromagnetic calorimeter.
+In order to be fast, the granularity of the detector is reduced : a trigger tower contains 16 middle cells of the ECAL and combine the information from cells of all layers.
+A \(4\times 4\) trigger towers region of interest (RoI) is defined if a transverse energy threshold is reached.
+Isolation vetos can be defined by looking at the energy deposit in trigger towers adjacent to the RoI but also behind.
+Jets RoI's can be defined by either \(4\times 4\) or \(8\times 8\) tower cluster.
+The output of L1-CALO and L1-MUON are merged and eventually sent to the HLT.
+At this point the event rate goes down from 40M Hz to 100 kHz.
+
+
+\subsection{HLT}
+\label{sec:org17d9ce6}
+
+The HLT is a farm of processors connected by fast networks located at the surface above the ATLAS detector.
+Algorithms run on those processors have access to both finer granularity data and tracking information from the ID to make its selection.
+It consists in two steps : a fast reconstruction algorithm which removes the majority of the events and a precision reconstruction algorithm.
+The reconstruction of the events follows the same procedure as the offline algorithms described in chapter \ref{sec:RecoID}.
+HLT is divided into numerous menus with different selection.
+Menus with the same HLT selection can further differ from the L1 menu which feed them.
+If one HLT menu accepts the event, the data are sent to the dataflow to be recorded.
+In the case where the HLT computation takes too much time or crashes, the process is stopped and the data are sent to a dedicated stream (debug stream).
+At the end of the run, the HLT is rerun on the debug stream and selected events are added to the main stream.
+Most of the time, these events correspond to jets which have punched through the muon chambers.

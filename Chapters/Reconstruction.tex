@@ -1,0 +1,362 @@
+\part{From signal to calibrated particle}
+\label{sec:org4bab938}
+\label{Calibration}
+
+
+
+\chapter{Identification and energy reconstruction of electrons and photons}
+\label{sec:org8a9e874}
+\label{sec:RecoID}
+
+
+
+A particle crossing the detector and stopping in the ECAL will only deposit a fraction of its  initial energy in the active material.
+This energy deposit is then transformed into an electrical signal which has to be interpreted back into a particle type and its corresponding energy.
+The energy measurement as well as the particle identification must take into account a wide range of processes from material interaction to electronic response.
+From the raw electrical signal output of detector cells, successive studies derive corrections to reconstruct the initial energy of the particle from subdetector information.
+Those calibrations aim at improving the matching of reconstructed and true energy and to optimize the detector resolution.
+A precise evaluation of the limits of each correction with independent cross-checks allow the evaluation of systematic uncertainties which will then be propagated to the final measurement.
+
+This chapter describes the main steps to reconstruct electric signals from the cells of the detector to electron and photons objects with their its kinematical properties.
+The next chapter will focus on the calibration procedure of the energy of electromagnetic particles, mostly described in the context of run 1.
+The run 2 improvements and modifications are described simultaneously.
+Finally, chapter \ref{sec:orgfabb545} will detail my personal contribution : the in situ electron calibration using $Z\rightarrow ee$.
+
+\section{Energy measurement from electrical signal}
+\label{Calibration_OFC}
+As described in section \ref{sec:detector_calorimetry}, a particle passing through the liquid Argon will deposit energy through ionization of the active medium.
+The ionisation creates a triangular shaped electric signal in the electrode (anod).
+This signal is then passed through amplifiers with gains of 1, 9.9 and 93, called respectively low, medium and high,  which are determined to cover for the wide range of energies available at the LHC.
+As seen in fig. \ref{fig:org389d992}, the detector response takes longer than the 25ns time lapse between each collision at the LHC.
+Thus, the energy deposited in the calorimeter cells during previous collisions must be considered.
+To reduce this out-of-time pileup signals are passed through a bipolar filter.
+The filter changes the shape of the signals from triangular to peaked as shown in fig. \ref{fig:org389d992}.
+With this filter, the information related to the energy deposited in the current beam crossing (indexed by a BCID = Beam Crossing IDentifier) is concentrated in the peak while the negative tail will allow the average contribution of pile-up to be null.
+The peak of this signal is finally sampled at the LHC frequency of 40 MHz.
+If the L1 trigger answer is positive, the choice of the gain is performed using the second (and highest) sample.
+The signal is then digitized and sent out of the detector to the back-end boards (Read Out Driver=ROD).
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.6\linewidth]{jinst10_09_p09003_f3.pdf}
+\caption{\label{fig:org389d992}
+Shape of the LAr output signal before and after the bipolar filter. The dots represent the ideal samplings for energy determination.\cite{jinst_p09003}}
+\end{figure}
+
+The energy deposited in a cell is computed online in the ROD.
+Using the optimal filtering technique \cite{Cleland:2002rya} the amplitude of the initial signal (\(A\)), which is proportional to the deposited energy, is computed.
+This technique relies on the optimization of coefficients (Optimum Filtering Coefficients) which optimize the reconstructed energy according to eq. \ref{eq:orge369349}.
+
+\begin{equation}
+\label{eq:orge369349}
+A = \sum_{j=1}^{N_{sample}} a_j(s_j-p)
+\end{equation}
+
+p refers to the pedestal : the mean value of the samples when no signal is present.
+It is regularly measured in dedicated runs.
+s\(_{\text{j}}\) represents the different samples of the signal and a\(_{\text{j}}\) the optimal filtering coefficient.
+$a_j$ are determined by optimising energy reconstruction on simulations.
+
+This last step is performed on digitized signal, meaning that the amplitude is measured in ADC count.
+As one wants to retrieve the deposited energy in MeV, the formula eq. \ref{eq:orgc7f6c74} is applied, which correct for the different electronic corrections applied to the signal.
+
+\begin{equation}
+\label{eq:orgc7f6c74}
+  E = F_{\mu \mbox{A}\rightarrow \mbox{MeV}}
+  \times
+  F_{\mbox{DAC}\rightarrow\mu\mbox{A}}
+  \times
+  \frac{1}{\frac{M_{\mbox{phys}}}{M_{\mbox{cali}}}}
+  \times G \times A
+\end{equation}
+
+\(F_{\mu \mbox{A}\rightarrow \mbox{MeV}}\) relates the energy deposited in the cell to the electric current out of the cell.
+It is determined using test beam and in-situ data of the LHC.
+\(F_{\mbox{DAC}\rightarrow\mu\mbox{A}}\) relates the ADC count to the signal amplitude and is measured using injected signals into the electronics.
+\(\frac{1}{\frac{M_{\mbox{phys}}}{M_{\mbox{cali}}}}\) corrects for the difference between physics and injected pulse at a constant amplitude and G represents the gain of the channel (in DAC/ADC).
+This energy \(E\) will then be the input for the offline analyses.
+
+In order to increase the trigger rate for the run 2 of the LHC, or maintaining the rate with higher detector occupancy, \(4\) signal samples are used to determine the deposited energy instead of \(5\) in run 1.
+While this significantly reduces the needed bandwidth for an event, it reduces also in principle the quality of the energy reconstruction.
+The most energetic sample plays a major role in the energy deposited as it has an important contribution to the measurement of the amplitude of the signal.
+The uncertainty on the energy determination is reduced by the other samples.
+But, the remaining samples will however have a reduced impact.
+The performances of the energy reconstruction may then change between the two runs due to the different number of samples used.
+Figure \ref{fig:org3364702} shows a comparison of the reconstructed energy for the same events with either 4 or 5 samplings as a function of $\eta$.
+
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.6\linewidth]{/home/goudet/Documents/LAL/Zim/Calibration/Data15_13TeV/deltaE_E_OFC.png}
+\caption{\label{fig:org3364702}
+Comparison on 2012 \(Z\rightarrow ee\) data of reconstructed energy between 4 and 5 signal samplings. \cite{GuillaumeUnal}}
+\end{figure}
+
+
+The OFC are optimized once before each data taking period with a given amount of pile-up representative of the expected beam properties.
+However in real conditions, each proton bunch has slightly different properties which lead to a different luminosity when crossing another bunch.
+Each bunch crossing will then create a different amount of pile-up in the detector.
+Furthermore, the OFC integrate the pile-up contribution from several bunch-crossings, essentially before the one considered.
+In an ideal beam configuration with all the BCID equivalent, the average pile-up, thanks to the bipolar shaping is 0.
+But in reality, the effective amount of pile-up then depends on the position of the bunch into its train (sec. \ref{sec:org3f71f89}).
+As an example, the OFC from the first bunch of the train will not be sensitive to previous bunches as no energy has been deposited before.
+One then expects an energy shift in the reconstruction, depending on the bunch crossing identifier (BCID).
+The plot of this shift is presented in fig. \ref{fig:org5f4cc56} for early run 2 data.
+As expected, a large shift is observed for the first BCID's which then goes down to 0 where the pile-up contributions of all the BCID compensate the one in the OFC simulation.
+A correction is derived to remove the energy dependence on the BCID.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.6\linewidth]{170120_Unal_12fa.pdf}
+\caption{\label{fig:org5f4cc56}
+Reconstructed energy shift as a function of the bunch crossing identifier for early run 2 data, before and after correction. \cite{GuillaumeUnal}}
+\end{figure}
+
+
+
+\section{Cluster reconstruction}
+\label{sec:org78551d8}
+
+At this point, the energy deposited in each cell of the ECAL have been computed.
+From this low level variables, one has to identify passing particles and measure their energy.
+
+\subsection{Sliding window seeding}
+\label{sec:org0dd0100}
+
+The starting point of the energy reconstruction of an electromagnetic particle is the definition of a cluster of cells representing the energy deposit of a particle.
+For $|\eta|<1.8$, the ECAL is first splitted into a set of towers of size \(\Delta\eta\times\Delta\Phi =0.025\times 0.025\) which sum the energy of all cells from the four longitudinal layers of the calorimeter.
+This segmentation corresponds to the size of a cell in the middle layer, which receive the largest energy deposit.
+A sliding window algorithm detailed in \cite{ATL-LARG-PUB-2008-002} then seeds clusters by looking for a total transverse energy deposit of 2.5 GeV within a widow of \(3\times 5\) towers.
+An algorithm is then used to remove the seeds which correspond to the same deposit.
+This procedures has a cluster localization efficiency above 99\% for electrons with $E_T$ above 15 GeV.
+
+The final cluster is then defined by a window of \(3\times 7\) in the barrel and \(5\times 5\) in the endcap.
+Run 1 used to define different cluster sizes (see \cite{CERN-THESIS-2015-193} par 3.4.1) depending on the particle identification.
+The cluster definition has been harmonized in run 2 in order to minimize the uncertainty on the extrapolation of energy response of the calorimeter between electrons and photons.
+Prompt and conversion electrons will emit bremsstrahlung in the material upfront of the calorimeter.
+The extended size of the cluster in the $\Phi$ directions aims at recovering low energy bremsstrahlung.
+Unsensitive to this effect, unconverted photons were reconstructed with a \(3\times 5\) cluster in run 1.
+This is the difference on the clustering between run 1 and run 2.
+
+\subsection{Cluster energy and position measurement}
+\label{sec:org08841b4}
+
+In each layer, the cluster position is computed using an energy weighted barycenter.
+This computation suffers from biases due to the properties of the detector and real data conditions.
+The finite granularity in $\eta$ of the detector and the $\Phi$ accordion geometry give cluster modulation which effectively increases the constant term of the detector.
+Furthermore, interaction vertices are not located at fixed \(z=0\) hence a particle will hit the calorimeter at different $\eta$ in each layer.
+These effects are successively corrected to improve the energy resolution constant term from \(0.65\%\) down to \(0.43\%\) (see the chapter "Calibration and performance of the electromagnetic calorimeter" in \cite{CERN-OPEN-2008-020}).
+
+
+The measurement of the cluster $\eta$ is sensitive to the finite granularity of the readout cells in each layer.
+The $\eta$ of the shower in a given calorimeter layer is obtained by taking the barycentre of the cells included in the shower, weighted by their detected energy.
+This barycentre is then sensitive to the impact parameter of the incoming particle with respect to the cell edge.
+An 'S-shape' pattern is observed on the reconstructed $\eta$.
+A correction of this effect is performed for each layer independently.
+The difference in the bias in $\eta$ before and after the correction is shown in fig. \ref{fig:Calibration_Reconstruction_SShapeEta}.
+
+A similar effect can be observed as a function of $\Phi$, which is also computed as an energy deposit barycentre.
+In average, electromagnetic showers have their maximum deposit at a given material budget crossed, which corresponds to a given depth inside the detector.
+The measured $\Phi$ can be biased depending on the impact parameter of the incoming particle with respect to two successive copper plates.
+Again, the $\Phi$ is corrected empirically, and the effect of this correction is presented in fig. \ref{fig:Calibration_Reconstruction_phi}.
+
+\begin{figure}
+  \begin{minipage}{.49\linewidth}
+    \centering \includegraphics[width=\linewidth]{CERN-OPEN-2008-020_CalibrationPerformanceECAL_6fa.pdf}
+    \subcaption{$\eta$ S-Shape correction \cite{CERN-OPEN-2008-020}.}\label{fig:Calibration_Reconstruction_SShapeEta}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{.49\linewidth}
+    \centering \includegraphics[width=\linewidth]{CERN-OPEN-2008-020_CalibrationPerformanceECAL_9f.pdf}
+    \subcaption{$\Phi$ accordion modulation phase correction \cite{CERN-OPEN-2008-020}.}\label{fig:Calibration_Reconstruction_phi}
+  \end{minipage}
+  \caption{Cluster position corrections before and after finite granularity detector correction.}\label{fig:1}
+\end{figure}
+
+
+During the beginning of run 1, the energy reconstruction of the cluster combined the energy measurements of the three layers and the presampler within the cluster window.
+The combination was a weighted sum of the energies in each layer, adding an offset and a global normalization.
+The weights, offset and normalization were fitted as a function of $\eta$ and the particle type.
+The crack region which contains more dead material had a slightly different parametrization : energy which were summed corresponded to the barrel and endcap deposited energy, and to the scintillators energy.
+Energy measurement suffered from similar $\eta$ and $\Phi$ modulations as the position.
+Fits of the detector response as a function of the offset of the impact parameter within the cell were used to correct the energy.
+For final run 1 and run 2 (see chapter \ref{sec:Calibration_calibration}), a machine learning algorithm has been used to better consider the correlation between all those quantities for energy reconstruction.
+
+\section{Track reconstruction}
+\label{sec:org31b9eab}
+Hits in the tracker undergo a pattern recognition algorithm in order to recover the trajectory of incident charged particles.
+Two algorithms are run successively \cite{1742-6596-119-3-032014} to reconstruct tracks from respectively the silicon (Si) and the TRT.
+
+The ``inside-out'' algorithm finds tracks from electrons (in particular) and early converted photons.
+The algorithm starts from the combination of three hits in three different layers of the Si which pass quality cuts (like curvature) to reduce the number of combinations.
+The trajectory is extrapolated from these points to the end of the Si detector.
+Each hit close to the extrapolation in each Si layer is tested and kept if it increases the track quality.
+The best track is then selected and all hits that this track shares with others are removed from the pool and tracks quality are recomputed.
+Tracks are then extrapolated to the TRT and undergo the same algorithm : keeping only hits that improve the track quality.
+
+The ``outside-in'' algorithm reconstructs tracks from TRT down to the Si aiming at recovering vertices at large conversion radius.
+TRT tracks follow an approximate straight line in the barrel (end-cap) \(R-\phi (R-z)\) plane passing by the vertex with the largest sum of $p_T$ of its tracks (primary vertex) which can be parametrized by two variables.
+The local maxima in the histograms of TRT hits as a function of these two variables represent hits which will seed a track.
+A seed is then extrapolated to the full TRT and hits close to the extrapolation that improve track quality are included.
+Track is then extrapolated to the Si following the same procedure.
+
+Tracks which are close to a cluster in the electromagnetic calorimeter undergo a second fit with relaxed constrains.
+This second pass attempts to recover electrons tracks which may have been strongly altered after the emission of a bremsstrahlung.
+
+After track reconstruction, an algorithm is used in order to reconstruct secondary vertices, in particular for photon conversion.
+The efficiency of the track reconstruction algorithm for a converted 20 GeV photon is given in fig. \ref{fig:Calibration_Reconstruction_TrackReconstruction}.
+One observes that the efficiency of track reconstruction with TRT only is smaller than the reconstruction using Si hits for small conversion radii.
+However, TRT only tracks allow to extend the converted track reconstruction from 400 mm, where there is not enough Si left for a good quality tracks, up to 800 mm.
+
+\begin{figure}
+\centering
+  \includegraphics[width=0.6\linewidth]{CERN-OPEN-2008-020_PhotonConversion_6fa.pdf}
+  \caption{Conversion track reconstruction efficiency for 20GeV photon as a function of the conversion radius.
+    TRT refers to tracks reconstructed with only TRT hits while Si refers to tracks with Si hits. \cite{CERN-OPEN-2008-020}}
+  \label{fig:Calibration_Reconstruction_TrackReconstruction}
+\end{figure}
+
+\section{Track matching}
+\label{sec:orge39d41a}
+
+Selected tracks that point to a cluster are extrapolated to the second layer of the ECAL.
+A track is matched to a cluster if its coordinates \((\eta,\phi)\) are close enough to the ones of the cluster seeded in the layer 2 (L2).
+To take into account the bremsstrahlung emission in the inner detector which will increase the bending of the track in $\phi$, the matching constraint on $\phi$, the bending side, is increased.
+Tracks that do not have high precision hits in the Si, and that are likely to be conversion electrons, have to pass the $\phi$ constraint but only a relaxed $\eta$ constraint, as the extrapolated $\eta$ suffer from large uncertainties.
+When several tracks are matched to the same cluster, an ordering is performed.
+Tracks which have hits in the Si detector have priority over tracks with TRT only hits.
+Finally, the tracks are classified according to their angular distance (\(\Delta R = \sqrt{\Delta\eta^2 +\Delta\phi^2}\)) with respect to the seed.
+Non-optimal tracks are kept as they may be promoted in the electron identification algorithm.
+Clusters with no matching tracks are classified as unconverted photons.
+The remaining clusters may be either electrons or photons.
+A vertex fitting procedure is then applied to reconstruct conversion vertices.
+Clusters which are linked to a track originating from a conversion vertex are labeled as converted photons.
+Converted photons are then further labelled single or double track depending on the number of track reconstructed from the conversion vertex.
+%Some converted photons and electrons may at this point be double counted and labelled under both categories until the offline analysis gives a better decision.
+Details on objects classification can be obtained in \cite{TrackMatching}.
+
+
+\section{Offline particle identification}
+\label{sec:orga90f716}
+
+The aim of particle identification is to separate prompt photons (i.e. which do not originate from hadron decays) from background photons which have been produced within a jet.
+Due to the hadronic nature of the collisions performed at the LHC, a large fraction of the reconstructed photons is produced by hadron decay.
+This contribution of the background must be severely reduced while maintaining a high identification efficiency of prompt photons to make the search of the Higgs boson decay to diphotons powerful.
+The photon identification relies on the use of a set of discriminating variables from and outside the ECAL.
+For example, due to their hadronic nature, background photons energy deposits may be mixed with hadrons hence increasing the shower lateral width but also the longitudinal depth.
+The HCAL energy deposit may then be discriminating as prompt photons have small to none energy deposit outside of the ECAL.
+The list of discriminating variables used for run 1 and run 2 is given in table \ref{tab:Calibration_RecoID_DVPhotonID} along with their description.
+Two identification menus have been defined, differentiated by their background rejection power.
+The loose identification criterion relies only on the information of the second layer of the ECAL and the HCAL.
+This loose menu is less effective against photons coming from neutral hadron decay like $\pi^0$.
+After the cuts on the first sampling the background is dominated by single $\pi^0$ (see \cite{CERN-THESIS-2011-157} for instance) which can be partially removed by applying isolation criteria.
+The Higgs boson decay to diphotons analysis selects tight photons, using the full granularity of the ECAL.
+For run 2, the identification menus have been re-optimised in order to take into account the changes of detector and centre of mass energy.
+
+The photon efficiency for the tight menu has been estimated \cite{CERN-EP-2016-110,EGAM-2017-003} using MC and measured in run 1 data and re-estimated with the run 2 data \cite{ElectronEfficiencyRun2}.
+To cover for the wide energy ranges used in the analyses, three different methods have been implemented, each covering a different energy range, allowing continuous efficiency measurement form 10 GeV to 1.5 TeV.
+Efficiency measurements are further splitted into several $\eta$ bins to take into account the detector inhomogeneities.
+Radiative Z decays (\(Z\rightarrow ll\gamma\)) are used in the low energy region ($10 \text{ GeV} <E_T<80$ GeV).
+In the medium energy region ($30 \text{ GeV} <E_T<100$ GeV), the measurement is performed using electrons from pure $Z\rightarrow ee$ samples and a tag and probe technique.
+While no photon is involved in the process, this method exploits the similarities between electrons and photons discriminating variables.
+Finally, for energy ranges from 20 GeV to 1.5 TeV, the efficiency is measured from inclusive photons using the track isolation variable to subtract the background.
+The measured efficiency as a function of \(E_T\) is given in fig. \ref{fig:Calibration_RecoID_ElYEfficiency} in the most central bin : $|\eta|<0.6$.
+
+\begin{table}
+  \centering
+  \includegraphics[width=0.9\linewidth]{CERN-EP-2016-110_1t.pdf}
+  \caption{Discriminating variables of photon identification.\cite{CERN-EP-2016-110}}
+  \label{tab:Calibration_RecoID_DVPhotonID}
+\end{table}
+
+
+Electrons identification also relies on the use of discriminating variables to reject background electrons.
+A multivariate analysis is performed \cite{ATLAS-CONF-2014-032,CERN-EP-2016-262,EGAM-2017-003} to optimize the discriminating power of the selected variables.
+A cut based identification analysis has also been developped as a cross-check.
+Three menus have been defined for electrons : loose, medium and tight; with increasing background rejection and being subsets of each other.
+Each menu has then been optimized in 10 bins in $\eta$ to better take into account the change of the properties of the variables at increasing pseudo-rapidity.
+The electron identification efficiency is measured using and tag a probe method from $Z\rightarrow ee$ and $J/\Psi\rightarrow ee$ samples to cover for energies between 7 GeV to 100 GeV.
+Results as a function of \(E_T\) are given in \ref{fig:Calibration_RecoID_ElYEfficiency}.
+
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.49\linewidth]{EGAM-2017-004_7f.pdf}
+  \includegraphics[width=0.49\linewidth]{EGAM-2017-003_2f.pdf}
+  \caption{Photon (left) and electron (right) identification efficiencies as a function of $E_T$.\cite{EGAM-2017-003}}
+  \label{fig:Calibration_RecoID_ElYEfficiency}
+\end{figure}
+
+\section{Reconstruction of other objects}
+In the context of the $H\rightarrow\gamma\gamma$ analyses, the photons are not the only objects.
+Usually, other types of particles are also included in order to probe production processes or the differential distributions.
+The reconstruction procedure of the main objects used in the analyses is briefly described in this section.
+
+
+\subsection{Muons}
+\label{sec:orga233caf}
+
+Several algorithms have been developed for muon reconstruction.
+
+The first method consists in finding coherent hits in the muon chambers in order to define a track.
+The trajectory of the muon upstream of the muon chamber is extrapolated to the beam pipe.
+No information on impact parameters or isolation is available with this method.
+This method is also limited in the $\eta$ area where the muon spectrometer can work in a stand alone mode : in particular it suffers from some holes at $|\eta |=0$.
+
+The second method combines the independent reconstruction of tracks in the muon chambers and in the inner detector.
+Quality requirements are tested on pairs of tracks from each sub-detector and global muon tracks are defined.
+
+The third method uses calorimeter-track reconstruction which identifies as muons the ID tracks with energy deposits in the ECAL compatible with the expected deposit of a minimum ionising particle.
+Finally, the last method is similar but tries to match ID tracks with MDT and CSC segments.
+These last two methods are primarily designed to increase the muon acceptance to regions were the MS is absent or with poor performances.
+
+The muon efficiency is estimated with $Z\rightarrow \mu^+\mu^-$ events, with muons $p_T>20$ GeV, and J/\(\Psi \rightarrow \mu^{\text{+}} \mu\)\(^{\text{-}}\) for lower $p_T$.
+
+Muon quality working points (tight, medium, loose) have been defined with decreasing reconstruction efficiency.
+Quality cuts mainly involve tracks parameters : number of hits in each sub-detector, impact parameter, \ldots{}
+
+\subsection{Jets}
+\label{sec:org2ef168a}
+
+Final state partons do not travel to the detector like leptons or photons would.
+Instead, they quickly hadronize into a set of hadrons which fly (and eventually decay) toward the detector.
+With increasing energy, the hadrons will be more collimated, and will give a large shower of particles called jet.
+The jet reconstruction and calibration aims at recreating the four momentum of the hadrons generated by the hadronization.
+The reconstruction of the initial parton four momentum is more model dependent and rarely used.
+
+The reconstruction of a jet starts with the identification of topological cluster of energies \cite{CERN-PH-EP-2015-304} in the calorimeters.
+These clusters are then inputs of the anti-k\(_{\text{T}}\) algorithm \cite{Cacciari:2008gp} with a distance parameter of $R=0.4$.
+This algorithms creates a distance d\(_{\text{ij}}\) (eq. \ref{eq:org436572d}) between two clusters, and a distance-like property for each cluster \(d_{i,B} = \frac{1}{p_{T,i}^2}\).
+At each step, the smallest distance is used.
+If it comes from a single cluster distance, a new jet is created and removed from the proto-jets list.
+Otherwise, the two closest clusters are merged into a single larger jet.
+The procedure continues, with increasing jet sizes, until the smallest distance reaches a threshold.
+
+\begin{equation}
+\label{eq:org436572d}
+d_{ij} = \frac{1}{\text{max}(p_{T,i}^2; p_{T,j}^2)} \frac{\Delta R^2_{ij}}{R^2}
+\end{equation}
+
+Jets must further pass quality criteria and undergo a calibration procedure.
+The details of these procedure for run 2 data are presented in \cite{ATL-COM-PHYS-2016-213}.
+
+Further studies with jets allows to identify, in some limit, whether the originating parton is a b quark.
+The run 1 and 2 performances are described respectively in  \cite{CERN-PH-EP-2015-216} and \cite{ATL-PHYS-PUB-2017-013}.
+This allows improvements in signal efficiency and background rejections of many topologies such the ones involving top quarks in the final state.
+This tagging is widely used in defining the top production categories of the H boson couplings measurement in the diphoton channel.
+
+
+\subsection{Missing transverse energy}
+\label{sec:org9d53352}
+Neutrinos, and many long lived particles of BSM models, have weak interaction with matter hence may not interact with the detector or interact in a negligible way.
+An indirect method still allows to obtain some information about them, and incorporate them in analyses.
+For example, analyses involving W bosons make use of both the charged lepton and the neutrino as tags.
+
+The method relies on the conservation of momenta during a collision.
+Beams collide head on, on the z axis, hence leading to a negligible momentum of the system in the transverse plane.
+The accelerator and rest frames being similar, particles will be ejected in all directions.
+Some momentum is going at very small angle, where there is no detector, but having a (almost) null total transverse momentum.
+The measurement of the momenta of electrons, photons, muons and hadrons allows the measurement of total momentum of weakly interaction particle by taking the opposite of the total measured transverse momentum.
+This quantity is called the missing transverse energy (MET).
+Pile-up suppression methods have been developed to reduce the pile-up dependence of the MET.
+The full description of MET algorithms for run 1 and run 2 can be found in \cite{CERN-PH-EP-2011-114,ATL-PHYS-PUB-2015-023}.

@@ -1,0 +1,137 @@
+\label{sec:org11b2f25}
+\chapter{Matrix inversion}
+\label{sec:org1c930a8}
+\label{sec:MatrixInversion}
+
+
+We try to minimise this \(\chi^{\text{2}}\) :
+
+\begin{equation}
+\chi^2 = \sum_{i,j\leq j}\frac{(\alpha_i+\alpha_j-\beta_{ij})^2}{\sigma^2_{ij}}
+\end{equation}
+
+The minimum of the \(\chi^{\text{2}}\) is defined by a null gradient.
+\begin{equation}
+\begin{array}{lcl}
+\frac{\partial \chi^2}{\partial \alpha_k} &=& \sum\limits_{i,j\leq j}\frac{2(\alpha_i+\alpha_j-\beta_{ij})}{\sigma^2_{ij}} (\delta_i^k + \delta_j^k) \\
+&=& \sum\limits_{j>k} \frac{2(\alpha_k+\alpha_j-\beta_{kj})}{\sigma^2_{kj}} + \sum\limits_{i<k} \frac{2(\alpha_i+\alpha_k-\beta_{ik})}{\sigma^2_{ik}} + 4\frac{2\alpha_k-\beta_{kk}}{\sigma_{kk}^2} \\
+&=& \sum\limits_j \frac{2(\alpha_j+\alpha_k-\beta_{jk})}{\sigma^2_{jk}} (1+\delta_j^k)
+\end{array}
+\end{equation}
+
+The system can be written in matrix notation as \(UA-B=0\), with \(A_i=\alpha_i\) and
+
+\begin{equation}
+B_i = \sum\limits_j \frac{2\beta_{ij}}{\sigma^2_{ij}} (1+\delta_i^j)
+\end{equation}
+
+\begin{equation}
+\begin{array}{lcl}
+(UA)_i &=&\sum\limits_j U_{ij}A_j \\
+&=& \sum\limits_j \frac{2(\alpha_i+\alpha_j)}{\sigma_{ij}^2} (1+\delta_{ij}) \\
+&=& \sum\limits_j \frac{2(1+\delta_i^j)}{\sigma_{ij}^2}\alpha_j + \sum\limits_j \sum\limits_k \frac{2(1+\delta_i^j)}{\sigma_{ij}^2} \delta_i^k\alpha_k \\
+&=& \sum\limits_k \left( \frac{2(1+\delta_i^k)}{\sigma_{ik}^2} +  \delta_i^k \frac{2(1+\delta_i^j)}{\sigma_{ij}^2}  \right) \alpha_k
+\end{array}
+\end{equation}
+
+
+One gets :
+
+\begin{equation}
+U_{ki}  =  \frac{2(1+\delta_i^k)}{\sigma_{ik}^2} +  \delta_i^k \frac{2(1+\delta_i^j)}{\sigma_{ij}^2}
+\end{equation}
+
+The uncertainty on \(\alpha_{\text{i}}\) is computed as :
+
+\begin{equation}
+\begin{array}{lcl}
+V_{ij} &=& \frac{1}{2} \frac{\partial^2\chi^2}{\partial\alpha_i\partial\alpha_j} \\
+&=& \frac{1}{2} \sum\limits_k \frac{2(1+\delta_j^k)}{\sigma_{jk}^2} (\delta_i^j + \delta_i^k) \\
+&=& \frac{1}{2} \frac{2 + \delta_i^j}{\sigma_{ij}^2} + \sum\limits_k \frac{2(1+\delta_j^k)}{\sigma_{jk}^2} \delta_i^j \\
+&=& \frac{1}{2} U_{ij}
+ \end{array}
+\end{equation}
+
+
+Finally :
+
+\begin{equation}
+\alpha_i = A_i
+\end{equation}
+
+
+\begin{equation}
+\Delta\alpha_i = \sqrt{V_{ii}} = \sqrt{2U_{ii}^{-1}}
+\end{equation}
+
+When extracting \(\alpha\), we measure \(\alpha_{ij}=\frac{\beta_{ij}}{2}\).
+The formula must be changed according to
+\begin{equation}
+\begin{array}{lcl}
+\beta_{ij} &\rightarrow & 2\alpha_{ij} \\
+\sigma_{ij}^2 &\rightarrow & 4\sigma_{ij}^2 \\
+\end{array}
+\end{equation}
+
+
+Hence
+
+
+\begin{equation}
+\begin{array}{lcl}
+B_i &=& \sum\limits_j \frac{\alpha_{ij}(1+\delta_i^j)}{\sigma_{ij}^2} \\
+U_{ki} &= &\frac{1+\delta_i^k}{2\sigma_{ik}^2} + \delta_i^k\sum\limits_j \frac{1+\delta_k^j}{2\sigma_{kj}^2}
+\end{array}
+\end{equation}
+
+For the constant term, the equation to consider is
+\begin{equation}
+2c_{ij}^2 = c_i^2 + c_j^2
+\end{equation}
+
+The structure is similar to the previous case bu the uncertainty we measure is on c\(_{\text{ij}}\)
+
+\begin{equation}
+\Delta \beta = \Delta(2c_{ij}^2)  = 2\Delta(c_{ij}^2)
+\end{equation}
+
+We need to express \(\Delta(c_{ij}^2)\) as a function of \(\Delta(c_{ij})\) valid for all values of \(c_{ij}\).
+The typical formula \(dc^2=2cdc\) will not be correct for small values of \(c\) with large uncertainties.
+At \(\Delta\chi^2=1\), one has the relation
+
+\begin{equation}
+(c+\Delta c)^2 = c^2 + \Delta(c^2) = c^2 + 2c\Delta c + (\Delta c)^2
+\end{equation}
+
+Hence
+\begin{equation}
+\Delta(c^2) = (c+\Delta c)^2 - c^2 = 2c\Delta c + (\Delta c)^2
+\end{equation}
+
+We need to replace
+\begin{equation}
+\begin{array}{lcl}
+\alpha_{ij} &\rightarrow & c_{ij}^2 \\
+\beta_{ij}&\rightarrow & 2c_{ij}^2 \\
+\sigma_{ij} &\rightarrow & 2 (2c_{ij}\sigma_{ij} + \sigma_{ij}^2) \\
+\end{array}
+\end{equation}
+
+
+which lead to the formula
+\begin{equation}
+\begin{array}{lcl}
+A_i &=& c_i^2\\
+B_i &=& \sum\limits_j \frac{c_{ij}^2(1+\delta_i^j)}{(2c_{ij}\sigma_{ij} + \sigma_{ij}^2)^2} \\
+U_{ji} &= &\frac{1+\delta_i^j}{2(2c_{ij}\sigma_{ij} + \sigma_{ij}^2)^2} + \delta_i^j\sum\limits_k \frac{1+\delta_k^i}{2(2c_{kj}\sigma_{kj} + \sigma_{kj}^2)^2}
+\end{array}
+\end{equation}
+
+The results are given by
+
+\begin{equation}
+\begin{array}{lcl}
+c_i &=& \sqrt{A_i} \\
+\Delta c_i &=& \sqrt{c_i^2 + \Delta(c_i^2) } -c_i = \sqrt{c_i^2 + \sqrt{2U_{ii}^{-1}}} - c_i
+\end{array}
+\end{equation}

@@ -1,0 +1,181 @@
+%%% This LaTeX template was created by Adrien Thurotte
+%% It is approved by Paris-Saclay University (december 2015)
+% And, of course, needs improvements : feel free to work on it and share it back ...
+%% Under the licence CC0 - Others may freely build upon, enhance and reuse the works for any purposes without restriction under copyright or database law. https://creativecommons.org/about/cc0
+
+
+
+\documentclass[12pt,a4paper]{book}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage[french]{babel}
+\usepackage{graphicx} % For commande \includegraphics
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor} %% To color in violet the text
+\frenchspacing
+\usepackage[absolute]{textpos} % to place elements in the page
+\usepackage{multicol} % To write summary in two columns-mode
+\usepackage{calc} % To calculate textwidth
+\RequirePackage{geometry}% That nicely create a one-page template
+\geometry{textheight=150ex,textwidth=40em,top=30pt,headheight=30pt,headsep=30pt,inner=80pt}
+\usepackage{tikz} %% Make the square.
+
+
+
+\label{The thesis}
+\newcommand{\PhDTitleFR}{Etalonnage du calorimètre électromagnétique de l'expérience ATLAS et application à la mesure des couplages du boson de (Brout-Englert-)Higgs dans le canal diphoton.}
+%SEARCH FOR SUPERSYMMETRY IN THE FULLY HADRONIC CHANNEL AND JET CALIBRATION WITH THE ATLAS DETECTOR AT THE LHC} %% Titre en Français
+%% RECHERCHE DE PARTICULES SUPERSYMETRIQUES ET CALIBRATION DES JETS AVEC LE DETECTEUR ATLAS DU LHC
+
+\newcommand{\PhDkeywordsFR}{ATLAS, Higgs, couplages, calorimètre, étalonnage} %% 3-6 Keywords
+\newcommand{\PhDsumFR}{
+  La découverte du boson de Higgs en 2012 a été un des principaux succès du run 1 du LHC.
+  Une ère de mesures de précision a alors débuté à la recherche de déviations par rapport au Modèle Standard (MS), qui seraient des indices quant à la physique au delà du MS.
+
+  Ce manuscrit s'intéresse en premier lieu à l'étalonnage du calorimètre électromagnétique de l'expérience ATLAS.
+  L'étape finale de cet étalonnage utilise la distribution en masse du boson Z pour corriger l'énergie mesurée des électrons et des photons.
+  Des recommandations pour le démarrage du run 2 ont été produites afin de fournir des constantes de correction pour les premières analyses.
+  Les corrections utilisant les données du run 2 ont également été obtenues.
+  Les performances de l'étalonnage du run 1 ont été atteintes puis améliorées : l'incertitude systématique sur le terme constant de la résolution du calorimètre électromagnétique, dominante pour la mesure des couplages du boson de Higgs au run 1, a été divisée par 3.
+
+  La mesure des couplages du boson de Higgs consiste en la mesure de la forme du signal résonnant sur un bruit de fond décroissant.
+  Cette mesure est effectuée de manière corrélée entre différentes catégories, optimisées pour différents modes de production à travers l'identification d'objets produits avec le boson de Higgs.
+  Les résultats ont été obtenus à partir de 36 fb$^{-1}$ de données récoltées en 2015 et 2016 à une énergie de $\sqrt{s}$=13 TeV.
+  Le rapport ($\mu$) de la mesure de la section efficace inclusive du boson de Higgs sur sa valeur dans le MS a été mesuré.
+  Aucune déviation significative par rapport au MS n'a été observée :
+  $$\mu = 0.99 \pm 0.14$$
+
+  Les rapports des principaux modes de production ont également été mesurés et sont en accord avec le MS :
+  $$\mu_{ggH} = 0.80 \pm 0.18$$
+  $$\mu_{VBF} = 2.1 \pm 0.66$$
+  $$\mu_{VH} = 0.7 \pm 0.85$$
+  $$\mu_{ttH+tH} = 0.5 \pm 0.62$$
+
+} %% Résumé
+
+\newcommand{\PhDTitleEN}{Calibration of the electromagnetic calorimeter of the ATLAS experiment and application to the measurement of (BE)H boson couplings in the diphoton channel} %% Title
+\newcommand{\PhDsumEN}{
+  The discovery of the Higgs boson was a major success of the run 1 of the LHC.
+  The era of precision measurements began as any deviation from the expected Standard Model value would be a direct hint of new physics beyond the standard model.
+
+  This thesis has a first focus on the calibration of the electromagnetic calorimeter of the ATLAS experiment.
+  The final step of this calibration uses the knowledge of the lineshape of the Z boson in order to correct the measured energy of electrons and photons.
+  Recommendations for the beginning of run 2 have been given to provide calibration constants for early analyses.
+  Run 2 calibration constants have been computed and the performances of run 1 have been reached and improved : the systematic uncertainty on the resolution constant term of the electromagnetic calorimeter, which was dominant for the Higgs boson couplings measurement at run 1, has been divided by a factor 3.
+
+  The measurement of the H boson couplings consists in measuring the shape of the resonant signal over a smooth decreasing background in categories optimized for various processes, by tagging the objects produced in association with the Higgs boson.
+  The results are based on 36 fb$^{-1}$ of data recorded in 2015 and 2016 at $\sqrt{s}$=13 TeV.
+  The ratio of the measured production cross-sections of the Higgs boson over the SM expected value ($\mu$) has been measured.
+  No significant deviation with respect to the SM has been observed :
+  $$\mu = 0.99 \pm 0.14$$
+  The ratios of the main production processes have also been measured:
+  $$\mu_{ggH} = 0.80 \pm 0.18$$
+  $$\mu_{VBF} = 2.1 \pm 0.66$$
+  $$\mu_{VH} = 0.7 \pm 0.85$$
+  $$\mu_{ttH+tH} = 0.5 \pm 0.62$$
+
+  } %% Summary
+\newcommand{\PhDkeywordsEN}{ATLAS, Higgs, couplings, calorimeter, calibration} %% 3 à 6 mots clefs
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\label{Personnal}
+\newcommand{\PhDname}{M. Christophe Goudet} % Civility, first name and name
+\newcommand{\NNT}{XXX} %% Your NNT numer (the Library will attribute one...)
+\newcommand{\ecodocnum}{576} % Accrediation number
+\newcommand{\ecodoctitle}{PHENIICS} % Full name of the doctorale school
+\newcommand{\PhDspeciality}{Physique des particules} % Speciality
+\newcommand{\PhDworkingplace}{Université Paris-Sud} %PhD working place (must be one of these : Université Paris-Sud, Université de Versailles Saint Quentin, Université d’Evry, AgroParisTech, CentraleSupelec, Ecole Normale Supérieure de Cachan, Ecole Polytechnique, ENSTA ParisTech,ENSAE ParisTech, HEC,Institut d’Optique Graduate School,Telecom ParisTech or Telecom SudParis)
+\newcommand{\defenseplace}{LAL} %Place of defense
+\newcommand{\defensedate}{26 septembre 2017} % Date of defense
+\newcommand{\logoED}{\includegraphics[scale=1.2]{logo/PHENIICS.png}} % Logo of doctoral school. Check the name of the correct file in the /logo folder.
+\newcommand{\logoEt}{\includegraphics[scale=1.2]{logo/UPS.png}} % Must be the logo corresponding to %PhD working place. Check the name of the correct file in the /logo folder.
+\newcommand{\vpos}{1} %% You can modify vertical position (leave cm as unit) in order to align horizontally both images
+
+%%%%%%In a case of "cotutelle" Delete " % " of the three following lines. Then, in style-pagedegarde.tex, delete " % " of line 3 to 5.
+%\newcommand{\logoCotut}{\includegraphics[scale=1]{logo/UPS.png}} % Add here the logo of the partner.
+%\newcommand{\vCotutpos}{3.3} %% You can modify vertical position (leave cm as unit) in order to align horizontally both images
+%\newcommand{\hCotutpos}{12.5} %% You can modify horizontal position (leave cm as unit) in order to align horizontally both images
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%JURY%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Lors du premier dépôt de la thèse le nom du président n’est pas connu, le choix du président se fait par les membres du Jury juste avant la soutenance. La précision est apportée sur la couverture lors du second dépôt.
+% Choice of the jury's president is made during the defense. Thus, it must be specified only for the second file deposition in ADUM.
+% All the jury members listed here must have been present during the defense.
+\label{Jury}
+
+%%% PRESIDENT
+\newcommand{\jurynameA}{Achille Stocchi}
+\newcommand{\jurygenderA}{M.} % M. or Mme. / Mrs.
+\newcommand{\juryadressA}{}
+\newcommand{\jurygradeA}{Professeur (LAL)}
+\newcommand{\juryroleA}{Examinateur}
+% \newcommand{\juryroleA}{Président du jury}
+
+
+%%% Jury member n2 (Rapporteur)
+\newcommand{\jurynameB}{Fabrice Hubaut}
+\newcommand{\jurygenderB}{M.} % M. or Mme. / Mrs.
+\newcommand{\juryadressB}{}
+\newcommand{\jurygradeB}{Directeur de recherche (CPPM)}
+\newcommand{\juryroleB}{Rapporteur}
+
+
+%%% Jury member n3 (Rapporteur) %%%
+\newcommand{\jurynameC}{Luigi Rolandi}
+\newcommand{\jurygenderC}{M.} % M. or Mme. / Mrs.
+\newcommand{\juryadressC}{}
+\newcommand{\jurygradeC}{Physicien de recherche (CERN)}
+\newcommand{\juryroleC}{Rapporteur}
+
+
+%%% Jury member n4 (Examinateur) %%%
+\newcommand{\jurynameD}{Glen Cowan}
+\newcommand{\jurygenderD}{M.} % M. or Mme. / Mrs.
+\newcommand{\juryadressD}{}
+\newcommand{\jurygradeD}{Professeur (London)}
+\newcommand{\juryroleD}{Examinateur}
+%%% Jury member n5 (Examinateur) %%%
+
+
+\newcommand{\jurynameE}{Claude Duhr}
+\newcommand{\jurygenderE}{M.} % M. or Mme. / Mrs.
+\newcommand{\juryadressE}{}
+\newcommand{\jurygradeE}{Physicien de recherche (CERN)}
+\newcommand{\juryroleE}{Examinateur}
+%%% Jury member n6 (Examinateur) %%%
+
+
+
+\newcommand{\jurynameF}{Guillaume Unal}
+\newcommand{\jurygenderF}{M.} % M. or Mme. / Mrs.
+\newcommand{\juryadressF}{}
+\newcommand{\jurygradeF}{Physicien de recherche (CERN)}
+\newcommand{\juryroleF}{Examinateur}
+
+
+\newcommand{\jurynameG}{Louis Fayard}
+\newcommand{\jurygenderG}{M.} % M. or Mme. / Mrs.
+\newcommand{\juryadressG}{}
+\newcommand{\jurygradeG}{Directeur de recherche (LAL)}
+\newcommand{\juryroleG}{Directeur de thèse}
+%% Il est possible d'ajouter des membres supplémentaires selon le même modèle.
+%% More jury members can be added according to the same model
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%COMPILATION%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\label{Document}
+%%
+%% Les fichiers sont à compiler un par un. Il faut retirer la marque de commentaire " % " en début de ligne, compiler le document, puis mettre la ligne à nouveau en commentaire en vue de compiler le document suivant.
+%% To compile desired document, delete the " % " at the begin of the line, compile the file, and then comment again in order to be able to compile the next one.
+
+
+\begin{document}
+%% La page de garde :
+%\input{style-pagedegarde} %% Have to be compiled twice in before getting the square correctly positionned.
+
+%% Deux résumé sur une page - two on the same page
+%\input{style-abstractboth}
+
+%% Une page par résumé - One page by summary
+%\input{style-abstractfr}
+\input{style-abstracten}
+\end{document}
+
+% Un Raton Laveur

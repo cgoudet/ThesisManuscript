@@ -1,0 +1,321 @@
+\section{Results}
+\label{sec:org0c76339}
+
+Precision measurements must be protected against human related biases, consisting in empirical choice of analysis parameters after looking at the signal region in data.
+As a result the H boson couplings analysis has been blinded : the signal region data are removed and only the side-bands may be used for background shape determination and optimisation.
+The analysis must then be tested on MC studies to reach the best possible performance.
+Only then the data signal may be un-blinded and the measurement performed with the optimal procedure defined previously.
+
+\subsection{Couplings fine-tuning}
+\label{sec:orge6e15f2}
+
+The analysis detailed in this chapter requires to have many parameters inside the statistical framework, implying a long minimisation time and eventually some degeneracies.
+In the context of combinations of models with other ATLAS couplings analyses and with CMS H boson analysis, optimisations of the fitting time of each analysis is essential.
+The reduction of the number of parameters is referred as pruning.
+Different procedures are applied to reduce both the number of nuisance parameters and the contributions of truth bins within categories.
+
+The STXS framework stage one proposes 31 truth bins to be measured (see table \ref{tab:HGam_stxs_definition}).
+However, the amount of data recorded does not allow to have sensitivity for all those truth bins.
+The design of the STXS anticipated this situation and proposed a procedure to merge some low sensitivity truth bins together.
+This procedure was applied to reduce the number of measured truth bins down to 10.
+The BSM categories of gluon fusion events with $p_T^H>200$ GeV and VBF with $p_T^H>200$ GeV are among these 10 truth bins.
+However, due to their correlation, only their sum is reported which makes therefore only 9 parameters.
+The matching between the original and the merged truth bins is shown in table \ref{tab:HGam_mergedbins}
+
+
+\begin{table}[!h]
+  \begin{center}
+    \includegraphics[width=\linewidth]{ATLAS-CONF-2017-045_1t.pdf}
+    \caption{Due to the limited sensitivity of some STXS truth bins, the bins have been merged with similar topological bins for measurement. This table shows the original truth bins in the right hand column and the merged truth bin used in the measurement presented here in the column to its left.\cite{ATLAS-CONF-2017-045}}
+    \label{tab:HGam_mergedbins}
+  \end{center}
+\end{table}
+
+Once the statistical framework has been reduced to 9 parameters of interest with a sufficient sensitivity, it can be further simplified by optimising the contribution of each of them in each category.
+Each parameter of interest has significant contributions in a relatively small number of reconstructed categories.
+However, there are many cases of very small contribution, which increase nevertheless the complexity of the framework.
+If a given parameter of interest contributed to less than 0.1\% to the total yield of the category, it was observed that removing it (by imposing its efficiency to be 0) from the category only impacted the final result by less than 1\%.
+This compromise was accepted and the 0.1\% threshold for truth bin contribution in a category was applied.
+
+Finally, the impact of the nuisance parameters into each category are also a large source of complexity.
+To reduce the fitting time, uncertainty effects below 0.5\% (0.25\%) for yield (acceptance) uncertainties have been forced to 0.
+Comparison between the full and the pruned model have shown a negligible difference.
+No study has been performed concerning pruning the mass uncertainty so no pruning is performed.
+
+\subsection{Sensitivity studies}
+\label{sec:orga35a118}
+
+The full performance of the analysis must be evaluated using an Asimov dataset generated at an integrated luminosity of 36 fb\(^{\text{-1}}\).
+The background shape and yield parameters are first estimated by a fit on the data sidebands.
+The signal model parameters are set to their nominal values and the yields are set to the SM expectations.
+The Asimov dataset is then created and used as data to fit the statistical model.
+The central values measured on the Asimov dataset correspond by definition to the injected values.
+On the other hand, the uncertainties measured from the Asimov dataset are representative of the uncertainties which are expected on data.
+The uncertainties are usually grouped into statistical, theoretical and experimental (systematic) components.
+
+\begin{enumerate}
+\item STXS sensitivity
+\label{sec:orgf8074b1}
+
+The sensitivity tests have been performed on the STXS with the 9 final parameters of interest.
+The results give :
+
+%\begin{figure}[!h]
+\begin{align*}
+  \tiny
+  \sigma (ggH, \mathrm{0~jet}) \tbfhyy &= 63\ ^{+17}_{-16}\ \fb \\ &= 63\ ^{+15}_{-15}\,\mathrm{(stat.)}\ ^{+8}_{-6}\,\mathrm{(syst.)}\ \fb \\
+  \sigma (ggH, \mathrm{1~jet}, p_T^{H} < 60\ \text{GeV}) \tbfhyy &= 15\ ^{+13}_{-12}\ \fb \\ &= 15\ ^{+12}_{-12}\,\mathrm{(stat.)}\ ^{+6}_{-4}\,\mathrm{(syst.)}\ \fb \\
+  \sigma (ggH, \mathrm{1~jet}, 60 \leq p_T^{H} < 120\ \text{GeV}) \tbfhyy &= 10\ ^{+7}_{-6}\ \fb \\ &= 10\ ^{+6}_{-6}\,\mathrm{(stat.)}\ ^{+2}_{-1}\,\mathrm{(syst.)}\ \fb \\
+  \sigma (ggH, \mathrm{1~jet}, 120 \leq p_T^{H} < 200\ \text{GeV}) \tbfhyy &= 1.7\ ^{+1.7}_{-1.6}\ \fb \\ &= 1.7\ ^{+1.6}_{-1.6}\,\mathrm{(stat.)}\ ^{+0.6}_{-0.4}\,\mathrm{(syst.)}\ \fb \\
+  \sigma (ggH, \geq 2~\mathrm{jet}) \tbfhyy &= 11\ ^{+8}_{-8}\ \fb \\ &= 11\ ^{+8}_{-8}\,\mathrm{(stat.)}\ ^{+3}_{-2}\,\mathrm{(syst.)}\ \fb \\
+  \sigma (qq \rightarrow Hqq, p_T^{j} < 200~\text{GeV}) \tbfhyy &= 10\ ^{+6}_{-5}\ \fb \\ &= 10\ ^{+5}_{-5}\,\mathrm{(stat.)}\ ^{+2}_{-1}\,\mathrm{(syst.)}\ \fb \\
+  \sigma (ggH + qq \rightarrow Hqq, \mathrm{BSM-like}) \tbfhyy &= 1.8\ ^{+1.4}_{-1.4}\ \fb \\ &= 1.8\ ^{+1.3}_{-1.3}\,\mathrm{(stat.)}\ ^{+0.5}_{-0.5}\,\mathrm{(syst.)}\ \fb \\
+  \sigma (\mathrm{VH, leptonic}) \tbfhyy &= 1.4\ ^{+1.4}_{-1.2}\ \fb \\ &= 1.4\ ^{+1.3}_{-1.2}\,\mathrm{(stat.)}\ ^{+0.3}_{-0.3}\,\mathrm{(syst.)}\ \fb \\
+  \sigma (\mathrm{top}) \tbfhyy &= 1.3\ ^{+0.9}_{-0.8}\ \fb \\ &= 1.3\ ^{+0.9}_{-0.8}\,\mathrm{(stat.)}\ ^{+0.3}_{-0.1}\,\mathrm{(syst.)}\ \fb \\
+\end{align*}
+%\end{figure}
+% The correlation matrix between all the truth bins is shown in fig. \ref{fig:orge697bd6}.
+
+% \begin{figure}[htbp]
+% \centering
+% \includegraphics[width=0.9\linewidth]{ATLAS-CONF-2017-045_6f.pdf}
+% \caption{\label{fig:orge697bd6}
+% Correlation between truth bins obtained from an Asimov fit of te full statistical model.\cite{ATL-COM-PHYS-2016-1784}}
+% \end{figure}
+
+\item Signal strength
+\label{sec:orgc349fef}
+
+STXS simplifies the interpretation of the experimental results for theorists.
+However, testing the SM remains the first step.
+The experimental production cross-section can be computed using the results at the truth bin levels.
+A division by the SM expectation, including the theoretical uncertainties on the latter, leads to results better than run 1 signal strength measurements.
+The expected result for the inclusive signal strength yield:
+
+\begin{align*}
+\mu &= 1.00\ ^{+0.15}_{-0.14} = 1.00\ ^{+0.12}_{-0.12}\,\mathrm{(stat.)}\ ^{+0.07}_{-0.06}\,\mathrm{(exp.)}\ ^{+0.06}_{-0.05}\,\mathrm{(theory)}\\
+\end{align*}
+
+Expectations were also computed for the production signal strengths:
+\begin{align*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mu_{ggH} &= 1.00\ ^{+0.20}_{-0.19} = 1.00\ ^{+0.16}_{-0.17}\,\mathrm{(stat.)}\ ^{+0.07}_{-0.06}\,\mathrm{(exp.)}\ ^{+0.09}_{-0.06}\,\mathrm{(theory)}\\
+\mu_{VBF} &= 1.0\ ^{+0.5}_{-0.4} = 1.0\ ^{+0.4}_{-0.4}\,\mathrm{(stat.)}\ ^{+0.2}_{-0.1}\,\mathrm{(exp.)}\ ^{+0.2}_{-0.1}\,\mathrm{(theory)}\\
+\mu_{VH} &= 1.0\ ^{+0.8}_{-0.8} = 1.0\ ^{+0.8}_{-0.7}\,\mathrm{(stat.)}\ ^{+0.2}_{-0.2}\,\mathrm{(exp.)}\ ^{+0.1}_{-0.1}\,\mathrm{(theory)}\\
+\mu_{top} &= 1.0\ ^{+0.7}_{-0.6} = 1.0\ ^{+0.7}_{-0.6}\,\mathrm{(stat.)}\ ^{+0.1}_{-0.1}\,\mathrm{(exp.)}\ ^{+0.2}_{-0.0}\,\mathrm{(theory)}\\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{align*}
+
+
+\subsection{Ranking}
+\label{sec:orge5a0462}
+
+The uncertainties presented so far correspond to the sum of the contributions of all the nuisance parameters.
+However each category, due to its particular topology, will not be sensitive to the same nuisance parameters.
+Obtaining a ranking of the most influential nuisance parameters of the parameters of interest allows to improve the understanding on the measurement and give insight on the possible improvements.
+Such reasoning led to the study of the closure uncertainty for the in-situ constant term measurement, which was the dominant coupling systematics in run 1.
+
+The ranking is performed by evaluating the effect of each independent NP on the parameter of interest (POI).
+The fit is performed another time with the full model, changing one NP by one standard deviation.
+The minimum of the likelihood will then be moved to compensate for this change.
+The NP effect is computed by taking the difference between the fitted parameter of interest and its nominal value, divided by the total uncertainty on the POI.
+Each NP can then be classified according to this value.
+Fig. \ref{fig:org36c582d} presents the results for the inclusive signal strength.
+In addition to the effect on $\mu$, which is used to rank the NP, the pulls and constraints on these NP are also shown on this figure.
+No significant constraint is seen.
+A similar plot for the STXS parameter $\sigma_{gg2H\ 0J}$ is shown in fig. \ref{fig:HGam_ranking_STXS}.
+Similar plots for all parameters of interest can be obtained from \cite{ATL-COM-PHYS-2016-1784}.
+
+
+One can observe that theoretical uncertainties are three of the top four systematics for the inclusive signal strength.
+Thanks to the STXS, those dominants systematics can be removed from the model, leaving only experimental ones.
+At run 1, the in-situ resolution constant term uncertainties (under EG\_RESOLUTION\_ZSMEARING) was the dominant (non theory) systematic on the $\mu$ (see table \ref{tab:HGam_results_SystRun1Mu}).
+Thanks to the run 2 improvements this systematic has been reduced by a factor 2 for the summer 2017 results.
+It is now only the third experimental nuisance parameter and second calibration systematics.
+The late improvements of the closure systematics would contribute to even lower its position in the hierarchy (but with negligible impact on the total uncertainty).
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\linewidth]{ATL-COM-PHYS-2016-1784_113fa.pdf}\\
+
+\caption{\label{fig:org36c582d}
+Expected ranking of the systematic uncertainties for the inclusive signal strength in the H boson couplings analysis.\cite{ATL-COM-PHYS-2016-1784}}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\linewidth]{ATL-COM-PHYS-2016-1784_118fa.pdf}\\
+\caption{\label{fig:HGam_ranking_STXS}
+Expected ranking of the systematic uncertainties for the STXS parameter $\sigma_{gg2H\ 0J}$ in the H boson couplings analysis.\cite{ATL-COM-PHYS-2016-1784}}
+\end{figure}
+
+
+\end{enumerate}
+
+
+
+\section{Results on data}
+\label{sec:orgf375a30}
+
+Once the analysis is validated, the statistical model can be fitted on data.
+The central values for the nine merged parameters of the STXS obtained with 36.2 fb\(^{\text{-1}}\) of data recorded in 2015 and 2016 runs are \cite{ATLAS-CONF-2017-045}:
+
+\begin{align*}
+  \sigma (ggH, \mathrm{0~jet}) \tbfhyy &= 37\ ^{+15}_{-15}\ \fb \\ &= 37\ ^{+14}_{-14}\,\mathrm{(stat.)}\ ^{+6}_{-5}\,\mathrm{(syst.)}\ \fb \\
+  \sigma (ggH, \mathrm{1~jet}, p_T^{H} < 60\ \text{GeV}) \tbfhyy &= 13\ ^{+13}_{-12}\ \fb \\ &= 13\ ^{+12}_{-12}\,\mathrm{(stat.)}\ ^{+5}_{-4}\,\mathrm{(syst.)}\ \fb \\
+  \sigma (ggH, \mathrm{1~jet}, 60 \leq p_T^{H} < 120\ \text{GeV}) \tbfhyy &= 5\ ^{+6}_{-6}\ \fb \\ &= 5\ ^{+6}_{-6}\,\mathrm{(stat.)}\ ^{+2}_{-1}\,\mathrm{(syst.)}\ \fb \\
+  \sigma (ggH, \mathrm{1~jet}, 120 \leq p_T^{H} < 200\ \text{GeV}) \tbfhyy &= 2.6\ ^{+1.7}_{-1.6}\ \fb \\ &= 2.6\ ^{+1.6}_{-1.5}\,\mathrm{(stat.)}\ ^{+0.8}_{-0.5}\,\mathrm{(syst.)}\ \fb \\
+  \sigma (ggH, \geq 2~\mathrm{jet}) \tbfhyy &= 20\ ^{+9}_{-8}\ \fb \\ &= 20\ ^{+8}_{-8}\,\mathrm{(stat.)}\ ^{+4}_{-3}\,\mathrm{(syst.)}\ \fb \\
+  \sigma (qq \rightarrow Hqq, p_T^{j} < 200~\text{GeV}) \tbfhyy &= 15\ ^{+6}_{-5}\ \fb \\ &= 15\ ^{+5}_{-5}\,\mathrm{(stat.)}\ ^{+3}_{-2}\,\mathrm{(syst.)}\ \fb \\
+  \sigma (ggH + qq \rightarrow Hqq, \mathrm{BSM-like}) \tbfhyy &= 1.9\ ^{+1.4}_{-1.4}\ \fb \\ &= 1.9\ ^{+1.3}_{-1.2}\,\mathrm{(stat.)}\ ^{+0.6}_{-0.6}\,\mathrm{(syst.)}\ \fb \\
+  \sigma (\mathrm{VH, leptonic}) \tbfhyy &= 0.7\ ^{+1.4}_{-1.3}\ \fb \\ &= 0.7\ ^{+1.4}_{-1.2}\,\mathrm{(stat.)}\ ^{+0.3}_{-0.3}\,\mathrm{(syst.)}\ \fb \\
+  \sigma (\mathrm{top}) \tbfhyy &= 0.7\ ^{+0.8}_{-0.7}\ \fb \\ &= 0.7\ ^{+0.8}_{-0.7}\,\mathrm{(stat.)}\ ^{+0.2}_{-0.1}\,\mathrm{(syst.)}\ \fb \\
+  \end{align*}
+
+  A summary plot of these numbers, shown in fig. \ref{fig:HGam_results_STXSSumary}, helps to see that there is no significant deviation from the SM expectations.
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.9\linewidth]{ATLAS-CONF-2017-045_15f.pdf}
+\caption{\label{fig:HGam_results_STXSSumary}
+  Summary plot of the measured simplified template cross sections times the Higgs boson to diphoton branching ratio.
+  For illustration purposes the central values have been divided by their SM expectations but no additional SM uncertainties have been folded into the measurement.
+  The uncertainties on the SM predicted cross-sections are shown in grey in the plot.
+  \cite{ATLAS-CONF-2017-045}}
+\end{figure}
+
+
+The correlations between the different parameters are shown in fig. \ref{fig:org1ee6f2b}.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.9\linewidth]{ATLAS-CONF-2017-045_16f.pdf}
+\caption{\label{fig:org1ee6f2b}
+Observed correlation of the STXS truth bins with 36.2 fb\(^{\text{-1}}\) of data recorded in 2015 and 2016 runs.\cite{ATLAS-CONF-2017-045}}
+\end{figure}
+
+
+The observed inclusive signal strength is :
+\begin{align*}
+  \mu &= 0.99\ ^{+0.14}_{-0.14} = 0.99\ ^{+0.12}_{-0.11}\,\mathrm{(stat.)}\ ^{+0.06}_{-0.05}\,\mathrm{(exp.)}\ ^{+0.06}_{-0.05}\,\mathrm{(theory)} \ ,\\
+\end{align*}
+
+This result confirms the ATLAS run 1 diphoton signal strength measurement of $\mu = 1.17 \pm 0.27$ with about a factor 2 of improvement in the uncertainty.
+It should be noted that the run 1 result was obtained from an analysis that used a Higgs boson gluon fusion production cross section \cite{CERN-2013-004} that is about 10\% lower that the state of the art prediction of $\sigma_{ggH}$ \cite{CERN-PH-TH-2015-055,CERN-TH-2016-006}, and that the PDF have also been improved by using the LHC run 1 results.
+One can note that the 2015+2016 results of the 4l analysis in ATLAS \cite{ATLAS-CONF-2017-043} has been shown recently, with a value of $\mu$ of $\mu=1.28^{0.21}_{-0.19}$ with an uncertainty larger than in the $\gamma\gamma$ mode.
+
+The impact of the main sources of systematic uncertainty presented in table \ref{tab:HGam_big_systematics} on the measured global signal strength is presented in table \ref{tab:HGam_resuls_systematicsMu}
+
+\begin{table}
+  \centering
+  \includegraphics[width=0.5\linewidth]{ATLAS-CONF-2017-045_6t.pdf}
+  \caption{Main systematic uncertainties on the combined signal strength parameter.\cite{ATLAS-CONF-2017-045}}
+  \label{tab:HGam_resuls_systematicsMu}
+\end{table}
+
+One sees that the systematic uncertainties are smaller the values of the run 1 \cite{CERN-PH-EP-2014-198} that are shown in the table \ref{tab:HGam_results_SystRun1Mu}.
+
+
+\begin{table}
+  \centering
+  \includegraphics[width=0.7\linewidth]{CERN-PH-EP-2014-198_14t.pdf}
+  \caption{Main systematic uncertainties on the inclusive signal strength in run 1. \cite{CERN-PH-EP-2014-198}}
+  \label{tab:HGam_results_SystRun1Mu}
+\end{table}
+
+There are two clear comments :
+\begin{itemize}
+\item the uncertainty due to the resolution has decreased
+\item the uncertainty due to the theory (yield) is smaller, thanks to the new N$^3$LO calculation.
+  The theory PDF uncertainty has also decreased since the run 1 paper thanks to the improvement in the fits of the PDF.
+  In addition this uncertainty was for run 1 in the line theory (yield) while now it is in the line theory (migration) as can be seen in table \ref{tab:HGam_big_systematics}.
+  \end{itemize}
+
+In addition to the global signal strength, the signal strengths of the primary production processes are computed  and found to be :
+  \begin{align*}
+  \mu_\mathrm{ggH} &= 0.80\ ^{+0.19}_{-0.18} = 0.80\ ^{+0.16}_{-0.16}\,\mathrm{(stat.)}\ ^{+0.07}_{-0.06}\,\mathrm{(exp.)}\ ^{+0.06}_{-0.05}\,\mathrm{(theory)}\\
+  \mu_\mathrm{VBF} &= 2.1\ ^{+0.6}_{-0.6} = 2.1\ ^{+0.5}_{-0.5}\,\mathrm{(stat.)}\ ^{+0.3}_{-0.2}\,\mathrm{(exp.)}\ ^{+0.3}_{-0.2}\,\mathrm{(theory)}\\
+  \mu_\mathrm{VH}  &= 0.7\ ^{+0.9}_{-0.8} = 0.7\ ^{+0.8}_{-0.8}\,\mathrm{(stat.)}\ ^{+0.2}_{-0.2}\,\mathrm{(exp.)}\ ^{+0.2}_{-0.1}\,\mathrm{(theory)}\\
+  \mu_\mathrm{top} &= 0.5\ ^{+0.6}_{-0.6} = 0.5\ ^{+0.6}_{-0.5}\,\mathrm{(stat.)}\ ^{+0.1}_{-0.1}\,\mathrm{(exp.)}\ ^{+0.1}_{-0.0}\,\mathrm{(theory)}\\
+\end{align*}
+
+and are displayed in fig. \ref{fig:HGam_results_muProd}.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.9\linewidth]{ATLAS-CONF-2017-045_11f.pdf}
+\caption{\label{fig:HGam_results_muProd}
+  Summary of the signal strengths measured for the different main production processes.
+  The results are compared with the inclusive signal strength from run 1 and run 2.
+  \cite{ATLAS-CONF-2017-045}}
+\end{figure}
+
+
+
+The $H\rightarrow\gamma\gamma$ mass measurement with these data with the 31 reconstructed categories defined for the couplings measurement is given in \cite{ATLAS-CONF-2017-046}.
+After profiling along the four signal strengths the measured mass is found to be
+
+\begin{align*}
+  m_H^{\gamma\gamma} &= 125.11\ \pm 0.21\  \text{(stat)} \pm 0.36\ \text{(syst) GeV}\\
+  &= 125.11\pm 0.42\ \text{GeV}
+\end{align*}
+
+where the first error is the statistical uncertainty while the second is the total systematic uncertainty, dominated by the photon energy scale uncertainty.
+The statistical uncertainty is determined by fixing all the nuisance parameters to their best fit value, except for those describing the background shape and the signal and background normalisations, that are unconstrained in the nominal fit.
+
+Figure \ref{fig:HGam_massDistrib} shows the distribution of the data superimposed with the result of the fit where, for illustration purposes events are weighted by the contribution of their category in the full combination \cite{\cite{ATLAS-CONF-2017-046}}.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.8\linewidth]{ATLAS-CONF-2017-046_9f.pdf}
+  \caption{Diphoton invariant mass distribution of the data superimposed with the result of the fit.
+    Both for data and the fit each category is weighted by a factor $log(1+s/b)$.
+    \cite{ATLAS-CONF-2017-046}}
+  \label{fig:HGam_massDistrib}
+\end{figure}
+
+A summary of the total systematic uncertainty from the main sources is shown in table \ref{tab:HGam_massUncert}.
+The largest effect comes from ``LAr cell non-linearity''.
+The gain correction applied in run 1 is not applied anymore \cite{ATL-COM-PHYS-2017-758} and the uncertainty has been replaced by the uncertainty computed using special runs with lower medium gain thresholds \cite{Unal_20170427}.
+The current uncertainty is quite large but will probably be reduced with the analysis of new special runs \cite{Unal_20170622}.
+In addition this uncertainty includes a small (see \cite{ATL-COM-PHYS-2013-1423} paragraph 7) uncertainty due to a possible medium/high gain non linearity in layer 1 that has been slightly increased in run 2.
+The second largest uncertainty is the ``LAr layer calibration'' \cite{ATL-COM-PHYS-2013-1423} where the uncertainty with respect to run 1 has been slightly increased for run 2 in the barrel and more in the end-cap.
+Additional work is ongoing \cite{ATL-COM-PHYS-2017-760}.
+The third largest uncertainty is the ``Non-ID material'' and is identical to the one of run 1.
+The fourth largest uncertainty is ``Lateral shower shape'' and has slightly changed in run 2 compared to run 1 \cite{CERN-PH-EP-2014-153,ATL-COM-PHYS-2017-758} for converted photons (where it is now smaller) and unconverted photons (where it is now larger).
+The fifth largest uncertainty is ``ID material'' which has slightly increased since run 1 \cite{ATL-COM-PHYS-2017-759} because of the IBL and an uncertainty on the service of the pixels (called pp0) at small radius and large $|\eta|$.
+\begin{table}
+  \centering
+  \includegraphics[width=0.8\linewidth]{ATLAS-CONF-2017-046_7t.pdf}
+  \caption{Main sources of systematic uncertainty on $m_H^{\gamma\gamma}$. \cite{ATLAS-CONF-2017-046}}
+  \label{tab:HGam_massUncert}
+\end{table}
+
+
+
+This value of the $\gamma\gamma$ mass can be compared to the value of the run 1 \cite{CERN-PH-EP-2014-122}
+
+\begin{align*}
+  m_H &= 125.98 \pm 0.42\ \text{(stat)} \pm 0.28 \ \text{(syst) GeV}\\
+  &= 125.98 \pm  0.50 \ \text{GeV}
+\end{align*}
+where the run 1 relative systematic uncertainties are shown in table \ref{tab:HGam_results_MassSystRun1}
+
+\begin{table}
+  \centering
+  \includegraphics[width=\linewidth]{CERN-PH-EP-2014-122_2t.pdf}
+  \caption{Summary of the relative systematic uncertainties (in $\%$) on the $H\rightarrow\gamma\gamma$ run 1 mass measurement for the different categories. \cite{CERN-PH-EP-2014-122} }
+  \label{tab:HGam_results_MassSystRun1}
+\end{table}
+
+
+The current ATLAS run 2 $\gamma\gamma$ and $4l$ mass \cite{ATLAS-CONF-2017-046} is $m_H=124.98\pm0.28$ GeV.
+
+%%===========================================
+\section{Comparison with CMS}
+\label{sec:org2d182d7}
+
+For the conference LHCP, CMS showed a Physics Analysis Summary (PAS) note with the 2015+2016 $H\rightarrow\gamma\gamma$ analysis \cite{CMS-PAS-HIG-16-040} with a combined signal strength of $\mu=1.16^{+0.15}_{-0.14}$ in agreement with ATLAS.
+In this PAS note, it is written
+``The best fit mass is found at $m_H=125.4$ GeV with statistical uncertainty of approximately $0.15$ GeV.
+The systematic uncertainties are preliminary estimated to be between 0.2 GeV and 0.3 GeV, and are still under study.''
+This value of the H boson mass is in agreement with the ATLAS value, the $H\rightarrow 4l$ CMS value \cite{CMS-PAS-HIG-16-041,CMS-HIG-16-041} and the run 1 ATLAS+CMS value \cite{CERN-PH-EP-2015-075} quoted above (chapter \ref{sec:orgf76e3ba}).

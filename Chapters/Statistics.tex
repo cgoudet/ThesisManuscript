@@ -1,0 +1,337 @@
+\chapter{Statistics}
+\label{sec:orgc8635b2}
+
+The statistical treatment of the data is the transition between the experimental measurement of quantities and the interpretation of the collected data into a theory.
+This interpretation usually aims at determining the values of a set of parameters of the theory (parameters of interest \(\vec{\mu}\)) which best describe the data.
+The inputs of the statistical framework are a set of events for which observables have been measured \(\{\vec{x_e}\}\).
+The procedure will rely on the determination of the probability to observe the data under the assumption of a given model \(P(\{\vec{x_e}\}| \vec{\mu})\).
+
+
+\section{Model building}
+\label{sec:orgf5f8572}
+
+The modelling of the problem is performed by the creation of a likelihood, i.e. a function which quantifies the level of agreement between the data and a given theory.
+In a simple cut and count analysis, the model predicts an amount of observed events K by combining the tested theory and experimental considerations.
+The probability of observing N events when K are expected, which is equivalent to the agreement between data and the model, follows a Poisson distribution.
+\begin{equation}
+P_K(N)=\frac{K^N}{N!}e^{-K}
+\end{equation}
+
+Usually, a set of observable quantities are measured for each event and can be used to improve the statistical model.
+The probability to observe the observables \(\vec{x_e}\) is defined by the model, using either MC simulations, data driven techniques or analytic forms.
+This distribution takes into account the correlations between all the variables.
+If there are no correlations, the total probability density function (PDF) is simply the product of the individual PDF of each observable.
+Finally, the probability to observe the dataset \(\{\vec{x_e}\}\) is the product of the probabilities to observe each event.
+The total likelihood $f(\{\vec{x_e}\})$ is finally the combination of the Poisson probability and the product of PDF for the observables.
+\begin{equation}
+f(\{\vec{x_e}\}) = \frac{K^N}{N!}e^{-K} \prod\limits_{e=1}^{N} f(\vec{x_e})
+\end{equation}
+
+The dependence of the likelihood with respect to the underlying theory has been kept implicit so far.
+For two different models, the number of expected events and the PDF of the observables are model dependent.
+Usually, the  theories tested against each other belong to the same class of theories and can be indexed by a set of parameters of interest (POI) \(\vec{\mu}\).
+The number of expected events and the PDF of the observables usually depends on \(\vec{\mu}\), which allows to differentiate theories.
+
+In particle physics events are usually classified into two categories : the signal which is a process that the analysis tries to observe or measure, and the background which represents known processes.
+In the cross-section measurement of the H boson, the tested models differ only by the amount of signal events (S) that is expected in the analysis.
+These signal events are then mixed in the analysis with background events for which we will assume we have a (almost) perfect knowledge.
+The set of observables in this analysis is reduced to the distribution of the reconstructed invariant mass of the diphoton system, parametrized as a weighted average of the PDF of the signal and the background.
+The difference in expected yields between models is then translated in the statistical model into a difference in the shape of the mass distribution.
+In this context, the probability to observe the data under the assumption of S signal events takes the form :
+\begin{equation}
+f({\vec{x_e}} | S) = \frac{(S+B)^N}{N!}e^{-(S+B)} \prod\limits_{e=1}^{N} \frac{S f_S(\vec{x_e}) + Bf_B(\vec{x_e})}{S+B}
+= \frac{1}{N!}e^{-(S+B)} \prod\limits_{e=1}^{N} (S f_S(\vec{x_e}) + Bf_B(\vec{x_e}))
+\end{equation}
+where f\(_{\text{S}}\) and f\(_{\text{B}}\) are the expected mass pdf distribution of the signal and the background, and B the expected background yield.
+
+A single analysis is usually optimised and the selection of events removes some part of the signal in order to better reject background.
+There may be a region in the remaining phase space from where signal information could also be extracted.
+It is then interesting to combine the information from both analyses in order to reach signal constraints stronger than from either of the individual analyses.
+Furthermore, an analysis is usually optimised for a reduced set of POI.
+A more complete model could be created by combining different analyses which target different POI.
+A combination of these multiple analyses, then referred as categories, is obtained by multiplying the corresponding likelihood together.
+The correlations between analyses in taken into account by identifying common parameters between categories.
+In run 1, H boson mass measurement was performed by combining 10 categories with different resolutions and signal significances.
+
+In large datasets, it can become expensive in term of computing power to compute the likelihood (and especially to maximise it).
+Instead of considering the probability to observe each event separately, it is possible to replace the PDF of observables by histograms.
+The expected number of event in each bin (as a function of \(\vec{\mu}\)) can be computed as the integral of the PDF of the observable over the bin width.
+A likelihood equivalent  for un-binned events is achieved by considering each bin as a simple cut and count analysis and combining all of them.
+
+
+\section{Uncertainties treatment}
+\label{sec:org9cc7929}
+\label{sec:stat_NP}
+
+The statistical model depends on parameters of interest but also on external inputs, the nuisance parameters (NP), for which one does not have a perfect knowledge.
+They can be the result of an experimental measurement, or being an uncertain theoretical parameter.
+Most of those parameters take the form of correction or re-weighting factors measured on dedicated analyses, such as the energy scale factors which are applied on photons and electrons and which are measured using $Z\rightarrow ee$ analysis (see sec. \ref{sec:Calibration_calibration}).
+
+A proper modelling of the data must consider the uncertainties on those nuisance parameters by combining the statistical model with the auxiliary measurement.
+Many analyses do not have a sufficient knowledge of the background so measure the background in control regions where no signal is expected.
+The information on the background is included in the statistical model by considering the control region as a category and correlating the background parameters between the control and the signal region.
+However in the H boson to diphoton analysis, background shape and yield are measured in the side-bands of the data.
+
+The auxiliary measurement may not use a similar statistical procedure to measure parameters most probable values (MPV) and uncertainties.
+It may then not be possible to easily combine it with the statistical model.
+Instead, the performances of the auxiliary measurement are simplified into a probability density function for the nuisance parameter and combined with the main model.
+Usually it is assumed that this constraint is a Gaussian function, centred on the MPV of the NP, and with a RMS equal to the total uncertainty of the NP.
+
+
+In practice, a NP is $\eta$ and $p_T$ dependent and affect each event differently.
+Depending on the properties of its selection, each category has a different effective dependency on a nuisance parameter.
+As a result, each category should impose its own Gaussian constraint on a NP, with complicated correlations with other categories.
+The likelihood of a category which depends only on a single NP \(\chi\), with MPV \(\chi^{\text{0}}\) and an uncertainty \(\delta\),  takes the form :
+\begin{equation}
+\label{eq:org6dd9827}
+L_{tot} = L(\chi)e^{-\frac{(\chi-\chi_0)^2}{2\delta^2}}
+\end{equation}
+
+
+Usually, correction factors parameters do not appear explicitly in the likelihood as it parametrizes the corrected data.
+The parametrization proposed in eq. \ref{eq:org6dd9827} can not be used as the \(\chi\) parameter may not appear explicitly in the model.
+Instead, the change of variable proposed in eq. \ref{eq:org97da222}  allows to include the same information in the statistical framework but with a major simplification.
+The Gaussian constraint is now only dependent on a parameter \(\theta\) which represents the deviation of the parameter NP, in units of its uncertainty, with respect to its MPV.
+The information about the deviation is also included into the category by the multiplicative term $(1+\delta \theta)$.
+Without any category dependent variable, all Gaussian constraints are not identical and can be merged into a single global constraint.
+Finally, this parametrization can be used in the case where the NP is effectively absorbed into another variable as its MPV is not required anymore.
+\begin{equation}
+\label{eq:org97da222}
+\chi \rightarrow \chi_0 (1+\delta\theta); \ e^{-\frac{(\chi-\chi_0)^2}{2\delta^2}} \rightarrow e^{-\frac{\theta^2}{2}}
+\end{equation}
+
+
+The estimation of the POI and NP which best describe the data is performed by maximising the likelihood (or in practice minimising -2ln(L)).
+Auxiliary measurements are usually dedicated analyses with optimal sensitivity.
+It is not expected that the data of a Higgs boson measurement for instance contribute significantly to the NP determination.
+On the contrary, it is expected that the value of the NP showing the best agreement with data is close to its nominal value, meaning \(\theta\)=0.
+Similarly, the constraining power of the data on the NP is expected to be negligible with respect to the one of the dedicated auxiliary measurement.
+Hence, only the Gaussian constraint should have a contribution on the uncertainty of the NP, which implies an uncertainty of 1.
+A coherence check is performed after minimisation to ensure that the NP have the expected best value and uncertainty.
+An illustration of such a check, performed on an asimov, can be seen for a set of NP in the $H\rightarrow\gamma\gamma$ couplings analysis in fig. \ref{fig:orgc0d4446} where the black markers represent the measured values for the \(\theta\)'s of selected NP.
+
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.7\linewidth]{ATL-COM-PHYS-2016-1784_168f.pdf}
+\caption{\label{fig:orgc0d4446}
+Ranking of nuisance parameters on an Asimov dataset in the \(H\rightarrow\gamma\gamma\) couplings analysis. The black markers represent central pull and overconstraints of NP.\cite{ATL-COM-PHYS-2016-1784}}
+\end{figure}
+
+
+The parametrization in eq. \ref{eq:org97da222} allows the parameter \(\chi\) to be negative.
+This may be unphysical for some parameters such as the detector resolution or selection efficiencies.
+The constraint on the parameter \(\chi\) is then changed to a log-normal (eq. \ref{eq:org2163697}) which prevent any negative value of the parameter.
+\begin{equation}
+\label{eq:org2163697}
+\text{logNorm}(\chi; \chi_0, \sigma) = \frac{1}{\chi} exp \left( - \frac{(ln (\chi/\chi_0))^2}{2\sigma'^2}   \right) \simeq C exp \left( - \frac{(ln (\chi/\chi_0))^2}{2\sigma'^2} \right)
+\end{equation}
+A re-parametrization, shown in eq. \ref{eq:orgedde977} of the likelihood is performed in the same spirit as for the Gaussian constraint by defining \(\theta = \frac{1}{\sigma'} ln(\chi/\chi_0)\).
+\begin{equation}
+\label{eq:orgedde977}
+\chi\rightarrow\chi_0e^{\theta\sigma'}; \ exp \left( - \frac{(ln (\chi/\chi_0))^2}{2\sigma'^2} \right) \rightarrow e^{-\frac{\theta^2}{2}}
+\end{equation}
+In practice, the change of constraint is then limited to a change of the multiplicative factor in the likelihood.
+\(\sigma\)' is related to \(\delta\) by imposing the RMS of the log-normal function to be equal to the uncertainty on \(\chi_{\text{0}}\).
+One must then solve :
+\begin{equation}
+\delta^2 = e^{\sigma'^2}(e^{\sigma'^2}-1)
+\end{equation}
+
+
+Finally, the log-normal constraint is obtained by changing the \(\chi\) parameter with
+\begin{equation}
+\label{eq:org9060827}
+\chi\rightarrow\chi_0 e^{\theta\sqrt{ln\left(\frac{1+\sqrt{1+4\delta^2}}{2}\right)}} \simeq \chi_0 e^{\theta\sqrt{ln(1+\delta^2)}}
+\end{equation}
+
+
+\section{Compatibility measurement}
+\label{sec:orga82e3f9}
+\label{sec:stat_confidenceInterval}
+\subsection{Confidence interval}
+\label{sec:org30ef1ce}
+
+In a measurement, one wants to find values of the parameters of interest (\(\vec{\mu}\)) which are compatible up to a certain level with the data and eventually the values which show the best agreement.
+The most probable value is obtained by maximising the likelihood over the set of parameters of interest (\(\vec{\mu}\)) and the nuisance parameters (\(\vec{\theta}\)).
+The construction of a confidence interval is detailed in the case of a single POI \(\mu\) and no NP.
+The generalisation with a more complex likelihood is mentioned later.
+
+An exclusion region at the level of \(\alpha\) defines an ensemble of values of \(\mu\) such that the probability to observe them under the tested hypothesis is smaller than \(\alpha\).
+% The definition of the exclusion region is arbitrary.
+From the probability distribution of the observed \(\mu\) under the assumption of \(\mu_{\text{test}}\), one can arbitrarily decide the definition of the exclusion region as long as the integral of the distribution over this region is equal to $\alpha$.
+Two definitions are widely used, depending on the objective of the analysis.
+The one-sided case assumes that all incompatible values are the extreme values on a single side of the distribution with respect to \(\mu_{\text{test}}\).
+The exclusion region is defined as all values of \(\mu\) above (or below) \(\mu_{\text{0}}\) such that \(|\int\limits_{\mu_0}^{\pm\infty}f(\mu|\mu_{test})|=\alpha\).
+On the other hand, the two-sided method shares equally the \(\alpha\) probability between both sides of \(\mu_{\text{test}}\).
+The exclusion region is then defined as \(]-\infty,k]\cup[k',+\infty[\)  such that \(\int\limits_{k'}^{+\infty}f(\mu|\mu_{test})=\int\limits^{k}_{-\infty}f(\mu|\mu_{test})=\alpha/2\).
+A visual representation of these two definitions is proposed in fig. \ref{fig:org6ce2637}.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.6\linewidth]{OneTwoSided.jpg}
+\caption{\label{fig:org6ce2637}
+Visualisation of the two-sided (left) and one-sided (right) exclusion regions of size \(\alpha\)=5\%.}
+\end{figure}
+
+Using this definition of exclusion region, Neyman proposed in 1937 a method to define confidence intervals \cite{Neyman333}, which have a probability $\beta=1-\alpha$ of containing the true value of \(\mu\).
+For each tested \(\mu_{\text{test}}\) one looks if the observed \(\mu_{\text{obs}}\) falls into the rejection region.
+If so, \(\mu_{\text{test}}\) is considered not compatible with the data and is rejected from the confidence interval.
+If \(\mu_{\text{obs}}\) does not fall in the rejection region, \(\mu_{\text{test}}\) is kept in the confidence interval \cite{PDG2016}.
+A visualisation of this construction is proposed in fig. \ref{fig:org410e477} for the case of an observable x representative of an underlying theory parameter \(\theta\).
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.6\linewidth]{CERN-2015-001-247_4f.pdf}
+\caption{\label{fig:org410e477}
+Sketch of the Neyman contruction of confidence interval. \cite{CERN-2015-001-247}}
+\end{figure}
+
+The construction of Neyman becomes more complicated to visualise in practical case of many POI and observables.
+A test statistic is then used to translate all of the information into a real number.
+The usual test statistic used for measurement in LHC experiment is the profile likelihood ratio :
+\begin{equation}
+\label{eq:org444fadf}
+t_{\vec{\mu}} = -2ln \left(\frac{L(\vec{\mu},\hat{\hat{\vec{\theta}}})}{L(\hat{\vec{\mu}},\hat{\vec{\theta}})} \right) = -2ln(\lambda(\vec{\mu}))
+\end{equation}
+\(\hat{X}\) is the value of X which allows the best agreement with data (i.e. maximises the likelihood).
+\(\hat{\hat{\theta}}\) is the value of $\theta$ which maximises the likelihood under some conditions, usually fixing the value of \(\vec{\mu}\) ( see \cite{Cowan:1071727} for instance).
+The value of $t_\mu$ is null for the best agreement between the model and data, and increases with further disagreement.
+No differentiation is done between disagreements above and below the tested value so this test statistic corresponds to a two-sided confidence interval.
+Depending on the type of confidence interval one wants to create, different definitions of profiles likelihoods are possible.
+Practical examples for analyses in particle physics are proposed in \cite{Cowan:1071727}.
+
+
+The test statistic formalism allows to reduce the determination of possibly complicated rejection region, into a simple one-sided rejection region on a single variable (\(t_{\vec{\mu}}\)).
+Fig. \ref{fig:org571b725} shows an illustration of the distribution of a similar test, q\(_{\mu}\), under two different hypotheses of true \(\mu\) : either identical with the one tested or different.
+If one computes the distribution of the test statistic for events corresponding to the same \(\mu\) than the one used in the test statistic, (i.e. this is what we would see if we compute the agreement between data and the true theory), there is a larger probability to observe a low value (good agreement), hence the $t_\mu$ distribution has larger probability close to zero.
+On the contrary, if the \(\mu\) of the test statistic and of the events tested are different, there is in average a larger disagreement between the data and the distribution of $t_\mu$ is peaked at a large value.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.6\linewidth]{Cowan_1007_1727_2f.pdf}
+\caption{\label{fig:org571b725}
+Illustration of q\(_{\mu}\) distribution under the different hypothesis.\cite{Cowan:1071727}}
+\end{figure}
+
+The definition of the confidence interval for $\vec{\mu}$ is derived from the definition of a rejection region for $t_{\vec{\mu}}$.
+From the distribution of $t_{\vec{\mu}}$ under the hypothesis of $\vec{\mu}_{\text{test}}$, one can define t\(_{\text{0}}\) such that \(\int\limits_{t_0}^{+\infty}f(t_{\vec{\mu}}|\vec{\mu}_{test})=\alpha\).
+This correspond to the set of measurements which are the least compatible with the model.
+This region is represented in blue in fig. \ref{fig:org571b725}.
+If the value of the observed \(t_{\vec{\mu}_{test}}\) is larger than t\(_{\text{0}}\), then the hypothesis $\vec{\mu}_{\text{test}}$ is rejected.
+Otherwise, \(\mu_{\text{test}}\) belongs to the confidence interval.
+By scanning the available phase space of \(\vec{\mu}\), the confidence interval is created by keeping the values for which the observed test statistic does not belongs to the rejection region.
+
+
+\subsection{$t_\mu$ distribution}
+\label{sec:orgf0b767b}
+
+In the description of the confidence interval there was no mention of how to compute the distribution of $t_{\vec{\mu}}$ under a $\vec{\mu}_{\text{test}}$ hypothesis \(f(t_{\vec{\mu}}|\vec{\mu_{test}})\).
+Two methods are widely used in particle physics.
+
+The first method consists in the generation of pseudo experiments called toys.
+For each toy, one must generate random pseudo-data according to a model ($\vec{\mu}_{\text{test}}$) to simulate "data" one would obtain by performing again the experiment.
+The set of generated toys aims at being representative of the statistical fluctuations of the data.
+The $t_{\vec{\mu}}$ of each toy can be computed by fitting the toy dataset with the statistical model.
+The distribution of $t_{\vec{\mu}}$ can be unveiled by a sufficiently large amount of toys.
+
+The statistical fluctuation of the toys are obtained by randomly generating the number of event observed in each bin using a Poisson distribution.
+The cost of the method is linked to the rejection power (\(\alpha\)) one wants to achieve : an analysis rejecting at 5\% or 0.01\% will not have the same requirements on tail description, hence in the number of toys required.
+In any case, the method is intrinsically expensive in term of cpu as one has to generate a large number of dataset and fit (twice) the statistical model over it.
+In the case of complex models, the fitting procedure can itself be extremely time consuming (hours or days).
+Examples of very time consuming toys can be found in section 5.4 of \cite{CERN-THESIS-2015-193}.
+Because of the cost, this method is mostly used for analyses for which the distribution differ significantly from a Gaussian and for which no lighter procedure would give correct results.
+
+
+While the current cpu capacities usually allow to consider the toy method, alternate solutions to obtain the distribution of $t_{\vec{\mu}}$ where studied both because of lack of cpu at the time and to save time for simple cases.
+Following the results of Wilks \cite{wilks1938} and Wald \cite{Wald1943}, an analytic formulation of the problem was proposed in the case of large statistics.
+The procedure is detailed in the context of particle physics in \cite{Cowan:1071727}.
+Under the assumption of large statistics (N), $\mu$ is expected to have a Gaussian distribution and $t_{\mu}$ is a function of the estimator of the parameter and its uncertainty only :
+\begin{equation}
+\label{eq:org68bb290}
+t_\mu = -2ln\lambda (\mu) = \frac{(\mu - \hat{\mu})^2}{\sigma^2} + O(1/\sqrt{N}).
+\end{equation}
+When neglecting the term \(O(1/\sqrt{N})\), the $t_\mu$ distribution follows a noncentral chi-square distribution for one degree of freedom (eq. \ref{eq:org8849c5a}).
+The shape of the $t_\mu$ distribution was also computed for models with more parameters of interest in \cite{Cowan:1071727} : in that case the distribution follows  a non-central chi-square distribution for r degrees of freedom.
+The knowledge of the analytical form of \(f(t_{\vec{\mu}}|\vec{\mu}')\) allows to easily compute its cumulative distribution which is then used to define the rejection region.
+As a result the confidence interval can be obtained by studying this single function instead of generating a large amount of toys.
+
+\begin{equation}
+\label{eq:org8849c5a}
+ f(t_\mu | \mu' ) = \frac{1}{\sqrt{8\pi t_\mu }} \left[ \text{exp} \left( -\frac{1}{2} (\sqrt{t_\mu} + \frac{\mu - \mu'}{\sigma})^2\right)  + \text{exp}\left( -\frac{1}{2} (\sqrt{t_\mu} - \frac{\mu - \mu'}{\sigma})^2\right)\right]
+\end{equation}
+
+
+\subsection{Practical cases}
+\label{sec:org48c544d}
+
+The construction of confidence interval presented so far is mostly theoretical and practical uses differ.
+One common way of estimating the confidence interval in the Gaussian approximation is to compute the covariant matrix V\(_{\text{ij}}\) of the maximum likelihood.
+This uses the well known equation :
+
+\begin{equation}
+V_{ij}^{-1} = - \frac{\partial^2ln(L)}{\partial \theta_j \partial \theta_k }
+\end{equation}
+
+By indexing \(\mu\)=\(\theta_{\text{0}}\), the confidence interval is defined as \([\hat{\mu}-\sqrt{V_{00}}, \hat{\mu}+\sqrt{V_{00}}]\).
+This computation is performed by the MINUIT \cite{James:873119} algorithm.
+In the case a of Gaussian distributed variable, this interval corresponds to the values within one standard deviation from the centre, and corresponds to a 68\% confidence interval.
+In the case of a confidence region in two or more dimensions, one has to take into account the off-diagonal terms in the covariance matrix to ensure a proper coverage of the true values.
+This method, which gives symmetric uncertainty on the POI, can not be used in cases of non-symmetric distributions.
+
+Usually, physicists use only eq. \ref{eq:org68bb290} to define the confidence interval, so still using Gaussian assumption.
+Assuming \(\hat{\mu}\) is the true value, one can compute the $t_\mu$ for \(\mu \neq \hat{\mu}\) and obtain the \(\sigma\).
+In practice at the LHC, one displays the curve of $t_\mu$ as a function of \(\mu\) which in the Gaussian assumption is a positive parabola which is minimal at \(\hat{\mu}\) as in fig. \ref{fig:org31eaacd}.
+The curve is usually shifted in order to match its minimum with 0.
+Eq. \ref{eq:org68bb290} tells us that the borders of the 68\% confidence interval are values of \(\mu\) such that \(\mu-\hat{\mu}=\sigma\) hence $t_\mu=1$.
+Similarly, the 95\% confidence interval is bounded by $t_\mu=4$
+\footnote{Actually, $t_\mu=4$ for the 95\% confidence interval is an approximation.
+  The 95\% confidence interval of a Gaussian is defined as $\mu\pm1.96\sigma$, which lead to $t_\mu=1.96^2=3.84$.
+Both definitions are commonly used.}.
+While more graphically oriented, this method allows to see the shape of the minimum which is probed and eventually observe up/down asymmetries.
+Usually, it is assumed that the method is still reliable for large asymmetries such as in fig. \ref{orgb73d0b1}.
+This methods also allows for visualisation of several minima in the likelihood provided some small constraints in the choice of initial state of the fit.
+A typical example of plot showing two minima is also provided in fig. \ref{orgb73d0b1}.
+Finally, in the case of several parameters of interest, one can scan their phase space and plot the contour line for which $t_\mu$ reaches the relevant values (1 and 2.3 at respectively 1 and 2 dimension).
+This kind of plot which is provided in fig. \ref{orgb73d0b1} takes account of the correlation between parameters of interest (and NP) by construction.
+More details in statistics can be found in \cite{Cowan1998,CERN-THESIS-2012-144,CERN-THESIS-2015-193} and in \cite{Read:722145} for the CLs definition.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.6\linewidth]{CERN-PH-EP-2015-075_1f.pdf}
+\caption{\label{fig:org31eaacd}
+Final run 1 combined ATLAS+CMS Higgs boson mass measurement.\cite{CERN-PH-EP-2015-075}}
+\end{figure}
+
+
+\begin{figure}[htbp]
+\begin{subfigure}[t]{0.32\linewidth}
+\begin{center}
+\includegraphics[width=0.99\linewidth]{ATLAS-CONF-2015-007_13fc.pdf}
+\end{center}
+\end{subfigure}
+\begin{subfigure}[t]{0.32\linewidth}
+\begin{center}
+\includegraphics[width=0.99\linewidth]{ATLAS-CONF-2015-007_13fa.pdf}
+\end{center}
+\end{subfigure}
+\begin{subfigure}[t]{0.32\linewidth}
+\begin{center}
+\includegraphics[width=0.99\linewidth]{ATLAS-CONF-2015-007_9f.pdf}
+\end{center}
+\end{subfigure}
+\caption{\label{orgb73d0b1}
+Illustrations of application of test statistic for the determination of confidence interval for asymmetric (left), multi-minima (center) and multi variable (right) likelihood.\cite{ATLAS-CONF-2015-007}}
+\end{figure}
+
+
+\subsection{Asimov dataset}
+  \label{sec:org561a813}
+
+Prior to the actual measurement, one may be interested in the precision that the analysis is able to reach.
+A solution to characterise quickly the sensitivity relies in the so called Asimov dataset, inspired by the famous science fiction novelist, and detailed in \cite{Cowan:1071727}.
+This dataset is representative of the tested model without any statistical fluctuation but with the correct statistical uncertainty such that one gets exactly the expected estimators (\(\hat{\mu}=\mu_{true}\)) when fitting the pseudo-data.
+It is constructed by imposing in each bin a number of events exactly equal to the expectation.
+Non integer values are not important as the factorial parts of the likelihood cancel in the $t_\mu$ definition.
+With this construction one ensures the measured $t_\mu$ will be the median of $f(t_{\mu}|\mu_{\text{true}})$.
+The median confidence interval of the measurement can finally be obtained by applying the procedure described on this dataset.
