@@ -1,0 +1,145 @@
+\section{Experimental conditions and data processing}
+\frame{\tableofcontents[currentsection]}
+
+\begin{frame}{The Large Hadron Collider}
+  The LHC aims at accelerating and colliding protons.
+  Analysing debris of collisions allows to probe SM and/or beyond.
+  \vfill
+  
+  \begin{minipage}{0.49\linewidth}
+    \begin{itemize}
+    \item located at Geneva.
+    \item 27 km long.
+    \item 100 m underground
+    \item collision every 25 ns.
+    \item $\sqrt{s}=13$ TeV
+    \item 4 collision points equipped with detectors : ALICE, ATLAS, CMS and LHCb.
+    \end{itemize}
+    \end{minipage}
+  \hfill
+  \begin{minipage}{0.49\linewidth}
+    \includegraphics[width=\linewidth]{LHC.jpg}
+    \end{minipage}
+\end{frame}
+%%===========================
+\begin{frame}{LHC data taking condition}
+  The collision conditions at LHC have significantly changed since its contruction.
+  \begin{itemize}
+  \item Major increase of integrated luminosity per year.
+  \item Large increase in colliisions per bunch crossing.
+  \end{itemize}
+
+  \begin{center} \includegraphics[width=0.6\linewidth]{ATLASLumiYear.pdf} \end{center}
+\end{frame}
+%%===========================
+\begin{frame}{General purpose apparatus}
+  A general purpose particle detector (ATLAS and CMS) is designed as layers with specific measurement goal.
+  
+  \begin{center}    \includegraphics[width=0.7\linewidth]{detector.jpg} \end{center}
+\end{frame}
+
+%%===========================
+\begin{frame}{ATLAS experiment}
+  \begin{minipage}{0.49\linewidth}
+    \includegraphics[width=\linewidth]{ATLASExperiment_1f1.pdf}\\
+    Performance goals of the ATLAS detector\\
+    \includegraphics[width=\linewidth]{ATLASExperiment_1t1.pdf}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.49\linewidth}
+    \begin{itemize}
+    \item {\bf Large acceptance}
+    \item {\bf Radiation hard}
+      \newline
+    \item \textcolor{blue}{\bf Silicon and TRT tracker in 2T magnetic field}\\
+      Measure position and momentum of charged particles
+    \item \textcolor{blue}{\bf Liquid argon electromagnetic calorimeter (LAr)} \\
+      Measure energy of electrons and photons.
+    \item {\bf Scintillating tiles hadronic calorimeter} \\
+      Measure energy of jets
+    \item {\bf Muon chambers}
+    \end{itemize}
+  \end{minipage}\\
+\end{frame}
+
+%%==========================
+\begin{frame}{ Electromagnetic calorimeter (LAr) }
+  \begin{minipage}{0.4\linewidth}
+    \includegraphics[width=\linewidth]{MarcHDR_2f30.pdf}\newline
+    \centering
+    \includegraphics[width=\linewidth]{ATLASExperiment_5f4.pdf}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.59\linewidth}
+    \begin{itemize}
+    \item $1.4$m $<r<2$m
+    \item Sampling calorimeter : \\
+      - absorber : lead\\
+      - active material : \textcolor{blue}{\bf Liquid Argon }($88$K)\\
+    \item {\bf Accordion geometry} gives uniformity and hermeticity along $\phi$.
+    \item {\bf Longitudinally segmented} for pion discrimination
+      
+    \end{itemize}
+    \centering
+    \includegraphics[width=0.6\linewidth]{shower.jpg}
+  \end{minipage}
+\end{frame}
+
+%=============================
+%%==========================
+\begin{frame}{Energy measurement in LAr}
+\begin{minipage}{0.3\linewidth}
+    \includegraphics[width=\linewidth]{ATLASExperiment_5f30.pdf}
+\end{minipage}
+\hfill
+\begin{minipage}{0.69\linewidth}
+\begin{itemize}
+\item {\bf Signal drift time }($\sim 600$ns) {\bf too long} for collisions every $25$ns (pile-up).
+\item Analog signal pass through an \textcolor{blue}{\bf bipolar filter } to reduce signal time.
+Shape optimize signal over pileup and electronic noise.
+\item ADC sampling every $25$ns (4 points are kept).
+\item Energy computed using \textcolor{blue}{\bf calibration constants and optimal filtering of the samples}.
+\end{itemize}
+\end{minipage}
+\begin{center}
+    \includegraphics[width=\linewidth]{MarcHDR_2e3.pdf}
+\end{center}
+
+\end{frame}
+
+%===================
+\begin{frame}{Reconstruction \& Identification}
+  \begin{center}
+    Reconstruction links the energy deposit in detector cells to a \\ \textcolor{blue}{\bf physical particle and its properties}.
+    \vfill
+    \begin{itemize}
+    \item Divide the central part ($|\eta|=|ln(tan(\theta /2) )|<2.47$) into towers of size $\Delta\eta\times\Delta\phi =0.25\times 0.25$
+    \item Sum energies from all cells and all layers of the tower
+    \item Sliding window ($3 \times 5$ towers ) algorithm look for $2.5$~GeV of transverse energy
+    \item {\bf Track matching and clustering} :\\
+      \begin{itemize}
+      \item no track $\rightarrow$ photon $\rightarrow 3\times 7$ cluster 
+      \item track $\rightarrow$ electron $\rightarrow 3\times 7$ cluster 
+      \item conversion vertex $\rightarrow$ converted photon $\rightarrow 3\times 7$ cluster
+      \end{itemize}
+    \end{itemize}
+    \vfill
+    Identification is to separate prompt electrons from both jets and other electrons from either hadron decay or photon conversion.\\
+    \textcolor{blue}{\bf A multivariate likelihood method using  23 variables} \\of energy deposit and tracking is used.
+  \end{center}
+\end{frame}
+
+%=========================================
+
+\begin{frame}{Reconstruction \& Identification efficiencies}
+  Not all electrons pass the reconstruction and identification criteria. \\
+  {\bf 3 menus with increasing purity ( but deceasing efficiencies) are defined : loose, medium, tight}.
+  The efficiency of these procedures is given as a function of the $p_T$ and $\eta=-ln(tan(\theta/2))$.\\
+\begin{minipage}{0.49\linewidth}
+  \includegraphics[width=\linewidth]{CONF-2014-032_30fa.pdf}
+\end{minipage}
+\begin{minipage}{0.49\linewidth}
+  \includegraphics[width=\linewidth]{CONF-2014-032_30fb.pdf}
+\end{minipage}
+\end{frame}
+
