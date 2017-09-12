@@ -1,0 +1,49 @@
+\begin{frame}{Run 2 prerecommandations}
+Run 2 early analyses need scales factors for 13TeV but not enough data will be available.
+Need to \textcolor{blue}{ \bf estimate run 2 scales from run 1 data}.
+\newline
+Pre-recommandations are computed using $8$~TeV data reprocessed with :
+\begin{itemize}
+\item new detector geometry
+\item new reconstruction algorithm
+\item new calibration machine learning
+\end{itemize} 
+  \begin{minipage}{0.49\linewidth}
+    \includegraphics[width=\linewidth]{/home/goudet/Documents/LAL/Shared/PlotsGoudet/Calibration/PreRecommandations/PreRec_alpha.pdf}
+  \end{minipage}
+  \begin{minipage}{0.49\linewidth}
+    \includegraphics[width=\linewidth]{/home/goudet/Documents/LAL/Shared/PlotsGoudet/Calibration/PreRecommandations/PreRec_c.pdf}
+  \end{minipage}
+%Binning was changed from $34$ bins to $68$ due to the observation of sub-structures.
+\end{frame}
+
+%%========================================
+
+\begin{frame}{Calibration in-situ : run 2 pre-recommandations systematics}
+2012 systematics are used for the pre-recommandations. \\
+{\bf Two more systematics are added in quadrature } :
+\begin{itemize}
+\item Increasing the number of bin for $\alpha$ shows sub-patterns. 
+  Systematic is defined as difference between a bin value and the average of its sub-bins.
+\item Pre-recommandations being computed with 8TeV datasets, one needs to evaluate the impact of the center of mass energy.
+Systematic is defined as the scale measured from $13$~TeV MC on $8TeV$ templates.
+\end{itemize}
+  \begin{minipage}{0.49\linewidth}
+    \includegraphics[width=\linewidth]{/home/goudet/Documents/LAL/Shared/PlotsGoudet/Calibration/PreRecommandations/PreRecSyst_alpha.pdf}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.49\linewidth}
+    \includegraphics[width=\linewidth]{/home/goudet/Documents/LAL/Shared/PlotsGoudet/Calibration/PreRecommandations/PreRecSyst_c.pdf}
+  \end{minipage}\\
+\end{frame}
+
+%%=========================================
+\begin{frame}{Calibration in-situ : closure improvement}
+    \begin{minipage}{0.49\linewidth}
+\includegraphics[width=\linewidth]{Clos_syst_alpha.pdf}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.49\linewidth}
+\includegraphics[width=\linewidth]{Clos_syst_c.pdf}
+  \end{minipage}\\
+\end{frame}

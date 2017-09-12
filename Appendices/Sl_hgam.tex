@@ -1,0 +1,144 @@
+\begin{frame}{ATLAS run 1 H boson mass measurement}
+\centering
+$$m_H = 125.36 \pm 0.37 \text{(stat)} \pm 0.18 \text{(syst)}$$
+\begin{minipage}{0.49\linewidth}
+  \includegraphics[width=\linewidth]{1406_3827_8f.pdf}
+\end{minipage}
+\hfill
+\begin{minipage}{0.49\linewidth}
+  \begin{tikzpicture}
+    \node[anchor=south west] { \includegraphics[width=\linewidth]{1406_3827_4t.pdf} };
+    \draw[step=1.0,black,thin] (0,0) grid (10,4);
+    \draw[red, line width=0.5mm, rounded corners =2pt] ( 0.1, 1.05 ) rectangle ( 6.1, 1.35 ) ;
+  \end{tikzpicture}
+\end{minipage}
+    {\bf Statistical uncertainties highly dominant.}\\
+    \begin{center}   Run 2 will increase sensitivity to systematics.\end{center}
+\end{frame}
+
+%%========================================
+\begin{frame}{$\mu_{\gamma\gamma}$ measurement}
+%$\mu_{\gamma\gamma}$ is a main variable to measure. It is related to the cross section (production probability) :
+$$\mu_{\gamma\gamma}=\frac{(\sigma\times BR)^{meas}}{(\sigma\times BR)^{SM}}=1.17 \pm 0.23 \text{(stat)}\ ^{+0.10}_{-0.08}\text{(syst)}\ ^{+0.12}_{-0.08} \text{(theory)}$$
+  \begin{minipage}{0.49\linewidth}
+    \includegraphics[width=\linewidth]{1408_7084_19f.pdf}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.49\linewidth}
+    \begin{tikzpicture}
+      \node[anchor=south west] { \includegraphics[width=\linewidth]{1408_7084_19t.pdf} };
+%      \draw[step=1.0,black,thin] (0,0) grid (10,4);
+      \draw[red, line width=1mm, rounded corners =2pt] ( 1, 2.05 ) rectangle ( 13.7, 3.95 ) ;
+    \end{tikzpicture}
+  \end{minipage}
+If no improvements, \textcolor{blue}{\bf calibration uncertainty will be dominant in run 2}.
+\end{frame}
+
+%%=================================================================================
+\begin{frame}{Scale impact on width}
+  \begin{minipage}{0.49\linewidth}\includegraphics[width=\linewidth]{/home/goudet/Documents/LAL/Zim/Hgam/PhotonSystematic/160826_SpreadGauss.pdf}\end{minipage}
+  \hfill
+  \begin{minipage}{0.49\linewidth}
+    1M random numbers generated on a Gaussian$(\mu=125, \sigma=1)$.
+    \begin{itemize}
+    \item Initial numbers distribution.
+    \item \textcolor{red}{Half events multiplied by $1.002$.}
+    \item \textcolor{blue}{Remaining  events multiplied by $1.005$.}
+    \item \textcolor{magenta}{Combined distribution of \textcolor{red}{red} and \textcolor{blue}{blue}.}
+    \end{itemize}
+  \end{minipage}
+  \vfill
+  Mean (m) and RMS (s) of a fitted gaussians are given in the legend.
+  Interpretationof the curve in the next slides.
+\end{frame}
+
+%%=================================================================================
+\begin{frame}{$\mu /\sigma$ scale correlation}
+  \begin{minipage}{0.49\linewidth}\includegraphics[width=\linewidth]{/home/goudet/Documents/LAL/Zim/Hgam/PhotonSystematic/160826_SpreadGauss.pdf}\end{minipage}
+  \hfill
+  \begin{minipage}{0.49\linewidth}
+    Lets assume a gaussian distributed energy distribution.
+    Applying energy scale correction gives : $$E\rightarrow E(1+a)$$
+
+  \end{minipage}
+      Hence the distribution will be changed to  :
+      \begin{equation}
+      exp( -\frac{(E-\mu)^2}{2\sigma^2}\
+      \rightarrow\
+      exp( -\frac{(\frac{E}{1+a}-\mu)^2}{2\sigma^2})
+      =
+      exp( -\frac{(E-\mu(1+a))^2}{2\sigma^2(1+a)^2})
+    \end{equation}
+      The new distribution is a \textcolor{red}{shifted gaussian with scaled RMS}.\\
+      Given the medium shift of EG\_SCALE\_ALL, we expect \textcolor{red}{$^{+0.4}_{-0.4}\%$} change in resolution.
+\end{frame}
+
+
+%%=================================================================================
+\begin{frame}{Inhomegenous scale}
+  \begin{minipage}{0.49\linewidth}\includegraphics[width=\linewidth]{/home/goudet/Documents/LAL/Zim/Hgam/PhotonSystematic/160826_SpreadGauss.pdf}\end{minipage}
+  \hfill
+  \begin{minipage}{0.49\linewidth}
+    The RMS of two points separated by $d$ is $d/4$.\\
+    If $d$ is the difference between two scale factors, $$d\sim 3.10^{-3} \cdot E_\gamma=0.18$$
+   $$\frac{\text{RMS}}{\text{Resolution}} = \frac{d/4}{1.5\text{GeV}} = 3\%$$
+  \end{minipage}
+\vfill
+  The inhomogeneity of the scale factors uncertainties \textcolor{red}{changes the width of the distribution at the percent level}.
+  This effect will always increase the width.  
+  \vfill
+  Black and pink distribution show an illustration of this effect.
+\end{frame}
+
+%==============================================================================
+\begin{frame}{Scale factors interpretation}
+  \begin{minipage}{0.49\linewidth}
+    Assume the up fluctuation (red) as data and nominal distribution (black) as MC in the template method.
+    One has
+    $$m_H^{up}=m_H^{nom}(1+\alpha)$$
+    Hence
+    $$\delta_{m_H}=\alpha$$
+    \end{minipage}
+  \begin{minipage}{0.49\linewidth}
+    \includegraphics[width=\linewidth]{Figures/h013_EG_SCALE_ALL_0.pdf}
+  \end{minipage}
+  Furthermore :
+  $$\sigma_H^{up}=\sigma_H^{nom} \oplus cE$$
+  Hence
+  $$\delta_{\sigma_H} = \sqrt{1+\frac{c^2E^2}{\sigma_H^2}}-1$$
+  One has to be carefull with resolution uncertainty as the template method is weak to measure small differences.
+\end{frame}
+
+%%=================================================================================
+\begin{frame}{Method comparison}
+  4 different fitting methods are compared : fitting in 3 different ranges and template method cross-check within $[122, 128]$GeV.
+  Methods compared on h013 simplified model (2NP).
+  
+  \begin{minipage}{0.42\linewidth}
+   % $$m_{\gamma\gamma}\in [105,160]$$
+    \includegraphics[width=\linewidth]{Figures/h013_EG_RESOLUTION_ALL_0_105160.pdf}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.14\linewidth}
+    $\leftarrow [105,160]$
+    $\rightarrow [115,135]$
+    \end{minipage}
+  \hfill
+  \begin{minipage}{0.42\linewidth}
+    \includegraphics[width=\linewidth]{Figures/h013_EG_RESOLUTION_ALL_0_115135.pdf}
+  \end{minipage}
+  \begin{minipage}{0.42\linewidth}
+    \includegraphics[width=\linewidth]{Figures/h013_EG_RESOLUTION_ALL_0_120130.pdf}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.14\linewidth}
+    $\leftarrow [120,130]$
+    $\rightarrow [122,128]$
+  \end{minipage}
+    \hfill
+  \begin{minipage}{0.42\linewidth}
+    \centering
+        \includegraphics[width=0.5\linewidth]{Figures/h013_EG_RESOLUTION_ALL__1up_0_scale.pdf}\\
+        $c=(0.598\pm 0.009)\%$\\$\rightarrow \delta_{\sigma_H}=(8.82\pm0.25)\%$
+  \end{minipage}
+\end{frame}

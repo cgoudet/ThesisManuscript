@@ -3,23 +3,43 @@
 \frame{\tableofcontents[currentsection]}
 
 
-\begin{frame}{$\mu_{\gamma\gamma}$ measurement}
-$\mu_{\gamma\gamma}$ is a main variable to measure. It is related to the cross section (production probability) :
-$$\mu_{\gamma\gamma}=\frac{(\sigma\times BR)^{meas}}{(\sigma\times BR)^{SM}}=1.17 \pm 0.23 \text{(stat)}\ ^{+0.10}_{-0.08}\text{(syst)}\ ^{+0.12}_{-0.08} \text{(theory)}$$
+%%=================================================================================
+\begin{frame}{Methodology}
   \begin{minipage}{0.49\linewidth}
-    \includegraphics[width=\linewidth]{1408_7084_19f.pdf}
-  \end{minipage}
-  \hfill
-  \begin{minipage}{0.49\linewidth}
-    \begin{tikzpicture}
-      \node[anchor=south west] { \includegraphics[width=\linewidth]{1408_7084_19t.pdf} };
-%      \draw[step=1.0,black,thin] (0,0) grid (10,4);
-      \draw[red, line width=1mm, rounded corners =2pt] ( 1, 2.05 ) rectangle ( 13.7, 3.95 ) ;
-    \end{tikzpicture}
-  \end{minipage}
-If no improvements, \textcolor{blue}{\bf calibration uncertainty will be dominant in run 2}.
+    For a given systematic source :
+    \begin{itemize}
+    \item Create distributions of \\ $m_{\gamma\gamma}^{nom}$, $m_{\gamma\gamma}^{up}$, $m_{\gamma \gamma}^{down}$
+    \item Fit main parameter of the systematic with DSCB :
+      \begin{itemize}
+      \item Fit  $m_{\gamma\gamma}\in[105,160]$GeV
+      \item Fixing $n_{high}=5$ and $n_{low}=9$
+      \item Fixing $\alpha_{high}=\hat{\alpha}_{high}^{nom}$, $\alpha_{low}^{nom}=\hat{\alpha}_{low}^{nom}$, $X=\hat{X}^{nom}$
+%        \item Fixing secondary parameter to nominal fitted values.
+      \end{itemize}
+      \item Systematic variation : $\frac{X^{fluct}}{X^{nom}}-1$, $X\in \{\mu , \sigma\}$
+      \end{itemize}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.49\linewidth}
+      \includegraphics[width=\linewidth]{Figures/h013_EG_SCALE_ALL_0.pdf}
+    \end{minipage}
+    \vfill
+    
+    \begin{equation}
+      \tiny
+      CB(m_{\gamma \gamma}) = 
+      \begin{cases}
+        e^{-t^{2}/2} & \text{if } -\alpha_{low} \leq t \leq \alpha_{high} \\
+        \frac{ e^{-{}^{1}_{2} \alpha_{low}^{2}} } { \left[ \frac{1}{R_{low}} \left(R_{low} - \alpha_{low} - t \right) \right]^{n_{low}} } & \text{if } t < -\alpha_{low} \\
+        \frac{ e^{-{}^{1}_{2} \alpha_{high}^{2}} } { \left[ \frac{1}{R_{high}} \left(R_{high} - \alpha_{high} + t \right) \right]^{n_{high}} } & \text{if } t > \alpha_{high} \\
+        t=(m_{\gamma\gamma}-\mu)/\sigma, R_{low}=\frac{\alpha_{low}}{n_{low}},  R_{high}=\frac{\alpha_{high}}{n_{high}} \\
+      \end{cases}
+    \end{equation}
+
+%    More work required to improve fits quality.
 \end{frame}
 
+%%====================================================================
 \begin{frame}{Likelihood Method}
 A function ({\bf likelihood}) is built to {\bf evaluate the best set of parameters ($\vec{\mu}$,$\vec{\theta}$)} of a model to agree the best with a dataset in a category.
 
@@ -36,7 +56,7 @@ $$\mathcal{L}=\underbrace{\frac{(n_{s}(\vec{\mu},\vec{\theta})+b)^{n_{obs}}}{n_{
 \end{frame}
 
 
-
+%%==========================================================
 
 \begin{frame}{Nuisance parameters}
 There are some {\bf external measurements}  that contribute to the likelihood and have some {\bf uncertainties}. 
