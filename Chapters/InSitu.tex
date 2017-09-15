@@ -1,11 +1,11 @@
-\chapter{Template method for electrons and photons in situ calibration}
+\chapter{Template method for electrons and photons in-situ calibration}
 %\item Template method
 \label{sec:orgfabb545}
 
-The in situ electron calibration is essential for the calibration procedure.
+The in-situ electron calibration is essential for the calibration procedure.
 By construction, this steps aims at absorbing any mis-calibration (including the lack of precise calibration at the beginning of run 2) from the previous steps in order to give analyses properly calibrated electrons and photons.
-Furthermore, the in situ calibration is also an excellent step to monitor the behaviour of the data as any change in scale or in resolution will induce changes in the measured scales.
-In particular, the in situ analysis allowed to identify program bugs and physical effects due to the new software and hardware conditions at the beginning of run 2.
+Furthermore, the in-situ calibration is also an excellent step to monitor the behaviour of the data as any change in scale or in resolution will induce changes in the measured scales.
+In particular, the in-situ analysis allowed to identify program bugs and physical effects due to the new software and hardware conditions at the beginning of run 2.
 
 The central role of this analysis set constraints on its performances.
 In particular, the analysis should be able to perform properly both with low statistics (the first run 2 scales were performed with 81 $Z\rightarrow ee$ events) but also with the large statistics expected at the end of run 2 (around 50 million events).
@@ -29,14 +29,14 @@ It mainly relies on testing hypothesised correction factors values on one distri
 This method has been used since run 1 for in-situ scale factors for its simplicity and its robustness against low statistics.
 However it limits the range of constant term measurement to positive values.
 
-The core of the method consists in choosing a sets of hypothesised values (\(\alpha\), c) and modify the MC distribution by injecting them.
+The core of the method consists in choosing a sets of hypothesised values $(alpha, c)$ and modify the MC distribution by injecting them.
 The modification of the energy of each electron of the event follows eq. \ref{eq:org6de4f38}, with a different random number for each electron.
 The new mass distribution, called a template, is compared with the data with a $\chi^2$ test (eq. \ref{eq:orgfbe9dac}).
 The Z mass distributions are histograms containing 20 equal bins between 80 and 100 GeV.
-A 2D scan of the $\chi^2$ test in the (\(\alpha\),c) plane is achieved by repeating this process.
+A 2D scan of the $\chi^2$ test in the $(\alpha,c)$ plane is achieved by repeating this process.
 Such a scan is shown in fig. \ref{fig:orgc320d11}.
 The minimum of this distribution represents the best agreement between data and the modified MC.
-The final correction factors are the values \(\hat{\alpha}\) and \(\hat{c}\) corresponding to this minimum.
+The final correction factors are the values $\hat{\alpha}$ and $\hat{c}$ corresponding to this minimum.
 
 \begin{equation}
 \label{eq:org6de4f38}
@@ -56,13 +56,13 @@ Distribution of $\chi^2$ difference between data Z mass distribution and MC, as 
 \end{figure}
 
 Precise determination of the minimum is performed by fitting the $\chi^2$ distribution.
-A direct 2D fit gave poor results in run 1, mostly due to the correlation between \(\alpha\) and c and to the peculiar behaviour of the $\chi^2$ for low values of c.
+A direct 2D fit gave poor results in run 1, mostly due to the correlation between $\alpha$ and c and to the peculiar behaviour of the $\chi^2$ for low values of c.
 Instead, several 1D fits allow a better stability of the method.
-The first step consists in fitting the $\chi^2$ distribution as a function of \(\alpha\) for a fixed value of c.
+The first step consists in fitting the $\chi^2$ distribution as a function of $\alpha$ for a fixed value of c.
 It corresponds to fitting independently the lines of fig. \ref{fig:orgc320d11}.
 The uncertainty on the values are defined by \(\Delta \chi^{\text{2}}\)=1.
 The fitting function takes the form of eq. \ref{eq:orgad4bbe7}.
-One typical $\chi^2$ fit as a function of \(\alpha\) is shown on the left plot of fig. \ref{orged35c4f}.
+One typical $\chi^2$ fit as a function of $\alpha$ is shown on the left plot of fig. \ref{orged35c4f}.
 
 \begin{equation}
 \label{eq:orgad4bbe7}
@@ -71,7 +71,7 @@ f(\alpha;c)=a_0+\frac{(\alpha-\alpha_{min})^2}{\sigma_\alpha^2}
 
 
 The a\(_{\text{0}}\) parameter of eq. \ref{eq:orgad4bbe7}, which represents the minimal $\chi^2$ achievable under the hypothesis of c, is then plotted as a function of c.
-It corresponds to plotting the $\chi^2$ as a function of c, profiling as a function of \(\alpha\).
+It corresponds to plotting the $\chi^2$ as a function of c, profiling as a function of $\alpha$.
 The distribution is then fitted using the third order polynomial in eq. \ref{eq:org8bf5cff}, imposing the b\(_{\text{1}}\) parameter to be positive.
 This is shown in the central plot of fig. \ref{orged35c4f}.
 The fitted minimum \(\hat{c}\) represent the value of constant term correction which allows the best agreement between data and MC.
@@ -94,7 +94,7 @@ d\chi^2 = \chi^2(X+\Delta X) - \chi^2(X) = 1
 The minimum of eq. \ref{eq:orgad4bbe7} (\(\alpha_{\text{min}}\)) is fitted as a function of c.
 The uncertainty on each \(\alpha_{\text{min}}\) is set as \(\sigma_{\alpha}\), verifying eq. \ref{eq:orgb3aad8e}.
 The fit is linear on a 5 bins range centred on the \(\hat{c}\).
-The MPV of \(\alpha\) is defined as the value of the fitted function corresponding to \(\hat{c}\).
+The MPV of $\alpha$ is defined as the value of the fitted function corresponding to \(\hat{c}\).
 Its uncertainty is the one of the bin in which falls \(\hat{c}\).
 A typical distribution with its fit is shown in the right plot of fig. \ref{orged35c4f}.
 
@@ -115,13 +115,13 @@ A typical distribution with its fit is shown in the right plot of fig. \ref{orge
 \end{center}
 \end{subfigure}
 \caption{\label{orged35c4f}
-Illustration of fit procedures in the template method. Left plot shows a \(\chi^2\) distribution as a function of \(\alpha\), at a fixed c. Central plot shows the distribution of \(\chi_{min}^2\) as a function of c. Right plot shows the distribution of \(\alpha_{min}\) as a function of c.}
+Illustration of fit procedures in the template method. Left plot shows a \(\chi^2\) distribution as a function of $\alpha$, at a fixed c. Central plot shows the distribution of \(\chi_{min}^2\) as a function of c. Right plot shows the distribution of \(\alpha_{min}\) as a function of c.}
 \end{figure}
 
-After the creation of the template, the measurement method consists in a series of fits as a function of \(\alpha\) and c.
-\(\alpha\) and c play a priori symmetric roles so the fit as a function of c could have been performed first.
+After the creation of the template, the measurement method consists in a series of fits as a function of $\alpha$ and c.
+$\alpha$ and c play a priori symmetric roles so the fit as a function of c could have been performed first.
 However, the alpha parameter follows an almost perfect parabola, which allows an easy fit.
-This order of fit has been chosen such that many reliable fits are performed as a function of \(\alpha\) and that more complicated fits with respect to c are limited to one.
+This order of fit has been chosen such that many reliable fits are performed as a function of $\alpha$ and that more complicated fits with respect to c are limited to one.
 
 
 \section{Technical optimizations of the algorithm}
@@ -141,13 +141,13 @@ A systematic (threshold) covers for the dependence on the number of considered c
 \label{sec:org2159561}
 \label{sec:Calibration_inSitu_Tuning_fit}
 
-The properties of the constant term lead to a non-parabolic behaviour at low values of c.
-First, it is a positive quantity by definition so the parabola should be truncated at $c=0$, negative c corresponding to data narrower than MC.
+The properties of the constant term lead to a non-parabolic behaviour at low values of $c$.
+First, it is a positive quantity by definition so the parabola should be truncated at $c=0$, negative $c$ corresponding to data narrower than MC.
 One then must be careful in the determination of the fitting range.
 Indeed, a proper modelling of the minimum requires a similar constraint on both sides around it.
-The fact that c adds up quadratically to the MC total width contributes to the shape of the a\(_{\text{0}}\) distribution at low c.
+The fact that $c$ adds up quadratically to the MC total width contributes to the shape of the $a_0$ distribution at low $c$.
 Such low values of c have a much more suppressed effect on the mass distribution than a variable with a linear contribution.
-Then, the a\(_{\text{0}}\) distribution converges often towards an horizontal asymptote for c=0.
+Then, the $a_0$ distribution converges often towards an horizontal asymptote for $c=0$.
 
 Several methods have been tested to measure c.
 The first one aimed at keeping the parabola parametrization to conserve the Gaussian assumption.
@@ -155,14 +155,14 @@ Another solution proposed was to fit only the right part of the distribution (in
 Both strategies relied on isolating an area of the distribution in which the quadratic hypothesis is valid.
 It was observed that distortion at lower values started too close to the minimum and that the tested methods were not robust enough, considering the large amount of fits to perform in the full procedure.
 
-In run 1, this issue was solved by fitting the distribution with a third order polynomial (P).
+In run 1, this issue was solved by fitting the distribution with a third order polynomial ($P$).
 This solution was tested again and the para\-metri\-zation in eq. \ref{eq:org8bf5cff} has been proposed.
 Some fits still behave badly, in particular the distortion of the third order contributed to fit statistical fluctuations  on the right side.
-Robustness and precision were increased when imposing b\(_{\text{1}}\) to be positive.
+Robustness and precision were increased when imposing $b_1$ to be positive.
 
 The third order parametrization brought the issue of the uncertainty definition.
 In a first approximation, the contribution of the third order was assumed to be negligible near the minimum.
-Hence, the uncertainty on the constant term was defined as for \(\alpha\) (i.e. $b_2$).
+Hence, the uncertainty on the constant term was defined as for $\alpha$ (i.e. $b_2$).
 This assumption was tested by comparing $b_2$ with the dichotomy method in which the eq. \ref{eq:orgb3aad8e} is solved numerically for positive $\Delta c$.
 
 
@@ -232,7 +232,7 @@ Comparison of $\chi^2$ distributions for different Z mass distribution binnings.
 \label{sec:org04cf407}
 \label{sec:Calibration_inSitu_Tuning_range}
 
-There is no constraint on the tested values for \(\alpha\) and no upper constraint for c.
+There is no constraint on the tested values for $\alpha$ and no upper constraint for c.
 Then the difference between the true minimum of the distribution and the tested maximum (d$\chi^2$) can be arbitrarily large, depending of the chosen extreme tested values.
 However the uncertainty of the fitted minimum is defined  as d$\chi^2$=1.
 Figure \ref{org010bed5} shows the same measurement using three different ranges.
@@ -276,13 +276,13 @@ Both $X_{up}$ and $X_{down}$ are searched simultaneously using an algorithm base
 The method is described in the case of identifying $X_{up}$.
 The case for $X_{down}$ is the exact symmetric with respect to the true $\chi^2$ minimum.
 
-The same method applies to both \(\alpha\) and c.
+The same method applies to both $\alpha$ and c.
 Because the optimisation relies on the template method, the range of the energy scale factor is computed first, always imposing c=0 in the templates.
 Then the range for the constant term is computed by imposing \(\alpha=\frac{\alpha_{up}+\alpha_{down}}{2}\) in the templates to improve the alignment of the distributions.
 
 The first iteration of the method is done by choosing the interval $[X_{min}, X_{max}]$ such that \(X_{max}>\hat{X}\) and $\chi^2$($X_{max}$)>36 (and reciprocally for X\(_{\text{min}}\)).
 At this point \(\hat{X}\) is not known but one can easily estimate an upper limit for it.
-Usually the interval [-0.15 (0), 0.15] is chosen for \(\alpha\) (c), in order to avoid pathological cases where MC has templates which may look abnormal.
+Usually the interval [-0.15 (0), 0.15] is chosen for $\alpha$ (c), in order to avoid pathological cases where MC has templates which may look abnormal.
 N\(_{\text{test}}\) evenly separated values are chosen in this interval to create templates and compare them to the data.
 The algorithm is described below .
 
@@ -316,7 +316,7 @@ Using as a reference the lowest $\chi^2$ ever achieved allows to stabilise the p
 Until achieving the dichotomy procedure, several algorithms were tested and shown to be less effective, more time consuming and/or less robust.
 The first trial consisted in applying the template method with a fixed large range (such as in the first plot of fig. \ref{org010bed5}) and set the range for the official measurement as \([\hat{X}- 5\sigma, \hat{X}+ 5\sigma]\).
 Various improvements were achieved in order to reduce the computing time of the method, which was significant.
-This method was not robust enough as it showed many cases where the true value were not in the final range (even for the simple \(\alpha\)) or were not well centred on the true value.
+This method was not robust enough as it showed many cases where the true value were not in the final range (even for the simple $\alpha$) or were not well centred on the true value.
 
 The second algorithm investigated consisted in successive rescaling of the edges of the optimal ranges.
 In the $\chi^2$ framework under Gaussian assumptions, the distance in term of standard deviation of a value with respect to its estimator is computed by :
@@ -377,7 +377,7 @@ As a result, this solution reduces the failing rate of fits and improves the mod
 This solution shows limitations however.
 The generation of the modified MC distribution is the time limiting factor of the method.
 This can be related to the number of mass scalings (and/or random number generation).
-With a single smearing, the number of mass scalings is obtained by multiplying the number of MC events by the respective numbers of tested values of \(\alpha\) and c.
+With a single smearing, the number of mass scalings is obtained by multiplying the number of MC events by the respective numbers of tested values of $\alpha$ and c.
 Using N\(_{\text{useEl}}\) smearing increases roughly the total template time consumption by this factor.
 In practice, one must then limits N\(_{\text{useEl}}\) to reach a balance between robustness (and precision) and time consumption.
 
@@ -509,20 +509,20 @@ Comparison of closures for different inversion procedures.}
 \label{sec:orgf66efee}
 \label{sec:Calibration_inSitu_TempPerf}
 
-The performances of the algorithm are tested using a closure test, performed by injecting known values of \(\alpha\) and c as a function of $\eta$ into a MC and performing a simultaneous measurement of both factors with the unmodified MC used as template.
+The performances of the algorithm are tested using a closure test, performed by injecting known values of $\alpha$ and c as a function of $\eta$ into a MC and performing a simultaneous measurement of both factors with the unmodified MC used as template.
 
 The measurement procedure contains two main successive steps : the template method applied in configurations and the inversion.
 The performances of the former have an impact on the latter.
 A more thorough study using toy pseudo-experiments is presented in section \ref{sec:orgd804911}.
 
 Considering a set of input values, the expected measured correction in a configuration is computed using eqs. \ref{eq:org66bdacb} and \ref{eq:orgb4e7ae0}.
-After application of the template method, the difference between the measured value and the expected one divided by the statistical uncertainty is reported for each configuration and presented in fig. \ref{orge48e2b5} for respectively \(\alpha\) and c for a toy pseudo-experiment.
+After application of the template method, the difference between the measured value and the expected one divided by the statistical uncertainty is reported for each configuration and presented in fig. \ref{orge48e2b5} for respectively $\alpha$ and c for a toy pseudo-experiment.
 The width of the distribution corresponds to configurations which validate eq. \ref{eq:org0ac2b33}.
 In the plot for $\alpha$, one might be surprised that all absolute values of deviation are far below 1.
 Actually, the measurement of $\alpha$ alone is deterministic and should not suffer any deviation (except maybe because of the fit precision).
 However, when measuring simultaneously $\alpha$ and $c$, the statistical fluctuations of the latter and the correlations between the two induce a small statistical fluctuation on $\alpha$ too.
 The MC templates are generated with an orthogonal dataset with respect to the one used to generate the pseudo-data.
-%The \(\alpha\) have a decent spread but the c seem on average to be slightly biased.
+%The $\alpha$ have a decent spread but the c seem on average to be slightly biased.
 %The study of this possible bias is the main topic of section \ref{sec:Calibration_inSitu_BiasInput}.
 The study of a possible bias, in order to replace the bias systematic uncertainty of run 1, is the main topic of section \ref{sec:Calibration_inSitu_BiasInput}.
 Finally, fig \ref{org3e85744} shows the final extracted electron correction factors as a factor of $\eta$ superimposed with the injected values.
@@ -538,7 +538,7 @@ In fig \ref{org3e85744} for c, the bias are actually rather small, consistent wi
 \begin{center}
 \includegraphics[width=\linewidth]{Closure_deviation_alpha.pdf}
 \end{center}
-\caption{Energy scale factor (\(\alpha\))}
+\caption{Energy scale factor ($\alpha$)}
 \end{subfigure}
 \begin{subfigure}[t]{0.49\linewidth}
 \begin{center}
@@ -559,7 +559,7 @@ In fig \ref{org3e85744} for c, the bias are actually rather small, consistent wi
 \begin{center}
 \includegraphics[width=\linewidth]{Closure_alpha.pdf}
 \end{center}
-\caption{Energy scale factor (\(\alpha\))}
+\caption{Energy scale factor ($\alpha$)}
 \end{subfigure}
 \begin{subfigure}[t]{0.49\linewidth}
 \begin{center}
@@ -630,7 +630,7 @@ Up until Moriond 2017, the run 1 values for these systematics were kept.
 The inversion procedure discussed in section \ref{sec:org4b5e4aa} has two possible para\-me\-tri\-zations.
 A dedicated study of each performances has not yet been performed so the difference of the results on the data and MC has been used as the inversion systematic.
 
-The threshold variable discussed in section \ref{sec:org7d75ff3} may have an impact on the correction factors as it selects which configuration may contribute to the inversion.
+The threshold variable discussed in section \ref{sec:org899f075} may have an impact on the correction factors as it selects which configuration may contribute to the inversion.
 Given that configurations with high threshold are expected to have very low number of events, this additional selection is thought to have a negligible impact on the final result.
 However, an additional systematic has been defined to cover for this assumption, by increasing the threshold selection from 70 to 75 GeV.
 
@@ -640,18 +640,11 @@ The run 2 study of the bias is ongoing (see section \ref{sec:orgd804911}), the s
 Improved results on the bias, achieved after EPS 2017, are detailed in the dedicated section and have not yet been used in any analysis.
 
 \begin{figure}
-\begin{subfigure}[t]{0.49\linewidth}
-\begin{center}
-\includegraphics[width=\linewidth]{CalibSupNote_totUncAlpha.pdf}
-\end{center}
-\end{subfigure}
-\begin{subfigure}[t]{0.49\linewidth}
-\begin{center}
-\includegraphics[width=\linewidth]{CalibSupNote_totUncC.pdf}
-\end{center}
-\end{subfigure}
+  \centering
+\includegraphics[width=0.8\linewidth]{CalibSupNote_totUncAlpha.pdf}\\
+\includegraphics[width=0.8\linewidth]{CalibSupNote_totUncC.pdf}
 \caption{\label{org5c57d23}
-  Breakdown of systematic uncertainties for energy scale factors (left) and resolution constant term (right).
+  Breakdown of systematic uncertainties for energy scale factors (top) and resolution constant term (bottom).
   totSyst correspond to the total systematic uncertainties, computed as the quadratic sum of all the contributions.
   Each acronym corresponds to an uncertainty detailed in the dedicated section.
 }
@@ -685,21 +678,14 @@ A temporary one \cite{ATL-COM-PHYS-2015-1300,ATL-COM-PHYS-2016-841,ATL-COM-PHYS-
 An additional energy scale factor correction was designed to take into account the change of temperature of the detector in between the two runs.
 The total correction factors (including temperature) and uncertainties are displayed in fig. \ref{orgb377ac3} and compared to the run 1 results.
 For the pre-recommandations, the resolution constant terms were defined in the same 24 bins than in run 1 (although in run 1 the results were symmetrized in $\eta$ a posteriori).
-A difference of about 0.3\% was observed in the \(\alpha\) but was expected due to changes in the GEANT4 version used in the simulation.
+A difference of about 0.3\% was observed in the $\alpha$ but was expected due to changes in the GEANT4 version used in the simulation.
 No other significant difference is observed in the barrel but large discrepancies are observed in the crack and in the end-cap.
 The final resolution obtained with this procedure is coherent with the run 1.
 
 \begin{figure}
-\begin{subfigure}[t]{0.49\linewidth}
-\begin{center}
-\includegraphics[width=\linewidth]{/home/goudet/Documents/LAL/Shared/PlotsGoudet/Calibration/PreRecommandations/PreRec_Zee_alpha.pdf}
-\end{center}
-\end{subfigure}
-\begin{subfigure}[t]{0.49\linewidth}
-\begin{center}
-\includegraphics[width=\linewidth]{/home/goudet/Documents/LAL/Shared/PlotsGoudet/Calibration/PreRecommandations/PreRec_c.pdf}
-\end{center}
-\end{subfigure}
+  \centering
+\includegraphics[width=0.8\linewidth]{/home/goudet/Documents/LAL/Shared/PlotsGoudet/Calibration/PreRecommandations/PreRec_Zee_alpha.pdf}\\
+\includegraphics[width=0.8\linewidth]{/home/goudet/Documents/LAL/Shared/PlotsGoudet/Calibration/PreRecommandations/PreRec_c.pdf}
 \caption{\label{orgb377ac3}
 Pre-recommandations for central electrons energy scale factors and resolution constant terms for run 2.}
 \end{figure}
@@ -719,23 +705,16 @@ The absolute values of these scales are then defined as this systematic uncertai
 This uncertainty is clearly pessimistic since it assumes that the uncertainty on the matter of the IBL is 100\%.
 In addition, this effect computed on electrons is propagated to all particles, in particular to non converted photons, where this effect of additional matter is expected to be smaller.
 The additional material for the IBL worsened the resolution of the detector which allowed us to measure positive c.
-The pre-recommandations were also the opportunity to increase the number of bins for \(\alpha\) for a better detector description.
+The pre-recommandations were also the opportunity to increase the number of bins for $\alpha$ for a better detector description.
 Each run 1 bin has been splitted in two equal sub-bins, and patterns have been observed with this new binning.
 A new systematics has been defined, corresponding to the difference between the value of a scale in a 34 bins setup and the average of its two sub bins in the 68 bins setup.
 The total in-situ uncertainties are then defined as the run 1 systematics, added in quadrature with the IBL and sub-bins systematics.
-Figure \ref{org95bdf2b} shows that the contributions of these additional systematics are highly dominant for both \(\alpha\) and c.
+Figure \ref{org95bdf2b} shows that the contributions of these additional systematics are highly dominant for both $\alpha$ and c.
 
 \begin{figure}
-\begin{subfigure}[t]{0.49\linewidth}
-\begin{center}
-\includegraphics[width=\linewidth]{/home/goudet/Documents/LAL/Shared/PlotsGoudet/Calibration/PreRecommandations/PreRecSyst_alpha.pdf}
-\end{center}
-\end{subfigure}
-\begin{subfigure}[t]{0.49\linewidth}
-\begin{center}
-\includegraphics[width=\linewidth]{/home/goudet/Documents/LAL/Shared/PlotsGoudet/Calibration/PreRecommandations/PreRecSyst_c.pdf}
-\end{center}
-\end{subfigure}
+  \centering
+\includegraphics[width=0.8\linewidth]{/home/goudet/Documents/LAL/Shared/PlotsGoudet/Calibration/PreRecommandations/PreRecSyst_alpha.pdf}\\
+\includegraphics[width=0.8\linewidth]{/home/goudet/Documents/LAL/Shared/PlotsGoudet/Calibration/PreRecommandations/PreRecSyst_c.pdf}
 \caption{\label{org95bdf2b}
 Systematic uncertainties for run 2 pre-recommandations of in-situ Z\(\rightarrow\) ee correction factors.}
 \end{figure}
@@ -773,7 +752,7 @@ No new corrections have been derived given that the difference was covered by th
 Data and MC Z mass distribution after requesting both electrons to have a $p_T$ higher than 500GeV (top) or between [300,500] (bottom) GeV.}
 \end{figure}
 
-One of the most puzzling corrections of run 1 was a bias that was tracked back to a possible difference of response between the different gains \cite{CERN-THESIS-2015-193,ATL-COM-PHYS-2013-1655}, although a large fraction of the effect is probably due to shower mis-modelling \cite{ATL-COM-PHYS-2017-758}.
+One of the most puzzling corrections of run 1 was a bias that was tracked back to a possible difference of response between the different gains \cite{CERN-THESIS-2015-193,ATL-COM-PHYS-2013-1655}, although a large fraction of the effect is probably due to shower mis-modelling \cite{ATL-COM-PHYS-2017-758,CERN-THESIS-2017-138}.
 The $p_T$ of an electron is related to the gain in which the signal of some cells are amplified.
 A higher energy electron has more chances to have at least a cell in the low gain.
 As most of the photons of the excess are in low gain and the electrons from the Z are in high gain, a study of the gain dependence of the in-situ corrections have been performed.
@@ -798,7 +777,7 @@ However, the provided constant terms had a large uncertainty up to 120\% (see fi
 A fast re-evaluation of the systematic was performed to give better sensitivity to the width of the excess \cite{ATL-COM-PHYS-2016-184}.
 Central values for the energy scale factors and the resolution constant terms and their respective and energy scale factors uncertainties were not changed in order to conserve the fine tuning of the analysis.
 Central values of the resolution constant term with early run 2 data were however computed in order to update the systematics but not used in the analysis.
-The systematic about the binning in \(\alpha\) was removed and replaced by the difference between early run 2 and pre-recommandations scales (\(\delta_{\text{prerec}}\)).
+The systematic about the binning in $\alpha$ was removed and replaced by the difference between early run 2 and pre-recommandations scales (\(\delta_{\text{prerec}}\)).
 Early material studies reduced the material uncertainties of the IBL down to about 10\% while the pre-recommandations assumed 100\%.
 The systematic was updated by comparing the nominal run 2 geometry with one with increased IBL material.
 The systematic is again defined as the difference of the scales between both MC.
@@ -813,6 +792,8 @@ The comparison of this model with respect to pre-recommandations and run 1 is pr
 Comparison of total constant term systematic uncertainty between run 1 (black) pre-recommandations (red) and special diphoton excess model (blue). \cite{ATL-COM-PHYS-2016-184}}
 \end{figure}
 
+Other small effects have been neglected since they are at a level of a few $10^{-5}$, like the impact of the structure functions (see \cite{0805.2093} fig. 26).
+
 \subsection{Bias study}
 \label{sec:orgd804911}
 \label{sec:Calibration_inSitu_BiasInput}
@@ -820,7 +801,7 @@ Comparison of total constant term systematic uncertainty between run 1 (black) p
 A major systematic of run 1 on the energy scale factors was the so called "Closure" systematic.
 During run 1, it was observed \cite{ATL-COM-PHYS-2013-1653} (fig. \ref{fig:orgc7de0ae}) that a closure on the constant term (on a single toy experiment) seemed to be negatively biased.
 It was then decided to use the difference between the measured values and the input ones as a systematic.
-A similar systematic uncertainty was also defined for \(\alpha\).
+A similar systematic uncertainty was also defined for $\alpha$.
 During run 2, no such behaviour was observed when performing simple closures.
 On the contrary fig. \ref{orgac9241c} suggests that a single closure may behave surprisingly due to statistical fluctuations.
 Hence an average over many closures on different toy experiments must ultimately be performed.
@@ -847,10 +828,10 @@ The bias measurement has been performed by an undergraduate student \cite{Rode_1
 In this protocol, a large bias measurement can actually be partly a statistical fluctuation of the measurement of c.
 A more thorough analysis with many closures would then be necessary to quantify the average bias and possibly remove it.
 Several parameters have been investigated as possible sources of bias, which are mainly related to the contribution of the non-quadraticity of the constant term at low values.
-In each of the closures presented below, no \(\alpha\) has been injected.
-However \(\alpha\) is measured along c to absorb possible mass fluctuations due to the smearing.
+In each of the closures presented below, no $\alpha$ has been injected.
+However $\alpha$ is measured along c to absorb possible mass fluctuations due to the smearing.
 Only the results on c will be presented.
-Biases on \(\alpha\) have not been thoroughly studied at this point.
+Biases on $\alpha$ have not been thoroughly studied at this point.
 
 The input value is the first parameter to be tested.
 With a large input value, the border effect at 0 is pushed toward larger d$\chi^2$, beyond values found by the range optimisation.
@@ -858,7 +839,7 @@ The c distribution would then follow a parabola in the range of measurement.
 A closure has been performed using 24 bins in $\eta$.
 5 different input values have been tested by injecting them uniformly in the MC.
 No scale factor has been injected but are nevertheless measured.
-In each configuration, \(\alpha\) is observed to be compatible with 0 and no significant bias is observed.
+In each configuration, $\alpha$ is observed to be compatible with 0 and no significant bias is observed.
 Comparison between injected and measured c values for this test is shown in fig. \ref{fig:orge546668}.
 Results follow the expectations for large values of c, with a bias which seems mostly null.
 For injected c=0.3\%, the bias is large as expected.
@@ -1004,22 +985,15 @@ The injected values are representative of the measured values in data.
 The distributions equivalent to fig. \ref{org7d445e3} but at the single electron bin level were plotted.
 The closure systematics in each bin is then defined as the average of the bias distribution for this bin.
 The results, compared with run 1 closure systematics, are shown in fig. \ref{org3b08331}.
-The systematic on \(\alpha\) is close to the one of run 1 except in the crack bins.
+The systematic on $\alpha$ is close to the one of run 1 except in the crack bins.
 For the constant term however, the new systematic is actually larger.
 
 \begin{figure}
-\begin{subfigure}[t]{0.49\linewidth}
-\begin{center}
-\includegraphics[width=\linewidth]{Clos_oldSyst_alpha.pdf}
-\end{center}
-\end{subfigure}
-\begin{subfigure}[t]{0.49\linewidth}
-\begin{center}
-\includegraphics[width=\linewidth]{Clos_oldSyst_c.pdf}
-\end{center}
-\end{subfigure}
+\centering
+\includegraphics[width=0.8\linewidth]{Clos_oldSyst_alpha.pdf}\\
+\includegraphics[width=0.8\linewidth]{Clos_oldSyst_c.pdf}
 \caption{\label{org3b08331}
-Closure systematics for the energy scale factor (left) and the resolution constant  term (right) using different pseudo data and template datasets. \cite{Guerguichon_170420}}
+Closure systematics for the energy scale factor (top) and the resolution constant  term (bottom) using different pseudo data and template datasets. \cite{Guerguichon_170420}}
 \end{figure}
 
 
@@ -1034,8 +1008,8 @@ In the case of energy scale factors, no random process is involved so if one inj
 However, there was a concern about the behaviour of the $\chi^2$ for different values.
 A toy model was proposed to obtain an analytical form of the $\chi^2$ distribution.
 In this model, the mass distributions are replaced by continuous functions.
-The pseudo data is a Gaussian function \(f_d\) of mean \(\mu\) and RMS \(\sigma\), which is equivalent to \(\alpha\)=0.
-The templates are then the same distribution in which each event has been shifted with a tested \(\alpha\).
+The pseudo data is a Gaussian function \(f_d\) of mean \(\mu\) and RMS \(\sigma\), which is equivalent to $\alpha=0$.
+The templates are then the same distribution in which each event has been shifted with a tested $\alpha$.
 The function representative of a template \(f_t\)  then takes the form
 \begin{equation}
 f_t (E; \alpha) =
@@ -1132,29 +1106,19 @@ Distribution of bin level bias distribution for the resolution constant term, fo
 \end{figure}
 
 \begin{figure}
-\begin{subfigure}[t]{0.49\linewidth}
-\includegraphics[width=\linewidth]{Clos_syst_alpha.pdf}
-\end{subfigure}
-\begin{subfigure}[t]{0.49\linewidth}
-\includegraphics[width=\linewidth]{Clos_syst_c.pdf}
-\end{subfigure}
+\centering
+\includegraphics[width=0.8\linewidth]{Clos_syst_alpha.pdf}\\
+\includegraphics[width=0.8\linewidth]{Clos_syst_c.pdf}
 \caption{\label{org4b7a948}
-Comparison of the new closure uncertainty with the run 1 for the energy scale factors (left) and resolution constant term (right). \cite{170712_Guerguichon}}
+Comparison of the new closure uncertainty with the run 1 for the energy scale factors (top) and resolution constant term (bottom). \cite{170712_Guerguichon}}
 \end{figure}
 
 
 
 \begin{figure}
-\begin{subfigure}[t]{0.49\linewidth}
-\begin{center}
-\includegraphics[width=\linewidth]{run1Syst_alpha.pdf}
-\end{center}
-\end{subfigure}
-\begin{subfigure}[t]{0.49\linewidth}
-\begin{center}
-\includegraphics[width=\linewidth]{run1Syst_c.pdf}
-\end{center}
-\end{subfigure}
+  \centering
+\includegraphics[width=0.8\linewidth]{run1Syst_alpha.pdf}\\
+\includegraphics[width=0.8\linewidth]{run1Syst_c.pdf}
 \caption{\label{org628a64a}
 Comparison of the total Zee systematic uncertainty between old and new closure uncertainty. \cite{170712_Guerguichon}}
 \end{figure}
