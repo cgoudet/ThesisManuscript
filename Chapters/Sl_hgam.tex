@@ -122,28 +122,42 @@
 %    More work required to improve fits quality.
 \end{frame}
 
-%%====================================================================
-%% \begin{frame}{Calibration uncertainties results}
-%%   \begin{minipage}{0.49\linewidth}
-%%       \includegraphics[width=\linewidth]{Figures/h015d_FULLMerge_catMerge_Systematics_InclusiveUp.pdf}
-%%   \end{minipage}
-%%   \hfill
-%%   \begin{minipage}{0.49\linewidth}
-%%   \end{minipage}
+%=================================================================================
+\begin{frame}{Correlation models }
+  \begin{center}{\bf Two correlation models : } \end{center}
+  \begin{minipage}[t]{0.49\linewidth}
+    {\bf 1NP }
+    \begin{itemize}
+    \item 2NP (scale + resolution)
+    \item Fully correlated
+    \item Conservative
+    \end{itemize}
+    \includegraphics[width=\linewidth]{CompareFULLMerge_mean_InclusiveUp.pdf}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.49\linewidth}
+    {\bf FULL}
 
-%%   \begin{minipage}{0.32\linewidth}
-%%     \includegraphics[width=\linewidth]{Figures/h015d_FULLMerge_catMerge_Systematics_Inclusive_mean_mean.pdf}
-%%   \end{minipage}
-%%   \hfill
-%%   \begin{minipage}{0.32\linewidth}
-%%     \includegraphics[width=\linewidth]{Figures/h015d_FULLMerge_catMerge_Systematics_Inclusive_sigma_sigma.pdf}
-%%   \end{minipage}
-%%   \hfill
-%%   \begin{minipage}{0.32\linewidth}
-%%     \includegraphics[width=\linewidth]{Figures/h015d_FULLMerge_catMerge_Systematics_Inclusive_yield_yield.pdf}
-%%   \end{minipage}
+\begin{itemize}
+  \item 86 NP (77 scale + 9 resolution)
+  \item True correlation
+\end{itemize}
+\includegraphics[width=\linewidth]{ATL-COM-PHYS-2016-1784_systematics_shape_Unal_mh_syst_corrFULL.pdf}\\
+\centering
+ \resizebox{\linewidth}{!}{
+\begin{tabular}{l|ll}
+Total Scale Uncertainty (\%) & 1NP & FULL \\
+\hline
+Measurement with $H\rightarrow\gamma\gamma$ MC & 0.46 & 0.27\\
+Formula & 0.47 & 0.26\\
+\end{tabular}
+}
 
-%\end{frame}
+\end{minipage}
+  
+\end{frame}
+%=================================================================================
+
 
 \begin{frame}{Calibration uncertainties results}
 
