@@ -3,7 +3,7 @@
 %%=============================
 \begin{frame}{Full calibration}
   To reach the physics analyses, data and simulated reconstructed events must pass a calibration procedure.
-  This procedures aim to correct the measured energy to \textcolor{blue}{\bf retrieve the true energy of the particle at the interaction point}.
+  This procedure aims at correcting the measured energy to \textcolor{blue}{\bf retrieve the true energy of the particle at the interaction point}.
   \begin{center}
     \begin{tikzpicture}
       \node[anchor=south west] {\includegraphics[width=\linewidth]{ATL-COM-PHYS-2013-1653_1f.pdf}};
@@ -22,7 +22,7 @@
 \item Events are then categorized in $\eta$ and $p_T$ bins, separately for electrons and photons.
 \item \textcolor{blue}{\bf A multivariate analysis (MVA) is performed to compute the true energy from detector observables}.
 \end{itemize}
-Plot shows most probable value (MVP) of $E^{corr}/E^{true}$.
+Plot shows most probable value (MPV) of $E^{corr}/E^{true}$.
   \begin{minipage}{0.49\linewidth}
     MVA uses :
     \begin{itemize}
@@ -40,9 +40,9 @@ Plot shows most probable value (MVP) of $E^{corr}/E^{true}$.
 %=================================
 \begin{frame}{Energy scale factors}
   \begin{minipage}{0.49\linewidth}
-    After MVA calibration, mass distribution of $Z\rightarrow ee$ for data and MC still have \\{\bf discrepancy}.
+    After MVA calibration, mass distribution of $Z\rightarrow ee$ for data and MC still have {\bf discrepancy}.
     \newline
-    \textcolor{blue}{\bf A data-driven analysis } is performed to match data to MC distribution \\(relative matching).
+    \textcolor{blue}{\bf A data-driven analysis } is performed to match data to MC distribution (relative matching).
   \end{minipage}
   \hfill
   \begin{minipage}{0.49\linewidth}
@@ -59,14 +59,15 @@ $$E^{corr}=E^{meas}(1+\alpha)$$
   \input{/home/goudet/Documents/LAL/ExternalPlot/ResolutionConstantTerm.tex}
   \begin{itemize}
   \item $a$ : sampling term ( $10\%$). Linked to the fluctuations of electromagnetic showers. \\Can be simulated.
-  \item $b/E$ : noise term ( $350cosh(\eta )$~MeV ). Measured in dedicated runs.
-  \item {\bf c : constant term ($0.7\%$)}. Must be measured on data.
+  \item $b$ : noise term ( $\sim 350cosh(\eta )$~MeV ). Measured in dedicated runs.
+  \item $c'$ : simulated constant term
+  \item {\bf $c$ : in-situ additional constant term ($0.7\%$)}
   \end{itemize}
   We observe that data distribution is larger than MC. 
-  An {\bf additional constant term (C)} is measure to enlarge MC up to the data width.
+  $c$ is measured to enlarge MC up to the data width.
   Both MC electrons undergo the correction :
-  \begin{center}\textcolor{blue}{\bf Resolution constant term (C) }\end{center}
-  $$E^{corr} = E^{meas}(1+N(0,1)*C)$$
+  \begin{center}\textcolor{blue}{\bf Resolution constant term ($c$) }\end{center}
+  $$E^{corr} = E^{meas}(1+N(0,1)*c)$$
   $N(0,1)$ : a Gaussian distributed random number
 \end{frame}
 
@@ -75,14 +76,14 @@ $$E^{corr}=E^{meas}(1+\alpha)$$
 \begin{minipage}{0.59\linewidth}
   The template method is used to measure $\alpha$ and $C$ simultaneously.
 \begin{itemize}
-\item Create distorded MC (templates) with test values of $\alpha$ and $C$.
-\item \textcolor{blue}{\bf Compute $\chi^2$ between Z mass distribution of data and template}.
-\item \textcolor{blue}{\bf Fit the minimum of the $\chi^2$ distribution} in the ($\alpha,C$) plane.
+\item Create distorded MC (templates) with test values of $\alpha$ and $c$
+\item \textcolor{blue}{\bf Compute $\chi^2( M_Z; \text{data, template})$}
+\item \textcolor{blue}{\bf Fit the minimum of the $\chi^2$ distribution} in the ($\alpha,c$) plane.
 \item Fit performed in 2 steps of 1D fits : 
 \begin{itemize}
-\item fit $\chi^2=f(\alpha)$ at constant $C$ (lines) $\rightarrow (\alpha_{min}, \chi^2_{min})$ .
-\item fit $\chi^2_{min}=f(C)\rightarrow (C, \Delta C)$
-\item project $C$ in $\alpha_{min}=f(C)$, corresponding bin gives $(\alpha, \Delta\alpha)$.
+\item fit $\chi^2=f(\alpha)$ at constant $c$ (lines) $\rightarrow (\alpha_{min}, \chi^2_{min})$ .
+\item fit $\chi^2_{min}=f(c)\rightarrow (c, \Delta c)$
+\item project $c$ in $\alpha_{min}=f(c)$, corresponding bin gives $(\alpha, \Delta\alpha)$.
 \end{itemize}
 \end{itemize}
   \includegraphics[width=0.325\linewidth]{MC6_0_0_chi2FitNonConstVar_10.pdf}
@@ -106,18 +107,17 @@ $$E^{corr}=E^{meas}(1+\alpha)$$
     \item Detector is not uniform along $\eta$.
     \item To improve resolution, \\ \textcolor{blue}{\bf calibration is performed in bin of $\eta_{calo}$.}
     \item 68 and \textcolor{brown}{24} bins are used respectively for $\alpha$ and $C$.\\
-      {\tiny \textcolor{brown}{0} 0.1 \textcolor{brown}{0.2} 0.3 \textcolor{brown}{0.4} 0.5 \textcolor{brown}{0.6} 0.7 \textcolor{brown}{0.8} 0.9 \textcolor{brown}{1} 1.1 \textcolor{brown}{1.2} 1.285 \textcolor{brown}{1.37} 1.42 1.47 1.51 \textcolor{brown}{1.55} 1.59 1.63 1.6775 1.725 1.7625 \textcolor{brown}{1.8} 1.9 \textcolor{brown}{2} 2.05 2.1 2.2 \textcolor{brown}{2.3} 2.35 2.4 2.435 \textcolor{brown}{2.47}}
     \end{itemize}
   \end{minipage}
   \vfill
-  {\bf Electrons are labelled by their $\eta$ bin}, hence Z are labeled by the combination of electrons bins.
+  {\bf Electrons are labelled by their $\eta$ bin}, hence Z are labeled by the combination $(i, j)$ of electrons bins.
   \textcolor{blue}{\bf Scales are computed for each combination.}
 \end{frame}
 
 %============================
 
 \begin{frame}{Inversion Procedure}
-Obtaining \textcolor{blue}{\bf electron scales from Z scales} need the minimizations of the following $\chi^2$'s
+Obtaining \textcolor{blue}{\bf electron scales ($\alpha_i$) from Z scales ($\alpha_{ij} \pm \Delta\alpha_{ij}$)} need the minimizations of the following $\chi^2$'s
 \begin{equation}
 \begin{array}{l}
 \chi^2 = \sum \limits_{i, j\leq i} \frac{ (\alpha_i + \alpha_j - 2\alpha_{ij})^2 }{(\Delta\alpha_{ij})^2}\\
@@ -136,22 +136,30 @@ Obtaining \textcolor{blue}{\bf electron scales from Z scales} need the minimizat
 
 %%===================================
 \begin{frame}{Run 2 prerecommandations}
-Run 2 early analyses need scales factors for 13TeV but not enough data will be available.
-Need to \textcolor{blue}{ \bf estimate run 2 scales from run 1 data}.
-\newline
-Pre-recommandations are computed using $8$~TeV data reprocessed with :
-\begin{itemize}
-\item new detector geometry
-\item new reconstruction algorithm
-\item new calibration machine learning
-\end{itemize} 
+  Run 2 early analyses need scales factors for 13TeV but not enough data will be available.
+  Need to \textcolor{blue}{ \bf estimate run 2 scales from run 1 data}.
+  \newline
+  Pre-recommandations are computed using $8$~TeV data reprocessed with :
+  \begin{itemize}
+  \item new detector geometry (IBL)
+  \item new reconstruction algorithm (4 samples)
+  \item new calibration machine learning
+  \end{itemize} 
   \begin{minipage}{0.49\linewidth}
-    \includegraphics[width=\linewidth]{/home/goudet/Documents/LAL/Shared/PlotsGoudet/Calibration/PreRecommandations/PreRec_alpha.pdf}
+    \begin{tikzpicture}
+      \node[anchor=south west] {\includegraphics[width=\linewidth]{/home/goudet/Documents/LAL/Shared/PlotsGoudet/Calibration/PreRecommandations/PreRec_Zee_alpha.pdf}};
+%      \draw[step=1.0,black,thin] (0,0) grid (2,2);
+      \node[draw] at (3,2.5) {$\alpha$};
+    \end{tikzpicture}
   \end{minipage}
   \begin{minipage}{0.49\linewidth}
-    \includegraphics[width=\linewidth]{/home/goudet/Documents/LAL/Shared/PlotsGoudet/Calibration/PreRecommandations/PreRec_c.pdf}
+    \centering
+    \begin{tikzpicture}
+      \node[anchor=south west] {    \includegraphics[width=\linewidth]{/home/goudet/Documents/LAL/Shared/PlotsGoudet/Calibration/PreRecommandations/PreRec_c.pdf}};
+      \node[draw] at (3,2.5) {$c$};
+    \end{tikzpicture}
   \end{minipage}
-%Binning was changed from $34$ bins to $68$ due to the observation of sub-structures.
+  %Binning was changed from $34$ bins to $68$ due to the observation of sub-structures.
 \end{frame}
 
 %%========================================
@@ -173,56 +181,7 @@ Systematic is defined as the scale measured from $13$~TeV MC on $8TeV$ templates
     \includegraphics[width=\linewidth]{/home/goudet/Documents/LAL/Shared/PlotsGoudet/Calibration/PreRecommandations/PreRecSyst_c.pdf}
   \end{minipage}\\
 \end{frame}
-%% %=======================================
-%% \begin{frame}{Run 2 pre-recommandations}
-%% \centering
-%% \begin{minipage}{0.8\linewidth}
-%%   \begin{itemize}
-%%   \item Calibration constants required before run 2 data
-%%   \item \textcolor{red}{\bf Pre-recommandations computed from 8 TeV data and run 2 algorithms}
-%%   \end{itemize}
-%% \end{minipage}
-%% \vfill
-%%   \begin{minipage}[t]{0.49\linewidth} 
-%%     \includegraphics[width=\linewidth]{/home/goudet/Documents/LAL/Shared/PlotsGoudet/Calibration/PreRecommandations/PreRec_Zee_alpha.pdf}\\
-%%   \end{minipage}
-%%   \hfill
-%%   \begin{minipage}[t]{0.49\linewidth}
-%%     \includegraphics[width=\linewidth]{/home/goudet/Documents/LAL/Shared/PlotsGoudet/Calibration/PreRecommandations/PreRec_c.pdf}
-%%   \end{minipage}
-%%   \vfill
-%%   \begin{minipage}{0.8\linewidth}
-%%   \begin{itemize}
-%%   \item {\bf Good agreement with run 1 in the barrel}
-%%   \end{itemize}
-%% \end{minipage}
 
-%% \end{frame}
-%% %%===================================
-%% \begin{frame}{Run 2 pre-recommandations uncertainties}
-%% \centering
-%% \begin{minipage}{0.7\linewidth}
-%%   \begin{itemize}
-%%   \item Run 1 calibration uncertainties conserved
-%%   \item \textcolor{red}{\bf Conservative uncertainties added} (IBL, Binning)
-%%   \end{itemize}
-%% \end{minipage}
-%% \vfill
-%%   \begin{minipage}[t]{0.49\linewidth} 
-%%     \includegraphics[width=\linewidth]{/home/goudet/Documents/LAL/Shared/PlotsGoudet/Calibration/PreRecommandations/PreRecSyst_alpha.pdf}\\
-%%   \end{minipage}
-%%   \hfill
-%%   \begin{minipage}[t]{0.49\linewidth}
-%%     \includegraphics[width=\linewidth]{/home/goudet/Documents/LAL/Shared/PlotsGoudet/Calibration/PreRecommandations/PreRecSyst_c.pdf}
-%%   \end{minipage}
-%%   \vfill
-%%   \begin{minipage}{0.9\linewidth}
-%%   \begin{itemize}
-%%   \item {\bf New systematics highly dominant ($>100\%$ uncertainty)}
-%%   \end{itemize}
-%% \end{minipage}
-
-%% \end{frame}
 %%===================================
 \begin{frame}{Run 2 results}
   \begin{itemize}
@@ -237,24 +196,11 @@ Systematic is defined as the scale measured from $13$~TeV MC on $8TeV$ templates
   \begin{minipage}{0.49\linewidth}
     \includegraphics[width=\linewidth]{CalibSupNote_CS_cOff.pdf}
   \end{minipage}
-%  {\bf $\alpha$  discrepancies are below $0.1\%$ } out of the crack ($1.37<|\eta|<1.55$).
-\end{frame}
-%===============================================
-\begin{frame}{Uncertainties}
-  12 (13) sources of uncertainties have been evaluated for $\alpha$ ($c$).
 
-    \begin{minipage}{0.49\linewidth} 
-      \includegraphics[width=\linewidth]{CalibSupNote_totUncAlpha.pdf}
-  \end{minipage}
-  \hfill
-  \begin{minipage}{0.49\linewidth}
-    \includegraphics[width=\linewidth]{CalibSupNote_totUncC.pdf}
-  \end{minipage}
-
-  \begin{center}
+    \begin{center}
     \begin{minipage}{0.7\linewidth}
       \centering
-      {\bf Main sources }
+      {\bf Main sources of uncertainty }
       \begin{itemize}
       \item Diff. btw tight and medium electrons
       \item Closure
@@ -262,6 +208,7 @@ Systematic is defined as the scale measured from $13$~TeV MC on $8TeV$ templates
       \end{itemize}
     \end{minipage}
   \end{center}
+
 \end{frame}
 %===============================================
 \begin{frame}{Closure uncertainty}
@@ -281,9 +228,9 @@ Systematic is defined as the scale measured from $13$~TeV MC on $8TeV$ templates
 %===============================================
 \begin{frame}{Run 2 closure uncertainty}
   \begin{itemize}
-  \item Pseudo experiment have been performed
+  \item Pseudo experiments have been performed
   \item Average over all sources of statistical fluctuations
-  \item {\bf New Closure defined as average of distribution in each bin.}
+  \item {\bf New closure defined as average of distribution in each bin.}
   \end{itemize}
   \centering
   \includegraphics[width=0.7\linewidth]{statTree_9775706_iBin_2_SAME.pdf}
@@ -313,7 +260,7 @@ Systematic is defined as the scale measured from $13$~TeV MC on $8TeV$ templates
 %===============================================
 \begin{frame}{Runs comparison}
   Performances of run 2 in-situ calibration surpass run 1 results.
-
+Cross-checks performed on photons from $Z\rightarrow ll\gamma$.
   \begin{minipage}{0.42\linewidth} 
     \includegraphics[width=\linewidth]{Figures/CompareSystRun_alpha.pdf}
   \end{minipage}
@@ -322,26 +269,9 @@ Systematic is defined as the scale measured from $13$~TeV MC on $8TeV$ templates
     \includegraphics[width=\linewidth]{Figures/CompareSystRun_c.pdf}
   \end{minipage}
   \centering
-  \begin{minipage}{0.53\linewidth}
+  \begin{minipage}{0.47\linewidth}
     \includegraphics[width=\linewidth]{CalibSupNote_Distri_m12_corrected.pdf}
   \end{minipage}
 
 \end{frame}
 
-%===========================================
-\begin{frame}{Photon correction}
-Electrons scale factors are also applied to photons. 
-A residual scale factor ($\Delta\alpha$) is measured from $Z\rightarrow ll\gamma$.
-
-No significant deviation observed.
-\newline
-  \begin{minipage}{0.49\linewidth}
-    \includegraphics[width=\linewidth]{CERN-PH-EP-2014-153_34fa.pdf}
-  \end{minipage}
-  \hfill
-  \begin{minipage}{0.49\linewidth}
-    \includegraphics[width=\linewidth]{CERN-PH-EP-2014-153_34fb.pdf}
-  \end{minipage}
-\end{frame}
-
-%============================================

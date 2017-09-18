@@ -3,7 +3,7 @@
 
 \begin{frame}{The Large Hadron Collider}
   The LHC aims at accelerating and colliding protons.
-  Analysing debris of collisions allows to probe SM and/or beyond.
+  Analysing products of collisions allows to probe SM and/or beyond.
   \vfill
   
   \begin{minipage}{0.49\linewidth}
@@ -12,6 +12,7 @@
     \item 27 km long.
     \item 100 m underground
     \item collision every 25 ns.
+    \item nominal luminosity of $10^{34}$~cm$^{-2}$s$^{-1}$
     \item $\sqrt{s}=13$ TeV
     \item 4 collision points equipped with detectors : ALICE, ATLAS, CMS and LHCb.
     \end{itemize}
@@ -26,24 +27,17 @@
   The collision conditions at LHC have significantly changed since its contruction.
   \begin{itemize}
   \item Major increase of integrated luminosity per year.
-  \item Large increase in colliisions per bunch crossing.
+  \item Large increase in collisions per bunch crossing.
   \end{itemize}
 
-  \begin{center} \includegraphics[width=0.6\linewidth]{ATLASLumiYear.pdf} \end{center}
+  \begin{center} \includegraphics[width=0.49\linewidth]{ATLASLumiYear.pdf}
+  \includegraphics[width=0.49\linewidth]{mu_2015_2016} \end{center}
 \end{frame}
-%%===========================
-\begin{frame}{General purpose apparatus}
-  A general purpose particle detector (ATLAS and CMS) is designed as layers with specific measurement goal.
-  
-  \begin{center}    \includegraphics[width=0.7\linewidth]{detector.jpg} \end{center}
-\end{frame}
-
 %%===========================
 \begin{frame}{ATLAS experiment}
   \begin{minipage}{0.49\linewidth}
     \includegraphics[width=\linewidth]{ATLASExperiment_1f1.pdf}\\
-    Performance goals of the ATLAS detector\\
-    \includegraphics[width=\linewidth]{ATLASExperiment_1t1.pdf}
+    \includegraphics[width=\linewidth]{detector.jpg}
   \end{minipage}
   \hfill
   \begin{minipage}{0.49\linewidth}
@@ -53,7 +47,7 @@
       \newline
     \item \textcolor{blue}{\bf Silicon and TRT tracker in 2T magnetic field}\\
       Measure position and momentum of charged particles
-    \item \textcolor{blue}{\bf Liquid argon electromagnetic calorimeter (LAr)} \\
+    \item \textcolor{red}{\bf Liquid argon electromagnetic calorimeter (LAr)} \\
       Measure energy of electrons and photons.
     \item {\bf Scintillating tiles hadronic calorimeter} \\
       Measure energy of jets
@@ -67,7 +61,7 @@
   \begin{minipage}{0.4\linewidth}
     \includegraphics[width=\linewidth]{MarcHDR_2f30.pdf}\newline
     \centering
-    \includegraphics[width=\linewidth]{ATLASExperiment_5f4.pdf}
+    \includegraphics[width=\linewidth]{CERN-THESIS-2014-122_4f9.pdf}
   \end{minipage}
   \hfill
   \begin{minipage}{0.59\linewidth}
@@ -94,7 +88,7 @@
 \hfill
 \begin{minipage}{0.69\linewidth}
 \begin{itemize}
-\item {\bf Signal drift time }($\sim 600$ns) {\bf too long} for collisions every $25$ns (pile-up).
+\item {\bf Signal drift time }($\sim 450$ns) {\bf too long} for collisions every $25$ns (pile-up).
 \item Analog signal pass through an \textcolor{blue}{\bf bipolar filter } to reduce signal time.
 Shape optimize signal over pileup and electronic noise.
 \item ADC sampling every $25$ns (4 points are kept).
@@ -111,35 +105,34 @@ Shape optimize signal over pileup and electronic noise.
 \begin{frame}{Reconstruction \& Identification}
   \begin{center}
     Reconstruction links the energy deposit in detector cells to a \\ \textcolor{blue}{\bf physical particle and its properties}.
-    \vfill
+%    \vfill
     \begin{itemize}
-    \item Divide the central part ($|\eta|=|ln(tan(\theta /2) )|<2.47$) into towers of size $\Delta\eta\times\Delta\phi =0.25\times 0.25$
-    \item Sum energies from all cells and all layers of the tower
-    \item Sliding window ($3 \times 5$ towers ) algorithm look for $2.5$~GeV of transverse energy
+%    \item Divide the central part ($|\eta|=|ln(tan(\theta /2) )|<2.47$) into towers of size $\Delta\eta\times\Delta\phi =0.25\times 0.25$
+      %   \item Sum energies from all cells and all layers of the tower
+      \item Sum energy from all layers in towers of $\Delta\eta\times\Delta\phi =0.25\times 0.25$
+      \item Sliding window ($3 \times 5$ towers ) algorithm look for $2.5$~GeV of transverse energy
+        \vfill
     \item {\bf Track matching and clustering} :\\
+      \begin{minipage}{0.49\linewidth}
       \begin{itemize}
-      \item no track $\rightarrow$ photon $\rightarrow 3\times 7$ cluster 
-      \item track $\rightarrow$ electron $\rightarrow 3\times 7$ cluster 
-      \item conversion vertex $\rightarrow$ converted photon $\rightarrow 3\times 7$ cluster
+      \item no track $\rightarrow$ photon 
+      \item track $\rightarrow$ electron
+      \item conversion vertex $\rightarrow$ converted photon
       \end{itemize}
+      \end{minipage}
+      \hfill
+      \begin{minipage}{0.49\linewidth}
+        \begin{itemize}
+        \item $3\times 7$ cluster  in barrel
+        \item $3\times 5$ cluster  in end-cap
+        \end{itemize}
+      \end{minipage}
     \end{itemize}
-    \vfill
-    Identification is to separate prompt electrons from both jets and other electrons from either hadron decay or photon conversion.\\
-    \textcolor{blue}{\bf A multivariate likelihood method using  23 variables} \\of energy deposit and tracking is used.
+    %% \vfill
+    %% Identification is to separate prompt electrons from both jets and other electrons from either hadron decay or photon conversion.\\
+    %% \textcolor{blue}{\bf A multivariate likelihood method using  23 variables} \\of energy deposit and tracking is used.
   \end{center}
 \end{frame}
 
 %=========================================
-
-\begin{frame}{Reconstruction \& Identification efficiencies}
-  Not all electrons pass the reconstruction and identification criteria. \\
-  {\bf 3 menus with increasing purity ( but deceasing efficiencies) are defined : loose, medium, tight}.
-  The efficiency of these procedures is given as a function of the $p_T$ and $\eta=-ln(tan(\theta/2))$.\\
-\begin{minipage}{0.49\linewidth}
-  \includegraphics[width=\linewidth]{CONF-2014-032_30fa.pdf}
-\end{minipage}
-\begin{minipage}{0.49\linewidth}
-  \includegraphics[width=\linewidth]{CONF-2014-032_30fb.pdf}
-\end{minipage}
-\end{frame}
 

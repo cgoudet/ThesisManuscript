@@ -1,21 +1,53 @@
+\begin{frame}{Calibration MVA variables}
+  \begin{itemize}
+  \item E\(_{\text{acc}}\) : sum of uncalibrated energies measured in the accordion.
+  \item E\(_{\text{0}}\)/E\(_{\text{acc}}\) : ratio of the energy in the presampler over the energy in the accordion.
+  \item $E_1/E_2$ : ratio of the uncalibrated energy in the first over the second layer ($E_1/E_2$).
+  \item \(\eta_{\text{cluster}}\) :  pseudo rapidity in the ATLAS frame.
+  \item Cell index : an integer number defined as the integer part of the division ( \(\eta_{\text{calo}}\)/\(\Delta \eta\)) where \(\eta_{\text{calo}}\) is the cluster pseudo rapidity in the calorimeter frame with \(\Delta \eta\) as the size of one cell in the middle layer. 
+  \item $\eta$ position of the cluster with respect to the cell edge.
+  \item $\phi$ with respect to the lead absorber. This variable is sensitive to the modulation of the thickness of the absorber as a function of $\phi$.
+  \end{itemize}
+\end{frame}
 
-%%=========================================
-%% \begin{frame}{Calibration in-situ : closure improvement}
-%%   Comparison of run 1 and run 2 closure systematics. A major improvement has been achieved for $c$.
-  
-%%     \begin{minipage}{0.42\linewidth}
-%% \includegraphics[width=\linewidth]{Clos_syst_alpha.pdf}
-%%   \end{minipage}
-%%   \hfill
-%%   \begin{minipage}{0.42\linewidth}
-%% \includegraphics[width=\linewidth]{Clos_syst_c.pdf}
-%%   \end{minipage}\\
-%%     \begin{minipage}{0.42\linewidth}
-%%   \includegraphics[width=\linewidth]{run1Syst_alpha.pdf}
-%%   \end{minipage}
-%%   \hfill
-%%   \begin{minipage}{0.42\linewidth}
-%%   \includegraphics[width=\linewidth]{run1Syst_c.pdf}
-%%   \end{minipage}\\
+%====================================
+\begin{frame}{In situ calibration $\eta_\text{calo}$ bin frontiers}
+        {\tiny \textcolor{brown}{0} 0.1 \textcolor{brown}{0.2} 0.3 \textcolor{brown}{0.4} 0.5 \textcolor{brown}{0.6} 0.7 \textcolor{brown}{0.8} 0.9 \textcolor{brown}{1} 1.1 \textcolor{brown}{1.2} 1.285 \textcolor{brown}{1.37} 1.42 1.47 1.51 \textcolor{brown}{1.55} 1.59 1.63 1.6775 1.725 1.7625 \textcolor{brown}{1.8} 1.9 \textcolor{brown}{2} 2.05 2.1 2.2 \textcolor{brown}{2.3} 2.35 2.4 2.435 \textcolor{brown}{2.47}}
+\end{frame}
 
-%% \end{frame}
+%===============================================
+\begin{frame}{In-situ 2015 pre-recommandations : binning uncertainty}
+  \centering
+  \includegraphics[width=0.9\linewidth]{/home/goudet/Documents/LAL/Zim/Calibration/PreRec/150727_ComparisonBins_alpha.png}
+  \end{frame}
+%===============================================
+\begin{frame}{In situ scale uncertainties uncertainties}
+  12 (13) sources of uncertainties have been evaluated for $\alpha$ ($c$).
+
+    \begin{minipage}{0.49\linewidth} 
+      \includegraphics[width=\linewidth]{CalibSupNote_totUncAlpha.pdf}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.49\linewidth}
+    \includegraphics[width=\linewidth]{CalibSupNote_totUncC.pdf}
+  \end{minipage}
+
+\end{frame}
+
+%===========================================
+\begin{frame}{Photon correction}
+Electrons scale factors are also applied to photons. 
+A residual scale factor ($\Delta\alpha$) is measured from $Z\rightarrow ll\gamma$.
+
+No significant deviation observed.
+\newline
+  \begin{minipage}{0.49\linewidth}
+    \includegraphics[width=\linewidth]{CERN-PH-EP-2014-153_34fa.pdf}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.49\linewidth}
+    \includegraphics[width=\linewidth]{CERN-PH-EP-2014-153_34fb.pdf}
+  \end{minipage}
+\end{frame}
+
+%============================================

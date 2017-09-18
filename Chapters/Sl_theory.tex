@@ -75,7 +75,7 @@
   \begin{minipage}{0.49\linewidth}
   \begin{itemize}
   \item Potential has rotational symmetry
-  \item Ground state $|\Phi|=\sqrt{-\frac{\mu^2}{2\lambda^2}}= \frac{v}{\sqrt{2}}$ breaks symmetry.
+  \item Ground state $|\Phi|=\sqrt{-\frac{\mu^2}{2\lambda^2}}= \frac{\text{vev}}{\sqrt{2}}$ breaks symmetry.
   \item Describe a massless and a massive ($m^2=v^2\lambda$) bosons.
   \end{itemize}
   \end{minipage}
@@ -98,7 +98,7 @@
     \vfill
   \item SSB of $SU(2)_L$ by introduction of scalar field $\Phi$
     \begin{itemize}
-    \item $(D_\mu \Phi)^\dagger (D^\mu\Phi)$ gives mass to $W^\pm$ and $Z$.
+    \item gives mass to $W^\pm$ and $Z$.
     \item A physical and massive degree of freedom : the (Brout-Englert)-Higgs boson $H$.
     \item Yukawa coupling gives mass to fermions.
     \end{itemize}
@@ -142,7 +142,7 @@
     \item $H\rightarrow VV$ ($V=W,Z$) probes H boson couplings to EW bosons.
       Clean signature in leptonic decays of $V$ but low statistics.
     \item $H\rightarrow\gamma\gamma$ probes H boson couplings to photon through loop.
-      Large but smooth background.
+      Large but smooth background. Good energy resolution.
     \end{itemize}
   \end{minipage}
   
@@ -151,19 +151,19 @@
 \begin{frame}{H boson Status}
   Run 1 of the LHC (2011/2012) allowed the observation of a Higgs like particles and its properties have been measured combining ATLAS+CMS.
   \vfill
-  \begin{minipage}[t]{0.49\linewidth}
+  \begin{minipage}[t]{0.59\linewidth}
     \centering
     mass measurement \\  \href{http://journals.aps.org/prl/pdf/10.1103/PhysRevLett.114.191803}{PhysRevLett.114.191803}\\
     \textcolor{red}{$m_H = 125.09 \pm 0.21 \text{(stat)} \pm 0.11 \text{(syst)} $~GeV}  
-    \includegraphics[width=0.8\linewidth]{yyMass.pdf}
+    \includegraphics[width=0.7\linewidth]{yyMass.pdf}
   \end{minipage}
   \hfill
-  \begin{minipage}[t]{0.49\linewidth}
+  \begin{minipage}[t]{0.4\linewidth}
     \centering
-    couplings $\kappa_i =\frac{\sigma_i^{exp}}{\sigma_i^{SM}}$ \\
+    couplings $\kappa_i =\frac{g_i^{exp}}{g_i^{SM}}$ \\
     \href{https://cds.cern.ch/record/2158863}{CERN-EP-2016-100} \\
     \vfill
-    \includegraphics[width=0.8\linewidth]{CERN-EP-2016-100_18f.pdf} 
+    \includegraphics[width=\linewidth]{CERN-EP-2016-100_18f.pdf} 
   \end{minipage}
 \textcolor{red}{\bf The measured properties are in agreement with the SM H boson.}
 \end{frame}
@@ -172,7 +172,7 @@
   \begin{minipage}{0.49\linewidth}
   \begin{itemize}
   \item LHC energy and luminosity increase \\
-    $\rightarrow$ {\bf 30 times more Higgses are expected}
+    $\rightarrow$ {\bf 10 times more Higgses are expected}
   \item With reduced statistical uncertainties \\ $\rightarrow$ \textcolor{blue}{\bf need to reduce systematic uncertainties}
   \item Theory uncertainty reduced with ggH N$^3$LO calculation
   \item Resolution uncertainty dominant at run 1 for couplings \\
@@ -183,6 +183,10 @@
   \begin{minipage}{0.49\linewidth}
     \centering
     \includegraphics[width=\linewidth]{crossSectionRatio-13-8TeV.pdf}\\
-    \includegraphics[width=0.8\linewidth]{1408_7084_19t.pdf}\\
+    \begin{tikzpicture}
+      \node[anchor=south west] { \includegraphics[width=0.8\linewidth]{1408_7084_19t.pdf} };
+%      \draw[step=1.0,black,thin] (0,0) grid (5,3);
+      \draw[red, line width=0.5mm, rounded corners =2pt] ( 0, 0.6 ) rectangle (5, 1.3 ) ;
+    \end{tikzpicture}
   \end{minipage}
 \end{frame}
