@@ -3,7 +3,7 @@
 \frame{\tableofcontents[currentsection]}
 
 %%=================================================================================
-\begin{frame}{Simplified Template Cross Section (STXS) framework}
+\begin{frame}{Simplified Template Cross (X) Section (STXS) framework}
   \centering
   \includegraphics[width=0.8\linewidth]{HTSX.pdf}\\
   Replace signal strengths ($\mu=\frac{\sigma^{exp}}{\sigma^{th}}$) by cross-section in exclusive phase space regions.
@@ -15,7 +15,7 @@
   {\bf Inclusive selection }
   \begin{itemize}
   \item 2 tight photons
-  \item $\frac{p_T^\gamma}{m_{\gamma\gamma}}>0.35 (0.25)$
+  \item $\frac{p_T^{\gamma_{1(2)}}}{m_{\gamma\gamma}} > 0.35~ (0.25)$
   \item $|\eta|\in [0, 1.37]  \cup [1.52, 2.37]$
   \item $m_{\gamma\gamma} \in [105, 160]$ GeV
   \end{itemize}
@@ -27,7 +27,7 @@
     \begin{itemize}
     \item $\sim$ 330k events
     \item $42\%$ signal efficiency
-    \item $\simeq 1730$ expected signal yield
+    \item $\simeq 1730$ SM expected signal yield
     \end{itemize}
   \end{minipage}
   \vfill
@@ -59,7 +59,7 @@
 \end{frame}
 
 %%=================================================================================
-\begin{frame}{Truth bin distribution}
+\begin{frame}{Signal events distribution over truth bins per category}
   \begin{minipage}{0.6\linewidth}
       \includegraphics[width=\linewidth]{ATL-COM_PHYS_2016-1784_purity_2D.pdf}
   \end{minipage}
@@ -98,8 +98,8 @@
     \begin{minipage}{0.49\linewidth}
       \includegraphics[width=\linewidth]{Figures/h013_EG_SCALE_ALL_0.pdf}
     \end{minipage}
-
     \vfill
+      1 source of uncertainty = 1 nuisance parameter (NP)
 \end{frame}
 
 %=================================================================================
@@ -144,13 +144,13 @@
 
   \begin{minipage}{0.49\linewidth}
     \centering
-    {\bf 49 Nuisance Parameters }
+    {\bf Merged Model : 49 NP }
     \begin{itemize}
     \item 9 for resolution
     \item 40 for scale
     \end{itemize}
     \vfill
-    {\bf affecting }
+    {\bf impacting }
     \begin{itemize}
     \item resolution
     \item mass
@@ -219,7 +219,13 @@
   \hfill
   \begin{minipage}{0.49\linewidth}
     \centering
-    \includegraphics[width=0.7\linewidth]{ATLAS-CONF-2017-045_6t.pdf}
+    \begin{tikzpicture}
+      \node[anchor=south west] {    \includegraphics[width=0.7\linewidth]{ATLAS-CONF-2017-045_6t.pdf}};
+%      \draw[step=1.0,black,thin] (0,0) grid (2,2);
+      \draw[red, line width=0.5mm, rounded corners =2pt] ( 0.2, 0.8 ) rectangle (4.2, 1.15 ) ;
+
+    \end{tikzpicture}
+
   \end{minipage}
 
   \begin{center}

@@ -20,21 +20,24 @@
 \begin{itemize}
 \item Simulated events are passed through a full GEANT4 simulation of the ATLAS detector.
 \item Events are then categorized in $\eta$ and $p_T$ bins, separately for electrons and photons.
-\item \textcolor{blue}{\bf A multivariate analysis (MVA) is performed to compute the true energy from detector observables}.
+\item \textcolor{blue}{\bf A multivariate analysis (MVA), using ECAL variables, is performed to compute the true energy from detector observables}.
 \end{itemize}
-Plot shows most probable value (MPV) of $E^{corr}/E^{true}$.
-  \begin{minipage}{0.49\linewidth}
-    MVA uses :
-    \begin{itemize}
-    \item Energies in all layers of the ECAL
-    \item EM shower shape variables
-    \item Barycenters of energy deposits
-    \end{itemize}
-  \end{minipage}
-  \hfill
-  \begin{minipage}{0.49\linewidth}
-    \includegraphics[width=\linewidth]{CERN-PH-EP-2014-153_2fa.pdf}
-  \end{minipage}
+
+  %% \begin{minipage}{0.49\linewidth}
+  %%   MVA uses :
+  %%   \begin{itemize}
+  %%   \item Energies in all layers of the ECAL
+  %%   \item EM shower shape variables
+  %%   \item Barycenters of energy deposits
+  %%   \end{itemize}
+  %% \end{minipage}
+  %% \hfill
+  %% \begin{minipage}{0.49\linewidth}
+\begin{center}
+  Most probable value (MPV) of $E^{corr}/E^{true}$.\\
+  \includegraphics[width=0.5\linewidth]{CERN-PH-EP-2014-153_2fa.pdf}
+\end{center}
+%  \end{minipage}
 
 \end{frame}
 %=================================
@@ -49,7 +52,7 @@ Plot shows most probable value (MPV) of $E^{corr}/E^{true}$.
     \includegraphics[width=\linewidth]{CalibSupNote_Distri_m12_uncorrected.pdf}
   \end{minipage}
 
-A correction, applied to both electrons of Z decay, is computed to shift the central value of data distribution : 
+A correction, applied to both electrons of Z decay, is computed to \textcolor{red}{\bf shift the central value of data distribution} : 
 \begin{center} \textcolor{blue}{\bf energy scale factor ($\alpha$)} \end{center}
 $$E^{corr}=E^{meas}(1+\alpha)$$
 \end{frame}
@@ -59,7 +62,7 @@ $$E^{corr}=E^{meas}(1+\alpha)$$
   \input{/home/goudet/Documents/LAL/ExternalPlot/ResolutionConstantTerm.tex}
   \begin{itemize}
   \item $a$ : sampling term ( $10\%$). Linked to the fluctuations of electromagnetic showers. \\Can be simulated.
-  \item $b$ : noise term ( $\sim 350cosh(\eta )$~MeV ). Measured in dedicated runs.
+  \item $b$ : noise + pile-up term ( $\sim 350~cosh(\eta )$~MeV ). Measured in dedicated runs.
   \item $c'$ : simulated constant term
   \item {\bf $c$ : in-situ additional constant term ($0.7\%$)}
   \end{itemize}
@@ -105,8 +108,8 @@ $$E^{corr}=E^{meas}(1+\alpha)$$
   \begin{minipage}{0.49\linewidth}
     \begin{itemize}
     \item Detector is not uniform along $\eta$.
-    \item To improve resolution, \\ \textcolor{blue}{\bf calibration is performed in bin of $\eta_{calo}$.}
-    \item 68 and \textcolor{brown}{24} bins are used respectively for $\alpha$ and $C$.\\
+    \item To improve resolution, \\ \textcolor{blue}{\bf calibration is performed in bins of $\eta_{calo}$.}
+    \item 68 and \textcolor{brown}{24} bins are used respectively for $\alpha$ and $c$.\\
     \end{itemize}
   \end{minipage}
   \vfill
@@ -203,7 +206,7 @@ Systematic is defined as the scale measured from $13$~TeV MC on $8TeV$ templates
       {\bf Main sources of uncertainty }
       \begin{itemize}
       \item Diff. btw tight and medium electrons
-      \item Closure
+      \item Closure : difference between injected and measured values
       \item Bremsstrahlung impact on electron momentum
       \end{itemize}
     \end{minipage}
@@ -259,8 +262,8 @@ Systematic is defined as the scale measured from $13$~TeV MC on $8TeV$ templates
 \end{frame}
 %===============================================
 \begin{frame}{Runs comparison}
-  Performances of run 2 in-situ calibration surpass run 1 results.
-Cross-checks performed on photons from $Z\rightarrow ll\gamma$.
+  Performances of run 2 in-situ calibration better than Run 1.
+  Cross-checks performed on photons from $Z\rightarrow ll\gamma$.
   \begin{minipage}{0.42\linewidth} 
     \includegraphics[width=\linewidth]{Figures/CompareSystRun_alpha.pdf}
   \end{minipage}

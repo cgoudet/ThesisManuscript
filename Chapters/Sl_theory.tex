@@ -6,54 +6,7 @@
   \begin{center} \includegraphics[width=\linewidth]{OPEN-PHO-CHART-2015-001.png} \end{center}
 \end{frame}
 %% %%=============================
-%% \begin{frame}{A mathematical framework}
-%%   Matter knowledge is embedded into a well defined mathematical framework based on a Lagrangian $L$.
-
-%%   \begin{equation}
-%%     L = \frac{m \vec{\dot{q}}^2}{2} - V(\vec{q})
-%%   \end{equation}
-
-%%   The dirac lagrangian describes a massive fermion field :
-%%   \begin{equation}
-%%     L = \bar{\psi} ( i\slashed{\partial} - m ) \psi
-%%   \end{equation}
-  
-%%   Imposing least action principle (similar to classical mechanic) lead to equations of motion :
-%%   \begin{equation}
-%%     \frac{\partial L}{\partial q} - \frac{d}{dt}\frac{\partial L}{\partial \dot{q}_i} = 0
-%%   \end{equation}
-  
-%% \end{frame}
-%% %%=============================
-%% \begin{frame}{Gauge invariance}
-%%   Symmetries are transformations which \textcolor{blue}{leave a system unchanged.}
-%%   Imposing symmetries on a Lagrangian changes the theory it describes.
-%%   \vfill
-  
-%%     \begin{equation}
-%%       \psi(x)\rightarrow e^{i\alpha(x)}\psi(x)
-%%     \end{equation}
-
-%%     Derivative affects $e^{i\alpha}$\\
-%%     $\rightarrow$ \textcolor{red}{\bf Invariance achieved by adding a field $A_\mu$ and changing $L$.} \\
-%%     $\rightarrow$ mass term for $A$ ($m^2A_\mu A^\mu$) is forbidden by symmetries
-%%     \begin{equation}
-%%       \label{eq:orgc79752f}
-%%       \partial_\mu\rightarrow D_\mu=\partial_\mu+ieA_\mu(x)
-%%     \end{equation}
-%%     \begin{equation}
-%%       \label{eq:orge69917a}
-%%       A_{\mu} \rightarrow A_\mu(x) - \frac{1}{e} {\partial_{\mu} \alpha(x)}
-%%     \end{equation}
-
-
-%%     \includegraphics[width=0.49\linewidth]{Iliopoulos_1f.pdf}
-%%     \includegraphics[width=0.49\linewidth]{Iliopoulos_2f.pdf}
-
-
-%% \end{frame}
-%%=============================
-\begin{frame}{Spontaneous Symmetry Breaking}
+\begin{frame}{Spontaneous Symmetry Breaking (SSB)}
   SSB describes a system for which its ground state has less symmetry than its Lagrangian.
 
   \includegraphics[width=\linewidth]{SymBreakPen.jpg}
@@ -96,7 +49,7 @@
     \item $SU(2)_L\times U(1)_Y$ for electroweak sector. Bosons $W^\pm$, $Z$ and photon couple to quarks and leptons.
     \end{itemize}
     \vfill
-  \item SSB of $SU(2)_L$ by introduction of scalar field $\Phi$
+  \item SSB of $SU(2)_L\times U(1)_Y$ by introduction of scalar field $\Phi$
     \begin{itemize}
     \item gives mass to $W^\pm$ and $Z$.
     \item A physical and massive degree of freedom : the (Brout-Englert)-Higgs boson $H$.
@@ -110,17 +63,25 @@
   
   \begin{minipage}{0.44\linewidth}
     \centering
-    \includegraphics[width=\linewidth]{CERN-THESIS-2014-122_1f10.pdf}\\
-    \includegraphics[width=\linewidth]{YRHXS_Summary_fig3.pdf}
+    \begin{tikzpicture}
+      \node[anchor=south west] {\includegraphics[width=0.9\linewidth]{CERN-THESIS-2014-122_1f10.pdf}};
+%      \draw[step=1.0,black,thin] (0,0) grid (5,3);
+      \draw[blue, line width=0.5mm, rounded corners =2pt] ( 0, 2 ) rectangle (2.5, 3.5 ) ;
+      \draw[red, line width=0.5mm, rounded corners =2pt] ( 3, 1.8 ) rectangle (5, 3.5 ) ;
+      \draw[green, line width=0.5mm, rounded corners =2pt] ( 0, 0.2 ) rectangle (2.5, 1.9 ) ;
+      \draw[purple, line width=0.5mm, rounded corners =2pt] ( 3, 0 ) rectangle (5, 1.7 ) ;
+    \end{tikzpicture}
+    \\
+    \includegraphics[width=0.85\linewidth]{LHCHXSWG_XS14TeV.pdf}
   \end{minipage}
   \hfill
   \begin{minipage}{0.55\linewidth}
     4 dominant production modes
     \begin{itemize}
-    \item Gluon fusion ($ggH\simeq 86\%$) probes coupling to gluons through loop.
-    \item Vector Boson Fusion probes direct coupling to electroweak bosons.
-    \item Higgsstrahlung also probes $W\pm$ and $Z$ couplings.
-    \item Associated top production probes couplings to heaviest quark.
+    \item \textcolor{blue}{Gluon fusion ($ggH\simeq 86\%$) probes coupling to gluons through loop.}
+    \item \textcolor{red}{Vector Boson Fusion probes direct coupling to electroweak bosons.}
+    \item \textcolor{green}{Higgsstrahlung also probes $W^\pm$ and $Z$ couplings.}
+    \item \textcolor{purple}{Associated top production probes couplings to heaviest quark.}
     \end{itemize}
   \end{minipage}
 \end{frame}
@@ -130,8 +91,13 @@
   A Higgs boson with a mass around $125$~GeV opens a wide range of decay channels.
   
   \begin{minipage}{0.49\linewidth}
-    \centering
-    \includegraphics[width=\linewidth]{higgs_br.pdf}
+    \begin{tikzpicture}
+      \node[anchor=south west] {\includegraphics[width=\linewidth]{Higgs_BR_LM.pdf}};
+%      \draw[step=1.0,black,thin] (0,0) grid (5,5);
+      \draw[red, line width=0.5mm,] ( 2.65, 0.8 ) rectangle (2.65, 5.63 ) ;
+
+    \end{tikzpicture}
+%    \includegraphics[width=\linewidth]{higgs_br.pdf}
   \end{minipage}
   \hfill
   \begin{minipage}{0.49\linewidth}
@@ -141,11 +107,12 @@
     \item $H\rightarrow \tau\tau$ probes couplings to heaviest lepton.
     \item $H\rightarrow VV$ ($V=W,Z$) probes H boson couplings to EW bosons.
       Clean signature in leptonic decays of $V$ but low statistics.
-    \item $H\rightarrow\gamma\gamma$ probes H boson couplings to photon through loop.
-      Large but smooth background. Good energy resolution.
     \end{itemize}
   \end{minipage}
-  
+  \begin{itemize}
+    \item \textcolor{red}{$H\rightarrow\gamma\gamma$ probes H boson couplings to photon through loop.\\
+      Large but smooth background. Good energy resolution.}
+\end{itemize}
 \end{frame}
 %%=============================
 \begin{frame}{H boson Status}
@@ -153,14 +120,14 @@
   \vfill
   \begin{minipage}[t]{0.59\linewidth}
     \centering
-    mass measurement \\  \href{http://journals.aps.org/prl/pdf/10.1103/PhysRevLett.114.191803}{PhysRevLett.114.191803}\\
-    \textcolor{red}{$m_H = 125.09 \pm 0.21 \text{(stat)} \pm 0.11 \text{(syst)} $~GeV}  
+    mass measurement \\  \href{http://journals.aps.org/prl/pdf/10.1103/PhysRevLett.114.191803}{Phys.Rev.Lett.114.191803}\\
+    \textcolor{red}{$m_H = 125.09 \pm 0.21~\text{(stat.)} \pm 0.11~\text{(syst.)} $~GeV}  
     \includegraphics[width=0.7\linewidth]{yyMass.pdf}
   \end{minipage}
   \hfill
   \begin{minipage}[t]{0.4\linewidth}
     \centering
-    couplings $\kappa_i =\frac{g_i^{exp}}{g_i^{SM}}$ \\
+    couplings $\kappa_i =\frac{g_{Hii}^{exp}}{g_{Hii}^{SM}}$ \\
     \href{https://cds.cern.ch/record/2158863}{CERN-EP-2016-100} \\
     \vfill
     \includegraphics[width=\linewidth]{CERN-EP-2016-100_18f.pdf} 
@@ -175,18 +142,23 @@
     $\rightarrow$ {\bf 10 times more Higgses are expected}
   \item With reduced statistical uncertainties \\ $\rightarrow$ \textcolor{blue}{\bf need to reduce systematic uncertainties}
   \item Theory uncertainty reduced with ggH N$^3$LO calculation
-  \item Resolution uncertainty dominant at run 1 for couplings \\
+  \item Resolution uncertainty dominant at Run 1 for couplings \\
     $\rightarrow$ {\bf Need to improve calibration resolution uncertainty}
   \end{itemize}
   \end{minipage}
   \hfill
   \begin{minipage}{0.49\linewidth}
     \centering
-    \includegraphics[width=\linewidth]{crossSectionRatio-13-8TeV.pdf}\\
+        \begin{tikzpicture}
+      \node[anchor=south west] {\includegraphics[width=\linewidth]{crossSectionRatio-13-8TeV.pdf}};
+%      \draw[step=1.0,black,thin] (0,0) grid (5,3);
+      \draw[red, line width=0.5mm, rounded corners =2pt] ( 0.7, 2 ) rectangle (2.5, 2.6 ) ;
+    \end{tikzpicture}
     \begin{tikzpicture}
       \node[anchor=south west] { \includegraphics[width=0.8\linewidth]{1408_7084_19t.pdf} };
 %      \draw[step=1.0,black,thin] (0,0) grid (5,3);
-      \draw[red, line width=0.5mm, rounded corners =2pt] ( 0, 0.6 ) rectangle (5, 1.3 ) ;
+      \draw[red, line width=0.5mm, rounded corners =2pt] ( 0, 0.95 ) rectangle (5, 1.3 ) ;
+      \node[draw] at (3.3,3.7) {Run 1};
     \end{tikzpicture}
   \end{minipage}
 \end{frame}

@@ -1,0 +1,73 @@
+Slide 3 : un peu trop long (2min)
+Attention sur l'explication (notamment sur les bosons)
+On peut gagner un peu en ne détaillant pas la structure des fermions
+
+slide 4 :
+Peut-etre gagner du temps dessus
+
+sl10 :
+run 1 theory/yield : erreur NNLO + erreur pdf
+run 2 theory/yield : erreur NNNLO
+theory migration = fonctions de structure
+
+
+s15 :Penser à faire transition vers le calo
+
+
+s28 : fbrem = moins bonne mesure de l'energie
+sl 35 : preparer question sur les incertitudes stat qui devraient etre différentes
+
+===================================
+BACKUP
+
+sl15 : nombre de canaux de chaque detecteurs
+
+sl25 : prevoir des slides de backup sur la non quadraticité
+
+sl 30 : avoir en backup comparaison run 1 run 2 sur valeurs centrales
+
+mettre backup de avec canaux desintegration des bosons vecteurs
+=========================================
+
+
+sl5 : attention vev et v en dessous
+
+
+sl13 : tableau récapitulatif run 1 run 2
+
+sl14 : préciser ajout de l'IBL
+
+sl16 : entourer les points de sampling
+
+sl17 : dans titre "of electrons"
+mettre cluster dans la colonne de droite
+ajouter deta et dphi pour les trois towers
+verifier la taille des clusters 0.025
+
+
+s23 : C majuscule au début
+mettre les formules sur les plots
+Virer procedure de fit et mettre en backup
+
+
+s25 : mettre backup pour les raison des différentes formules
+mettre les relations de base dans le plot
+
+s26 : check de coherence more precrec
+were available
+run majuscule
+
+s32 : 
+MEttre le X dans le tire entre parenthèse
+cross sections au pluriel
+encadrer les mu_i
+preciser que l'on va aussi présenter le mu_i
+définir truth bin ici
+
+
+
+
+
+
+
+
