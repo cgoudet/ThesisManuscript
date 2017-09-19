@@ -11,6 +11,36 @@
 \end{frame}
 
 %====================================
+\begin{frame}{Template method}
+  \begin{minipage}{0.59\linewidth}
+    Minimum of $\chi^2$ distribution fitted in 2 steps of 1D fits : 
+    \begin{itemize}
+    \item \textcolor{red}{fit $\chi^2=f(\alpha)$ at constant $c$ (lines)} $\rightarrow (\alpha_{min}, \chi^2_{min})$ .
+    \item \textcolor{blue}{fit $\chi^2_{min}=f(c)\rightarrow (c, \Delta c)$}
+    \item \textcolor{brown}{project $c$ in $\alpha_{min}=f(c)$}, corresponding bin gives $(\alpha, \Delta\alpha)$.
+    \end{itemize}
+  \end{minipage}
+\hfill
+\begin{minipage}{0.4\linewidth}
+%  \includegraphics[width=\linewidth]{MC6_0_0_CompareAlpha.pdf}\\
+  \includegraphics[width=\linewidth]{MC6_0_0_chiMatrix.pdf}\\
+\end{minipage}
+    \begin{tikzpicture}
+      \node[anchor=south west] {
+        \includegraphics[width=0.325\linewidth]{MC6_0_0_chi2FitNonConstVar_10.pdf}
+        \includegraphics[width=0.325\linewidth]{MC6_0_0_chi2FitConstVar.pdf}
+        \includegraphics[width=0.325\linewidth]{MC6_0_0_corAngle.pdf}
+      };
+%      \draw[step=1.0,black,thin] (0,0) grid (10,3);
+      \draw[red, line width=0.5mm, rounded corners =2pt] ( 0.1, 0.05 ) rectangle ( 4.03, 3 ) ;
+      \draw[blue, line width=0.5mm, rounded corners =2pt] ( 4.03, 0.05 ) rectangle ( 7.95, 3 ) ;
+      \draw[brown, line width=0.5mm, rounded corners =2pt] ( 7.95, 0.05 ) rectangle ( 12, 3 ) ;
+      \end{tikzpicture}
+
+
+\end{frame}
+
+%====================================
 \begin{frame}{In situ calibration $\eta_\text{calo}$ bin frontiers}
         {\tiny \textcolor{brown}{0} 0.1 \textcolor{brown}{0.2} 0.3 \textcolor{brown}{0.4} 0.5 \textcolor{brown}{0.6} 0.7 \textcolor{brown}{0.8} 0.9 \textcolor{brown}{1} 1.1 \textcolor{brown}{1.2} 1.285 \textcolor{brown}{1.37} 1.42 1.47 1.51 \textcolor{brown}{1.55} 1.59 1.63 1.6775 1.725 1.7625 \textcolor{brown}{1.8} 1.9 \textcolor{brown}{2} 2.05 2.1 2.2 \textcolor{brown}{2.3} 2.35 2.4 2.435 \textcolor{brown}{2.47}}
 \end{frame}

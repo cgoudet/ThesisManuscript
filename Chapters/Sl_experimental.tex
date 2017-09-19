@@ -84,16 +84,23 @@
 %=============================
 %%==========================
 \begin{frame}{Energy measurement in LAr}
-\begin{minipage}{0.3\linewidth}
-    \includegraphics[width=\linewidth]{ATLASExperiment_5f30.pdf}
+  \begin{minipage}{0.3\linewidth}
+    \begin{tikzpicture}
+      \node[anchor=south west] {\includegraphics[width=\linewidth]{ATLASExperiment_5f30.pdf}};
+%      \draw[step=1.0,black,thin] (0,0) grid (3,3);
+      \draw[red, line width=0.2mm,] (0.85,2.25) circle (3pt);
+      \draw[red, line width=0.2mm,] (0.98,3.3) circle (3pt);
+      \draw[red, line width=0.2mm,] (1.1,2.73) circle (3pt);
+      \draw[red, line width=0.2mm,] (1.23,1.85) circle (3pt);
+    \end{tikzpicture}
 \end{minipage}
 \hfill
 \begin{minipage}{0.69\linewidth}
 \begin{itemize}
-\item {\bf Signal drift time }($\sim 450$ns) {\bf too long} for collisions every $25$ns (pile-up).
+\item {\bf Signal drift time }($\sim 450$~ns) {\bf too long} for collisions every $25$~ns (pile-up).
 \item Analog signal pass through an \textcolor{blue}{\bf bipolar filter } to reduce signal time.
 Shape optimize signal over pileup and electronic noise.
-\item ADC sampling every $25$ns (4 points are kept).
+\item ADC sampling every $25$~ns (4 points are kept).
 \item Energy computed using \textcolor{blue}{\bf calibration constants and optimal filtering of the samples}.
 \end{itemize}
 \end{minipage}
@@ -104,18 +111,19 @@ Shape optimize signal over pileup and electronic noise.
 \end{frame}
 
 %===================
-\begin{frame}{Reconstruction \& Identification}
+\begin{frame}{Reconstruction \& Identification of electrons and photons}
   \begin{center}
     Reconstruction links the energy deposit in detector cells to a \\ \textcolor{blue}{\bf physical particle and its properties}.
 %    \vfill
     \begin{itemize}
 %    \item Divide the central part ($|\eta|=|ln(tan(\theta /2) )|<2.47$) into towers of size $\Delta\eta\times\Delta\phi =0.25\times 0.25$
       %   \item Sum energies from all cells and all layers of the tower
-      \item Sum energy from all layers in towers of $\Delta\eta\times\Delta\phi =0.25\times 0.25$
-      \item Sliding window ($3 \times 5$ towers ) algorithm look for $2.5$~GeV of transverse energy
+      \item Sum energy from all layers in towers of $\Delta\eta\times\Delta\phi =0.025\times 0.025$
+      \item Sliding window ($\Delta\eta\times\Delta\phi = 3 \times 5$ towers ) algorithm look for $2.5$~GeV of transverse energy
         \vfill
-    \item {\bf Track matching and clustering} :\\
-      \begin{minipage}{0.49\linewidth}
+%    \item {\bf Track matching and clustering} :\\
+      \begin{minipage}[t]{0.49\linewidth}
+        {\bf Track matching}
       \begin{itemize}
       \item no track $\rightarrow$ photon 
       \item track $\rightarrow$ electron
@@ -123,7 +131,8 @@ Shape optimize signal over pileup and electronic noise.
       \end{itemize}
       \end{minipage}
       \hfill
-      \begin{minipage}{0.49\linewidth}
+      \begin{minipage}[t]{0.49\linewidth}
+        {\bf Clustering}
         \begin{itemize}
         \item $3\times 7$ cluster  in barrel
         \item $3\times 5$ cluster  in end-cap
