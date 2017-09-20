@@ -14,7 +14,7 @@
     \item collision every 25 ns.
     \item nominal luminosity of $10^{34}$~cm$^{-2}$s$^{-1}$.
     \item $\sqrt{s}=13$ TeV.
-    \item 4 collision points with detectors : ALICE, ATLAS, CMS and LHCb.
+    \item 4 collision points with detectors~: ALICE, ATLAS, CMS and LHCb.
     \end{itemize}
     \end{minipage}
   \hfill
@@ -50,7 +50,7 @@
       IBL added for Run 2.
     \item \textcolor{red}{\bf Liquid argon electromagnetic calorimeter (LAr)} \\
       Measure energy of electrons and photons.
-    \item {\bf Scintillating tiles hadronic calorimeter} \\
+    \item {\bf Scintillating tiles (+ HEC + FCAL) hadronic calorimeter} \\
       Measure energy of jets
     \item {\bf Muon chambers}
     \end{itemize}
@@ -91,7 +91,7 @@
       \draw[red, line width=0.2mm,] (0.85,2.25) circle (3pt);
       \draw[red, line width=0.2mm,] (0.98,3.3) circle (3pt);
       \draw[red, line width=0.2mm,] (1.1,2.73) circle (3pt);
-      \draw[red, line width=0.2mm,] (1.23,1.85) circle (3pt);
+      \draw[red, line width=0.2mm,] (0.75,0.95) circle (3pt);
     \end{tikzpicture}
 \end{minipage}
 \hfill
@@ -105,7 +105,13 @@ Shape optimize signal over pileup and electronic noise.
 \end{itemize}
 \end{minipage}
 \begin{center}
-    \includegraphics[width=\linewidth]{MarcHDR_2e3.pdf}
+    \begin{tikzpicture}
+      \node[anchor=south west] {\includegraphics[width=\linewidth]{MarcHDR_2e3.pdf}};
+%      \draw[step=1.0,black,thin] (0,0) grid (3,2);
+      \draw[red, line width=0.2mm,] (2.97, 1.2) circle (5pt);
+    \end{tikzpicture}
+
+
 \end{center}
 
 \end{frame}
@@ -124,18 +130,18 @@ Shape optimize signal over pileup and electronic noise.
 %    \item {\bf Track matching and clustering} :\\
       \begin{minipage}[t]{0.49\linewidth}
         {\bf Track matching}
-      \begin{itemize}
-      \item no track $\rightarrow$ photon 
-      \item track $\rightarrow$ electron
-      \item conversion vertex $\rightarrow$ converted photon
-      \end{itemize}
+        \begin{itemize}
+        \item no track $\rightarrow$ photon 
+        \item track $\rightarrow$ electron
+        \item conversion vertex $\rightarrow$ converted photon
+        \end{itemize}
       \end{minipage}
       \hfill
       \begin{minipage}[t]{0.49\linewidth}
         {\bf Clustering}
         \begin{itemize}
         \item $3\times 7$ cluster  in barrel
-        \item $3\times 5$ cluster  in end-cap
+        \item $5\times 5$ cluster  in end-cap
         \end{itemize}
       \end{minipage}
     \end{itemize}

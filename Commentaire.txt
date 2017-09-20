@@ -17,6 +17,13 @@ s15 :Penser à faire transition vers le calo
 s28 : fbrem = moins bonne mesure de l'energie
 sl 35 : preparer question sur les incertitudes stat qui devraient etre différentes
 
+
+ttHGAmGAm 3 sigma en 2017
+On espere 5 sigma ATLAS+CMS fin run 2.
+
+bbH produit 2 jets tout mous qui ressemblent beaucoup à deux emissions molles de ggH
+
+La boucle higgs est dominée par W puis top
 ===================================
 BACKUP
 
@@ -26,15 +33,20 @@ sl25 : prevoir des slides de backup sur la non quadraticité
 
 sl 30 : avoir en backup comparaison run 1 run 2 sur valeurs centrales
 
-mettre backup de avec canaux desintegration des bosons vecteurs
-=========================================
+Cherche du quantitatif pour l'améliorations d'incertitude theorique (n3LO mais aussi pdf)
+
+Backup sur comparaison de calibration ATLAS+CMS
+
+Verfier ce que fait CMS et 4l pour pour le STXS
+
+sl 35 : fake rate egamma 4% par electron
+=========================================	
 
 sl13 : tableau récapitulatif run 1 run 2
 
+sl10 : essayer d'aggrandir le plot de ratio
 
-
-
-
+sl16 : relier les points aux SI.
 
 
 

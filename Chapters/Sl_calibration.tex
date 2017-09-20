@@ -7,8 +7,8 @@
   \begin{center}
     \begin{tikzpicture}
       \node[anchor=south west] {\includegraphics[width=\linewidth]{ATL-COM-PHYS-2013-1653_1f.pdf}};
-%%      \draw[step=1.0,black,thin] (0,0) grid (30,10);
-%%      \draw[red, line width=1mm, rounded corners =2pt] ( 20.5, 2.6 ) rectangle ( 24.3, 11 ) ;
+%      \draw[step=1.0,black,thin] (0,0) grid (12,5);
+      \draw[red, line width=0.5mm, rounded corners =2pt] ( 8.4,1.1 ) rectangle ( 10.3, 4.7 ) ;
       \end{tikzpicture}
   \end{center}
   Electrons and photons follow the same steps but with dedicated analyses. 
@@ -61,8 +61,8 @@ $$E^{corr}=E^{meas}(1+\alpha)$$
 \begin{frame}{Resolution constant term}
   \input{/home/goudet/Documents/LAL/ExternalPlot/ResolutionConstantTerm.tex}
   \begin{itemize}
-  \item $a$ : sampling term ( $10\%$). Linked to the fluctuations of electromagnetic showers. \\Can be simulated.
-  \item $b$ : noise + pile-up term ( $\sim 350~cosh(\eta )$~MeV ). Measured in dedicated runs.
+  \item $a$ : sampling term ($10\%$). Linked to the fluctuations of electromagnetic showers. \\Can be simulated.
+  \item $b$ : noise  ( $\sim 350~cosh(\eta )$~MeV ) + pile-up term. Measured in dedicated runs.
   \item $c'$ : simulated constant term
   \item {\bf $c$ : in-situ additional constant term ($0.7\%$)}
   \end{itemize}
@@ -88,7 +88,7 @@ $$E^{corr}=E^{meas}(1+\alpha)$$
 \end{frame}
 
 %========================================
-\begin{frame}{Detector splitting}
+\begin{frame}{$\eta$ dependence of correction factor}
   \begin{minipage}{0.49\linewidth}
     \includegraphics[width=\linewidth]{ATLASCaloPerf_2fi.pdf}
   \end{minipage}
@@ -125,7 +125,7 @@ Obtaining \textcolor{blue}{\bf electron scales ($\alpha_i$) from Z scales ($\alp
 %%===================================
 \begin{frame}{Run 2 pre-recommandations}
   Run 2 early analyses need scales factors for 13~TeV but not enough were available.
-  Need to \textcolor{blue}{ \bf estimate Run 2 scales from run 1 data}.
+  Need to \textcolor{blue}{ \bf estimate Run 2 scales from Run 1 data}.
   \newline
   Pre-recommandations are computed using $8$~TeV data reprocessed with :
   \begin{itemize}
@@ -134,25 +134,22 @@ Obtaining \textcolor{blue}{\bf electron scales ($\alpha_i$) from Z scales ($\alp
   \item new calibration machine learning
   \end{itemize} 
   \begin{minipage}{0.49\linewidth}
-    \begin{tikzpicture}
-      \node[anchor=south west] {\includegraphics[width=\linewidth]{/home/goudet/Documents/LAL/Shared/PlotsGoudet/Calibration/PreRecommandations/PreRec_Zee_alpha.pdf}};
-%      \draw[step=1.0,black,thin] (0,0) grid (2,2);
-      \node[draw] at (3,2.5) {$\alpha$};
-    \end{tikzpicture}
+    \centering
+    \includegraphics[width=\linewidth]{/home/goudet/Documents/LAL/Shared/PlotsGoudet/Calibration/PreRecommandations/PreRec_Zee_alpha.pdf}\\
+    Energy Scale Factors $\alpha$
+
   \end{minipage}
   \begin{minipage}{0.49\linewidth}
     \centering
-    \begin{tikzpicture}
-      \node[anchor=south west] {    \includegraphics[width=\linewidth]{/home/goudet/Documents/LAL/Shared/PlotsGoudet/Calibration/PreRecommandations/PreRec_c.pdf}};
-      \node[draw] at (3,2.5) {$c$};
-    \end{tikzpicture}
+    \includegraphics[width=\linewidth]{/home/goudet/Documents/LAL/Shared/PlotsGoudet/Calibration/PreRecommandations/PreRec_c.pdf}\\
+    Resolution constant term $c$
   \end{minipage}
   %Binning was changed from $34$ bins to $68$ due to the observation of sub-structures.
 \end{frame}
 
 %%========================================
 
-\begin{frame}{Calibration in-situ : run 2 pre-recommandations systematics}
+\begin{frame}{Calibration in-situ : Run 2 pre-recommandations systematics}
 2012 systematics are used for the pre-recommandations. \\
 {\bf Two more systematics are added in quadrature } :
 \begin{itemize}
@@ -247,7 +244,7 @@ Systematic is defined as the scale measured from $13$~TeV MC on $8TeV$ templates
 \end{frame}
 %===============================================
 \begin{frame}{Runs comparison}
-  Performances of run 2 in-situ calibration better than Run 1.
+  Performances of Run 2 in-situ calibration better than Run 1.
   Cross-checks performed on photons from $Z\rightarrow ll\gamma$.\\
   \begin{minipage}{0.42\linewidth} 
     \includegraphics[width=\linewidth]{Figures/CompareSystRun_alpha.pdf}
