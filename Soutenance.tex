@@ -11,6 +11,8 @@
 \usepackage{adjustbox}
 \usepackage{pdfpages}
 \usepackage{cleveref}
+
+\usepackage{subcaption}
 %\usepackage[orientation=paysage,size=A4]{beamerposter}
 \usepackage{slashed}
 \captionsetup{labelformat=empty,labelsep=none}
@@ -65,13 +67,17 @@
   \end{minipage}
 \end{frame}
 
-\begin{frame}
-\maketitle
-\end{frame}
 %% ###################################################################################
 %%###################################################################################
 %%###################################################################################
 \appendix
+%% \begin{frame}
+%% \maketitle
+%% \end{frame}
+\begin{frame}{Back-up}
+\tableofcontents
+\end{frame}
+
 \input{Appendices/Sl_theory}
 \input{Appendices/Sl_experimental}
 \input{Appendices/Sl_calibration}

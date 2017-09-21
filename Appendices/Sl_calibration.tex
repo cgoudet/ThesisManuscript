@@ -1,3 +1,4 @@
+\section{Calibration}
 \begin{frame}{Calibration MVA variables}
   \begin{itemize}
   \item E\(_{\text{acc}}\) : sum of uncalibrated energies measured in the accordion.
@@ -81,3 +82,121 @@ No significant deviation observed.
 \end{frame}
 
 %============================================
+
+\section{In situ Technicalities}
+
+
+
+\begin{frame}{$c$ fit }
+  $$ a_0(c)=b_0+\frac{(c-\hat{c})^2}{\textcolor{red}{b_2}^2} + b_1 . \frac{(c-\hat{c})^3}{\textcolor{red}{b_2}^3}$$
+  
+  \begin{minipage}{0.49\linewidth}
+    \includegraphics[width=\linewidth]{/home/goudet/Documents/LAL/Zim/Calibration/TemplateMethod/151028_DichotomyErr.pdf}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.49\linewidth}
+    \begin{equation}
+      \textcolor{blue}{P( \hat{c} + \delta c) = 1}
+    \end{equation}
+    \includegraphics[width=\linewidth]{Figures/pol3.pdf}
+\end{minipage}
+\end{frame}
+
+%=============================================
+\begin{frame}{Z mass distribution binning}
+\begin{figure}
+\begin{subfigure}[t]{0.49\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth]{/home/goudet/Documents/LAL/Zim/Calibration/TemplateMethod/PlotsIllustration/Closure_0_0.pdf}
+\end{center}
+\caption{20 bins}
+\end{subfigure}
+\begin{subfigure}[t]{0.49\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth]{/home/goudet/Documents/LAL/Zim/Calibration/TemplateMethod/PlotsIllustration/Closure_0_0_40MassBin.pdf}
+\end{center}
+\caption{40 bins}
+\end{subfigure}
+\caption{\label{org955c893}
+Comparison of $\chi^2$ distributions for different Z mass distribution binnings.}
+\end{figure}
+  \end{frame}
+
+%======================================
+\begin{frame}{Scale range optimisation}
+  \begin{minipage}{0.49\linewidth}
+      \includegraphics[width=\linewidth]{Closure_0_0_noOptim.pdf}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.49\linewidth}
+      \includegraphics[width=\linewidth]{Closure_0_0_1Optim.pdf}
+  \end{minipage}
+  \begin{minipage}{0.49\linewidth}
+      \includegraphics[width=\linewidth]{Closure_0_0.pdf}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.49\linewidth}
+    \begin{itemize}
+    \item top left : arbitrary conservative values
+    \item top right : $1\sigma$ range
+    \item bottom left : $5\sigma$
+    \end{itemize}
+  \end{minipage}
+\end{frame}
+%=============================================
+\begin{frame}{Template correlation}
+  \begin{figure}
+\begin{subfigure}[t]{0.49\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth]{Closure_0_0.pdf}
+\end{center}
+\caption{correlated}
+\end{subfigure}
+\begin{subfigure}[t]{0.49\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth]{Closure_0_0_uncorTemp.pdf}
+\end{center}
+\caption{uncorrelated}
+\end{subfigure}
+\caption{\label{orgff6a45b}
+Comparison of $\chi^2$ distribution between a correlated and uncorrelated MC template smearing. Uncorrelated supposes that mass smearings in two different templates use different random numbers.}
+\end{figure}
+\end{frame}
+
+%========================================
+\begin{frame}{$N_\text{useEl}$}
+  \begin{figure}
+\begin{subfigure}[t]{0.49\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth]{Closure_0_0.pdf}
+\end{center}
+\caption{$N_\text{useEl}=1$}
+\end{subfigure}
+\begin{subfigure}[t]{0.49\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth]{Closure_0_0_10nUseEl.pdf}
+\end{center}
+\caption{$N_\text{useEl}=10$}
+\end{subfigure}
+\caption{\label{org98e07ca}
+$\chi^2$ distribution for a typical configuration for different values of $N_\text{useEl}$. In both cases, pseudo-data corresponds to the same dataset as the MC in which a constant term has been injected.}
+\end{figure}
+\end{frame}
+
+%==========================================
+\begin{frame}{Inversion}
+  \begin{figure}
+\begin{subfigure}[t]{0.49\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth]{/home/goudet/Documents/LAL/Zim/Calibration/TemplateMethod/150828_InversionStudy_Note.png}
+\end{center}
+\end{subfigure}
+\begin{subfigure}[t]{0.49\linewidth}
+\begin{center}
+\includegraphics[width=\linewidth]{/home/goudet/Documents/LAL/Zim/Calibration/TemplateMethod/150828_InversionStudy_crossCheck.png}
+\end{center}
+\end{subfigure}
+\caption{\label{orgac9241c}
+Comparison of closures for different inversion procedures.}
+\end{figure}
+\end{frame}

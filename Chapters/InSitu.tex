@@ -212,13 +212,13 @@ This improvement, which would seem minor for this typical configuration, increas
 \begin{figure}
 \begin{subfigure}[t]{0.49\linewidth}
 \begin{center}
-\includegraphics[width=\linewidth]{Closure24_alpha.pdf}
+\includegraphics[width=\linewidth]{/home/goudet/Documents/LAL/Zim/Calibration/TemplateMethod/PlotsIllustration/Closure_0_0.pdf}
 \end{center}
 \caption{20 bins}
 \end{subfigure}
 \begin{subfigure}[t]{0.49\linewidth}
 \begin{center}
-\includegraphics[width=\linewidth]{Closure24_c.pdf}
+\includegraphics[width=\linewidth]{/home/goudet/Documents/LAL/Zim/Calibration/TemplateMethod/PlotsIllustration/Closure_0_0_40MassBin.pdf}
 \end{center}
 \caption{40 bins}
 \end{subfigure}
@@ -266,7 +266,7 @@ The last plot in fig. \ref{org010bed5} shows the distribution using the range ob
 \end{center}
 \end{subfigure}
 \caption{\label{org010bed5}
-Comparison of $\chi^2$ distributions as a function of c for the same input but changing the range of tested scale values. The ranges are [0, 0.1] (left) and optimised for d\(\chi^{\text{2}} \simeq\) 1 (centre) and d\(\chi^{\text{2}} \simeq\)25 (right).}
+    Comparison of $\chi^2$ distributions as a function of c for the same input but changing the range of tested scale values. The ranges are [0, 0.1] (left) and optimised for $d\chi^2 \simeq 1$ (centre) and $d\chi^2 \simeq 25$ (right).}
 \end{figure}
 
 
@@ -361,16 +361,16 @@ A first solution was to generate a larger MC sample : the MC Z dataset was incre
 A second solution is to virtually increase the MC in order to stabilise its central value in each bin.
 Basically, each event is used many times in order to remove the statistical fluctuations originating from the smearing.
 This way, one gets closer to the result one would obtain with an analytic convolution using a Gaussian kernel.
-For each event, a pair of random numbers is drawn N\(_{\text{useEl}}\) times.
+For each event, a pair of random numbers is drawn $N_\text{useEl}$ times.
 These numbers are then used to shift the energy of both the electrons.
-Even though the input c are the same, this procedure will generate N\(_{\text{useEl}}\) different Z masses which are included in the mass distribution templates.
+Even though the input c are the same, this procedure will generate $N_\text{useEl}$ different Z masses which are included in the mass distribution templates.
 The improvement of smoothness obtained by the procedure is presented in fig. \ref{org98e07ca}.
 
 
-By this procedure, the amount of events in the MC distribution is scaled by a factor N\(_{\text{useEl}}\).
-This means that in average the relative statistical uncertainty in each mass bins is scaled by \(\frac{1}{\sqrt{N_{useEl}}}\).
+By this procedure, the amount of events in the MC distribution is scaled by a factor $N_\text{useEl}$.
+This means that in average the relative statistical uncertainty in each mass bins is scaled by $\frac{1}{\sqrt{N_\text{useEl}}}$.
 However, this is not representative of the generated events.
-The uncertainties in the mass distributions must then be corrected by scaling them with \(\sqrt{N_\text{useEl}}\), assuming that residual migration effects in between bins are negligible.
+The uncertainties in the mass distributions must then be corrected by scaling them with $\sqrt{N_\text{useEl}}$, assuming that residual migration effects in between bins are negligible.
 After this correction, the $\chi^2$ distribution will be smoother but with similar values.
 As a result, this solution reduces the failing rate of fits and improves the modelling of the $\chi^2$ minimum while retaining the same limited MC.
 
@@ -378,8 +378,8 @@ This solution shows limitations however.
 The generation of the modified MC distribution is the time limiting factor of the method.
 This can be related to the number of mass scalings (and/or random number generation).
 With a single smearing, the number of mass scalings is obtained by multiplying the number of MC events by the respective numbers of tested values of $\alpha$ and c.
-Using N\(_{\text{useEl}}\) smearing increases roughly the total template time consumption by this factor.
-In practice, one must then limits N\(_{\text{useEl}}\) to reach a balance between robustness (and precision) and time consumption.
+Using $N_\text{useEl}$ smearing increases roughly the total template time consumption by this factor.
+In practice, one must then limits $N_\text{useEl}$ to reach a balance between robustness (and precision) and time consumption.
 
 
 \begin{figure}
@@ -406,16 +406,16 @@ Comparison of $\chi^2$ distribution between a correlated and uncorrelated MC tem
 \begin{center}
 \includegraphics[width=\linewidth]{Closure_0_0.pdf}
 \end{center}
-\caption{N\(_{\text{useEl}}\)=1}
+\caption{$N_\text{useEl}=1$}
 \end{subfigure}
 \begin{subfigure}[t]{0.49\linewidth}
 \begin{center}
 \includegraphics[width=\linewidth]{Closure_0_0_10nUseEl.pdf}
 \end{center}
-\caption{N\(_{\text{useEl}}\)=10}
+\caption{$N_\text{useEl}=10$}
 \end{subfigure}
 \caption{\label{org98e07ca}
-$\chi^2$ distribution for a typical configuration for different values of N\(_{\text{useEl}}\). In both cases, pseudo-data corresponds to the same dataset as the MC in which a constant term has been injected.}
+$\chi^2$ distribution for a typical configuration for different values of $N_\text{useEl}$. In both cases, pseudo-data corresponds to the same dataset as the MC in which a constant term has been injected.}
 \end{figure}
 
 
