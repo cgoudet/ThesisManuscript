@@ -51,3 +51,22 @@ sl16 : relier les points aux SI.
 
 
 
+sl 7 : electroweak ->weak
+sl 8 idem
+mettre kappa en backup
+
+s13 : construction
+
+s14 : hec et fcal sans gras
+
+s35 : préciser plus de chose sur le dataset properties
+
+s36 : mettre le nomobre de categories
+
+s37 : preciser ici que l'on va faire le merging
+
+s38 : mettre un vert foncé
+
+backup 24 : mettre les seuil de spurious signal
+
+backup 34 : meme plot

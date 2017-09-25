@@ -20,7 +20,7 @@
 \begin{itemize}
 \item Simulated events are passed through a full GEANT4 simulation of the ATLAS detector.
 \item Events are then categorized in $\eta$ and $p_T$ bins, separately for electrons and photons.
-\item \textcolor{blue}{\bf A multivariate analysis (MVA), using ECAL variables, is performed to compute the true energy from detector observables}.
+\item \textcolor{blue}{\bf A multivariate regression (MVA), using ECAL variables, is performed to compute the true energy from detector observables}.
 \end{itemize}
 
   %% \begin{minipage}{0.49\linewidth}
@@ -246,15 +246,12 @@ Systematic is defined as the scale measured from $13$~TeV MC on $8TeV$ templates
 \begin{frame}{Runs comparison}
   Performances of Run 2 in-situ calibration better than Run 1.
   Cross-checks performed on photons from $Z\rightarrow ll\gamma$.\\
-  \begin{minipage}{0.42\linewidth} 
-    \includegraphics[width=\linewidth]{Figures/CompareSystRun_alpha.pdf}
+  \begin{minipage}{0.45\linewidth} 
+    \includegraphics[width=\linewidth]{Figures/CompareSystRun_alpha.pdf}\\
+        \includegraphics[width=\linewidth]{Figures/CompareSystRun_c.pdf}
   \end{minipage}
   \hfill
-  \begin{minipage}{0.42\linewidth}
-    \includegraphics[width=\linewidth]{Figures/CompareSystRun_c.pdf}
-  \end{minipage}
-  \centering
-  \begin{minipage}{0.47\linewidth}
+  \begin{minipage}{0.54\linewidth}
     \includegraphics[width=\linewidth]{CalibSupNote_Distri_m12_corrected.pdf}
   \end{minipage}
 
