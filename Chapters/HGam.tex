@@ -117,8 +117,7 @@ The multitude of particles inside a jet gives a large deposited energy in the vi
 The amount of deposited energy in a cone around the particle is then computed and compared to a threshold.
 Two different analyses are defined, using either the ECAL or the tracker information, and used in combination to benefit from their respective performances.
 
-\begin{enumerate}
-\item Calorimetric isolation
+\subsection{Calorimetric isolation}
 \label{sec:org1f421d1}
 
 In order to measure the calorimetric isolation, energy deposits are grouped into topoclusters \cite{ATL-LARG-PUB-2008-002}.
@@ -143,22 +142,20 @@ The population of topoclusters in the cone increases with the amount of pile-up.
 The pile-up and underlying event contributions in the total deposited energy are removed by using the ambient energy correction computed on an event-by-event basis \cite{ATL-COM-PHYS-2012-467}.
 
 
-\item Track isolation
+\subsection{Track isolation}
   \label{sec:orga378fc3}
 
 Tracks measurements within a cone evaluate the density of charged particles (for background, produced in a jet) around the photon candidate.
 The track isolation sums the momenta of all tracks originating from the same vertex as the photon and within a cone \(\Delta R=0.2\) around the photon.
 The tracks from photon conversions are removed.
 
-\item Threshold
+\subsection{Threshold}
   \label{sec:org7d75ff3}
 
 The requirements in term of signal efficiency and the increasing background at low $p_T$ impose stricter isolation criteria for low $p_T$ photons than for high $p_T$.
 A relative cut, proportional to the $p_T$ of the central photon, is preferred to an absolute threshold.
 Optimisation was performed by scanning over the possible relative isolation cuts, and observing the signal significance from a MC sample of \(H\rightarrow\gamma\gamma\).
 Finally, calorimeter isolation of a prompt photon candidate must not exceed \(0.065\times E_T\) and track isolation must remain below \(0.05\times E_T\).
-
-\end{enumerate}
 
 \section{Primary vertex determination}
 \label{sec:orgbd5d583}
@@ -346,8 +343,8 @@ As a result, the minimisation algorithm would be forced to evaluate the likeliho
 The case with no events will then have the hard limitation $\mu s+b=0$.
 The same strategy is used in run 2 for reconstructed categories with low expected number of events.
 
-\begin{enumerate}
-\item Run 1 style : signal strength
+
+\subsection{Run 1 style : signal strength}
 \label{sec:org84ab396}
 \label{sec:HGam_signalStrength}
 
@@ -422,7 +419,7 @@ The cross-sections of the SM are only computed at a certain level of precision.
 Measuring the couplings again after the theory improvement of the cross-section calculation requires to compute again the expected yields and again perform the minimisation.
 In other words, the results obtained in this framework are highly model dependent, and it is more difficult to interpret them in a different context.
 
-\item Simplified template cross section
+\subsection{Simplified template cross section}
 \label{sec:orgeaa3f29}
 \label{sec:HGam_STXS}
 
@@ -568,8 +565,6 @@ Similarly, non leptonic \(gg\rightarrow ZH\) is included in the ggH production p
 Some of the truth bins may also be degenerated with others at the reconstruction level.
 Again the signature with two jets, in theory characteristic of the VBF production process, can be also obtained from the truth bin ggH produced in association with two jets.
 We will therefore be forced (see section \ref{sec:org0c76339}) to merge different truth bins.
-\end{enumerate}
-
 
 
 \section{Reconstructed categories}
@@ -787,8 +782,7 @@ A functional form for the background shape is chosen beforehand but its paramete
 This choice is performed either with data-driven techniques (ttH categories) or with MC studies.
 Because background fluctuations may induce (additional) signal, a systematic is designed to absorb such a potential bias (the spurious signal).
 
-\begin{enumerate}
-\item Background distribution
+\subsection{Background distribution}
   \label{sec:orge7b221f}
 
 ttH backgrounds are too diverse and not enough understood for a proper MC study.
@@ -809,14 +803,13 @@ This allows to run faster large simulations and have small statistical errors on
 
 The total background distribution is finally defined as the sum of $\gamma\gamma$, $\gamma j$ and $jj$  distributions, normalised to their respective contributions measured in sec. \ref{sec:HGam_backgroundCompo}.
 
-\item Background shape modelling
+\subsection{Background shape modelling}
 \label{sec:orgfec0702}
-
 \begin{enumerate}
 \item Functional choice
   \label{sec:org56079de}
 
-Many functions have been considered to model the smoothly decreasing background : mostly polynomial of several orders,  exponential of polynomials, and power laws for ttH background.
+Many functions have been considered to model the smoothly decreasing background~: mostly polynomial of several orders,  exponential of polynomials, and power laws for ttH background.
 Criterion have been defined in order to rank these functions and keep the most appropriate.
 A function with a large number of degrees of freedom will better describe the background shape but its parameters will also suffer from a wider statistical uncertainty.
 On the contrary, more degrees of freedom imply that the function may absorb the statistical fluctuations (including the signal in data) while having a smaller spurious signal.
@@ -883,7 +876,6 @@ In this case the simpler function would be discarded in favour of the more compl
 % The test fails, meaning an extra complexity is necessary, if its $p$ value falls below 5\%.
 % Finally, no functional form chosen by the nominal procedure fails this test so the nominal choice of background shape is kept.
 \end{enumerate}
-\end{enumerate}
 
 \section{Uncertainties}
 \label{sec:orgc59f6d5}
@@ -894,8 +886,7 @@ On the other hand calibration uncertainties may also affect the shape of the sig
 The following describes the computation of those uncertainties effects on yield and shape of the signal.
 
 
-\begin{enumerate}
-\item Shape uncertainties
+\subsection{Shape uncertainties}
 \label{sec:org5a47e96}
 
 
@@ -1220,7 +1211,7 @@ Second, the run 1 combined mass measurement was still statistically dominated.
 Given the low expected correlation between the run 1 mass uncertainty and the run 2 systematics, it is assumed that those sources of uncertainty are decorrelated.
 \end{enumerate}
 
-\item Yield and migration uncertainties
+\subsection{Yield and migration uncertainties}
   \label{sec:org17f2003}
 
 The uncertainties described in this section all have an effect on the observed number of events.
@@ -1283,7 +1274,7 @@ Similarly to the shape uncertainties, calibration migration uncertainties are ev
 \end{enumerate}
 
 
-\item Full model
+\subsection{Full model}
 
   \label{sec:org5b8bbd9}
 Table \ref{tab:HGam_big_systematics} presents the full list of uncertainties in the H boson couplings analysis, along with the number of nuisance parameter for each of them.
@@ -1302,7 +1293,6 @@ whereas  the uncertainty has a different value for each signal process for  the 
 \label{tab:HGam_big_systematics}
 \end{center}
 \end{table}
-\end{enumerate}
 
 \input{Chapters/HGamResults}
 

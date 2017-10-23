@@ -146,14 +146,14 @@ headsepline, % Uncomment to get a line under the header
 % Include the chapters of the thesis as separate files from the Chapters folder
 % Uncomment the lines as you write the chapters
 
-%% \include{Chapters/Theory}
-%% \include{Chapters/Statistics}
-%% \include{Chapters/Detector}
-%% \include{Chapters/Reconstruction}
-%% \include{Chapters/Calibration}
-%% \include{Chapters/InSitu}
-%% \include{Chapters/HGam}
-%% \include{Chapters/Conclusion}
+\include{Chapters/Theory}
+\include{Chapters/Statistics}
+\include{Chapters/Detector}
+\include{Chapters/Reconstruction}
+\include{Chapters/Calibration}
+\include{Chapters/InSitu}
+\include{Chapters/HGam}
+\include{Chapters/Conclusion}
 
 %----------------------------------------------------------------------------------------
 %	THESIS CONTENT - APPENDICES
@@ -164,8 +164,8 @@ headsepline, % Uncomment to get a line under the header
 % Include the appendices of the thesis as separate files from the Appendices folder
 % Uncomment the lines as you write the Appendices
 
-%% \include{Appendices/InversionMatrix}
-%% \include{Appendices/Chi2ToyModel}
+\include{Appendices/InversionMatrix}
+\include{Appendices/Chi2ToyModel}
 
 
 %----------------------------------------------------------------------------------------
@@ -175,10 +175,12 @@ headsepline, % Uncomment to get a line under the header
 \printbibliography[heading=bibintoc]
 
 %----------------------------------------------------------------------------------------
-%\include{Appendices/Remerciements}
+\include{Appendices/Remerciements}
 
-%% \includepdf[pages={1}]{PageDeGarde/absEn.pdf}
-%% \includepdf[pages={1}]{PageDeGarde/absFr.pdf}
 \include{Appendices/Resume}
+
+
+\includepdf[pages={1}]{PageDeGarde/absFr.pdf}
+\includepdf[pages={1}]{PageDeGarde/absEn.pdf}
 
 \end{document}
